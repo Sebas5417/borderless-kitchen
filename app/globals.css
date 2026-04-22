@@ -53,9 +53,11 @@
     display: block;
   }
 
-  /* Quiet underlined link — for the editorial italic link in the hero */
+  /* Quiet underlined link — for the editorial italic link in the hero.
+     Color is inherited so the same primitive works on dark or light. */
   .link-quiet {
-    @apply font-display italic text-ink relative;
+    @apply font-display italic relative;
+    color: currentColor;
     transition: color 0.4s theme("transitionTimingFunction.editorial");
   }
   .link-quiet::after {
