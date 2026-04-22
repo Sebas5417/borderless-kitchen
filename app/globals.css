@@ -1,3 +1,77 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-paper text-ink font-body;
+    font-feature-settings: "kern", "liga", "calt";
+  }
+
+  ::selection {
+    background-color: rgba(177, 18, 38, 0.18);
+    color: theme("colors.ink");
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.vermillion");
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-ink;
+    font-weight: 500;
+  }
+
+  hr {
+    @apply border-0 border-t border-hairline;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@layer components {
+  /* Editorial accent rule — required at the top of culture sub-routes */
+  .red-rule {
+    width: 48px;
+    height: 1px;
+    background-color: theme("colors.vermillion");
+    display: block;
+  }
+
+  /* Quiet underlined link — for the editorial italic link in the hero */
+  .link-quiet {
+    @apply font-display italic text-ink relative;
+    transition: color 0.4s theme("transitionTimingFunction.editorial");
+  }
+  .link-quiet::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 1px;
+    background-color: theme("colors.vermillion");
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.45s theme("transitionTimingFunction.editorial");
+  }
+  .link-quiet:hover::after,
+  .link-quiet:focus-visible::after {
+    transform: scaleX(1);
+  }
+}
