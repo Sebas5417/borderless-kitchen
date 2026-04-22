@@ -1,0 +1,53 @@
+"use server";
+
+import { promises as fs } from "node:fs";
+import path from "node:path";
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+export type SubscribeResult =
+  | { ok: true }
+  | { ok: false; error: "invalid-email" | "unknown" };
+
+/**
+ * Newsletter stub.
+ *
+ * Behavior is intentionally single-mode at v1:
+ *   - In development: appends to .data/newsletter-submissions.json
+ *   - In production:  returns success and writes nothing
+ *
+ * NEWSLETTER_PROVIDER env var is reserved for post-launch branching
+ * but is not read here.
+ */
+export async function subscribe(formData: FormData): Promise<SubscribeResult> {
+  const raw = formData.get("email");
+  const email = typeof raw === "string" ? raw.trim().toLowerCase() : "";
+
+  if (!email || !EMAIL_RE.test(email)) {
+    return { ok: false, error: "invalid-email" };
+  }
+
+  if (process.env.NODE_ENV === "development") {
+    try {
+      const dataDir = path.join(process.cwd(), ".data");
+      const file = path.join(dataDir, "newsletter-submissions.json");
+      await fs.mkdir(dataDir, { recursive: true });
+
+      let existing: Array<{ email: string; at: string }> = [];
+      try {
+        const buf = await fs.readFile(file, "utf8");
+        const parsed = JSON.parse(buf);
+        if (Array.isArray(parsed)) existing = parsed;
+      } catch {
+        /* first write — file does not exist yet */
+      }
+
+      existing.push({ email, at: new Date().toISOString() });
+      await fs.writeFile(file, JSON.stringify(existing, null, 2), "utf8");
+    } catch {
+      return { ok: false, error: "unknown" };
+    }
+  }
+
+  return { ok: true };
+}
