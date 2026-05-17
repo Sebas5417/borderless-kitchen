@@ -20,22 +20,26 @@ export const BOOKS: Book[] = [
     releaseDate: '2026-01-12',
     chapters: [
       {
-        title: 'I · The shared grammar',
+        marker: 'I',
+        title: 'The shared grammar',
         summary:
           'Where the two kitchens already agree — restraint, salt, time, and the trust placed in a single ingredient.',
       },
       {
-        title: 'II · Salt across two seas',
+        marker: 'II',
+        title: 'Salt across two seas',
         summary:
           'Colatura, shoyu, and sea salt as instruments rather than seasonings.',
       },
       {
-        title: 'III · Knife, fire, restraint',
+        marker: 'III',
+        title: 'Knife, fire, restraint',
         summary:
           'Three techniques that travel between kitchens without losing their accent.',
       },
       {
-        title: 'IV · A pantry in two languages',
+        marker: 'IV',
+        title: 'A pantry in two languages',
         summary:
           'How a Tuscan shelf and a Tokyo shelf can sit beside one another and read as one larder.',
       },

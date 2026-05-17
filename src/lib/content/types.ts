@@ -30,6 +30,7 @@ export interface RecipeTeaser {
 }
 
 export interface BookChapter {
+  marker?: string
   title: string
   summary: string
 }

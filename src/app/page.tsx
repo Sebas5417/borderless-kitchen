@@ -7,11 +7,11 @@ export default function Home() {
       <SiteHeader />
 
       <section className="hero-content" aria-label="Home hero">
-        <p className="hero-kicker">Editorial Front Door</p>
+        <p className="hero-kicker">Issue One · Spring 2026</p>
         <h1>Italian soul. Japanese precision.</h1>
         <p>
-          A quiet, image-led home shell designed to route readers into stories,
-          books, and cultural references.
+          Cookbooks, a journal, and a knowledge library — published from the
+          kitchen of Sebastian Dri.
         </p>
       </section>
 

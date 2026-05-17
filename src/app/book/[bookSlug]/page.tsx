@@ -51,10 +51,15 @@ export default async function BookPage({ params }: RouteParams) {
         <section className="page-section">
           <h2 className="section-heading">Chapters</h2>
           <ol className="chapter-list">
-            {book.chapters.map((c) => (
+            {book.chapters.map((c, i) => (
               <li key={c.title}>
-                <h3>{c.title}</h3>
-                <p>{c.summary}</p>
+                <span className="chapter-marker" aria-hidden="true">
+                  {c.marker ?? String(i + 1)}
+                </span>
+                <div>
+                  <h3>{c.title}</h3>
+                  <p>{c.summary}</p>
+                </div>
               </li>
             ))}
           </ol>

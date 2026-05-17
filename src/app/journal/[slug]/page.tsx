@@ -47,16 +47,19 @@ export default async function StoryPage({ params }: RouteParams) {
       <SiteHeader />
       <article>
         <header className="page-masthead story-masthead">
-          <p className="page-kicker">
-            {story.themes.join(' · ')} · {story.readTime} min read
-          </p>
-          <h1>{story.title}</h1>
-          {story.subtitle && <p className="page-deck">{story.subtitle}</p>}
-          <p className="story-meta">
-            <span>{story.author}</span>
-            <span> · </span>
+          <div className="story-masthead-main">
+            <p className="page-kicker">
+              {story.themes.join(' · ')} · {story.readTime} min read
+            </p>
+            <h1>{story.title}</h1>
+            {story.subtitle && <p className="page-deck">{story.subtitle}</p>}
+          </div>
+          <aside className="story-masthead-aside">
+            <p className="meta-label">By</p>
+            <p>{story.author}</p>
+            <p className="meta-label">Published</p>
             <time dateTime={story.publishedAt}>{formatDate(story.publishedAt)}</time>
-          </p>
+          </aside>
         </header>
 
         <EditorialContainer>
