@@ -163,9 +163,28 @@ a {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(120deg, rgba(12, 10, 8, 0.85), rgba(20, 16, 12, 0.35)),
-    url("/hero-texture.svg") center / cover no-repeat;
+    radial-gradient(1100px 700px at 88% -8%, rgba(217, 106, 58, 0.20), transparent 55%),
+    radial-gradient(800px 600px at 6% 92%, rgba(217, 106, 58, 0.06), transparent 55%),
+    radial-gradient(900px 600px at 50% 50%, rgba(241, 232, 216, 0.025), transparent 55%);
   z-index: -1;
+}
+
+.hero-shell::after {
+  content: "BK";
+  position: absolute;
+  bottom: -10vh;
+  right: -6vw;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(20rem, 52vw, 42rem);
+  color: rgba(241, 232, 216, 0.028);
+  letter-spacing: -0.06em;
+  line-height: 0.85;
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
 }
 
 .hero-content {
@@ -472,6 +491,13 @@ a {
 .timeline li:last-child {
   border-bottom: none;
   padding-bottom: 0;
+}
+
+@media (max-width: 520px) {
+  .timeline li {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
 }
 
 .timeline-step {
@@ -1121,6 +1147,17 @@ a {
   margin-top: 1rem;
 }
 
+@media (max-width: 520px) {
+  .story-adjacent {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .adjacent-link.is-right {
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
 .adjacent-link {
   display: flex;
   flex-direction: column;
@@ -1195,7 +1232,7 @@ a {
   gap: 0.4rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .pantry-facts > div {
     grid-template-columns: 1fr;
     gap: 0.5rem;
@@ -1264,6 +1301,13 @@ a {
 
 .errata-list li:last-child a {
   border-bottom: none;
+}
+
+@media (max-width: 520px) {
+  .errata-list a {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
 }
 
 .errata-list a:hover {
@@ -1403,6 +1447,22 @@ a {
 
 .home-section + .home-section {
   border-top: 1px solid var(--rule-soft);
+  position: relative;
+}
+
+.home-section + .home-section::before {
+  content: "◇";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--paper);
+  padding: 0 1.25rem;
+  color: var(--ember);
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1;
 }
 
 .home-section-inner {
@@ -1550,6 +1610,34 @@ a {
   .home-section .home-section-inner > *:nth-child(2) { animation-delay: 160ms; }
   .home-section .home-section-inner > *:nth-child(3) { animation-delay: 280ms; }
   .home-section .home-section-inner > *:nth-child(n+4) { animation-delay: 420ms; }
+}
+
+/* -------------------------------------------------------------------------
+ * Scroll-triggered card reveals (CSS view-timeline, evergreen browsers)
+ * Falls back silently in browsers without animation-timeline support.
+ * ----------------------------------------------------------------------- */
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .editorial-page .card-grid > li,
+    .editorial-page .pillar-grid > li,
+    .editorial-page .teaser-grid > li {
+      animation: card-reveal 0.7s cubic-bezier(0.2, 0.7, 0, 1) both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+  }
+}
+
+@keyframes card-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* -------------------------------------------------------------------------

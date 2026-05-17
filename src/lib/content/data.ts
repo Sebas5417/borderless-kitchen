@@ -150,6 +150,52 @@ export const STORIES: Story[] = [
       'The food was not minimal. It was just unhurried. There is a difference between a small plate and a small effort, and the quiet cook knows which one is happening on the bench.',
     ],
   },
+  {
+    slug: 'the-third-shelf',
+    title: 'The third shelf',
+    standfirst:
+      'Some ingredients refuse a passport. They live where a Tuscan shelf and a Tokyo shelf quietly agree.',
+    author: 'Sebastian Dri',
+    publishedAt: '2026-02-26',
+    readTime: 5,
+    themes: ['Pantry'],
+    body: [
+      'There is a narrow shelf between the Italian glass and the Japanese tins. It holds the ingredients I never decide which kitchen owns. Colatura is the obvious one — an anchovy water older than fish sauce, hand-drawn from chestnut barrels in Cetara. Miso, aged long enough to taste of itself rather than soy. A small jar of sanshō that I treat like saffron.',
+      'These ingredients are not "fusion". They are older than the word.',
+      {
+        type: 'pullquote',
+        text: 'A bridge is not a compromise. It is a thing the river also asks for.',
+      },
+      'When I cook from the third shelf, the dish stops asking which country it belongs to. The shoyu in a cacio e pepe does not announce itself; the colatura on a bowl of soba does not feel like a guest. They both, quietly, do their job.',
+      { type: 'heading', text: 'What earns a place here' },
+      'A pantry of bridges is small. The ingredients that live there earn it by behaving the same on both sides of the border — by carrying salt, umami, brightness, or warmth without an accent. Most ingredients have accents. The ones that do not are precious.',
+    ],
+    relatedPantrySlugs: ['shoyu', 'colatura', 'sansho'],
+  },
+  {
+    slug: 'why-the-knife-waits',
+    title: 'Why the knife waits',
+    standfirst:
+      'Before any kitchen earns the right to fire, it earns the right to a clean board.',
+    author: 'Sebastian Dri',
+    publishedAt: '2026-02-12',
+    readTime: 4,
+    themes: ['Technique'],
+    body: [
+      'Mise en place is a French phrase but a Japanese practice. In a kitchen run well, the knife does not move until the board is ordered: the salt at the right hand, the pan at temperature, the cloth folded once and damp, the towel beneath. The knife waits.',
+      'I learned this not from a recipe but from a chef who refused to begin until his bench reported back. He cut nothing for the first fifteen minutes of every service. He arranged. He breathed. Then the work began.',
+      {
+        type: 'pullquote',
+        text: 'A clean board is not tidiness. It is the conditions under which a decision can be made cleanly.',
+      },
+      'Italian kitchens carry the same idea under a different name. The grandmothers I cooked with did not call it mise en place; they called it being ready. Same posture, different vocabulary. Both refused to bring a knife to a board that had not been earned.',
+      {
+        type: 'caption',
+        label: 'Practical note',
+        text: 'A wet cloth folded once, beneath the board — the board stops shifting, your shoulders stop bracing, the cuts get cleaner. A two-second move that returns the entire service.',
+      },
+    ],
+  },
 ]
 
 export const PANTRY_ENTRIES: PantryEntry[] = [
@@ -205,8 +251,81 @@ export const PANTRY_ENTRIES: PantryEntry[] = [
     ],
     substitutions: ['Szechuan pepper (closest relative)'],
     pairings: ['Beef', 'Eel', 'Yuzu', 'Sea salt'],
-    relatedStorySlugs: ['pantry-as-map'],
+    relatedStorySlugs: ['pantry-as-map', 'the-third-shelf'],
     relatedPantrySlugs: ['shoyu'],
+  },
+  {
+    slug: 'mirin',
+    name: 'Mirin',
+    category: 'ferment',
+    origin: 'Japan',
+    definition:
+      'A sweet rice wine made by fermenting glutinous rice with kōji and shōchū. The traditional version (hon-mirin) ages for at least a year and brings a clean, glossy sweetness rather than the sugar-water character of the supermarket cousin.',
+    flavorProfile: ['Sweet', 'Round', 'Glossy', 'Lightly fermented'],
+    commonUses: [
+      'Glazing teriyaki and yakitori',
+      'Balancing soy in dressings',
+      'Lacquering grilled fish',
+      'Rounding out dashi-based sauces',
+    ],
+    substitutions: ['Dry sake + a touch of cane sugar', 'White wine + honey (last resort)'],
+    pairings: ['Shoyu', 'Dashi', 'Ginger', 'Yuzu zest'],
+    relatedStorySlugs: ['the-third-shelf'],
+    relatedPantrySlugs: ['shoyu'],
+  },
+  {
+    slug: 'olive-oil',
+    name: 'Olive Oil',
+    category: 'oil',
+    origin: 'Mediterranean basin',
+    definition:
+      'Pressed olive juice — a fat that carries flavor rather than carrying other flavors. The Italian table builds around it; a good bottle finishes a dish more than it begins one.',
+    flavorProfile: ['Grassy', 'Peppery', 'Bittersweet', 'Buttery'],
+    commonUses: [
+      'Finishing pasta, soup, and grilled vegetables',
+      'Dressing raw fish in lieu of soy',
+      'Building a base sofrito',
+      'Drizzling on warm bread at the table',
+    ],
+    pairings: ['Sea salt', 'Lemon', 'Anchovy', 'Tomato'],
+    relatedPantrySlugs: ['colatura'],
+  },
+  {
+    slug: 'katsuobushi',
+    name: 'Katsuobushi',
+    category: 'sea',
+    origin: 'Japan',
+    definition:
+      'Skipjack tuna cured, smoked, fermented, and shaved into translucent flakes. The backbone of dashi and the most concentrated source of umami in the Japanese pantry.',
+    flavorProfile: ['Smoky', 'Umami', 'Mineral', 'Dry'],
+    commonUses: [
+      'Steeping dashi',
+      'Finishing okonomiyaki and tofu',
+      'Strewing on hot rice',
+      'Folding into vinaigrettes for fish',
+    ],
+    substitutions: ['Dried shiitake (different but allied umami)'],
+    pairings: ['Kombu', 'Shoyu', 'Mirin', 'Tofu'],
+    relatedStorySlugs: ['salt-time-broth'],
+    relatedPantrySlugs: ['shoyu'],
+  },
+  {
+    slug: 'aceto-balsamico',
+    name: 'Aceto Balsamico Tradizionale',
+    category: 'acid',
+    origin: 'Modena, Emilia-Romagna, Italy',
+    definition:
+      'Grape must, cooked down and aged for at least twelve years in a battery of wooden barrels. Closer to syrup than vinegar — sweet, dark, restrained, and absurdly expensive for a reason.',
+    flavorProfile: ['Sweet-tart', 'Syrupy', 'Wood-aged', 'Concentrated'],
+    commonUses: [
+      'Dripping (literally — drops, not pours) on parmesan',
+      'Finishing strawberries and stone fruit',
+      'Glazing roasted vegetables',
+      'A few drops on raw beef',
+    ],
+    substitutions: ['Saba (grape must, not aged)', 'Reduced regular balsamic with no sugar added'],
+    pairings: ['Parmigiano Reggiano', 'Strawberry', 'Fig', 'Aged beef'],
+    relatedPantrySlugs: ['olive-oil'],
   },
 ]
 
