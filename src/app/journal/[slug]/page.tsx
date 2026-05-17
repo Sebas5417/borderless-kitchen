@@ -52,6 +52,7 @@ export default async function StoryPage({ params }: RouteParams) {
 
   return (
     <main className="editorial-page">
+      <div className="story-progress" aria-hidden="true" />
       <SiteHeader />
       <article>
         <header className="page-masthead story-masthead">

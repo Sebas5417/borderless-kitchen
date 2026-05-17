@@ -5,7 +5,7 @@ const BASE_URL = 'https://borderless-kitchen.vercel.app'
 
 const staticRoutes: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'] }[] = [
   { path: '', priority: 1.0, changeFrequency: 'monthly' },
-  { path: '/about', priority: 0.6, changeFrequency: 'yearly' },
+  { path: '/about', priority: 0.7, changeFrequency: 'yearly' },
   { path: '/journal', priority: 0.8, changeFrequency: 'weekly' },
   { path: '/book', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/culture', priority: 0.6, changeFrequency: 'monthly' },
