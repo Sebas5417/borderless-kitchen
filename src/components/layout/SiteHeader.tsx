@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { SearchPalette } from '@/components/SearchPalette'
+import { ThemeToggle } from '@/components/ThemeToggle'
 import { PrimaryNav } from './PrimaryNav'
 
 export function SiteHeader() {
@@ -10,6 +11,7 @@ export function SiteHeader() {
       </Link>
       <div className="site-header-end">
         <SearchPalette />
+        <ThemeToggle />
         <PrimaryNav />
       </div>
     </header>

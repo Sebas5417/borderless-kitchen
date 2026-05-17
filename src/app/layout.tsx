@@ -42,6 +42,8 @@ export const metadata: Metadata = {
   },
 }
 
+const themeBootstrap = `(function(){try{var t=localStorage.getItem('bk-theme');if(t==='day')document.documentElement.dataset.theme='day'}catch(e){}})()`
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -52,6 +54,9 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
+      </head>
       <body>{children}</body>
     </html>
   )
