@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { SiteHeader } from '@/components/layout/SiteHeader'
+import { PANTRY_ENTRIES } from '@/lib/content/data'
 
 export const metadata: Metadata = {
   title: 'Culture — Borderless Kitchen',
@@ -22,13 +24,9 @@ const pillars = [
   },
 ]
 
-const featuredPantry = [
-  { slug: 'shoyu', name: 'Shoyu', category: 'Ferment' },
-  { slug: 'colatura', name: 'Colatura di Alici', category: 'Sea' },
-  { slug: 'sansho', name: 'Sanshō', category: 'Aromatic' },
-]
-
 export default function CulturePage() {
+  const featuredPantry = PANTRY_ENTRIES.slice(0, 3)
+
   return (
     <main className="editorial-page">
       <SiteHeader />
@@ -56,14 +54,18 @@ export default function CulturePage() {
         <section className="page-section">
           <div className="section-heading-row">
             <h2 className="section-heading">Featured Pantry</h2>
-            <span className="text-cta is-pending">Full taxonomy · coming soon</span>
+            <Link href="/culture/pantry" className="text-cta">
+              Full taxonomy →
+            </Link>
           </div>
           <ul className="card-grid">
             {featuredPantry.map((e) => (
               <li key={e.slug} className="placeholder-card">
-                <div className="placeholder-card-image" aria-hidden="true" />
-                <p className="card-meta">{e.category}</p>
-                <h3 className="card-title">{e.name}</h3>
+                <Link href={`/culture/pantry/${e.slug}`}>
+                  <div className="placeholder-card-image" aria-hidden="true" />
+                  <p className="card-meta">{titleCase(e.category)}</p>
+                  <h3 className="card-title">{e.name}</h3>
+                </Link>
               </li>
             ))}
           </ul>
@@ -72,4 +74,8 @@ export default function CulturePage() {
       <SiteFooter />
     </main>
   )
+}
+
+function titleCase(s: string) {
+  return s.charAt(0).toUpperCase() + s.slice(1)
 }
