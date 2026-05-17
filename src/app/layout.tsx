@@ -40,6 +40,13 @@ export const metadata: Metadata = {
     title: 'Borderless Kitchen',
     description: 'Italian soul. Japanese precision.',
   },
+  alternates: {
+    types: {
+      'application/rss+xml': [
+        { url: '/rss.xml', title: 'Borderless Kitchen — Journal' },
+      ],
+    },
+  },
 }
 
 const themeBootstrap = `(function(){try{var t=localStorage.getItem('bk-theme');if(t==='day')document.documentElement.dataset.theme='day'}catch(e){}})()`
