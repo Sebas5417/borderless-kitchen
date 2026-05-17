@@ -76,9 +76,41 @@ export default async function StoryPage({ params }: RouteParams) {
           </section>
 
           <section className="page-section story-body">
-            {story.body.map((para, i) => (
-              <p key={i}>{para}</p>
-            ))}
+            {story.body.map((block, i) => {
+              if (typeof block === 'string') {
+                return <p key={i}>{block}</p>
+              }
+              if (block.type === 'heading') {
+                return (
+                  <h2 key={i} className="story-body-heading">
+                    {block.text}
+                  </h2>
+                )
+              }
+              if (block.type === 'pullquote') {
+                return (
+                  <blockquote key={i} className="story-body-pullquote">
+                    <p>{block.text}</p>
+                    {block.attribution && <cite>— {block.attribution}</cite>}
+                  </blockquote>
+                )
+              }
+              if (block.type === 'caption') {
+                return (
+                  <figure key={i} className="story-body-caption">
+                    <figcaption>
+                      <span className="story-body-caption-label">
+                        {block.label}
+                      </span>
+                      <span className="story-body-caption-text">
+                        {block.text}
+                      </span>
+                    </figcaption>
+                  </figure>
+                )
+              }
+              return null
+            })}
           </section>
 
           {relatedPantry.length > 0 && (

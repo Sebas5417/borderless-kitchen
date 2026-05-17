@@ -49,6 +49,12 @@ export interface Book {
   buyUrl?: string
 }
 
+export type StoryBlock =
+  | string
+  | { type: 'heading'; text: string }
+  | { type: 'pullquote'; text: string; attribution?: string }
+  | { type: 'caption'; label: string; text: string }
+
 export interface Story {
   slug: string
   title: string
@@ -58,7 +64,7 @@ export interface Story {
   publishedAt: string
   readTime: number
   themes: string[]
-  body: string[]
+  body: StoryBlock[]
   relatedPantrySlugs?: string[]
 }
 

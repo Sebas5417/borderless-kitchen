@@ -95,8 +95,18 @@ export const STORIES: Story[] = [
     body: [
       'A broth begins with water and ends with patience. Everything in between is mostly waiting, occasionally tasting, and almost never stirring.',
       'There is a moment, usually around the second hour, when the kitchen begins to smell less like raw bones and more like a room you would like to sit in. That is the broth telling you it has begun to do its work. Trust it, leave it, come back.',
+      { type: 'heading', text: 'When to salt' },
       'The Italian brodo and the Japanese dashi are not the same thing, but they share a posture. Both refuse to be hurried. Both reward the cook who is willing to take less heat for longer.',
-      'The salt comes last. Always last. A broth seasoned at the start lies to you for two hours and then reveals itself flat. Wait.',
+      {
+        type: 'pullquote',
+        text: 'A broth seasoned at the start lies to you for two hours and then reveals itself flat. Wait.',
+      },
+      'The salt comes last. Always last. Season at the end and you taste what the bones, the kelp, the patience all wanted to say. Season at the start and you taste the salt.',
+      {
+        type: 'caption',
+        label: 'Method note',
+        text: 'A clear broth wants no boil — only a tremor at the surface, the kind you have to squint at to see.',
+      },
     ],
     relatedPantrySlugs: ['shoyu', 'colatura'],
   },
@@ -111,7 +121,12 @@ export const STORIES: Story[] = [
     themes: ['Pantry'],
     body: [
       'A pantry is not a stockpile. It is a map of the meals you intend to make and the meals you find yourself making anyway.',
+      {
+        type: 'pullquote',
+        text: 'A pantry is the most honest document in a kitchen. It tells the truth about who actually cooks here.',
+      },
       'Mine has two regions. On the left, a row of Italian glass: salt-packed anchovies, dried pasta, a small forest of olive oils ranked by weight rather than price. On the right, the Japanese shelf: shoyu by maker, mirin without sugar, a single tin of katsuobushi I refill before it runs out.',
+      { type: 'heading', text: 'The bridge shelf' },
       'In between the two regions sits a third, narrower shelf. That is where the borrowed ingredients live — the ones I reach for from either direction. Colatura. Aged miso. A small jar of sanshō. The bridge.',
     ],
     relatedPantrySlugs: ['shoyu', 'colatura', 'sansho'],
@@ -128,7 +143,11 @@ export const STORIES: Story[] = [
     body: [
       'There is a way of cooking that does not announce itself. No clatter, no flourish, no rush at the pass. The food arrives, and it is correct, and you cannot quite trace how it got that way.',
       'I learned this from a sushi counter in Tokyo and re-learned it in a farmhouse outside Lucca. The two kitchens did almost nothing in common except this: both refused to make a show of competence.',
-      'Soul does not require volume. Precision does not require coldness. The quiet kitchen contains both.',
+      {
+        type: 'pullquote',
+        text: 'Soul does not require volume. Precision does not require coldness. The quiet kitchen contains both.',
+      },
+      'The food was not minimal. It was just unhurried. There is a difference between a small plate and a small effort, and the quiet cook knows which one is happening on the bench.',
     ],
   },
 ]
