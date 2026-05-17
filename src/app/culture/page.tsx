@@ -18,14 +18,17 @@ export const metadata: Metadata = {
 const pillars = [
   {
     title: 'Pantry',
+    href: '/culture/pantry',
     body: 'Reference taxonomy for the ingredients that anchor the series.',
   },
   {
     title: 'Technique',
+    href: '/culture/technique',
     body: 'Method, heat, and the small decisions that change a dish.',
   },
   {
     title: 'Pairing',
+    href: '/culture/pairing',
     body: 'Why certain things sit well together across both kitchens.',
   },
 ]
@@ -50,8 +53,11 @@ export default function CulturePage() {
           <ul className="pillar-grid">
             {pillars.map((p) => (
               <li key={p.title} className="pillar-card">
-                <h2>{p.title}</h2>
-                <p>{p.body}</p>
+                <Link href={p.href}>
+                  <h2>{p.title}</h2>
+                  <p>{p.body}</p>
+                  <span className="pillar-cta">Enter →</span>
+                </Link>
               </li>
             ))}
           </ul>

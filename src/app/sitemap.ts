@@ -10,6 +10,8 @@ const staticRoutes: { path: string; priority: number; changeFrequency: MetadataR
   { path: '/book', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/culture', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/culture/pantry', priority: 0.7, changeFrequency: 'monthly' },
+  { path: '/culture/technique', priority: 0.6, changeFrequency: 'monthly' },
+  { path: '/culture/pairing', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/connect', priority: 0.5, changeFrequency: 'yearly' },
   { path: '/privacy', priority: 0.2, changeFrequency: 'yearly' },
   { path: '/terms', priority: 0.2, changeFrequency: 'yearly' },
