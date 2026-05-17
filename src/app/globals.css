@@ -117,6 +117,21 @@ a {
   color: var(--ember);
 }
 
+.primary-nav a.is-active {
+  color: var(--ember);
+  position: relative;
+}
+
+.primary-nav a.is-active::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--ember);
+}
+
 /* Site footer — multi-column magazine masthead */
 
 .site-footer {
@@ -832,10 +847,45 @@ a {
 .contact-tile {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
-  padding: 1.65rem;
+  gap: 0.7rem;
+  padding: 1.85rem;
   border: 1px solid var(--rule-soft);
   border-radius: 2px;
+  transition: border-color 0.2s ease;
+}
+
+.contact-tile:hover {
+  border-color: var(--ember-soft);
+}
+
+/* Newsletter "what you'll get" promise list */
+
+.newsletter-promise {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.newsletter-promise li {
+  display: grid;
+  grid-template-columns: 1.4rem 1fr;
+  gap: 0.85rem;
+  align-items: baseline;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.newsletter-promise-marker {
+  color: var(--ember);
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 0.85rem;
+  text-align: center;
 }
 
 .contact-tile h3 {

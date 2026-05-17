@@ -13,6 +13,27 @@ export const metadata: Metadata = {
   },
 }
 
+const promises = [
+  'One letter a month — never more, sometimes less.',
+  'New stories, pantry entries, and book chapters as they ship.',
+  'Notes from the kitchen that don’t live anywhere else on the site.',
+]
+
+const pathways = [
+  {
+    kind: 'Press',
+    title: 'Interviews & editorial',
+    body: 'For magazine commissions, profile pieces, and press inquiries.',
+    email: 'press@borderlesskitchen.com',
+  },
+  {
+    kind: 'Partnerships',
+    title: 'Collaborations & brand',
+    body: 'For hosting, restaurant residencies, brand work, and editorial collaborations.',
+    email: 'hello@borderlesskitchen.com',
+  },
+]
+
 export default function ConnectPage() {
   return (
     <main className="editorial-page">
@@ -22,12 +43,24 @@ export default function ConnectPage() {
           <p className="page-kicker">Connect</p>
           <h1>A quiet letter, once a month.</h1>
           <p className="page-deck">
-            Subscribe for new stories, pantry entries, and notes from the kitchen.
+            Subscribe for new stories, pantry entries, and notes from the
+            kitchen.
           </p>
         </header>
 
         <EditorialContainer>
           <section className="page-section">
+            <ul className="newsletter-promise">
+              {promises.map((p) => (
+                <li key={p}>
+                  <span className="newsletter-promise-marker" aria-hidden="true">
+                    ◇
+                  </span>
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+
             <form className="newsletter-form" aria-label="Newsletter signup">
               <label htmlFor="email" className="visually-hidden">
                 Email address
@@ -41,8 +74,7 @@ export default function ConnectPage() {
               />
               <button type="submit">Subscribe</button>
               <p className="consent-note">
-                No spam. Unsubscribe with one click. Form not yet wired — handler lands
-                with the content layer.
+                No spam. Unsubscribe with one click.
               </p>
             </form>
           </section>
@@ -50,20 +82,16 @@ export default function ConnectPage() {
           <section className="page-section">
             <h2 className="section-heading">Other pathways</h2>
             <ul className="contact-tiles">
-              <li className="contact-tile">
-                <h3>Press</h3>
-                <p>For interviews and editorial requests.</p>
-                <a href="mailto:press@borderlesskitchen.com" className="text-cta">
-                  press@borderlesskitchen.com
-                </a>
-              </li>
-              <li className="contact-tile">
-                <h3>Partnerships</h3>
-                <p>For collaborations, hosting, and brand work.</p>
-                <a href="mailto:hello@borderlesskitchen.com" className="text-cta">
-                  hello@borderlesskitchen.com
-                </a>
-              </li>
+              {pathways.map((p) => (
+                <li key={p.email} className="contact-tile">
+                  <p className="card-meta">{p.kind}</p>
+                  <h3>{p.title}</h3>
+                  <p>{p.body}</p>
+                  <a href={`mailto:${p.email}`} className="text-cta">
+                    {p.email}
+                  </a>
+                </li>
+              ))}
             </ul>
           </section>
         </EditorialContainer>
