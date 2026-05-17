@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { SearchPalette } from '@/components/SearchPalette'
 import { PrimaryNav } from './PrimaryNav'
 
 export function SiteHeader() {
@@ -7,7 +8,10 @@ export function SiteHeader() {
       <Link href="/" className="brand-mark">
         Borderless Kitchen
       </Link>
-      <PrimaryNav />
+      <div className="site-header-end">
+        <SearchPalette />
+        <PrimaryNav />
+      </div>
     </header>
   )
 }
