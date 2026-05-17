@@ -9,6 +9,7 @@ const editorialLinks = [
 const connectLinks = [
   { href: '/connect', label: 'Subscribe' },
   { href: '/about', label: 'About' },
+  { href: '/rss.xml', label: 'RSS' },
 ]
 
 const legalLinks = [
