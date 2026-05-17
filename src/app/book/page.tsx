@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { SiteHeader } from '@/components/layout/SiteHeader'
+import { PlaceholderArt } from '@/components/PlaceholderArt'
 import { BOOKS } from '@/lib/content/data'
 
 export const metadata: Metadata = {
@@ -11,9 +12,9 @@ export const metadata: Metadata = {
 }
 
 const forthcoming = [
-  { slug: 'series-ii', title: 'Untitled · Series II', status: 'In development' },
-  { slug: 'series-iii', title: 'Untitled · Series III', status: 'In development' },
-  { slug: 'series-iv', title: 'Untitled · Series IV', status: 'In development' },
+  { slug: 'series-ii', title: 'Untitled · Series II', marker: 'II' },
+  { slug: 'series-iii', title: 'Untitled · Series III', marker: 'III' },
+  { slug: 'series-iv', title: 'Untitled · Series IV', marker: 'IV' },
 ]
 
 export default function BookLandingPage() {
@@ -53,8 +54,8 @@ export default function BookLandingPage() {
           <ul className="card-grid">
             {forthcoming.map((b) => (
               <li key={b.slug} className="placeholder-card is-coming-soon">
-                <div className="placeholder-card-image" aria-hidden="true" />
-                <p className="card-meta">{b.status}</p>
+                <PlaceholderArt initial={b.marker} folio={`Vol. ${b.marker}`} />
+                <p className="card-meta">In development</p>
                 <h3 className="card-title">{b.title}</h3>
               </li>
             ))}

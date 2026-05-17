@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { SiteHeader } from '@/components/layout/SiteHeader'
+import { PlaceholderArt } from '@/components/PlaceholderArt'
 import { PANTRY_ENTRIES } from '@/lib/content/data'
 import type { PantryCategory } from '@/lib/content/types'
 
@@ -52,7 +53,10 @@ export default function PantryIndexPage() {
                 {entries.map((e) => (
                   <li key={e.slug} className="placeholder-card">
                     <Link href={`/culture/pantry/${e.slug}`}>
-                      <div className="placeholder-card-image" aria-hidden="true" />
+                      <PlaceholderArt
+                        initial={e.name.charAt(0)}
+                        folio={titleCase(category)}
+                      />
                       <p className="card-meta">{e.origin}</p>
                       <h3 className="card-title">{e.name}</h3>
                     </Link>

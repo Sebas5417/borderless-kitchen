@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { SiteHeader } from '@/components/layout/SiteHeader'
+import { PlaceholderArt } from '@/components/PlaceholderArt'
 import { STORIES } from '@/lib/content/data'
 
 export const metadata: Metadata = {
@@ -39,10 +40,13 @@ export default function JournalPage() {
 
         <section className="page-section">
           <ul className="card-grid">
-            {STORIES.map((s) => (
+            {STORIES.map((s, i) => (
               <li key={s.slug} className="placeholder-card">
                 <Link href={`/journal/${s.slug}`}>
-                  <div className="placeholder-card-image" aria-hidden="true" />
+                  <PlaceholderArt
+                    initial={s.title.charAt(0)}
+                    folio={`Folio ${String(i + 1).padStart(2, '0')}`}
+                  />
                   <p className="card-meta">{s.themes.join(' · ')}</p>
                   <h3 className="card-title">{s.title}</h3>
                 </Link>

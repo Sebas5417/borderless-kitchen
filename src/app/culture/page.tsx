@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { SiteHeader } from '@/components/layout/SiteHeader'
+import { PlaceholderArt } from '@/components/PlaceholderArt'
 import { PANTRY_ENTRIES } from '@/lib/content/data'
 
 export const metadata: Metadata = {
@@ -62,7 +63,10 @@ export default function CulturePage() {
             {featuredPantry.map((e) => (
               <li key={e.slug} className="placeholder-card">
                 <Link href={`/culture/pantry/${e.slug}`}>
-                  <div className="placeholder-card-image" aria-hidden="true" />
+                  <PlaceholderArt
+                    initial={e.category.charAt(0).toUpperCase()}
+                    folio={titleCase(e.category)}
+                  />
                   <p className="card-meta">{titleCase(e.category)}</p>
                   <h3 className="card-title">{e.name}</h3>
                 </Link>
