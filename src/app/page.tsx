@@ -1,28 +1,10 @@
-const primaryNav = [
-  { label: 'About', href: '/about' },
-  { label: 'Journal', href: '/journal' },
-  { label: 'Books', href: '/book' },
-  { label: 'Culture', href: '/culture' },
-  { label: 'Connect', href: '/connect' },
-]
+import { SiteFooter } from '@/components/layout/SiteFooter'
+import { SiteHeader } from '@/components/layout/SiteHeader'
 
 export default function Home() {
   return (
     <main className="hero-shell">
-      <header className="site-header">
-        <a href="/" className="brand-mark">
-          Borderless Kitchen
-        </a>
-        <nav aria-label="Primary navigation">
-          <ul className="primary-nav">
-            {primaryNav.map((item) => (
-              <li key={item.href}>
-                <a href={item.href}>{item.label}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </header>
+      <SiteHeader />
 
       <section className="hero-content" aria-label="Home hero">
         <p className="hero-kicker">Editorial Front Door</p>
@@ -33,10 +15,7 @@ export default function Home() {
         </p>
       </section>
 
-      <footer className="site-footer">
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
-      </footer>
+      <SiteFooter />
     </main>
   )
 }
