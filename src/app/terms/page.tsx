@@ -4,7 +4,7 @@ import { SiteFooter } from '@/components/layout/SiteFooter'
 import { SiteHeader } from '@/components/layout/SiteHeader'
 
 export const metadata: Metadata = {
-  title: 'Terms — Borderless Kitchen',
+  title: 'Terms',
   description: 'Terms for using the Borderless Kitchen website.',
 }
 

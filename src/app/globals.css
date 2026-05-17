@@ -1151,6 +1151,55 @@ a {
 }
 
 /* -------------------------------------------------------------------------
+ * 404 — Errata list of entrances
+ * ----------------------------------------------------------------------- */
+
+.errata-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.errata-list a {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left 0.25s ease, color 0.2s ease;
+}
+
+.errata-list li:last-child a {
+  border-bottom: none;
+}
+
+.errata-list a:hover {
+  padding-left: 0.5rem;
+  color: var(--ember);
+}
+
+.errata-marker {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+
+.errata-label {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  letter-spacing: -0.015em;
+}
+
+/* -------------------------------------------------------------------------
  * Motion — one orchestrated page-load with staggered reveals
  * ----------------------------------------------------------------------- */
 

@@ -21,8 +21,25 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Borderless Kitchen',
-  description: 'Italian soul. Japanese precision.',
+  metadataBase: new URL('https://borderless-kitchen.vercel.app'),
+  title: {
+    default: 'Borderless Kitchen',
+    template: '%s — Borderless Kitchen',
+  },
+  description:
+    'Italian soul. Japanese precision. Cookbooks, a journal, and a knowledge library by Sebastian Dri.',
+  openGraph: {
+    title: 'Borderless Kitchen',
+    description: 'Italian soul. Japanese precision.',
+    type: 'website',
+    siteName: 'Borderless Kitchen',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Borderless Kitchen',
+    description: 'Italian soul. Japanese precision.',
+  },
 }
 
 export default function RootLayout({

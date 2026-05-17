@@ -22,10 +22,18 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
   const { slug } = await params
   const story = getStoryBySlug(slug)
-  if (!story) return { title: 'Not found — Borderless Kitchen' }
+  if (!story) return { title: 'Not found' }
   return {
-    title: `${story.title} — Borderless Kitchen`,
+    title: story.title,
     description: story.standfirst,
+    openGraph: {
+      title: `${story.title} — Borderless Kitchen`,
+      description: story.standfirst,
+      type: 'article',
+      publishedTime: story.publishedAt,
+      authors: [story.author],
+      tags: story.themes,
+    },
   }
 }
 

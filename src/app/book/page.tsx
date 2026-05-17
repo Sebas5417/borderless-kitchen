@@ -6,9 +6,15 @@ import { PlaceholderArt } from '@/components/PlaceholderArt'
 import { BOOKS } from '@/lib/content/data'
 
 export const metadata: Metadata = {
-  title: 'Books — Borderless Kitchen',
+  title: 'Books',
   description:
     'The Borderless Kitchen series. Tokyo Meets Tuscany and the books still to come.',
+  openGraph: {
+    title: 'Books — Borderless Kitchen',
+    description:
+      'The Borderless Kitchen series. Tokyo Meets Tuscany and the books still to come.',
+    type: 'website',
+  },
 }
 
 const forthcoming = [

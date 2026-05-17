@@ -4,9 +4,15 @@ import { SiteFooter } from '@/components/layout/SiteFooter'
 import { SiteHeader } from '@/components/layout/SiteHeader'
 
 export const metadata: Metadata = {
-  title: 'About — Borderless Kitchen',
+  title: 'About',
   description:
     'Sebastian Dri on Italian soul, Japanese precision, and the craft between them.',
+  openGraph: {
+    title: 'About — Borderless Kitchen',
+    description:
+      'Sebastian Dri on Italian soul, Japanese precision, and the craft between them.',
+    type: 'profile',
+  },
 }
 
 export default function AboutPage() {

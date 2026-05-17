@@ -16,10 +16,15 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
   const { bookSlug } = await params
   const book = getBookBySlug(bookSlug)
-  if (!book) return { title: 'Not found — Borderless Kitchen' }
+  if (!book) return { title: 'Not found' }
   return {
-    title: `${book.title} — Borderless Kitchen`,
+    title: book.title,
     description: book.logline,
+    openGraph: {
+      title: `${book.title} — Borderless Kitchen`,
+      description: book.logline,
+      type: 'book',
+    },
   }
 }
 

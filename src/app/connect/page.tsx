@@ -4,8 +4,13 @@ import { SiteFooter } from '@/components/layout/SiteFooter'
 import { SiteHeader } from '@/components/layout/SiteHeader'
 
 export const metadata: Metadata = {
-  title: 'Connect — Borderless Kitchen',
+  title: 'Connect',
   description: 'Newsletter, press, and partnership pathways.',
+  openGraph: {
+    title: 'Connect — Borderless Kitchen',
+    description: 'Newsletter, press, and partnership pathways.',
+    type: 'website',
+  },
 }
 
 export default function ConnectPage() {

@@ -6,8 +6,13 @@ import { PlaceholderArt } from '@/components/PlaceholderArt'
 import { STORIES } from '@/lib/content/data'
 
 export const metadata: Metadata = {
-  title: 'Journal — Borderless Kitchen',
+  title: 'Journal',
   description: 'Essays on cooking, culture, and the borders between kitchens.',
+  openGraph: {
+    title: 'Journal — Borderless Kitchen',
+    description: 'Essays on cooking, culture, and the borders between kitchens.',
+    type: 'website',
+  },
 }
 
 const filters = ['All', 'Technique', 'Pantry', 'Essay']

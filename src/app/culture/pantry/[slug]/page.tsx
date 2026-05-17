@@ -21,10 +21,15 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
   const { slug } = await params
   const entry = getPantryBySlug(slug)
-  if (!entry) return { title: 'Not found — Borderless Kitchen' }
+  if (!entry) return { title: 'Not found' }
   return {
-    title: `${entry.name} — Pantry — Borderless Kitchen`,
+    title: `${entry.name} · Pantry`,
     description: entry.definition,
+    openGraph: {
+      title: `${entry.name} — Pantry — Borderless Kitchen`,
+      description: entry.definition,
+      type: 'article',
+    },
   }
 }
 

@@ -6,8 +6,13 @@ import { PlaceholderArt } from '@/components/PlaceholderArt'
 import { PANTRY_ENTRIES } from '@/lib/content/data'
 
 export const metadata: Metadata = {
-  title: 'Culture — Borderless Kitchen',
+  title: 'Culture',
   description: 'The knowledge library: pantry, technique, and pairing logic.',
+  openGraph: {
+    title: 'Culture — Borderless Kitchen',
+    description: 'The knowledge library: pantry, technique, and pairing logic.',
+    type: 'website',
+  },
 }
 
 const pillars = [

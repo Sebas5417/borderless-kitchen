@@ -7,8 +7,13 @@ import { PANTRY_ENTRIES } from '@/lib/content/data'
 import type { PantryCategory } from '@/lib/content/types'
 
 export const metadata: Metadata = {
-  title: 'Pantry — Borderless Kitchen',
+  title: 'Pantry',
   description: 'A reference taxonomy of the ingredients that anchor the series.',
+  openGraph: {
+    title: 'Pantry — Borderless Kitchen',
+    description: 'A reference taxonomy of the ingredients that anchor the series.',
+    type: 'website',
+  },
 }
 
 const categoryOrder: PantryCategory[] = [
