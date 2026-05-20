@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "deny": [
+      "Glob(node_modules/**)",
+      "Glob(.git/**)",
+      "Glob(.next/**)",
+      "Glob(dist/**)",
+      "Glob(build/**)"
+    ]
+  }
+}

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "./Container";
+import { MobileMenu } from "./MobileMenu";
 
 const NAV = [
   { href: "/books", label: "Books" },
@@ -11,7 +12,7 @@ const NAV = [
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-hairline">
+    <header className="border-b border-hairline relative z-50 bg-paper">
       <Container className="flex items-center justify-between py-5 md:py-6">
         <Link
           href="/"
@@ -20,8 +21,10 @@ export function SiteHeader() {
         >
           Borderless Kitchen
         </Link>
-        <nav aria-label="Primary">
-          <ul className="hidden md:flex items-center gap-8 font-ui text-eyebrow uppercase text-ink/70">
+
+        {/* Desktop nav */}
+        <nav aria-label="Primary" className="hidden md:block">
+          <ul className="flex items-center gap-8 font-ui text-eyebrow uppercase text-ink/70">
             {NAV.map((item) => (
               <li key={item.href}>
                 <Link
@@ -33,15 +36,10 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
-          <ul className="flex md:hidden items-center gap-5 font-ui text-eyebrow uppercase text-ink/70">
-            <li>
-              <Link href="/books">Books</Link>
-            </li>
-            <li>
-              <Link href="/journal">Journal</Link>
-            </li>
-          </ul>
         </nav>
+
+        {/* Mobile hamburger — client component handles state */}
+        <MobileMenu />
       </Container>
     </header>
   );

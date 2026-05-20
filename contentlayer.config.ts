@@ -1,9 +1,5 @@
 import { defineDocumentType, defineNestedType, makeSource } from "contentlayer2/source-files";
 
-/**
- * NESTED TYPES
- */
-
 const Chapter = defineNestedType(() => ({
   name: "Chapter",
   fields: {
@@ -14,9 +10,6 @@ const Chapter = defineNestedType(() => ({
   },
 }));
 
-/**
- * BOOK
- */
 export const Book = defineDocumentType(() => ({
   name: "Book",
   filePathPattern: "books/*.mdx",
@@ -35,7 +28,9 @@ export const Book = defineDocumentType(() => ({
     amazonUrlEnvKey: { type: "string" },
     releaseNote: { type: "string" },
     coverImageAlt: { type: "string", required: true },
+    coverImageSrc: { type: "string" },
     heroImageAlt: { type: "string", required: true },
+    heroImageSrc: { type: "string" },
     chapters: { type: "list", of: Chapter },
     ordering: { type: "number", default: 100 },
   },
@@ -52,11 +47,7 @@ export const Book = defineDocumentType(() => ({
 }));
 
 /**
- * RECIPE TEASER
- *
- * INVARIANT: this schema declares NO fields for ingredients or method.
- * The full recipe is reserved for the printed book. The teaser body
- * (MDX) is the editorial headnote only — story, memory, why.
+ * INVARIANT: no ingredients or method fields — full recipe is in the book.
  */
 export const RecipeTeaser = defineDocumentType(() => ({
   name: "RecipeTeaser",
@@ -66,10 +57,11 @@ export const RecipeTeaser = defineDocumentType(() => ({
     title: { type: "string", required: true },
     bookSlug: { type: "string", required: true },
     chapter: { type: "string", required: true },
-    heat: { type: "number", required: true }, // 1..5
+    heat: { type: "number", required: true },
     category: { type: "string", required: true },
     pairings: { type: "list", of: { type: "string" } },
     heroImageAlt: { type: "string", required: true },
+    heroImageSrc: { type: "string" },
     ordering: { type: "number", default: 100 },
   },
   computedFields: {
@@ -80,9 +72,6 @@ export const RecipeTeaser = defineDocumentType(() => ({
   },
 }));
 
-/**
- * STORY (Journal essay)
- */
 export const Story = defineDocumentType(() => ({
   name: "Story",
   filePathPattern: "stories/*.mdx",
@@ -95,6 +84,7 @@ export const Story = defineDocumentType(() => ({
     themes: { type: "list", of: { type: "string" }, required: true },
     pantryRefs: { type: "list", of: { type: "string" } },
     heroImageAlt: { type: "string", required: true },
+    heroImageSrc: { type: "string" },
   },
   computedFields: {
     slug: {
@@ -104,9 +94,6 @@ export const Story = defineDocumentType(() => ({
   },
 }));
 
-/**
- * PANTRY ENTRY
- */
 export const PantryEntry = defineDocumentType(() => ({
   name: "PantryEntry",
   filePathPattern: "pantry/*.mdx",
@@ -121,6 +108,7 @@ export const PantryEntry = defineDocumentType(() => ({
     origin: { type: "list", of: { type: "string" }, required: true },
     storyRefs: { type: "list", of: { type: "string" } },
     heroImageAlt: { type: "string" },
+    heroImageSrc: { type: "string" },
   },
   computedFields: {
     slug: {
@@ -131,12 +119,7 @@ export const PantryEntry = defineDocumentType(() => ({
 }));
 
 /**
- * TESTIMONIAL
- *
- * INVARIANT: `verified` must be true. We treat any non-true value as a
- * build-time error so placeholder seeds cannot ship. No testimonials
- * are seeded at v1 — the folder exists empty until real attribution
- * is on hand.
+ * INVARIANT: verified must be literal true.
  */
 export const Testimonial = defineDocumentType(() => ({
   name: "Testimonial",
@@ -155,8 +138,7 @@ export const Testimonial = defineDocumentType(() => ({
         if (doc.verified !== true) {
           throw new Error(
             `Testimonial "${doc._raw.sourceFileName}" is not verified. ` +
-              `Testimonials require verified: true to render. Remove the file ` +
-              `or supply real attribution.`,
+              `Remove the file or supply real attribution.`,
           );
         }
         return doc._raw.flattenedPath.replace(/^testimonials\//, "");

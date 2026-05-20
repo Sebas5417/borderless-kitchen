@@ -1,62 +1,106 @@
 import Link from "next/link";
 import { Container } from "./Container";
+import { AmazonCTA } from "@/components/cta/AmazonCTA";
+
+const TMT_AMAZON = process.env.NEXT_PUBLIC_AMAZON_URL_TMT ?? "https://www.amazon.com/dp/B0GY8H2TCQ";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-hairline mt-32 md:mt-48 py-16">
-      <Container className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-        <div>
+    <footer className="border-t border-hairline py-16 md:py-20">
+      <Container className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+        {/* Brand */}
+        <div className="md:col-span-1">
           <p className="font-display text-xl text-ink">Borderless Kitchen</p>
-          <p className="font-body text-sm text-ink/60 mt-3 max-w-xs">
-            A premium cookbook series by Sebastian Dri.
+          <p className="font-body text-sm text-ink/60 mt-3 max-w-xs leading-relaxed">
+            A premium cookbook series by Sebastian Dri. Italian soul. Japanese
+            precision.
           </p>
+          <div className="mt-5">
+            <AmazonCTA href={TMT_AMAZON} label="Get Vol. I" />
+          </div>
         </div>
 
-        <nav aria-label="Footer">
+        {/* Series */}
+        <nav aria-label="Footer series">
           <p className="font-ui text-eyebrow uppercase text-ink/50 mb-4">
             The series
           </p>
           <ul className="space-y-2 font-body text-sm text-ink">
-            <li>
-              <Link href="/books" className="hover:text-vermillion transition-colors duration-300">
-                Books
-              </Link>
-            </li>
-            <li>
-              <Link href="/journal" className="hover:text-vermillion transition-colors duration-300">
-                Journal
-              </Link>
-            </li>
-            <li>
-              <Link href="/culture" className="hover:text-vermillion transition-colors duration-300">
-                Culture
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="hover:text-vermillion transition-colors duration-300">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/connect" className="hover:text-vermillion transition-colors duration-300">
-                Connect
-              </Link>
-            </li>
+            {[
+              { href: "/books", label: "All volumes" },
+              { href: "/books/tokyo-meets-tuscany", label: "Tokyo Meets Tuscany" },
+              { href: "/books/san-miguel-meets-cancun", label: "San Miguel Meets Cancún" },
+            ].map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="hover:text-vermillion transition-colors duration-300"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
 
+        {/* Site */}
+        <nav aria-label="Footer site">
+          <p className="font-ui text-eyebrow uppercase text-ink/50 mb-4">
+            Explore
+          </p>
+          <ul className="space-y-2 font-body text-sm text-ink">
+            {[
+              { href: "/journal", label: "Journal" },
+              { href: "/culture", label: "Culture" },
+              { href: "/about", label: "About" },
+              { href: "/connect", label: "Connect" },
+            ].map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="hover:text-vermillion transition-colors duration-300"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Fine print */}
         <div>
           <p className="font-ui text-eyebrow uppercase text-ink/50 mb-4">
-            Fine print
+            Free starter guide
           </p>
-          <p className="font-body text-sm text-ink/60">
-            © {year} Sebastian Dri. All rights reserved.
-          </p>
-          <p className="font-body text-xs text-ink/40 mt-3">
-            Recipes appear in the printed volumes. The website holds the stories
-            behind them.
-          </p>
+          <a
+            href="https://free.borderlesskitchenseries.com"
+            className="font-body text-sm text-ink hover:text-vermillion transition-colors duration-300"
+          >
+            free.borderlesskitchenseries.com →
+          </a>
+          <div className="mt-8 pt-6 border-t border-hairline">
+            <p className="font-body text-xs text-ink/40">
+              © {year} Sebastian Dri. All rights reserved.
+            </p>
+            <p className="font-body text-xs text-ink/40 mt-1">
+              Recipes appear in the printed volumes only.
+            </p>
+            <div className="flex gap-4 mt-3">
+              <Link
+                href="/legal/privacy"
+                className="font-ui text-[10px] uppercase tracking-widest text-ink/30 hover:text-ink/60 transition-colors"
+              >
+                Privacy
+              </Link>
+              <Link
+                href="/legal/terms"
+                className="font-ui text-[10px] uppercase tracking-widest text-ink/30 hover:text-ink/60 transition-colors"
+              >
+                Terms
+              </Link>
+            </div>
+          </div>
         </div>
       </Container>
     </footer>
