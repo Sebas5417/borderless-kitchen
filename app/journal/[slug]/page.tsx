@@ -140,7 +140,10 @@ export default async function JournalEntryPage({
             <p className="font-display italic text-display-3 text-ink/60 mb-6 leading-tight">
               The full recipes live in the book.
             </p>
-            <AmazonCTA href={TMT_AMAZON} label="Get Tokyo Meets Tuscany — $24.99" />
+            <AmazonCTA href={TMT_AMAZON} label="Get Tokyo Meets Tuscany on Amazon" />
+            <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
+              Paperback $24.99 · Hardcover $34.99 · eBook $9.99
+            </p>
           </div>
 
           <NextPrevious

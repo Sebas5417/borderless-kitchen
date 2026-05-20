@@ -43,6 +43,7 @@ export default function HomePage() {
         }}
         src="/images/hero-chef.png"
         alt="Sebastian Dri cooking in a professional kitchen — steam rising from a cast iron pan."
+        objectPosition="object-top"
         priority
       />
 
@@ -93,7 +94,7 @@ export default function HomePage() {
                     belong to one another at the same counter.
                   </p>
                   <p className="font-ui text-eyebrow uppercase text-ink/50 mt-4">
-                    Paperback $24.99 · eBook $9.99
+                    Paperback $24.99 · Hardcover $34.99 · eBook $9.99
                   </p>
                   <div className="mt-10 flex flex-wrap items-center gap-8">
                     <AmazonCTA href={TMT_AMAZON} />
@@ -120,10 +121,10 @@ export default function HomePage() {
                 Vol. II — Coming soon
               </p>
               <p className="font-display text-display-3 text-paper leading-tight">
-                San Miguel Meets Cancún
+                Seoul Meets Mexico City
               </p>
               <p className="font-body text-base text-paper/60 mt-2">
-                Colonial restraint meets coastal fire.
+                Fermented depth meets layered heat.
               </p>
             </div>
             <a

@@ -18,9 +18,9 @@ const TMT_AMAZON = process.env.NEXT_PUBLIC_AMAZON_URL_TMT ?? "https://www.amazon
 
 export default function BooksPage() {
   const tmt = allBooks.find((b) => b.slug === "tokyo-meets-tuscany")!;
-  const smmc = allBooks.find((b) => b.slug === "san-miguel-meets-cancun");
+  const smmc = allBooks.find((b) => b.slug === "seoul-meets-mexico-city");
   const future = allBooks
-    .filter((b) => b.status === "coming" && b.slug !== "san-miguel-meets-cancun")
+    .filter((b) => b.status === "coming" && b.slug !== "seoul-meets-mexico-city")
     .sort((a, b) => (a.ordering ?? 100) - (b.ordering ?? 100));
 
   return (
@@ -93,7 +93,7 @@ export default function BooksPage() {
                     apartments. All of them learned to belong to one another.
                   </p>
                   <p className="font-ui text-eyebrow uppercase text-ink/50">
-                    Paperback $24.99 · eBook $9.99
+                    Paperback $24.99 · Hardcover $34.99 · eBook $9.99
                   </p>
                 </div>
                 <div className="mt-10 flex flex-wrap items-center gap-8">
@@ -130,15 +130,14 @@ export default function BooksPage() {
                     </p>
                     <div className="font-body text-lg text-ink/80 leading-relaxed max-w-prose space-y-4">
                       <p>
-                        Two Mexicos that share a language and very little else.
-                        San Miguel de Allende cooks with patience and Dutch ovens
-                        and kitchens that have been feeding the same families for
-                        three generations. Cancún cooks with fire and citrus and
-                        the urgency of a boat that needs to be unloaded.
+                        Two cities that have built entire culinary cultures around
+                        fermentation, heat, and the slow accumulation of flavor.
+                        Kimchi and salsa. Doenjang and mole. Gochugaru and chile
+                        de árbol. Two pantries built on the same principle.
                       </p>
                       <p>
-                        Colonial restraint meets coastal fire. Thirty recipes
-                        that live between those two modes.
+                        Fermented depth meets layered heat. Thirty recipes at the
+                        intersection of those two pantries.
                       </p>
                     </div>
                     <div className="mt-10">

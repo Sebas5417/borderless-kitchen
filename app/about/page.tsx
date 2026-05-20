@@ -8,7 +8,7 @@ import { FadeRise } from "@/components/motion/FadeRise";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Sebastian Dri — former FWC officer, boat captain, and the creator of the Borderless Kitchen series.",
+    "Sebastian Dri is the creator of the Borderless Kitchen series — cookbooks built on the idea that great cooking isn't limited by geography.",
 };
 
 const TMT_AMAZON = process.env.NEXT_PUBLIC_AMAZON_URL_TMT ?? "https://www.amazon.com/dp/B0GY8H2TCQ";
@@ -21,7 +21,7 @@ export default function AboutPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/hero-chef.png"
-            alt="Sebastian Dri cooking in a professional kitchen — steam rising from a pan."
+            alt="Sebastian Dri in the kitchen — steam rising from a cast iron pan."
             fill
             priority
             sizes="100vw"
@@ -36,7 +36,7 @@ export default function AboutPage() {
               Sebastian Dri
             </p>
             <h1 className="font-display text-display-1 text-paper leading-tight max-w-3xl">
-              The kitchen has always been a border crossing.
+              Great cooking isn't limited by geography.
             </h1>
           </Container>
         </div>
@@ -47,41 +47,32 @@ export default function AboutPage() {
         <Container>
           <FadeRise>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
-              {/* Main bio text */}
+              {/* Author note — modeled on the book's back matter */}
               <div className="lg:col-span-7">
                 <div className="max-w-prose space-y-6 font-body text-lg text-ink/90 leading-relaxed">
                   <p>
-                    I grew up in Mamaroneck, New York — a suburb north of the
-                    city that exists in a perpetual argument with itself about
-                    whether it's a real place or just where people go when
-                    Manhattan gets too expensive. My family is Argentinian. The
-                    table had asado, empanadas, dulce de leche in the fridge next
-                    to someone else's leftover pasta, and a general attitude that
-                    food didn't need to explain itself — it needed to feed you.
+                    Sebastian Dri is the creator of the Borderless Kitchen
+                    series, built on the idea that great cooking isn't limited by
+                    geography. The approach focuses on structure, bold flavor, and
+                    making fusion feel intentional instead of chaotic.
                   </p>
                   <p>
-                    I spent years on the water after that. FWC officer. Boat
-                    captain. Work that puts you outdoors, in motion, eating what's
-                    local and fast and honest. Fishing boats at 5 a.m. have
-                    excellent kitchens — not in size, but in clarity. You cook
-                    what you caught. You season what you have. Nobody performs.
+                    The best meals he's encountered across a lifetime of eating in
+                    strange places and beautiful places and places nobody would
+                    think to look — none of them knew where they came from. They
+                    knew what they wanted. They wanted to feed you well, and they
+                    did it without apology.
                   </p>
                   <p>
-                    I came to writing and entrepreneurship later than most books
-                    tell you to. My daughter Sofia was twelve when I started the
-                    Borderless Kitchen project. She's fourteen now and she still
-                    tells me when something doesn't taste right. She is, as it
-                    turns out, the most reliable editor I have.
+                    That conviction is what the Borderless Kitchen series is
+                    built on. Not that cuisines should be blended carelessly, but
+                    that the lines between them were always more porous than the
+                    cookbooks suggested — and that reading those lines carefully
+                    produces something more interesting than ignoring them.
                   </p>
                   <p>
-                    The premise of this series is not complicated: the best food
-                    I've eaten across a career of eating in strange places and
-                    beautiful places and places nobody would think to look —
-                    none of it knew where it came from. It knew what it wanted.
-                    It wanted to feed you well.
-                  </p>
-                  <p>
-                    That's the only border that matters.
+                    You won't find confusion here. You'll find clarity, contrast,
+                    and dishes that actually work.
                   </p>
                 </div>
               </div>
@@ -94,7 +85,7 @@ export default function AboutPage() {
                 >
                   <Image
                     src="/images/sebastian-portrait.png"
-                    alt="Sebastian Dri — three portraits: in chef whites, cooking, and relaxed with fresh herbs."
+                    alt="Sebastian Dri — author of the Borderless Kitchen series."
                     fill
                     sizes="(min-width: 1024px) 40vw, 90vw"
                     className="object-cover object-center"
@@ -108,12 +99,15 @@ export default function AboutPage() {
                     <p className="font-body text-sm text-ink/70 leading-relaxed">
                       Four volumes. Four collisions between cuisines that already
                       share more than they admit. Vol. I — Tokyo Meets Tuscany —
-                      is live now. Vol. II — San Miguel Meets Cancún — is in
+                      is live now. Vol. II — Seoul Meets Mexico City — is in
                       progress.
                     </p>
                   </div>
                   <div className="pt-4">
                     <AmazonCTA href={TMT_AMAZON} label="Get Vol. I on Amazon" />
+                    <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
+                      Paperback $24.99 · Hardcover $34.99 · eBook $9.99
+                    </p>
                   </div>
                 </div>
               </div>

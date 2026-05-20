@@ -7,13 +7,14 @@ type Props = {
   eyebrow?: string;
   headline: string;
   link?: { label: string; href: string };
-  /** Real image path. If omitted, falls back to placeholder. */
   src?: string;
   alt?: string;
   priority?: boolean;
+  /** Tailwind object-position class — defaults to object-center */
+  objectPosition?: string;
 };
 
-export function Hero({ eyebrow, headline, link, src, alt = "", priority = true }: Props) {
+export function Hero({ eyebrow, headline, link, src, alt = "", priority = true, objectPosition = "object-center" }: Props) {
   return (
     <section className="relative bg-charcoal-deep text-paper overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -24,7 +25,7 @@ export function Hero({ eyebrow, headline, link, src, alt = "", priority = true }
             fill
             priority={priority}
             sizes="100vw"
-            className="object-cover object-center opacity-50"
+            className={`object-cover ${objectPosition} opacity-50`}
           />
         ) : (
           <PlaceholderImage

@@ -110,9 +110,9 @@ export default async function BookPage({
             </div>
             {amazonUrl ? (
               <div className="mt-10">
-                <AmazonCTA href={amazonUrl} label="Buy Tokyo Meets Tuscany — $24.99" />
+                <AmazonCTA href={amazonUrl} label="Buy Tokyo Meets Tuscany on Amazon" />
                 <p className="font-ui text-eyebrow uppercase text-ink/40 mt-3">
-                  Also available as an eBook · $9.99
+                  Paperback $24.99 · Hardcover $34.99 · eBook $9.99
                 </p>
               </div>
             ) : (
@@ -193,7 +193,7 @@ export default async function BookPage({
               </p>
               <AmazonCTA href={amazonUrl} label="Buy Tokyo Meets Tuscany on Amazon" />
               <p className="font-ui text-eyebrow uppercase text-ink/40 mt-4">
-                Paperback $24.99 · eBook $9.99
+                Paperback $24.99 · Hardcover $34.99 · eBook $9.99
               </p>
             </div>
           ) : null}
@@ -202,7 +202,7 @@ export default async function BookPage({
 
       <EmailCaptureCTA
         heading="The second volume is coming."
-        body="San Miguel Meets Cancún — colonial restraint meets coastal fire. Be the first to know."
+        body="Seoul Meets Mexico City — fermented depth meets layered heat. Be the first to know."
         cta="Notify me →"
       />
     </>
