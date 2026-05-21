@@ -36,15 +36,38 @@ export const metadata: Metadata = {
     template: "%s — Borderless Kitchen",
   },
   description:
-    "A premium cookbook series by Sebastian Dri. Italian soul. Japanese precision.",
+    "A cookbook series by Sebastian Dri exploring cross-cultural cuisine. Vol. I: Tokyo Meets Tuscany — Italian soul meets Japanese precision. 30 fusion recipes where both traditions belong.",
   openGraph: {
-    title: "Borderless Kitchen",
-    description: "A premium cookbook series by Sebastian Dri.",
+    title: "Borderless Kitchen — Italian soul. Japanese precision.",
+    description:
+      "A cookbook series by Sebastian Dri. Vol. I: Tokyo Meets Tuscany bridges Italian and Japanese cooking across 30 recipes.",
     url: siteUrl,
     siteName: "Borderless Kitchen",
     type: "website",
   },
   robots: { index: true, follow: true },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Borderless Kitchen",
+  url: siteUrl,
+  description:
+    "A cookbook series exploring cross-cultural cuisine. Each volume pairs two culinary traditions and finds what they share.",
+  founder: {
+    "@type": "Person",
+    name: "Sebastian Dri",
+    jobTitle: "Author",
+    url: `${siteUrl}/about`,
+  },
+  knowsAbout: [
+    "Italian cuisine",
+    "Japanese cuisine",
+    "fusion cooking",
+    "cross-cultural recipes",
+    "cookbook series",
+  ],
 };
 
 export default function RootLayout({
@@ -58,6 +81,10 @@ export default function RootLayout({
       className={`${playfair.variable} ${montserrat.variable} ${lato.variable}`}
     >
       <body className="min-h-screen flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />

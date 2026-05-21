@@ -49,8 +49,28 @@ export default async function BookPage({
 
   const allTeasers = allRecipeTeasers.filter((r) => r.bookSlug === book.slug);
 
+  const bookSchema = {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    name: book.title,
+    author: { "@type": "Person", name: "Sebastian Dri" },
+    publisher: { "@type": "Organization", name: "Borderless Kitchen" },
+    description: `${book.regionA} meets ${book.regionB}. ${book.subtitle ?? "A volume in the Borderless Kitchen series."}`,
+    genre: ["Cookbook", "Fusion Cuisine", "Cross-cultural cooking"],
+    inLanguage: "en",
+    ...(book.year ? { datePublished: String(book.year) } : {}),
+    ...(amazonUrl ? { url: amazonUrl } : {}),
+    ...(book.coverImageSrc
+      ? { image: `https://borderlesskitchenseries.com${book.coverImageSrc}` }
+      : {}),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(bookSchema) }}
+      />
       {/* Hero image */}
       <section className="relative bg-charcoal-deep overflow-hidden" style={{ minHeight: "55vh" }}>
         <div className="absolute inset-0">

@@ -60,8 +60,31 @@ export default async function JournalEntryPage({
     year: "numeric",
   });
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: story.title,
+    description: story.dek,
+    author: { "@type": "Person", name: "Sebastian Dri", url: "https://borderlesskitchenseries.com/about" },
+    publisher: {
+      "@type": "Organization",
+      name: "Borderless Kitchen",
+      url: "https://borderlesskitchenseries.com",
+    },
+    datePublished: story.date,
+    dateModified: story.date,
+    mainEntityOfPage: `https://borderlesskitchenseries.com/journal/${story.slug}`,
+    ...(story.heroImageSrc
+      ? { image: `https://borderlesskitchenseries.com${story.heroImageSrc}` }
+      : {}),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       {/* Hero */}
       <section className="relative bg-charcoal-deep overflow-hidden" style={{ minHeight: "60vh" }}>
         <div className="absolute inset-0">
