@@ -84,7 +84,7 @@ export default function AboutPage() {
                   style={{ aspectRatio: "3 / 4" }}
                 >
                   <Image
-                    src="/images/sebastian-portrait.png"
+                    src="/images/author-photo.png"
                     alt="Sebastian Dri — author of the Borderless Kitchen series."
                     fill
                     sizes="(min-width: 1024px) 40vw, 90vw"
