@@ -43,7 +43,7 @@ export default function HomePage() {
         }}
         src="/images/hero-chef.png"
         alt="Sebastian Dri cooking in a professional kitchen — steam rising from a cast iron pan."
-        objectPosition="object-[50%_20%]"
+        objectPosition="object-center"
         priority
       />
 

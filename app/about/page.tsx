@@ -88,7 +88,7 @@ export default function AboutPage() {
                     alt="Sebastian Dri — author of the Borderless Kitchen series."
                     fill
                     sizes="(min-width: 1024px) 40vw, 90vw"
-                    className="object-cover object-center"
+                    className="object-cover object-top"
                   />
                 </div>
                 <div className="space-y-6">
