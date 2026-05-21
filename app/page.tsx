@@ -41,8 +41,8 @@ export default function HomePage() {
           label: "Read the first volume → Tokyo Meets Tuscany",
           href: "/books/tokyo-meets-tuscany",
         }}
-        src="/images/hero-chef.png"
-        alt="Sebastian Dri cooking in a professional kitchen — steam rising from a cast iron pan."
+        src="/images/recipe-udon-burrata.jpg"
+        alt="Udon meets burrata — a Borderless Kitchen dish."
         objectPosition="object-center"
         priority
       />

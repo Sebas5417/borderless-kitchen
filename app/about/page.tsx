@@ -51,28 +51,25 @@ export default function AboutPage() {
               <div className="lg:col-span-7">
                 <div className="max-w-prose space-y-6 font-body text-lg text-ink/90 leading-relaxed">
                   <p>
-                    Sebastian Dri is the creator of the Borderless Kitchen
-                    series, built on the idea that great cooking isn't limited by
-                    geography. The approach focuses on structure, bold flavor, and
-                    making fusion feel intentional instead of chaotic.
+                    Sebastian Dri is the creator of the Borderless Kitchen series — a collection built on the belief that great food has never cared much about borders.
                   </p>
                   <p>
-                    The best meals he's encountered across a lifetime of eating in
-                    strange places and beautiful places and places nobody would
-                    think to look — none of them knew where they came from. They
-                    knew what they wanted. They wanted to feed you well, and they
-                    did it without apology.
+                    His approach to cooking is simple: bold flavor, strong structure, and fusion that feels intentional instead of forced. Not gimmicks. Not chaos. Just dishes that make sense the moment you taste them.
                   </p>
                   <p>
-                    That conviction is what the Borderless Kitchen series is
-                    built on. Not that cuisines should be blended carelessly, but
-                    that the lines between them were always more porous than the
-                    cookbooks suggested — and that reading those lines carefully
-                    produces something more interesting than ignoring them.
+                    Over the years, some of the best meals he's ever had came from places that weren't trying to impress anyone — tiny kitchens, roadside restaurants, crowded cities, quiet towns, and places most people would drive right past without noticing. What those meals shared wasn't authenticity in the marketing sense. It was confidence. They knew exactly what they were trying to do, and they did it well.
                   </p>
                   <p>
-                    You won't find confusion here. You'll find clarity, contrast,
-                    and dishes that actually work.
+                    That idea became the foundation for Borderless Kitchen.
+                  </p>
+                  <p>
+                    The series is built around the belief that cuisines were never as separated as cookbooks often pretend they are. Techniques travel. Ingredients evolve. Flavor crosses oceans long before people give it permission to. And when you understand the structure behind a cuisine — the balance, the texture, the heat, the acidity, the comfort — you can combine influences in ways that feel natural, respectful, and genuinely exciting.
+                  </p>
+                  <p>
+                    Sebastian's recipes focus on clarity over complication: food that looks beautiful, tastes bold, and actually works in a real kitchen.
+                  </p>
+                  <p>
+                    No confusion. No trend-chasing. Just thoughtful fusion, strong flavor, and dishes worth making again.
                   </p>
                 </div>
               </div>
