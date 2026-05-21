@@ -25,7 +25,7 @@ export function Hero({ eyebrow, headline, link, src, alt = "", priority = true, 
             fill
             priority={priority}
             sizes="100vw"
-            className={`object-cover ${objectPosition} opacity-50`}
+            className={`object-cover ${objectPosition}`}
           />
         ) : (
           <PlaceholderImage
@@ -35,10 +35,11 @@ export function Hero({ eyebrow, headline, link, src, alt = "", priority = true, 
           />
         )}
       </div>
-      {/* Dark gradient overlay so text always reads */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-r from-charcoal-deep/90 via-charcoal-deep/60 to-transparent" />
+      {/* Dark overlay for editorial mood and text legibility */}
+      <div className="absolute inset-0 z-0 bg-black/55" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
 
-      <Container className="relative z-10 min-h-[85vh] md:min-h-screen flex flex-col justify-end pt-32 pb-16 md:pt-40 md:pb-24">
+      <Container className="relative z-10 min-h-[90vh] flex flex-col justify-end pt-32 pb-16 md:pt-40 md:pb-24">
         {eyebrow ? (
           <p className="font-ui text-eyebrow uppercase text-paper/60 mb-6 md:mb-8">
             {eyebrow}
