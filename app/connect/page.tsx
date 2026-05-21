@@ -68,7 +68,7 @@ export default function ConnectPage() {
                 </p>
                 <p className="font-body text-base text-ink/70">
                   Seoul Meets Mexico City. Fermented depth meets layered heat.
-                  Subscribe to be notified.
+                  Notify me when it drops →
                 </p>
               </div>
             </div>
@@ -80,8 +80,7 @@ export default function ConnectPage() {
                   Letters from the kitchen
                 </p>
                 <h2 className="font-display text-display-3 text-ink leading-tight mb-8">
-                  Quiet dispatches. New volumes. The occasional recipe note that
-                  didn't make the book.
+                  What doesn't make the book still has to go somewhere.
                 </h2>
                 <NewsletterForm
                   label="Your email"

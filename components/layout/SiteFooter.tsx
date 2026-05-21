@@ -13,7 +13,7 @@ export function SiteFooter() {
         <div className="md:col-span-1">
           <p className="font-display text-xl text-ink">Borderless Kitchen</p>
           <p className="font-body text-sm text-ink/60 mt-3 max-w-xs leading-relaxed">
-            A premium cookbook series by Sebastian Dri. Italian soul. Japanese
+            A cookbook series by Sebastian Dri. Italian soul. Japanese
             precision.
           </p>
           <div className="mt-5">

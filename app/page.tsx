@@ -38,7 +38,7 @@ export default function HomePage() {
         eyebrow="Vol. I — Tokyo Meets Tuscany"
         headline="The borders are optional."
         link={{
-          label: "Read the first volume → Tokyo Meets Tuscany",
+          label: "The first volume is live — Tokyo Meets Tuscany →",
           href: "/books/tokyo-meets-tuscany",
         }}
         src="/images/hero-chef.png"

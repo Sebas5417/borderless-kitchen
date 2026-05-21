@@ -32,7 +32,7 @@ export default function BooksPage() {
             Borderless Kitchen Series
           </p>
           <h1 className="font-display text-display-1 text-ink leading-tight max-w-4xl">
-            Four kitchens. One sustained conversation.
+            Four kitchens. One conversation.
           </h1>
           <p className="font-body text-lg text-ink/70 mt-8 max-w-prose leading-relaxed">
             Each volume puts two cuisines in the same room and asks what they

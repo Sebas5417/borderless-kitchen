@@ -26,7 +26,7 @@ export default function CulturePage() {
             Culture
           </p>
           <h1 className="font-display text-display-1 text-ink leading-tight max-w-3xl">
-            The ingredients, techniques, and traditions behind the series.
+            What the recipes are built on.
           </h1>
           <p className="font-body text-lg text-ink/60 mt-6 max-w-prose leading-relaxed">
             Not a glossary. A working library. Each entry is a thing worth
@@ -64,7 +64,7 @@ export default function CulturePage() {
       })}
 
       <EmailCaptureCTA
-        heading="More from the kitchen."
+        heading="Get the free starter guide."
         body="Get the free starter guide — five pantry ingredients and three techniques that unlock both cuisines."
         cta="free.borderlesskitchenseries.com →"
       />

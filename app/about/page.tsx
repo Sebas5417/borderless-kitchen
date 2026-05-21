@@ -36,7 +36,7 @@ export default function AboutPage() {
               Sebastian Dri
             </p>
             <h1 className="font-display text-display-1 text-paper leading-tight max-w-3xl">
-              Great cooking isn't limited by geography.
+              Sebastian Dri builds cookbooks around one idea: the best flavors never needed a passport.
             </h1>
           </Container>
         </div>
