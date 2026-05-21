@@ -41,9 +41,9 @@ export default function HomePage() {
           label: "Read the first volume → Tokyo Meets Tuscany",
           href: "/books/tokyo-meets-tuscany",
         }}
-        src="/images/recipe-carbonara-ramen.jpg"
-        alt="Carbonara ramen — where Italian soul meets Japanese precision."
-        objectPosition="object-center"
+        src="/images/hero-chef.png"
+        alt="Chef at work in a professional kitchen — the Borderless Kitchen series."
+        objectPosition="object-[center_40%]"
         priority
       />
 
