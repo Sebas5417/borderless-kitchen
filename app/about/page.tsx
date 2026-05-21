@@ -75,16 +75,16 @@ export default function AboutPage() {
               </div>
 
               {/* Portrait + aside */}
-              <div className="lg:col-span-5">
+              <div className="lg:col-span-5 flex flex-col items-center lg:items-start">
                 <div
-                  className="relative overflow-hidden mb-8"
+                  className="relative overflow-hidden rounded-xl mb-8 w-full max-w-[360px]"
                   style={{ aspectRatio: "3 / 4" }}
                 >
                   <Image
                     src="/images/author-photo.png"
                     alt="Sebastian Dri — author of the Borderless Kitchen series."
                     fill
-                    sizes="(min-width: 1024px) 40vw, 90vw"
+                    sizes="(min-width: 1024px) 360px, 90vw"
                     className="object-cover object-top"
                   />
                 </div>
