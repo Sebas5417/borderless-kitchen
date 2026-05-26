@@ -33,3 +33,6 @@ pnpm-debug.log*
 coverage/
 
 .vercel
+
+# local archive (move-never-delete holding folder)
+_archive/
