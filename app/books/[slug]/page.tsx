@@ -222,7 +222,7 @@ export default async function BookPage({
 
       <EmailCaptureCTA
         heading="The second volume is coming."
-        body="Seoul Meets Mexico City — fermented depth meets layered heat. Be the first to know."
+        body="Seoul Meets San Miguel — fermented depth meets layered heat. Be the first to know."
         cta="Notify me →"
       />
     </>

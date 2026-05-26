@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { allStories } from "contentlayer/generated";
 import { Container } from "@/components/layout/Container";
 import { StoryCard } from "@/components/cards/StoryCard";
@@ -8,7 +9,7 @@ import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 export const metadata: Metadata = {
   title: "Journal",
   description:
-    "Essays on food, memory, migration, and the borders we draw and undraw. From the kitchen of Borderless Kitchen.",
+    "Notes on food, culture, memory, and movement — essays from the Borderless Kitchen series on cross-cultural cooking and the conversations between cuisines.",
 };
 
 export default function JournalPage() {
@@ -24,11 +25,11 @@ export default function JournalPage() {
             Journal
           </p>
           <h1 className="font-display text-display-1 text-ink leading-tight max-w-3xl">
-            Essays on food, memory, and the borders we draw and undraw.
+            Notes on food, culture, memory, and movement.
           </h1>
           <p className="font-body text-lg text-ink/60 mt-6 max-w-prose leading-relaxed">
             Not recipes. The stories behind them — why certain flavors exist,
-            where they came from, and what they mean when they arrive on the
+            where they came from, and what they mean when they meet on the
             same plate.
           </p>
         </Container>
@@ -55,8 +56,29 @@ export default function JournalPage() {
         </Container>
       </section>
 
+      <section className="py-14 md:py-20 border-t border-hairline">
+        <Container>
+          <div className="max-w-prose">
+            <p className="font-ui text-eyebrow uppercase text-ink/40 mb-3">
+              Shorter pieces
+            </p>
+            <p className="font-body text-lg text-ink/70 leading-relaxed">
+              Fragments — a paragraph from a market, a note from a kitchen,
+              an ingredient caught in motion — collect in the{" "}
+              <Link
+                href="/notes"
+                className="text-ink underline decoration-hairline underline-offset-4 hover:text-vermillion hover:decoration-vermillion transition-colors duration-300"
+              >
+                field notes
+              </Link>
+              .
+            </p>
+          </div>
+        </Container>
+      </section>
+
       <EmailCaptureCTA
-        heading="Letters from the kitchen."
+        heading="Notes from the kitchen."
         body="New essays, volumes, and the occasional thing that didn't make the book."
         cta="free.borderlesskitchenseries.com →"
       />

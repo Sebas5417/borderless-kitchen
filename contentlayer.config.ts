@@ -94,6 +94,29 @@ export const Story = defineDocumentType(() => ({
   },
 }));
 
+/**
+ * Short-form editorial fragments. Off-nav, contextually discovered.
+ */
+export const FieldNote = defineDocumentType(() => ({
+  name: "FieldNote",
+  filePathPattern: "notes/*.mdx",
+  contentType: "mdx",
+  fields: {
+    title: { type: "string", required: true },
+    date: { type: "date", required: true },
+    place: { type: "string" },
+    theme: { type: "string" },
+    pantryRefs: { type: "list", of: { type: "string" } },
+    storyRefs: { type: "list", of: { type: "string" } },
+  },
+  computedFields: {
+    slug: {
+      type: "string",
+      resolve: (doc) => doc._raw.flattenedPath.replace(/^notes\//, ""),
+    },
+  },
+}));
+
 export const PantryEntry = defineDocumentType(() => ({
   name: "PantryEntry",
   filePathPattern: "pantry/*.mdx",
@@ -149,5 +172,5 @@ export const Testimonial = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [Book, RecipeTeaser, Story, PantryEntry, Testimonial],
+  documentTypes: [Book, RecipeTeaser, Story, FieldNote, PantryEntry, Testimonial],
 });

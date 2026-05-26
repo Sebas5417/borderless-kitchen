@@ -13,6 +13,13 @@ export const metadata: Metadata = {
 
 const CLASSIFICATIONS = ["ingredient", "technique", "tradition", "term"] as const;
 
+const CLASSIFICATION_LABELS: Record<(typeof CLASSIFICATIONS)[number], string> = {
+  ingredient: "Ingredients",
+  technique: "Techniques",
+  tradition: "Traditions",
+  term: "Terms",
+};
+
 export default function CulturePage() {
   const entries = [...allPantryEntries].sort((a, b) =>
     a.term.localeCompare(b.term),
@@ -44,7 +51,7 @@ export default function CulturePage() {
             <Container>
               <FadeRise>
                 <h2 className="font-ui text-eyebrow uppercase text-ink/50 mb-6">
-                  {cls.charAt(0).toUpperCase() + cls.slice(1)}s
+                  {CLASSIFICATION_LABELS[cls]}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16">
                   {group.map((entry) => (

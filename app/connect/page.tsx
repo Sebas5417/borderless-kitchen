@@ -7,7 +7,7 @@ import { FadeRise } from "@/components/motion/FadeRise";
 export const metadata: Metadata = {
   title: "Connect",
   description:
-    "Get the free starter guide, follow the series, or drop a line.",
+    "Notes from the kitchen — the free starter guide, news on new Borderless Kitchen volumes, and the occasional recipe note that didn't make the book.",
 };
 
 const TMT_AMAZON = process.env.NEXT_PUBLIC_AMAZON_URL_TMT ?? "https://www.amazon.com/dp/B0GY8H2TCQ";
@@ -67,9 +67,14 @@ export default function ConnectPage() {
                   Vol. II — Coming soon
                 </p>
                 <p className="font-body text-base text-ink/70">
-                  Seoul Meets Mexico City. Fermented depth meets layered heat.
-                  Notify me when it drops →
+                  Seoul Meets San Miguel. Fermented depth meets layered heat.
                 </p>
+                <a
+                  href="https://free.borderlesskitchenseries.com"
+                  className="inline-block mt-3 font-ui text-eyebrow uppercase text-ink border-b border-ink/40 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
+                >
+                  Notify me when it drops →
+                </a>
               </div>
             </div>
 
@@ -77,10 +82,10 @@ export default function ConnectPage() {
             <div className="lg:col-span-6 lg:col-start-7">
               <div className="bg-ink/[0.03] border border-hairline p-10 md:p-12">
                 <p className="font-ui text-eyebrow uppercase text-ink/50 mb-6">
-                  Letters from the kitchen
+                  Notes from the kitchen
                 </p>
                 <h2 className="font-display text-display-3 text-ink leading-tight mb-8">
-                  What doesn't make the book still has to go somewhere.
+                  What doesn't fit inside the book continues here.
                 </h2>
                 <NewsletterForm
                   label="Your email"

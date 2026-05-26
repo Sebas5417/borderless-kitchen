@@ -36,11 +36,11 @@ export const metadata: Metadata = {
     template: "%s — Borderless Kitchen",
   },
   description:
-    "A cookbook series by Sebastian Dri exploring cross-cultural cuisine. Vol. I: Tokyo Meets Tuscany — Italian soul meets Japanese precision. 30 fusion recipes where both traditions belong.",
+    "A cookbook series by Sebastian Dri on cross-cultural cooking. Vol. I: Tokyo Meets Tuscany — Italian soul, Japanese precision. Thirty fusion recipes where both traditions belong on the same plate.",
   openGraph: {
     title: "Borderless Kitchen — Italian soul. Japanese precision.",
     description:
-      "A cookbook series by Sebastian Dri. Vol. I: Tokyo Meets Tuscany bridges Italian and Japanese cooking across 30 recipes.",
+      "A cookbook series by Sebastian Dri. Vol. I: Tokyo Meets Tuscany — thirty fusion recipes between Italian and Japanese kitchens.",
     url: siteUrl,
     siteName: "Borderless Kitchen",
     type: "website",

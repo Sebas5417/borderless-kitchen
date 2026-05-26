@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { allBooks, allStories } from "contentlayer/generated";
+import { allBooks, allStories, allFieldNotes } from "contentlayer/generated";
 import { Container } from "@/components/layout/Container";
 import { Hero } from "@/components/editorial/Hero";
 import { PhilosophyStrip } from "@/components/editorial/PhilosophyStrip";
@@ -28,6 +28,9 @@ export default function HomePage() {
     .sort((a, b) => (a.ordering ?? 100) - (b.ordering ?? 100))
     .slice(0, 3);
   const stories = [...allStories]
+    .sort((a, b) => +new Date(b.date) - +new Date(a.date))
+    .slice(0, 3);
+  const notes = [...allFieldNotes]
     .sort((a, b) => +new Date(b.date) - +new Date(a.date))
     .slice(0, 3);
 
@@ -112,7 +115,7 @@ export default function HomePage() {
         </section>
       ) : null}
 
-      {/* 3b. SMMC tease */}
+      {/* 3b. Vol II tease — Seoul Meets San Miguel */}
       <section className="py-16 md:py-20 border-t border-hairline bg-charcoal-deep text-paper">
         <Container>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
@@ -121,7 +124,7 @@ export default function HomePage() {
                 Vol. II — Coming soon
               </p>
               <p className="font-display text-display-3 text-paper leading-tight">
-                Seoul Meets Mexico City
+                Seoul Meets San Miguel
               </p>
               <p className="font-body text-base text-paper/60 mt-2">
                 Fermented depth meets layered heat.
@@ -183,7 +186,7 @@ export default function HomePage() {
                 Journal
               </p>
               <h2 className="font-display text-display-3 text-ink max-w-xl leading-tight">
-                Essays on food, memory, and the borders we draw and undraw.
+                Notes on food, culture, memory, and movement.
               </h2>
             </div>
             <Link href="/journal" className="link-quiet text-ink text-base">
@@ -210,6 +213,52 @@ export default function HomePage() {
         </Container>
       </section>
 
+      {/* 5b. Field Notes — quiet surface */}
+      {notes.length > 0 ? (
+        <section className="py-20 md:py-24 border-t border-hairline bg-ink/[0.02]">
+          <Container>
+            <div className="flex items-end justify-between mb-10 flex-wrap gap-6">
+              <div>
+                <p className="font-ui text-eyebrow uppercase text-ink/40 mb-3">
+                  Field Notes
+                </p>
+                <h2 className="font-display text-display-3 text-ink max-w-xl leading-tight">
+                  Shorter than essays. Closer to the counter.
+                </h2>
+              </div>
+              <Link href="/notes" className="link-quiet text-ink text-base">
+                All field notes
+              </Link>
+            </div>
+
+            <FadeRise>
+              <ul className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+                {notes.map((note) => {
+                  const d = new Date(note.date).toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  });
+                  return (
+                    <li key={note.slug}>
+                      <Link href={`/notes/${note.slug}`} className="group block">
+                        <p className="font-ui text-eyebrow uppercase text-ink/40 mb-3">
+                          {d}
+                          {note.place ? ` · ${note.place}` : ""}
+                        </p>
+                        <h3 className="font-display text-xl md:text-2xl text-ink leading-tight group-hover:text-vermillion transition-colors duration-300">
+                          {note.title}
+                        </h3>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </FadeRise>
+          </Container>
+        </section>
+      ) : null}
+
       {/* 6. Email capture */}
       <EmailCaptureCTA />
 
@@ -219,7 +268,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-5">
               <p className="font-ui text-eyebrow uppercase text-vermillion mb-6">
-                Letters from the kitchen
+                Notes from the kitchen
               </p>
               <h2 className="font-display text-display-3 text-ink leading-tight">
                 Quiet dispatches. New volumes. The occasional recipe note that

@@ -30,7 +30,7 @@ export function SiteFooter() {
             {[
               { href: "/books", label: "All volumes" },
               { href: "/books/tokyo-meets-tuscany", label: "Tokyo Meets Tuscany" },
-              { href: "/books/seoul-meets-mexico-city", label: "Seoul Meets Mexico City" },
+              { href: "/books/seoul-meets-san-miguel", label: "Seoul Meets San Miguel" },
             ].map((item) => (
               <li key={item.href}>
                 <Link
@@ -52,6 +52,7 @@ export function SiteFooter() {
           <ul className="space-y-2 font-body text-sm text-ink">
             {[
               { href: "/journal", label: "Journal" },
+              { href: "/notes", label: "Field Notes" },
               { href: "/culture", label: "Culture" },
               { href: "/about", label: "About" },
               { href: "/connect", label: "Connect" },

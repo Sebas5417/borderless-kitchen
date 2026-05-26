@@ -1,5 +1,10 @@
 import { MetadataRoute } from "next";
-import { allBooks, allStories, allPantryEntries } from "contentlayer/generated";
+import {
+  allBooks,
+  allStories,
+  allPantryEntries,
+  allFieldNotes,
+} from "contentlayer/generated";
 
 const siteUrl = "https://borderlesskitchenseries.com";
 
@@ -25,6 +30,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
+  const notes = allFieldNotes.map((note) => ({
+    url: `${siteUrl}/notes/${note.slug}`,
+    lastModified: new Date(note.date),
+    changeFrequency: "yearly" as const,
+    priority: 0.4,
+  }));
+
   return [
     { url: siteUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
     { url: `${siteUrl}/books`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
@@ -33,8 +45,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/culture`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteUrl}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
     { url: `${siteUrl}/connect`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
+    { url: `${siteUrl}/notes`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.5 },
     ...books,
     ...stories,
     ...pantry,
+    ...notes,
   ];
 }

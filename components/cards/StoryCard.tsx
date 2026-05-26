@@ -39,12 +39,17 @@ export function StoryCard({
         <p className="font-ui text-eyebrow uppercase text-ink/50 mb-3">
           {formattedDate}
         </p>
-        <h3 className="font-display text-2xl text-ink leading-tight">
+        <h3 className="font-display text-2xl text-ink leading-tight group-hover:text-vermillion transition-colors duration-300">
           {title}
         </h3>
-        <p className="font-body text-base text-ink/70 mt-3 max-w-prose">
+        <p className="font-body text-base text-ink/70 mt-3 leading-relaxed">
           {dek}
         </p>
+        {!inactive ? (
+          <p className="font-ui text-eyebrow uppercase text-ink/40 mt-4 group-hover:text-vermillion transition-colors duration-300">
+            Read essay <span aria-hidden="true">→</span>
+          </p>
+        ) : null}
       </div>
     </article>
   );

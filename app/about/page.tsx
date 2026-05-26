@@ -8,7 +8,7 @@ import { FadeRise } from "@/components/motion/FadeRise";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Sebastian Dri is the creator of the Borderless Kitchen series — cookbooks built on the idea that great cooking isn't limited by geography.",
+    "Sebastian Dri is the author of the Borderless Kitchen cookbook series. Cross-cultural cooking grounded in technique, restraint, and the conversation between cuisines.",
 };
 
 const TMT_AMAZON = process.env.NEXT_PUBLIC_AMAZON_URL_TMT ?? "https://www.amazon.com/dp/B0GY8H2TCQ";
@@ -36,8 +36,12 @@ export default function AboutPage() {
               Sebastian Dri
             </p>
             <h1 className="font-display text-display-1 text-paper leading-tight max-w-3xl">
-              Sebastian Dri builds cookbooks around one idea: the best flavors never needed a passport.
+              Flavor never needed borders.
             </h1>
+            <p className="font-display italic text-xl md:text-2xl text-paper/70 mt-6 max-w-xl leading-snug">
+              Cookbooks built on one idea: the best flavors never needed a
+              passport.
+            </p>
           </Container>
         </div>
       </section>
@@ -51,25 +55,36 @@ export default function AboutPage() {
               <div className="lg:col-span-7">
                 <div className="max-w-prose space-y-6 font-body text-lg text-ink/90 leading-relaxed">
                   <p>
-                    Sebastian Dri is the creator of the Borderless Kitchen series — a collection built on the belief that great food has never cared much about borders.
+                    Sebastian Dri is the author of the Borderless Kitchen
+                    series. The work starts with one idea: cuisines were never
+                    as separated as cookbooks often pretend they are.
                   </p>
                   <p>
-                    His approach to cooking is simple: bold flavor, strong structure, and fusion that feels intentional instead of forced. Not gimmicks. Not chaos. Just dishes that make sense the moment you taste them.
+                    The approach is simple. Bold flavor. Strong structure.
+                    Fusion that feels intentional instead of forced. Not
+                    gimmicks. Not chaos. Dishes that make sense the moment you
+                    taste them.
                   </p>
                   <p>
-                    Over the years, some of the best meals he's ever had came from places that weren't trying to impress anyone — tiny kitchens, roadside restaurants, crowded cities, quiet towns, and places most people would drive right past without noticing. What those meals shared wasn't authenticity in the marketing sense. It was confidence. They knew exactly what they were trying to do, and they did it well.
+                    The best meals he's eaten weren't trying to impress anyone
+                    — tiny kitchens, roadside places, towns most people pass
+                    through without slowing down. What those meals shared
+                    wasn't authenticity in the marketing sense. It was
+                    confidence. They knew what they were doing, and they did
+                    it well.
                   </p>
                   <p>
-                    That idea became the foundation for Borderless Kitchen.
+                    That became the foundation for the series. Techniques
+                    travel. Ingredients evolve. Flavor crosses oceans long
+                    before anyone gives it permission to. Once you read the
+                    structure underneath a cuisine — the salt, the acid, the
+                    heat, the patience — you can hold two of them next to each
+                    other and hear the same conversation.
                   </p>
                   <p>
-                    The series is built around the belief that cuisines were never as separated as cookbooks often pretend they are. Techniques travel. Ingredients evolve. Flavor crosses oceans long before people give it permission to. And when you understand the structure behind a cuisine — the balance, the texture, the heat, the acidity, the comfort — you can combine influences in ways that feel natural, respectful, and genuinely exciting.
-                  </p>
-                  <p>
-                    Sebastian's recipes focus on clarity over complication: food that looks beautiful, tastes bold, and actually works in a real kitchen.
-                  </p>
-                  <p>
-                    No confusion. No trend-chasing. Just thoughtful fusion, strong flavor, and dishes worth making again.
+                    The recipes are written for real kitchens. Clear over
+                    clever. Bold over decorative. No trend-chasing. Dishes
+                    worth cooking twice.
                   </p>
                 </div>
               </div>
@@ -94,9 +109,9 @@ export default function AboutPage() {
                       The series
                     </p>
                     <p className="font-body text-sm text-ink/70 leading-relaxed">
-                      Four volumes. Four collisions between cuisines that already
-                      share more than they admit. Vol. I — Tokyo Meets Tuscany —
-                      is live now. Vol. II — Seoul Meets Mexico City — is in
+                      Four volumes. Four pairings of cuisines that already share
+                      more than they admit. Vol.&nbsp;I — Tokyo Meets Tuscany —
+                      is out. Vol.&nbsp;II — Seoul Meets San Miguel — is in
                       progress.
                     </p>
                   </div>
@@ -127,9 +142,9 @@ export default function AboutPage() {
                 </p>
               </blockquote>
               <p className="font-body text-lg text-ink/60 mt-10 max-w-prose mx-auto leading-relaxed">
-                This series is not about erasing the lines between cuisines. It's
-                about reading them — and discovering that the lines were always
-                more porous than the cookbooks suggested.
+                The series isn't about erasing the lines between cuisines. It's
+                about reading them — and noticing they were always more porous
+                than the cookbooks pretended.
               </p>
             </div>
           </FadeRise>
