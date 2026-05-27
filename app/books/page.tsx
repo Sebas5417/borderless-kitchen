@@ -11,16 +11,16 @@ import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 export const metadata: Metadata = {
   title: "The Series",
   description:
-    "Four cookbooks in the Borderless Kitchen series — each volume pairs two cuisines and looks for what they already share. Tokyo Meets Tuscany. Seoul Meets San Miguel. And two more to come.",
+    "Four cookbooks in the Borderless Kitchen series — each volume pairs two cuisines and looks for what they already share. Tokyo Meets Tuscany. Seoul Meets Mexico City. And two more to come.",
 };
 
 const TMT_AMAZON = process.env.NEXT_PUBLIC_AMAZON_URL_TMT ?? "https://www.amazon.com/dp/B0GY8H2TCQ";
 
 export default function BooksPage() {
   const tmt = allBooks.find((b) => b.slug === "tokyo-meets-tuscany")!;
-  const smsm = allBooks.find((b) => b.slug === "seoul-meets-san-miguel");
+  const smmc = allBooks.find((b) => b.slug === "seoul-meets-mexico-city");
   const future = allBooks
-    .filter((b) => b.status === "coming" && b.slug !== "seoul-meets-san-miguel")
+    .filter((b) => b.status === "coming" && b.slug !== "seoul-meets-mexico-city")
     .sort((a, b) => (a.ordering ?? 100) - (b.ordering ?? 100));
 
   return (
@@ -111,8 +111,8 @@ export default function BooksPage() {
         </Container>
       </section>
 
-      {/* Volume II — Seoul Meets San Miguel */}
-      {smsm ? (
+      {/* Volume II — Seoul Meets Mexico City */}
+      {smmc ? (
         <section className="py-24 md:py-32 border-t border-hairline bg-ink/[0.02]">
           <Container>
             <FadeRise>
@@ -123,21 +123,22 @@ export default function BooksPage() {
                       Vol. II — Coming soon
                     </p>
                     <h2 className="font-display text-display-1 text-ink leading-tight">
-                      {smsm.title}
+                      {smmc.title}
                     </h2>
                     <p className="font-ui text-eyebrow uppercase text-ink/50 mt-3 mb-8">
-                      {smsm.regionA} × {smsm.regionB}
+                      {smmc.regionA} × {smmc.regionB}
                     </p>
                     <div className="font-body text-lg text-ink/80 leading-relaxed max-w-prose space-y-4">
                       <p>
-                        Two kitchens that treat time as an ingredient. Seoul
-                        works in fermentation — kimchi, gochujang, doenjang. San
-                        Miguel works in slow heat — mole, adobo, charred chiles.
-                        Different methods. The same patience.
+                        Two cities that have built entire culinary cultures
+                        around fermentation, heat, and the slow accumulation of
+                        flavor. Kimchi and salsa. Doenjang and mole. Gochugaru
+                        and chile de árbol.
                       </p>
                       <p>
                         Thirty recipes at the meeting point of those two
-                        pantries.
+                        pantries. Not fusion. Convergence — two traditions
+                        arriving at the same truth from opposite directions.
                       </p>
                     </div>
                     <div className="mt-10">
@@ -151,14 +152,14 @@ export default function BooksPage() {
                   </div>
                 </div>
                 <div className="lg:col-span-5 lg:col-start-8 order-1 lg:order-2">
-                  {smsm.coverImageSrc ? (
+                  {smmc.coverImageSrc ? (
                     <div
                       className="relative overflow-hidden"
                       style={{ aspectRatio: "3 / 4" }}
                     >
                       <Image
-                        src={smsm.coverImageSrc}
-                        alt={smsm.coverImageAlt}
+                        src={smmc.coverImageSrc}
+                        alt={smmc.coverImageAlt}
                         fill
                         sizes="(min-width: 1024px) 40vw, 90vw"
                         className="object-cover"
@@ -166,9 +167,9 @@ export default function BooksPage() {
                     </div>
                   ) : (
                     <EditorialImage
-                      alt={smsm.coverImageAlt}
+                      alt={smmc.coverImageAlt}
                       aspect="hero-portrait"
-                      slot="smsm-cover"
+                      slot="smmc-cover"
                     />
                   )}
                 </div>

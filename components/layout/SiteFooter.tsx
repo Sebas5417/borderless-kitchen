@@ -30,7 +30,7 @@ export function SiteFooter() {
             {[
               { href: "/books", label: "All volumes" },
               { href: "/books/tokyo-meets-tuscany", label: "Tokyo Meets Tuscany" },
-              { href: "/books/seoul-meets-san-miguel", label: "Seoul Meets San Miguel" },
+              { href: "/books/seoul-meets-mexico-city", label: "Seoul Meets Mexico City" },
             ].map((item) => (
               <li key={item.href}>
                 <Link

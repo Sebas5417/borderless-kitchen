@@ -115,7 +115,7 @@ export default function HomePage() {
         </section>
       ) : null}
 
-      {/* 3b. Vol II tease — Seoul Meets San Miguel */}
+      {/* 3b. Vol II tease — Seoul Meets Mexico City */}
       <section className="py-16 md:py-20 border-t border-hairline bg-charcoal-deep text-paper">
         <Container>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
@@ -124,7 +124,7 @@ export default function HomePage() {
                 Vol. II — Coming soon
               </p>
               <p className="font-display text-display-3 text-paper leading-tight">
-                Seoul Meets San Miguel
+                Seoul Meets Mexico City
               </p>
               <p className="font-body text-base text-paper/60 mt-2">
                 Fermented depth meets layered heat.

@@ -67,7 +67,7 @@ export default function ConnectPage() {
                   Vol. II — Coming soon
                 </p>
                 <p className="font-body text-base text-ink/70">
-                  Seoul Meets San Miguel. Fermented depth meets layered heat.
+                  Seoul Meets Mexico City. Fermented depth meets layered heat.
                 </p>
                 <a
                   href="https://free.borderlesskitchenseries.com"
