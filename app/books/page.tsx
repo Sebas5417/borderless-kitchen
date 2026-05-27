@@ -7,6 +7,7 @@ import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { EditorialImage } from "@/components/media/EditorialImage";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
+import { PageHero } from "@/components/editorial/PageHero";
 
 export const metadata: Metadata = {
   title: "The Series",
@@ -25,21 +26,13 @@ export default function BooksPage() {
 
   return (
     <>
-      {/* Header */}
-      <section className="py-20 md:py-32 border-b border-hairline">
-        <Container>
-          <p className="font-ui text-eyebrow uppercase text-vermillion mb-6">
-            Borderless Kitchen Series
-          </p>
-          <h1 className="font-display text-display-1 text-ink leading-tight max-w-4xl">
-            Four kitchens. One conversation.
-          </h1>
-          <p className="font-body text-lg text-ink/70 mt-8 max-w-prose leading-relaxed">
-            Each volume puts two cuisines in the same room and asks what they
-            already have in common. The answer is always more than you'd think.
-          </p>
-        </Container>
-      </section>
+      <PageHero
+        eyebrow="Borderless Kitchen Series"
+        headline="Four kitchens. One conversation."
+        dek="Each volume puts two cuisines in the same room and asks what they already have in common. The answer is always more than you'd think."
+        src="/images/banner-books.png"
+        alt="Editorial banner — Borderless Kitchen series."
+      />
 
       {/* Volume I — TMT */}
       <section className="py-24 md:py-32">

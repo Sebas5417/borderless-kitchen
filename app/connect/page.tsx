@@ -3,6 +3,7 @@ import { Container } from "@/components/layout/Container";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { FadeRise } from "@/components/motion/FadeRise";
+import { PageHero } from "@/components/editorial/PageHero";
 
 export const metadata: Metadata = {
   title: "Connect",
@@ -14,19 +15,21 @@ const TMT_AMAZON = process.env.NEXT_PUBLIC_AMAZON_URL_TMT ?? "https://www.amazon
 
 export default function ConnectPage() {
   return (
-    <section className="py-20 md:py-32">
+    <>
+      <PageHero
+        eyebrow="Connect"
+        headline="Stay close to the kitchen."
+        dek="New volumes, essays from the counter, and the occasional recipe note that didn't make the book."
+        src="/images/banner-connect.png"
+        alt="Editorial banner — connect with Borderless Kitchen."
+      />
+      <section className="py-20 md:py-32">
       <Container>
         <FadeRise>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
             {/* Left */}
             <div className="lg:col-span-5">
-              <p className="font-ui text-eyebrow uppercase text-vermillion mb-6">
-                Connect
-              </p>
-              <h1 className="font-display text-display-2 text-ink leading-tight">
-                Stay close to the kitchen.
-              </h1>
-              <div className="mt-8 space-y-5 font-body text-lg text-ink/70 leading-relaxed max-w-prose">
+              <div className="space-y-5 font-body text-lg text-ink/70 leading-relaxed max-w-prose">
                 <p>
                   New volumes, essays from the counter, and the occasional recipe
                   note that didn't make the book. Infrequent. Worth it.
@@ -100,6 +103,7 @@ export default function ConnectPage() {
           </div>
         </FadeRise>
       </Container>
-    </section>
+      </section>
+    </>
   );
 }

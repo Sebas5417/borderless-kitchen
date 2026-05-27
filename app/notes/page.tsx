@@ -3,6 +3,7 @@ import Link from "next/link";
 import { allFieldNotes } from "contentlayer/generated";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
+import { PageHero } from "@/components/editorial/PageHero";
 
 export const metadata: Metadata = {
   title: "Field Notes",
@@ -17,20 +18,13 @@ export default function NotesPage() {
 
   return (
     <>
-      <section className="py-20 md:py-28 border-b border-hairline">
-        <Container>
-          <p className="font-ui text-eyebrow uppercase text-vermillion mb-6">
-            Field Notes
-          </p>
-          <h1 className="font-display text-display-1 text-ink leading-tight max-w-3xl">
-            Fragments from the road and the counter.
-          </h1>
-          <p className="font-body text-lg text-ink/60 mt-6 max-w-prose leading-relaxed">
-            Shorter than essays. Sometimes a paragraph. Always something small
-            that turned out to be worth writing down.
-          </p>
-        </Container>
-      </section>
+      <PageHero
+        eyebrow="Field Notes"
+        headline="Fragments from the road and the counter."
+        dek="Shorter than essays. Sometimes a paragraph. Always something small that turned out to be worth writing down."
+        src="/images/banner-notes.png"
+        alt="Editorial banner — Borderless Kitchen field notes."
+      />
 
       <section className="py-16 md:py-24">
         <Container>

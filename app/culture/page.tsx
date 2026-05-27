@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/Container";
 import { PantryCard } from "@/components/cards/PantryCard";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
+import { PageHero } from "@/components/editorial/PageHero";
 
 export const metadata: Metadata = {
   title: "Culture",
@@ -27,20 +28,13 @@ export default function CulturePage() {
 
   return (
     <>
-      <section className="py-20 md:py-28 border-b border-hairline">
-        <Container>
-          <p className="font-ui text-eyebrow uppercase text-vermillion mb-6">
-            Culture
-          </p>
-          <h1 className="font-display text-display-1 text-ink leading-tight max-w-3xl">
-            What the recipes are built on.
-          </h1>
-          <p className="font-body text-lg text-ink/60 mt-6 max-w-prose leading-relaxed">
-            Not a glossary. A working library. Each entry is a thing worth
-            understanding before you cook with it.
-          </p>
-        </Container>
-      </section>
+      <PageHero
+        eyebrow="Culture"
+        headline="What the recipes are built on."
+        dek="Not a glossary. A working library. Each entry is a thing worth understanding before you cook with it."
+        src="/images/banner-culture.png"
+        alt="Editorial banner — the Culture library."
+      />
 
       {/* Classification rows */}
       {CLASSIFICATIONS.map((cls) => {

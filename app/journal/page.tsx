@@ -5,6 +5,7 @@ import { Container } from "@/components/layout/Container";
 import { StoryCard } from "@/components/cards/StoryCard";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
+import { PageHero } from "@/components/editorial/PageHero";
 
 export const metadata: Metadata = {
   title: "Journal",
@@ -19,21 +20,13 @@ export default function JournalPage() {
 
   return (
     <>
-      <section className="py-20 md:py-28 border-b border-hairline">
-        <Container>
-          <p className="font-ui text-eyebrow uppercase text-vermillion mb-6">
-            Journal
-          </p>
-          <h1 className="font-display text-display-1 text-ink leading-tight max-w-3xl">
-            Notes on food, culture, memory, and movement.
-          </h1>
-          <p className="font-body text-lg text-ink/60 mt-6 max-w-prose leading-relaxed">
-            Not recipes. The stories behind them — why certain flavors exist,
-            where they came from, and what they mean when they meet on the
-            same plate.
-          </p>
-        </Container>
-      </section>
+      <PageHero
+        eyebrow="Journal"
+        headline="Notes on food, culture, memory, and movement."
+        dek="Not recipes. The stories behind them — why certain flavors exist, where they came from, and what they mean when they meet on the same plate."
+        src="/images/banner-journal.png"
+        alt="Editorial banner — the Borderless Kitchen Journal."
+      />
 
       <section className="py-16 md:py-24">
         <Container>
