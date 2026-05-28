@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { allBooks, allStories, allFieldNotes } from "contentlayer/generated";
 import { Container } from "@/components/layout/Container";
-import { Hero } from "@/components/editorial/Hero";
+import { HeroCarousel } from "@/components/editorial/HeroCarousel";
 import { PhilosophyStrip } from "@/components/editorial/PhilosophyStrip";
 import { EditorialImage } from "@/components/media/EditorialImage";
 import { BookCard } from "@/components/cards/BookCard";
@@ -36,18 +36,21 @@ export default function HomePage() {
 
   return (
     <>
-      {/* 1. Hero — real chef photo */}
-      <Hero
+      {/* 1. Hero carousel — rotates through all five editorial banners */}
+      <HeroCarousel
         eyebrow="Vol. I — Tokyo Meets Tuscany"
         headline="The borders are optional."
         link={{
           label: "The first volume is live — Tokyo Meets Tuscany →",
           href: "/books/tokyo-meets-tuscany",
         }}
-        src="/images/hero-chef.png"
-        alt="Chef at work in a professional kitchen — the Borderless Kitchen series."
-        objectPosition="object-[center_40%]"
-        priority
+        images={[
+          { src: "/images/banner-carousel-1.png", alt: "Golden sunset over Mexico City with food — Borderless Kitchen." },
+          { src: "/images/banner-carousel-2.png", alt: "Warm spices and ingredients — Borderless Kitchen." },
+          { src: "/images/banner-carousel-3.png", alt: "Dark Korean spices and ingredients — Borderless Kitchen." },
+          { src: "/images/banner-carousel-4.png", alt: "Editorial spice spread — Borderless Kitchen." },
+          { src: "/images/banner-carousel-5.png", alt: "Cinematic dark plate with book and camera — Borderless Kitchen." },
+        ]}
       />
 
       {/* 2. Philosophy strip */}

@@ -20,12 +20,12 @@ export default function AboutPage() {
       <section className="relative bg-charcoal-deep overflow-hidden" style={{ minHeight: "80vh" }}>
         <div className="absolute inset-0">
           <Image
-            src="/images/hero-chef.png"
+            src="/images/banner-about.png"
             alt="Sebastian Dri in the kitchen — steam rising from a cast iron pan."
             fill
             priority
             sizes="100vw"
-            className="object-cover object-top opacity-70"
+            className="object-cover object-center opacity-70"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-charcoal-deep/80 via-charcoal-deep/40 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-deep/60 to-transparent" />
