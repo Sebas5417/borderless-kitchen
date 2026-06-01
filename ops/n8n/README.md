@@ -109,6 +109,32 @@ Status lifecycle: `PENDING → GENERATING → AWAITING_APPROVAL → APPROVED →
 
 ---
 
+## Incident 2026-05-31 — caption prompt reverted to hardcoded TMT block
+
+**Symptom:** SMMC captions claimed the recipe was in "Vol. 1 Tokyo Meets Tuscany."
+BK-004 even posted to Instagram with the wrong attribution.
+
+**Cause:** the Claude `HTTP Request` node's `jsonBody` hardcodes step 3 as
+*"Vol block (REQUIRED — copy verbatim): This recipe is inside Tokyo Meets Tuscany — Vol 1…"*
+so Claude copied it verbatim for **every** book. The earlier data-driven patch
+had reverted — n8n keeps active workflows in memory and flushed its in-memory
+(original) copy back over a direct DB edit that was done **while n8n was running**.
+
+**Fix:** re-applied the per-book vol-block expression with `fix_caption_prompt.py`
+**after stopping n8n** so it couldn't overwrite:
+```
+docker stop n8n-main && python3 fix_caption_prompt.py && docker start n8n-main
+```
+Verified with `verify_caption_prompt.py` (calls Claude with the live prompt for a
+sample SMMC recipe → got the correct Vol. 2 block, no TMT line). **Always stop n8n
+before editing the workflow in the DB**, or the edit will be reverted.
+
+**Re-revert risk: ruled out.** Recon found no restore/import cron or timer. The
+only n8n cron jobs are **backups** (`sqlite3 .dump` at 03:00 + `backup-workflows-api.sh`
+which `curl`s `/api/v1/workflows/download` at 03:15, both rclone'd to
+`gdrive:claude/n8n-backups/`). Backups export only; they never write back to n8n.
+Old `.sql` backups still contain the pre-fix prompt — harmless unless manually restored.
+
 ## Scripts (`ops/n8n/scripts/`)
 
 All read the n8n encryption key and OAuth/Cloudinary creds at runtime — **no
@@ -122,5 +148,7 @@ secrets are stored in this repo.** Run them on the server (they need access to
 | `fix_sheet_attribution.py` | One-off fixer for wrong vol-block / book codes / status |
 | `smmc_pipeline.py` | Drive→Cloudinary→Sheet loader for SMMC recipes (idempotent; `APPLY=1` to write) |
 | `patch_caption_cadence.py` | Set the schedule trigger to N times/day |
+| `fix_caption_prompt.py` | Re-apply the per-book vol block to the Claude prompt (run with n8n STOPPED) |
+| `verify_caption_prompt.py` | Side-effect-free check that the live prompt yields the right per-book block |
 
 See each script's header for usage.
