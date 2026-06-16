@@ -51,6 +51,7 @@ export function SiteFooter() {
           </p>
           <ul className="space-y-2 font-body text-sm text-ink">
             {[
+              { href: "/free", label: "Free Recipes" },
               { href: "/journal", label: "Journal" },
               { href: "/notes", label: "Field Notes" },
               { href: "/culture", label: "Culture" },
@@ -72,20 +73,23 @@ export function SiteFooter() {
         {/* Fine print */}
         <div>
           <p className="font-ui text-eyebrow uppercase text-ink/50 mb-4">
-            Free starter guide
+            Free recipes
           </p>
+          <Link
+            href="/free"
+            className="font-body text-sm text-ink hover:text-vermillion transition-colors duration-300 block mb-2"
+          >
+            17 free fusion recipes →
+          </Link>
           <a
             href="https://free.borderlesskitchenseries.com"
-            className="font-body text-sm text-ink hover:text-vermillion transition-colors duration-300"
+            className="font-body text-xs text-ink/50 hover:text-vermillion transition-colors duration-300"
           >
-            free.borderlesskitchenseries.com →
+            Email list + Flavor Pairing Matrix →
           </a>
           <div className="mt-8 pt-6 border-t border-hairline">
             <p className="font-body text-xs text-ink/40">
               © {year} Sebastian Dri. All rights reserved.
-            </p>
-            <p className="font-body text-xs text-ink/40 mt-1">
-              Recipes appear in the printed volumes only.
             </p>
             <div className="flex gap-4 mt-3">
               <Link
