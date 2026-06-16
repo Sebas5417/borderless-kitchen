@@ -8,7 +8,8 @@ const NAV = [
   { href: "/culture", label: "Culture" },
   { href: "/about", label: "About" },
   { href: "/connect", label: "Connect" },
-];
+  { href: "/free", label: "Free", highlight: true },
+] as const;
 
 export function SiteHeader() {
   return (
@@ -29,7 +30,7 @@ export function SiteHeader() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="hover:text-ink transition-colors duration-300"
+                  className={`hover:text-ink transition-colors duration-300 ${"highlight" in item && item.highlight ? "text-vermillion hover:text-vermillion/70" : ""}`}
                 >
                   {item.label}
                 </Link>

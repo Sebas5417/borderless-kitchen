@@ -10,7 +10,8 @@ const NAV = [
   { href: "/culture", label: "Culture" },
   { href: "/about", label: "About" },
   { href: "/connect", label: "Connect" },
-];
+  { href: "/free", label: "Free", highlight: true },
+] as const;
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
@@ -79,7 +80,9 @@ export function MobileMenu() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className={`block font-display text-display-2 text-paper/90 hover:text-vermillion transition-colors duration-300 ${
+                    className={`block font-display text-display-2 hover:text-vermillion transition-colors duration-300 ${
+                      "highlight" in item && item.highlight ? "text-vermillion" : "text-paper/90"
+                    } ${
                       open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
                     } transition-all duration-500`}
                     style={{ transitionDelay: open ? `${i * 60}ms` : "0ms" }}
