@@ -9,16 +9,29 @@ export type SubscribeResult =
   | { ok: true }
   | { ok: false; error: "invalid-email" | "unknown" };
 
-/**
- * Newsletter stub.
- *
- * Behavior is intentionally single-mode at v1:
- *   - In development: appends to .data/newsletter-submissions.json
- *   - In production:  returns success and writes nothing
- *
- * NEWSLETTER_PROVIDER env var is reserved for post-launch branching
- * but is not read here.
- */
+async function addToMailerLite(email: string): Promise<boolean> {
+  const apiKey = process.env.MAILERLITE_API_KEY;
+  const groupId = process.env.MAILERLITE_GROUP_ID;
+
+  if (!apiKey) return false;
+
+  const body: Record<string, unknown> = { email };
+  if (groupId) body.groups = [groupId];
+
+  const res = await fetch("https://connect.mailerlite.com/api/subscribers", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+      Accept: "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+
+  // 200 = updated existing, 201 = created new, 409 = already subscribed
+  return res.status === 200 || res.status === 201 || res.status === 409;
+}
+
 export async function subscribe(formData: FormData): Promise<SubscribeResult> {
   const raw = formData.get("email");
   const email = typeof raw === "string" ? raw.trim().toLowerCase() : "";
@@ -39,7 +52,7 @@ export async function subscribe(formData: FormData): Promise<SubscribeResult> {
         const parsed = JSON.parse(buf);
         if (Array.isArray(parsed)) existing = parsed;
       } catch {
-        /* first write — file does not exist yet */
+        /* first write */
       }
 
       existing.push({ email, at: new Date().toISOString() });
@@ -47,7 +60,15 @@ export async function subscribe(formData: FormData): Promise<SubscribeResult> {
     } catch {
       return { ok: false, error: "unknown" };
     }
+    return { ok: true };
   }
 
-  return { ok: true };
+  // Production: send to MailerLite
+  try {
+    const added = await addToMailerLite(email);
+    if (!added) return { ok: false, error: "unknown" };
+    return { ok: true };
+  } catch {
+    return { ok: false, error: "unknown" };
+  }
 }

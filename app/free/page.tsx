@@ -89,17 +89,18 @@ export default function FreePage() {
                   </p>
                 </Link>
               ))}
-              {/* Placeholder card for more */}
+              {/* Placeholder card for next recipe */}
               <div className="border-b border-r border-hairline p-8 bg-ink/[0.01]">
                 <p className="font-ui text-eyebrow uppercase text-ink/20 mb-2">
-                  Coming soon
+                  Coming next
                 </p>
                 <h3 className="font-display text-xl text-ink/30 leading-tight mb-2">
-                  More recipes dropping soon
+                  Dashi Risotto
                 </h3>
                 <p className="font-body text-sm text-ink/40 leading-relaxed">
-                  Birria Ramen. Matcha Tiramisu. Dashi Risotto. Building the
-                  collection.
+                  Risotto technique unchanged. Stock replaced with kombu-katsuobushi
+                  dashi. White wine replaced with dry sake. The flavor shifts from
+                  roasty to clean and oceanic.
                 </p>
               </div>
             </div>
