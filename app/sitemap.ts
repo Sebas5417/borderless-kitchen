@@ -55,6 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/connect`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
     { url: `${siteUrl}/notes`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.5 },
     { url: `${siteUrl}/recipes`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${siteUrl}/shop`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     ...books,
     ...stories,
     ...pantry,
