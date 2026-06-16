@@ -8,11 +8,11 @@ import { FadeRise } from "@/components/motion/FadeRise";
 export const metadata: Metadata = {
   title: "Free Recipes + Flavor Pairing Chart | Borderless Kitchen",
   description:
-    "Eight free fusion recipes and the Flavor Pairing Matrix — the Italian × Japanese ingredient chart that maps every component of Tokyo Meets Tuscany. No signup required for the recipes.",
+    "Fifteen free fusion recipes and the Flavor Pairing Matrix — the Italian × Japanese ingredient chart that maps every component of Tokyo Meets Tuscany. No signup required for the recipes.",
   openGraph: {
     title: "Free Recipes + Flavor Pairing Chart",
     description:
-      "The Borderless Kitchen free collection: eight cross-cultural recipes and the Flavor Pairing Matrix that explains why they work.",
+      "The Borderless Kitchen free collection: fifteen cross-cultural recipes and the Flavor Pairing Matrix that explains why they work.",
     type: "website",
   },
 };
@@ -46,7 +46,7 @@ export default function FreePage() {
               The recipes. The chart. The logic behind it all.
             </h1>
             <p className="font-body text-xl text-paper/70 max-w-2xl leading-relaxed">
-              Eight cross-cultural recipes — free, no account needed. Plus the
+              {FREE_RECIPES.length} cross-cultural recipes — free, no account needed. Plus the
               Flavor Pairing Matrix: the Italian{" "}
               <span className="text-vermillion">×</span> Japanese ingredient
               chart that explains why every swap in{" "}
