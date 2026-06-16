@@ -46,6 +46,11 @@ export const metadata: Metadata = {
     type: "website",
   },
   robots: { index: true, follow: true },
+  alternates: {
+    types: {
+      "application/rss+xml": `${siteUrl}/feed.xml`,
+    },
+  },
 };
 
 const organizationSchema = {

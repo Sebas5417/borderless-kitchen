@@ -1,13 +1,17 @@
+import Link from "next/link";
+
 type Props = {
   heading?: string;
   body?: string;
   cta?: string;
+  href?: string;
 };
 
 export function EmailCaptureCTA({
-  heading = "Get the free starter guide.",
-  body = "Five pantry ingredients. Three techniques. Everything you need to cook across borders.",
-  cta = "free.borderlesskitchenseries.com →",
+  heading = "Get the free Flavor Pairing Matrix.",
+  body = "The Italian × Japanese ingredient chart behind every recipe in the book. Enter your email — free PDF, one page.",
+  cta = "Get it free →",
+  href = "/free",
 }: Props) {
   return (
     <section className="bg-ink text-paper py-16 md:py-20">
@@ -25,12 +29,12 @@ export function EmailCaptureCTA({
             </p>
           </div>
           <div className="md:col-span-5 md:text-right">
-            <a
-              href="https://free.borderlesskitchenseries.com"
+            <Link
+              href={href}
               className="inline-flex items-center font-ui text-eyebrow uppercase text-paper border-b border-paper/40 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
             >
               {cta}
-            </a>
+            </Link>
           </div>
         </div>
       </div>
