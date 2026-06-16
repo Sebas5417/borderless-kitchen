@@ -152,7 +152,7 @@ export default function HomePage() {
                 Free — no account needed
               </p>
               <p className="font-display text-display-3 text-ink leading-tight">
-                18 cross-cultural recipes + the Flavor Pairing Matrix.
+                17 cross-cultural recipes + the Flavor Pairing Matrix.
               </p>
               <p className="font-body text-base text-ink/60 mt-2">
                 The full logic behind every Japanese-Italian swap, condensed.
