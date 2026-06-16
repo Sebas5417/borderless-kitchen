@@ -61,7 +61,7 @@ export default function FreePage() {
         <Container>
           <FadeRise>
             <h2 className="font-display text-display-2 text-ink mb-2">
-              Eight free recipes
+              {FREE_RECIPES.length} free recipes
             </h2>
             <p className="font-body text-lg text-ink/60 mb-12 max-w-prose">
               Full recipes, no paywall. Each one demonstrates a core principle
