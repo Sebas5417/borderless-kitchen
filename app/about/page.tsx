@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
@@ -114,6 +115,17 @@ export default function AboutPage() {
                       is out. Vol.&nbsp;II — Seoul Meets Mexico City — is in
                       progress.
                     </p>
+                  </div>
+                  <div>
+                    <p className="font-ui text-eyebrow uppercase text-vermillion mb-2">
+                      New here?
+                    </p>
+                    <Link
+                      href="/journal/start-here-your-guide-to-japanese-italian-fusion-cooking"
+                      className="font-body text-sm text-ink/70 leading-relaxed hover:text-vermillion transition-colors duration-200"
+                    >
+                      Start with the complete guide — what to read, what to cook first, and what order to build the pantry. →
+                    </Link>
                   </div>
                   <div className="pt-4">
                     <AmazonCTA href={TMT_AMAZON} label="Get Vol. I on Amazon" />
