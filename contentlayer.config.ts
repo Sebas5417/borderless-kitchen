@@ -170,7 +170,38 @@ export const Testimonial = defineDocumentType(() => ({
   },
 }));
 
+export const FreeRecipe = defineDocumentType(() => ({
+  name: "FreeRecipe",
+  filePathPattern: "free-recipes/*.mdx",
+  contentType: "mdx",
+  fields: {
+    title: { type: "string", required: true },
+    dek: { type: "string", required: true },
+    date: { type: "date", required: true },
+    targetKeyword: { type: "string", required: true },
+    metaTitle: { type: "string", required: true },
+    metaDescription: { type: "string", required: true },
+    cookTime: { type: "string", required: true },
+    prepTime: { type: "string", required: true },
+    totalTime: { type: "string", required: true },
+    recipeYield: { type: "string", required: true },
+    category: { type: "string", required: true },
+    cuisine: { type: "string", required: true },
+    heroImageSrc: { type: "string" },
+    heroImageAlt: { type: "string", required: true },
+    bookSlug: { type: "string", required: true },
+    relatedSlugs: { type: "list", of: { type: "string" } },
+    ordering: { type: "number", default: 100 },
+  },
+  computedFields: {
+    slug: {
+      type: "string",
+      resolve: (doc) => doc._raw.flattenedPath.replace(/^free-recipes\//, ""),
+    },
+  },
+}));
+
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [Book, RecipeTeaser, Story, FieldNote, PantryEntry, Testimonial],
+  documentTypes: [Book, RecipeTeaser, Story, FieldNote, PantryEntry, Testimonial, FreeRecipe],
 });

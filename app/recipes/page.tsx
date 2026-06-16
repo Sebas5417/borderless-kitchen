@@ -1,0 +1,100 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { allFreeRecipes } from "contentlayer/generated";
+import { Container } from "@/components/layout/Container";
+import { PageHero } from "@/components/editorial/PageHero";
+import { FadeRise } from "@/components/motion/FadeRise";
+import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
+
+export const metadata: Metadata = {
+  title: "Free Recipes | Borderless Kitchen",
+  description:
+    "Free Japanese-Italian fusion recipes from the Borderless Kitchen series — Ramen alla Carbonara, Udon Bolognese, Miso White Pizza, and more. Full instructions, no paywall.",
+  openGraph: {
+    title: "Free Recipes | Borderless Kitchen",
+    description:
+      "Japanese-Italian fusion recipes you can cook tonight. Full instructions, no paywall.",
+    type: "website",
+  },
+};
+
+export default function RecipesPage() {
+  const recipes = [...allFreeRecipes].sort((a, b) => a.ordering - b.ordering);
+
+  return (
+    <>
+      <PageHero
+        eyebrow="Free Recipes"
+        headline="Cook the fusion. Free."
+        dek="Full recipes — ingredients, method, the science behind why each pairing works. No paywall. More depth is in the book."
+        src="/images/banner-culture.png"
+        alt="Editorial banner — free recipes from the Borderless Kitchen series."
+      />
+
+      <section className="py-16 md:py-24">
+        <Container>
+          <FadeRise>
+            <ul className="divide-y divide-hairline">
+              {recipes.map((recipe) => (
+                <li key={recipe.slug}>
+                  <Link
+                    href={`/recipes/${recipe.slug}`}
+                    className="group flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8 py-8 hover:text-vermillion transition-colors duration-300"
+                  >
+                    <span className="font-ui text-eyebrow uppercase text-ink/40 md:w-32 shrink-0">
+                      {recipe.cuisine.split("-")[0].trim()}
+                    </span>
+                    <div className="flex-1">
+                      <h2 className="font-display text-display-3 text-ink group-hover:text-vermillion transition-colors duration-300 leading-tight">
+                        {recipe.title}
+                      </h2>
+                      <p className="font-body text-base text-ink/60 mt-1">
+                        {recipe.dek}
+                      </p>
+                    </div>
+                    <span className="font-ui text-eyebrow uppercase text-ink/30 md:w-24 shrink-0 md:text-right">
+                      {recipe.totalTime.replace("PT", "").replace("M", " min")}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </FadeRise>
+
+          {recipes.length === 0 && (
+            <p className="font-body text-ink/50 py-16">
+              First recipe dropping soon — check back shortly.
+            </p>
+          )}
+        </Container>
+      </section>
+
+      <section className="py-14 md:py-20 border-t border-hairline">
+        <Container>
+          <div className="max-w-prose">
+            <p className="font-ui text-eyebrow uppercase text-ink/40 mb-3">
+              36 more recipes
+            </p>
+            <p className="font-body text-lg text-ink/70 leading-relaxed">
+              The full collection — Chili Oil Lasagna Roll-Ups, Matcha Tiramisu, the Flavor
+              Pairing Matrix, and 33 more — lives in{" "}
+              <Link
+                href="/books/tokyo-meets-tuscany"
+                className="text-ink underline decoration-hairline underline-offset-4 hover:text-vermillion hover:decoration-vermillion transition-colors duration-300"
+              >
+                Tokyo Meets Tuscany
+              </Link>
+              .
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      <EmailCaptureCTA
+        heading="Get the Flavor Pairing Matrix free."
+        body="The Italian × Japanese ingredient chart behind every recipe in the book. Printable, one page."
+        cta="Get the free chart →"
+      />
+    </>
+  );
+}

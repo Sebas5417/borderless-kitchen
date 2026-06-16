@@ -4,6 +4,7 @@ import {
   allStories,
   allPantryEntries,
   allFieldNotes,
+  allFreeRecipes,
 } from "contentlayer/generated";
 
 const siteUrl = "https://borderlesskitchenseries.com";
@@ -37,6 +38,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.4,
   }));
 
+  const freeRecipes = allFreeRecipes.map((recipe) => ({
+    url: `${siteUrl}/recipes/${recipe.slug}`,
+    lastModified: new Date(recipe.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  }));
+
   return [
     { url: siteUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
     { url: `${siteUrl}/books`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
@@ -46,9 +54,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
     { url: `${siteUrl}/connect`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
     { url: `${siteUrl}/notes`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.5 },
+    { url: `${siteUrl}/recipes`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
     ...books,
     ...stories,
     ...pantry,
     ...notes,
+    ...freeRecipes,
   ];
 }

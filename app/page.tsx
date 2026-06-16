@@ -38,11 +38,11 @@ export default function HomePage() {
     <>
       {/* 1. Hero carousel — rotates through all five editorial banners */}
       <HeroCarousel
-        eyebrow="Vol. I — Tokyo Meets Tuscany"
+        eyebrow="Vol. II — Seoul Meets Mexico City — Coming Soon"
         headline="The borders are optional."
         link={{
-          label: "The first volume is live — Tokyo Meets Tuscany →",
-          href: "/books/tokyo-meets-tuscany",
+          label: "Get notified when Vol. II drops →",
+          href: "https://free.borderlesskitchenseries.com",
         }}
         images={[
           { src: "/images/banner-carousel-1.png", alt: "Golden sunset over Mexico City with food — Borderless Kitchen." },
