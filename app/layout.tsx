@@ -51,6 +51,10 @@ export const metadata: Metadata = {
       "application/rss+xml": `${siteUrl}/feed.xml`,
     },
   },
+  // Add NEXT_PUBLIC_GSC_VERIFY env var to verify Google Search Console ownership
+  ...(process.env.NEXT_PUBLIC_GSC_VERIFY
+    ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFY } }
+    : {}),
 };
 
 const organizationSchema = {
