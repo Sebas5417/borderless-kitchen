@@ -31,6 +31,22 @@ export default function JournalPage() {
       <section className="py-16 md:py-24">
         <Container>
           <FadeRise>
+            <div className="mb-12 pb-12 border-b border-hairline">
+              <Link
+                href="/journal/start-here-your-guide-to-japanese-italian-fusion-cooking"
+                className="group inline-flex flex-col gap-2"
+              >
+                <p className="font-ui text-eyebrow uppercase text-vermillion">
+                  Start here
+                </p>
+                <h2 className="font-display text-display-3 text-ink leading-tight group-hover:text-vermillion transition-colors duration-300">
+                  New to Japanese-Italian cooking? Read this first →
+                </h2>
+                <p className="font-body text-base text-ink/60 leading-relaxed max-w-2xl">
+                  What to read, what to cook first, and what order to build the pantry — whether you're coming from Italian cooking or Japanese cooking.
+                </p>
+              </Link>
+            </div>
             <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-14">
               {stories.map((story) => (
                 <li key={story.slug}>
