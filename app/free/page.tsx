@@ -8,11 +8,11 @@ import { FadeRise } from "@/components/motion/FadeRise";
 export const metadata: Metadata = {
   title: "Free Recipes + Flavor Pairing Chart | Borderless Kitchen",
   description:
-    "Five free fusion recipes and the Flavor Pairing Matrix — the Italian × Japanese ingredient chart that maps every component of Tokyo Meets Tuscany. No signup required for the recipes.",
+    "Eight free fusion recipes and the Flavor Pairing Matrix — the Italian × Japanese ingredient chart that maps every component of Tokyo Meets Tuscany. No signup required for the recipes.",
   openGraph: {
     title: "Free Recipes + Flavor Pairing Chart",
     description:
-      "The Borderless Kitchen free collection: five cross-cultural recipes and the Flavor Pairing Matrix that explains why they work.",
+      "The Borderless Kitchen free collection: eight cross-cultural recipes and the Flavor Pairing Matrix that explains why they work.",
     type: "website",
   },
 };
@@ -46,7 +46,7 @@ export default function FreePage() {
               The recipes. The chart. The logic behind it all.
             </h1>
             <p className="font-body text-xl text-paper/70 max-w-2xl leading-relaxed">
-              Five cross-cultural recipes — free, no account needed. Plus the
+              Eight cross-cultural recipes — free, no account needed. Plus the
               Flavor Pairing Matrix: the Italian{" "}
               <span className="text-vermillion">×</span> Japanese ingredient
               chart that explains why every swap in{" "}
@@ -61,7 +61,7 @@ export default function FreePage() {
         <Container>
           <FadeRise>
             <h2 className="font-display text-display-2 text-ink mb-2">
-              Five free recipes
+              Eight free recipes
             </h2>
             <p className="font-body text-lg text-ink/60 mb-12 max-w-prose">
               Full recipes, no paywall. Each one demonstrates a core principle
@@ -89,20 +89,6 @@ export default function FreePage() {
                   </p>
                 </Link>
               ))}
-              {/* Placeholder card for next recipe */}
-              <div className="border-b border-r border-hairline p-8 bg-ink/[0.01]">
-                <p className="font-ui text-eyebrow uppercase text-ink/20 mb-2">
-                  Coming next
-                </p>
-                <h3 className="font-display text-xl text-ink/30 leading-tight mb-2">
-                  Dashi Risotto
-                </h3>
-                <p className="font-body text-sm text-ink/40 leading-relaxed">
-                  Risotto technique unchanged. Stock replaced with kombu-katsuobushi
-                  dashi. White wine replaced with dry sake. The flavor shifts from
-                  roasty to clean and oceanic.
-                </p>
-              </div>
             </div>
           </FadeRise>
         </Container>

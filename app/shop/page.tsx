@@ -122,6 +122,18 @@ const ITALIAN_PANTRY = [
   },
 ];
 
+const SUBSCRIPTIONS = [
+  {
+    name: "Bokksu — Japanese Snack Subscription",
+    brand: "Bokksu",
+    asin: "",
+    bokksuLink: "https://www.bokksu.com/?refer=borderlesskitchen",
+    note:
+      "Monthly Japanese snack and pantry box. The fastest way to start building familiarity with Japanese flavor profiles — mochi, dashi crackers, matcha sweets. Each box comes with a culture guide. $15 credit per referral.",
+    use: "Flavor exploration, pantry introduction, gift",
+  },
+];
+
 const EQUIPMENT = [
   {
     name: "Baking Steel (for pizza)",
@@ -157,6 +169,15 @@ interface PantryItem {
   use: string;
 }
 
+interface SubscriptionItem {
+  name: string;
+  brand: string;
+  asin: string;
+  bokksuLink: string;
+  note: string;
+  use: string;
+}
+
 function PantryCard({ item }: { item: PantryItem }) {
   return (
     <div className="border-b border-hairline py-8 group">
@@ -183,6 +204,39 @@ function PantryCard({ item }: { item: PantryItem }) {
             className="inline-block font-ui text-eyebrow uppercase text-ink border border-ink/30 px-5 py-2.5 hover:border-vermillion hover:text-vermillion transition-colors duration-300"
           >
             Find on Amazon →
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SubscriptionCard({ item }: { item: SubscriptionItem }) {
+  return (
+    <div className="border-b border-hairline py-8">
+      <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
+        <div className="flex-1">
+          <h3 className="font-display text-xl text-ink leading-tight mb-1">
+            {item.name}
+          </h3>
+          <p className="font-ui text-eyebrow uppercase text-ink/40 mb-3">
+            {item.brand}
+          </p>
+          <p className="font-body text-base text-ink/70 leading-relaxed mb-3">
+            {item.note}
+          </p>
+          <p className="font-ui text-eyebrow uppercase text-ink/40">
+            Good for: {item.use}
+          </p>
+        </div>
+        <div className="shrink-0">
+          <a
+            href={item.bokksuLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block font-ui text-eyebrow uppercase text-ink border border-ink/30 px-5 py-2.5 hover:border-vermillion hover:text-vermillion transition-colors duration-300"
+          >
+            Visit Bokksu →
           </a>
         </div>
       </div>
@@ -235,6 +289,20 @@ export default function ShopPage() {
               </p>
               {ITALIAN_PANTRY.map((item) => (
                 <PantryCard key={item.asin} item={item} />
+              ))}
+            </div>
+
+            {/* Subscriptions */}
+            <div className="mb-16">
+              <h2 className="font-display text-display-2 text-ink mb-2">
+                Japanese Ingredient Subscriptions
+              </h2>
+              <p className="font-body text-lg text-ink/60 mb-8 max-w-prose">
+                The fastest way to build Japanese pantry fluency — curated
+                monthly boxes with ingredients you will actually use.
+              </p>
+              {SUBSCRIPTIONS.map((item) => (
+                <SubscriptionCard key={item.name} item={item} />
               ))}
             </div>
 
