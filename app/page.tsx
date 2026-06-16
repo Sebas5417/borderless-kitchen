@@ -143,6 +143,31 @@ export default function HomePage() {
         </Container>
       </section>
 
+      {/* 3c. Free recipes CTA strip */}
+      <section className="py-16 md:py-20 border-t border-hairline bg-paper">
+        <Container>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <p className="font-ui text-eyebrow uppercase text-vermillion mb-2">
+                Free — no account needed
+              </p>
+              <p className="font-display text-display-3 text-ink leading-tight">
+                18 cross-cultural recipes + the Flavor Pairing Matrix.
+              </p>
+              <p className="font-body text-base text-ink/60 mt-2">
+                The full logic behind every Japanese-Italian swap, condensed.
+              </p>
+            </div>
+            <Link
+              href="/free"
+              className="font-ui text-eyebrow uppercase text-ink border-b border-ink/30 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300 shrink-0"
+            >
+              Get the free collection →
+            </Link>
+          </div>
+        </Container>
+      </section>
+
       {/* 4. Series preview */}
       <section className="py-24 md:py-32 border-t border-hairline">
         <Container>
@@ -198,6 +223,24 @@ export default function HomePage() {
           </div>
 
           <FadeRise>
+            <div className="mb-10 pb-10 border-b border-hairline">
+              <Link
+                href="/journal/start-here-your-guide-to-japanese-italian-fusion-cooking"
+                className="group flex flex-col md:flex-row md:items-start gap-4 md:gap-8"
+              >
+                <p className="font-ui text-eyebrow uppercase text-vermillion shrink-0">
+                  Start here
+                </p>
+                <div>
+                  <h3 className="font-display text-xl md:text-2xl text-ink leading-tight group-hover:text-vermillion transition-colors duration-300 mb-2">
+                    New to Japanese-Italian cooking? Start here →
+                  </h3>
+                  <p className="font-body text-sm text-ink/60 leading-relaxed max-w-prose">
+                    What to read first, what to cook first, and what order to build the pantry — whether you're coming from Italian cooking or Japanese cooking.
+                  </p>
+                </div>
+              </Link>
+            </div>
             <ul className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
               {stories.map((story) => (
                 <li key={story.slug}>
