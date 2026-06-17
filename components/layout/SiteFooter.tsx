@@ -30,7 +30,7 @@ export function SiteFooter() {
             {[
               { href: "/books", label: "All volumes" },
               { href: "/books/tokyo-meets-tuscany", label: "Tokyo Meets Tuscany" },
-              { href: "/books/seoul-meets-mexico-city", label: "Seoul Meets Mexico City" },
+              { href: "/preorder", label: "Seoul Meets Mexico City ↗" },
             ].map((item) => (
               <li key={item.href}>
                 <Link
@@ -79,7 +79,7 @@ export function SiteFooter() {
             href="/free"
             className="font-body text-sm text-ink hover:text-vermillion transition-colors duration-300 block mb-2"
           >
-            17 free fusion recipes →
+            19 free fusion recipes →
           </Link>
           <a
             href="https://free.borderlesskitchenseries.com"

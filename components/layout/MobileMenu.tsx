@@ -11,6 +11,7 @@ const NAV = [
   { href: "/about", label: "About" },
   { href: "/connect", label: "Connect" },
   { href: "/free", label: "Free", highlight: true },
+  { href: "/preorder", label: "Vol. II — Coming Soon", highlight: false },
 ] as const;
 
 export function MobileMenu() {

@@ -134,6 +134,41 @@ const SUBSCRIPTIONS = [
   },
 ];
 
+const KOREAN_PANTRY = [
+  {
+    name: "Gochugaru (Korean Red Pepper Flakes)",
+    brand: "Taekyung",
+    asin: "B09CLDRDBB",
+    note:
+      "The chili flakes that define kimchi and tteokbokki. Not interchangeable with regular chili flakes — gochugaru has a sweet, fruity heat (3/10 on most scales) and a vivid red color. Buy the 500g bag and freeze what you don't use within a month.",
+    use: "Kimchi, gochujang substitute, tteokbokki, Korean fried chicken",
+  },
+  {
+    name: "Doenjang (Korean Soybean Paste)",
+    brand: "Haechandle",
+    asin: "B00ZDH4SCW",
+    note:
+      "The Korean equivalent of aged Japanese miso — fermented soybean paste with a deeper, earthier funk than shiro miso. The fermentation is longer and less controlled, producing a more complex, almost blue-cheese intensity. Use where you'd use miso but want more edge.",
+    use: "Doenjang Carbonara, soups, dipping sauce, marinades",
+  },
+  {
+    name: "Fish Sauce (Vietnamese or Thai)",
+    brand: "Red Boat",
+    asin: "B007Y9TGM4",
+    note:
+      "The invisible umami intensifier across Korean, Thai, and Mexican coastal cooking. Red Boat is the premium standard — 40°N barrels, two-ingredient product (fish + salt). Used in kimchi paste, Korean soups, and anywhere you want savory depth without fishiness.",
+    use: "Kimchi, doenjang jjigae, Korean braising liquid",
+  },
+  {
+    name: "Tteok — Cylinder Rice Cakes (refrigerated)",
+    brand: "Choripdong",
+    asin: "B07TD9ZK8K",
+    note:
+      "The Korean rice cake for tteokbokki. Dense, chewy, made from short-grain rice flour. Holds its shape in simmering sauce without dissolving. Functions as pasta substitute in Korean-Italian fusions — same structural role, different texture and flavor.",
+    use: "Tteokbokki Arrabbiata, tteok soup, stir-fries",
+  },
+];
+
 const EQUIPMENT = [
   {
     name: "Baking Steel (for pizza)",
@@ -274,6 +309,20 @@ export default function ShopPage() {
                 and you can make any recipe in Tokyo Meets Tuscany.
               </p>
               {JAPANESE_PANTRY.map((item) => (
+                <PantryCard key={item.asin} item={item} />
+              ))}
+            </div>
+
+            {/* Korean pantry */}
+            <div className="mb-16">
+              <h2 className="font-display text-display-2 text-ink mb-2">
+                Korean Pantry
+              </h2>
+              <p className="font-body text-lg text-ink/60 mb-8 max-w-prose">
+                The Korean ingredients for Seoul Meets Mexico City — Volume II. Stock these
+                alongside the Japanese pantry to unlock the full Borderless Kitchen range.
+              </p>
+              {KOREAN_PANTRY.map((item) => (
                 <PantryCard key={item.asin} item={item} />
               ))}
             </div>
