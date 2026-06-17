@@ -184,6 +184,33 @@ export default function FreePage() {
         </Container>
       </section>
 
+      {/* Mini-course upsell */}
+      <section className="py-14 md:py-16 border-t border-hairline bg-ink/[0.02]">
+        <Container>
+          <FadeRise>
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div>
+                <p className="font-ui text-eyebrow uppercase text-vermillion mb-2">
+                  Go deeper — $37
+                </p>
+                <p className="font-display text-display-3 text-ink leading-tight">
+                  The 5-Day Fusion Kitchen Mini-Course.
+                </p>
+                <p className="font-body text-sm text-ink/60 mt-2 max-w-prose">
+                  Five techniques. Five recipes. The full system behind the free collection — dashi, miso, umami pairing, and how to build your own fusion dish from scratch.
+                </p>
+              </div>
+              <Link
+                href="/mini-course"
+                className="font-ui text-eyebrow uppercase text-ink border border-ink/30 px-6 py-3 hover:border-vermillion hover:text-vermillion transition-colors duration-300 shrink-0"
+              >
+                Learn more →
+              </Link>
+            </div>
+          </FadeRise>
+        </Container>
+      </section>
+
       {/* Book CTA */}
       <section className="py-16 md:py-20 bg-paper">
         <Container>
