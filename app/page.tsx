@@ -133,12 +133,12 @@ export default function HomePage() {
                 Fermented depth meets layered heat.
               </p>
             </div>
-            <a
-              href="https://free.borderlesskitchenseries.com"
+            <Link
+              href="/preorder"
               className="font-ui text-eyebrow uppercase text-paper/80 border-b border-paper/30 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300 shrink-0"
             >
-              Get notified →
-            </a>
+              Early access + 6 free preview recipes →
+            </Link>
           </div>
         </Container>
       </section>
@@ -152,7 +152,7 @@ export default function HomePage() {
                 Free — no account needed
               </p>
               <p className="font-display text-display-3 text-ink leading-tight">
-                17 cross-cultural recipes + the Flavor Pairing Matrix.
+                19 cross-cultural recipes + the Flavor Pairing Matrix.
               </p>
               <p className="font-body text-base text-ink/60 mt-2">
                 The full logic behind every Japanese-Italian swap, condensed.
