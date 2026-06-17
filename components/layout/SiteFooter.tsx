@@ -52,8 +52,9 @@ export function SiteFooter() {
           <ul className="space-y-2 font-body text-sm text-ink">
             {[
               { href: "/free", label: "Free Recipes" },
+              { href: "/mini-course", label: "Mini-Course ($37)" },
+              { href: "/preorder", label: "Vol. II — Coming Soon" },
               { href: "/journal", label: "Journal" },
-              { href: "/notes", label: "Field Notes" },
               { href: "/culture", label: "Culture" },
               { href: "/about", label: "About" },
               { href: "/connect", label: "Connect" },
