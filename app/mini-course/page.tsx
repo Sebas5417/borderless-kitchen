@@ -2,16 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
+import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 
 export const metadata: Metadata = {
-  title: "The Japanese-Italian Fusion Kitchen: A 5-Day Mini-Course | Borderless Kitchen",
+  title: "The Japanese-Italian Fusion Kitchen: A Free 5-Day Mini-Course | Borderless Kitchen",
   description:
-    "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and the five foundational fusion recipes.",
+    "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and five foundational fusion recipes. Delivered free to your inbox.",
   openGraph: {
-    title: "The Fusion Kitchen Mini-Course",
+    title: "Free: The Fusion Kitchen Mini-Course",
     description:
-      "5 days, 5 techniques, 5 recipes. The complete Japanese-Italian cooking foundation — from dashi to carbonara — for home cooks who want to understand, not just follow.",
+      "5 days, 5 techniques, 5 recipes. The complete Japanese-Italian cooking foundation — delivered daily to your inbox, free.",
     type: "website",
   },
 };
@@ -50,30 +51,30 @@ const DAYS = [
 ];
 
 const INCLUDES = [
-  "5 detailed technique guides — PDF format, printable",
+  "5 detailed technique guides — one per day, straight to your inbox",
   "5 full recipes (including the Ramen alla Carbonara foundation recipe)",
   "The Flavor Pairing Matrix — the full 24-pair chart",
   "The Umami Cheat Sheet (one-page quick reference)",
   "Shopping list: the 12 ingredients you need for all 5 days",
-  "Lifetime access — revisit any lesson any time",
+  "Permanent access — every email is yours to keep",
 ];
 
 const FAQS = [
   {
     q: "Do I need cooking experience?",
-    a: "No. The course assumes you can boil water and use a knife — nothing more. Every technique is explained from first principles. The course is designed for Italian home cooks who are new to Japanese ingredients, and vice versa.",
+    a: "No. The course assumes you can boil water and use a knife — nothing more. Every technique is explained from first principles. Designed for Italian home cooks who are new to Japanese ingredients, and vice versa.",
   },
   {
     q: "What ingredients do I need?",
     a: "The core ingredients for all 5 days cost about $40–60 at an Asian grocery store or Amazon: kombu, katsuobushi, white miso, mirin, sake, soy sauce, sesame oil. You likely already have the Italian pantry items.",
   },
   {
-    q: "Is this a video course?",
-    a: "No — this is a PDF-based learning experience. Detailed written technique guides with step-by-step instructions, diagrams where needed, and recipes. Works on any device, printable.",
+    q: "How does it work?",
+    a: "Sign up and you'll receive Day 1 immediately. Days 2–5 arrive on consecutive days. Each email is a self-contained technique guide with a full recipe. Work at your own pace — they'll be in your inbox when you're ready.",
   },
   {
-    q: "What if I've already bought the book?",
-    a: "The mini-course goes deeper on technique than the book does. The book is recipes; the course is the system behind the recipes. They complement each other. Buyers of Tokyo Meets Tuscany get $10 off with code TMTBOOK at checkout.",
+    q: "I've already bought the book — is this different?",
+    a: "Yes. The mini-course goes deeper on technique than the book does. The book is recipes; the course is the system behind the recipes — why the flavors work together, not just how to execute them. They complement each other.",
   },
 ];
 
@@ -86,36 +87,25 @@ export default function MiniCoursePage() {
           <FadeRise>
             <div className="max-w-3xl">
               <p className="font-ui text-eyebrow uppercase text-vermillion mb-4 tracking-widest">
-                Mini-Course
+                Free Mini-Course
               </p>
               <h1 className="font-display text-display-1 text-paper leading-none mb-6">
                 The Japanese-Italian Fusion Kitchen.
               </h1>
-              <p className="font-body text-xl text-paper/70 leading-relaxed mb-8 max-w-2xl">
+              <p className="font-body text-xl text-paper/70 leading-relaxed mb-10 max-w-2xl">
                 Five days. Five techniques. Everything you need to cook confidently at
                 the intersection of Japanese and Italian cooking — dashi, miso, the umami
-                pairing system, and five foundational fusion recipes.
+                pairing system, and five foundational fusion recipes. Delivered free to your inbox.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 items-start">
-                <a
-                  href="https://gumroad.com/l/[MINICOURSE-ID]"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block font-ui text-eyebrow uppercase text-ink bg-paper px-8 py-4 hover:bg-vermillion hover:text-paper transition-colors duration-300"
-                >
-                  Get the course — $37 →
-                </a>
-                <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
-                  <p className="font-ui text-eyebrow uppercase text-paper/50">
-                    or
-                  </p>
-                  <Link
-                    href="/free"
-                    className="font-ui text-eyebrow uppercase text-paper/70 border-b border-paper/30 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
-                  >
-                    Start with 19 free recipes first →
-                  </Link>
-                </div>
+              <div className="max-w-md">
+                <NewsletterForm
+                  label="Start Day 1 now — enter your email"
+                  placeholder="you@somewhere.com"
+                  buttonLabel="Send me the course"
+                />
+                <p className="mt-4 font-ui text-xs text-paper/40">
+                  Free. No credit card. Unsubscribe any time.
+                </p>
               </div>
             </div>
           </FadeRise>
@@ -130,7 +120,7 @@ export default function MiniCoursePage() {
               Five days. One complete foundation.
             </h2>
             <div className="space-y-0">
-              {DAYS.map((item, i) => (
+              {DAYS.map((item) => (
                 <div
                   key={item.day}
                   className="flex flex-col md:flex-row gap-4 md:gap-10 py-10 border-b border-hairline"
@@ -181,29 +171,25 @@ export default function MiniCoursePage() {
                 <p className="font-ui text-eyebrow uppercase text-ink/40 mb-2">
                   Price
                 </p>
-                <p className="font-display text-display-1 text-ink mb-1">$37</p>
+                <p className="font-display text-display-1 text-ink mb-1">Free.</p>
                 <p className="font-body text-sm text-ink/50 mb-8">
-                  One-time. Lifetime access. Instant download.
+                  Five emails. Five techniques. Zero cost.
                 </p>
-                <a
-                  href="https://gumroad.com/l/[MINICOURSE-ID]"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block text-center font-ui text-eyebrow uppercase text-paper bg-ink px-8 py-4 hover:bg-vermillion transition-colors duration-300 w-full"
-                >
-                  Get the course →
-                </a>
-                <p className="font-ui text-eyebrow uppercase text-ink/40 text-center mt-4">
-                  Book buyers: code TMTBOOK saves $10
-                </p>
+                <NewsletterForm
+                  label="Your email"
+                  placeholder="you@somewhere.com"
+                  buttonLabel="Start the course"
+                />
                 <div className="mt-8 pt-6 border-t border-hairline">
                   <p className="font-body text-sm text-ink/50 leading-relaxed">
-                    Not sure? Start with the{" "}
-                    <Link href="/free" className="text-ink hover:text-vermillion transition-colors underline">
-                      19 free recipes
+                    Already cooking from the course? The book{" "}
+                    <Link
+                      href="/books/tokyo-meets-tuscany"
+                      className="text-ink hover:text-vermillion transition-colors underline"
+                    >
+                      Tokyo Meets Tuscany
                     </Link>{" "}
-                    — they use all the same techniques. If you want to understand the why behind
-                    the recipes, the course is the next step.
+                    has 30 full fusion recipes using the same system.
                   </p>
                 </div>
               </div>
@@ -239,23 +225,20 @@ export default function MiniCoursePage() {
       <section className="py-16 md:py-20 border-b border-hairline">
         <Container>
           <FadeRise>
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div className="grid md:grid-cols-2 gap-12 items-start max-w-3xl">
               <div>
-                <p className="font-display text-display-3 text-ink leading-tight">
+                <p className="font-display text-display-3 text-ink leading-tight mb-2">
                   Five days. One foundation.
                 </p>
-                <p className="font-body text-base text-ink/60 mt-2">
-                  Everything you need to cook confidently at the intersection.
+                <p className="font-body text-base text-ink/60">
+                  Everything you need to cook confidently at the intersection. Free.
                 </p>
               </div>
-              <a
-                href="https://gumroad.com/l/[MINICOURSE-ID]"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block font-ui text-eyebrow uppercase text-paper bg-ink px-8 py-4 hover:bg-vermillion transition-colors duration-300 shrink-0"
-              >
-                Get the course — $37 →
-              </a>
+              <NewsletterForm
+                label="Start now"
+                placeholder="you@somewhere.com"
+                buttonLabel="Send me Day 1"
+              />
             </div>
           </FadeRise>
         </Container>
@@ -263,7 +246,7 @@ export default function MiniCoursePage() {
 
       <EmailCaptureCTA
         heading="Not ready for the course? Start with the free collection."
-        body="Nineteen fusion recipes and the Flavor Pairing Matrix — free, no account needed. The same techniques as the course, in recipe form."
+        body="Nineteen fusion recipes and the Flavor Pairing Matrix — free, no account needed."
         cta="Get the free collection →"
       />
     </>
