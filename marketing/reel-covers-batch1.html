@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="hz:slide-selector" content=".reel-cover">
+<meta name="hz:canvas-width" content="1080">
+<meta name="hz:canvas-height" content="1920">
+<link rel="stylesheet" href="https://use.typekit.net/xoh2yqu.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.reel-cover {
+  width: 1080px;
+  height: 1920px;
+  position: relative;
+  overflow: hidden;
+  background: #0E0E0E;
+  font-family: "acumin-pro", sans-serif;
+}
+
+/* ─── SLIDE 1: MAPO TOFU / SICHUAN ─── */
+.reel-cover.s1 { background: #0E0E0E; }
+.reel-cover.s1 .bg-stripe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 18px; height: 100%;
+  background: #D04A1F;
+}
+.reel-cover.s1 .category {
+  position: absolute;
+  top: 120px; left: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #D04A1F;
+}
+.reel-cover.s1 .divider {
+  position: absolute;
+  top: 172px; left: 60px;
+  width: 120px; height: 2px;
+  background: #D04A1F;
+}
+.reel-cover.s1 .hero-text {
+  position: absolute;
+  top: 210px; left: 60px; right: 60px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 172px;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: #F5F0E8;
+  text-transform: uppercase;
+}
+.reel-cover.s1 .hero-text .accent {
+  color: #D04A1F;
+  font-style: italic;
+}
+.reel-cover.s1 .sub-text {
+  position: absolute;
+  top: 950px; left: 60px; right: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1.45;
+  color: #A09A90;
+  letter-spacing: 0.01em;
+}
+.reel-cover.s1 .dish-label {
+  position: absolute;
+  bottom: 260px; left: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #F5F0E8;
+  background: #D04A1F;
+  padding: 14px 28px;
+}
+.reel-cover.s1 .handle {
+  position: absolute;
+  bottom: 100px; left: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  letter-spacing: 0.1em;
+  color: #5A5550;
+}
+.reel-cover.s1 .num {
+  position: absolute;
+  bottom: 100px; right: 60px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 220px;
+  line-height: 1;
+  color: #1A1A1A;
+  letter-spacing: -0.04em;
+}
+
+/* ─── SLIDE 2: RENDANG ─── */
+.reel-cover.s2 { background: #0A0804; }
+.reel-cover.s2 .bg-block {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 680px;
+  background: #2C1A08;
+}
+.reel-cover.s2 .category {
+  position: absolute;
+  top: 100px; left: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #C4862A;
+}
+.reel-cover.s2 .hero-num {
+  position: absolute;
+  top: 180px; left: 60px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 380px;
+  line-height: 0.85;
+  color: #C4862A;
+  letter-spacing: -0.05em;
+}
+.reel-cover.s2 .hero-unit {
+  position: absolute;
+  top: 520px; left: 60px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 120px;
+  line-height: 1;
+  color: #F5F0E8;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.reel-cover.s2 .hero-sub {
+  position: absolute;
+  top: 670px; left: 60px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 120px;
+  line-height: 1;
+  color: #F5F0E8;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.reel-cover.s2 .hero-for {
+  position: absolute;
+  top: 820px; left: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 400;
+  font-size: 42px;
+  color: #7A6040;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.reel-cover.s2 .hero-bite {
+  position: absolute;
+  top: 880px; left: 60px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 200px;
+  line-height: 0.9;
+  color: #F5F0E8;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+.reel-cover.s2 .description {
+  position: absolute;
+  top: 1250px; left: 60px; right: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.5;
+  color: #7A6040;
+}
+.reel-cover.s2 .dish-label {
+  position: absolute;
+  bottom: 240px; left: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #C4862A;
+  border: 2px solid #C4862A;
+  padding: 12px 24px;
+}
+.reel-cover.s2 .handle {
+  position: absolute;
+  bottom: 100px; left: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  letter-spacing: 0.1em;
+  color: #3A3028;
+}
+
+/* ─── SLIDE 3: XIAOLONGBAO ─── */
+.reel-cover.s3 { background: #F5F0E8; }
+.reel-cover.s3 .top-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 10px;
+  background: #1A1A1A;
+}
+.reel-cover.s3 .category {
+  position: absolute;
+  top: 80px; left: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #1A1A1A;
+}
+.reel-cover.s3 .hero-line1 {
+  position: absolute;
+  top: 180px; left: 60px; right: 60px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 200px;
+  line-height: 0.88;
+  color: #1A1A1A;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+}
+.reel-cover.s3 .hero-line2 {
+  position: absolute;
+  top: 720px; left: 60px; right: 60px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 200px;
+  line-height: 0.88;
+  color: #1A1A1A;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+}
+.reel-cover.s3 .hero-line3 {
+  position: absolute;
+  top: 1080px; left: 60px; right: 60px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 130px;
+  line-height: 0.9;
+  color: #1A1A1A;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  font-style: italic;
+}
+.reel-cover.s3 .accent-block {
+  position: absolute;
+  top: 690px; left: 0; right: 0;
+  height: 10px;
+  background: #1A1A1A;
+}
+.reel-cover.s3 .sub-text {
+  position: absolute;
+  top: 1420px; left: 60px; right: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.5;
+  color: #5A5550;
+}
+.reel-cover.s3 .dish-label {
+  position: absolute;
+  bottom: 240px; left: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #F5F0E8;
+  background: #1A1A1A;
+  padding: 12px 24px;
+}
+.reel-cover.s3 .handle {
+  position: absolute;
+  bottom: 100px; left: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  letter-spacing: 0.1em;
+  color: #AAA498;
+}
+
+/* ─── SLIDE 4: HAINANESE CHICKEN RICE ─── */
+.reel-cover.s4 { background: #0A1015; }
+.reel-cover.s4 .category {
+  position: absolute;
+  top: 100px; left: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #4A9FBF;
+}
+.reel-cover.s4 .hero-temp {
+  position: absolute;
+  top: 180px; left: 0;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 420px;
+  line-height: 0.85;
+  color: #F5F0E8;
+  letter-spacing: -0.06em;
+}
+.reel-cover.s4 .hero-degree {
+  position: absolute;
+  top: 180px; right: 0;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 200px;
+  line-height: 0.85;
+  color: #4A9FBF;
+  letter-spacing: -0.03em;
+}
+.reel-cover.s4 .hero-not {
+  position: absolute;
+  top: 680px; left: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  color: #3A4550;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.reel-cover.s4 .hero-100 {
+  position: absolute;
+  top: 750px; left: 60px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 320px;
+  line-height: 0.9;
+  color: #2A3540;
+  letter-spacing: -0.05em;
+  text-decoration: line-through;
+  text-decoration-color: #D04A1F;
+}
+.reel-cover.s4 .description {
+  position: absolute;
+  top: 1170px; left: 60px; right: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1.5;
+  color: #4A5A68;
+}
+.reel-cover.s4 .hero-line {
+  position: absolute;
+  top: 1520px; left: 60px; right: 60px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 96px;
+  line-height: 1;
+  color: #4A9FBF;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+.reel-cover.s4 .dish-label {
+  position: absolute;
+  bottom: 240px; left: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #4A9FBF;
+  border: 2px solid #4A9FBF;
+  padding: 12px 24px;
+}
+.reel-cover.s4 .handle {
+  position: absolute;
+  bottom: 100px; left: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  letter-spacing: 0.1em;
+  color: #2A3540;
+}
+
+/* ─── SLIDE 5: KUNG PAO CHICKEN ─── */
+.reel-cover.s5 { background: #0E0E0E; }
+.reel-cover.s5 .bg-circle {
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 800px; height: 800px;
+  border-radius: 50%;
+  background: #1A0A04;
+}
+.reel-cover.s5 .category {
+  position: absolute;
+  top: 100px; left: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #C4862A;
+}
+.reel-cover.s5 .hero-line1 {
+  position: absolute;
+  top: 180px; left: 60px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 130px;
+  line-height: 0.9;
+  color: #F5F0E8;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+.reel-cover.s5 .hero-line2 {
+  position: absolute;
+  top: 420px; left: 60px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 130px;
+  line-height: 0.9;
+  color: #F5F0E8;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+.reel-cover.s5 .hero-line3 {
+  position: absolute;
+  top: 660px; left: 60px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 130px;
+  line-height: 0.9;
+  color: #C4862A;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-style: italic;
+}
+.reel-cover.s5 .hero-line4 {
+  position: absolute;
+  top: 900px; left: 60px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 130px;
+  line-height: 0.9;
+  color: #F5F0E8;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+.reel-cover.s5 .hero-line5 {
+  position: absolute;
+  top: 1130px; left: 60px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 130px;
+  line-height: 0.9;
+  color: #F5F0E8;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+.reel-cover.s5 .description {
+  position: absolute;
+  top: 1390px; left: 60px; right: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.5;
+  color: #4A4038;
+}
+.reel-cover.s5 .dish-label {
+  position: absolute;
+  bottom: 240px; left: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #F5F0E8;
+  background: #C4862A;
+  padding: 12px 24px;
+}
+.reel-cover.s5 .handle {
+  position: absolute;
+  bottom: 100px; left: 60px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  letter-spacing: 0.1em;
+  color: #2A2018;
+}
+</style>
+</head>
+<body>
+
+<!-- REEL COVER 1: MAPO TOFU -->
+<div class="reel-cover s1" data-canvas-width="1080" data-canvas-height="1920">
+  <div class="bg-stripe"></div>
+  <div class="num">01</div>
+  <div class="category">Sichuan · China</div>
+  <div class="divider"></div>
+  <div class="hero-text">YOUR<br>MOUTH<br>GOES<br><span class="accent">NUMB</span><br>ON<br>PURPOSE</div>
+  <div class="sub-text">Sichuan peppercorn doesn't burn. It activates your touch receptors. The tingling is designed.</div>
+  <div class="dish-label">Mapo Tofu 麻婆豆腐</div>
+  <div class="handle">@borderlesskitchen</div>
+</div>
+
+<!-- REEL COVER 2: RENDANG -->
+<div class="reel-cover s2" data-canvas-width="1080" data-canvas-height="1920">
+  <div class="bg-block"></div>
+  <div class="category">West Sumatra · Indonesia</div>
+  <div class="hero-num">3</div>
+  <div class="hero-unit">HOURS</div>
+  <div class="hero-sub">TO COOK</div>
+  <div class="hero-for">FOR</div>
+  <div class="hero-bite">ONE<br>BITE.</div>
+  <div class="description">UNESCO heritage. Coconut milk reduces for 3 hours until the fat separates and fries the spice paste around the beef.</div>
+  <div class="dish-label">Rendang · Daging</div>
+  <div class="handle">@borderlesskitchen</div>
+</div>
+
+<!-- REEL COVER 3: XIAOLONGBAO -->
+<div class="reel-cover s3" data-canvas-width="1080" data-canvas-height="1920">
+  <div class="top-bar"></div>
+  <div class="category">Shanghai · China</div>
+  <div class="hero-line1">THE<br>SOUP<br>IS</div>
+  <div class="accent-block"></div>
+  <div class="hero-line2">SOL-<br>ID.</div>
+  <div class="hero-line3">Until you cook it.</div>
+  <div class="sub-text">Pork gelatin is placed solid alongside raw filling. Steaming melts it into soup — trapped inside a sealed dumpling.</div>
+  <div class="dish-label">Xiaolongbao 小籠包</div>
+  <div class="handle">@borderlesskitchen</div>
+</div>
+
+<!-- REEL COVER 4: HAINANESE CHICKEN RICE -->
+<div class="reel-cover s4" data-canvas-width="1080" data-canvas-height="1920">
+  <div class="category">Singapore</div>
+  <div class="hero-temp">80</div>
+  <div class="hero-degree">°C</div>
+  <div class="hero-not">Not</div>
+  <div class="hero-100">100</div>
+  <div class="description">At full boil the skin tightens, the breast becomes dry and fibrous. At 80°C the collagen softens and the texture becomes silky.</div>
+  <div class="hero-line">The science of<br>perfect chicken.</div>
+  <div class="dish-label">Hainanese Chicken Rice</div>
+  <div class="handle">@borderlesskitchen</div>
+</div>
+
+<!-- REEL COVER 5: KUNG PAO CHICKEN -->
+<div class="reel-cover s5" data-canvas-width="1080" data-canvas-height="1920">
+  <div class="bg-circle"></div>
+  <div class="category">Sichuan · China</div>
+  <div class="hero-line1">NAMED</div>
+  <div class="hero-line2">AFTER</div>
+  <div class="hero-line3">A GOV'T</div>
+  <div class="hero-line4">OFFI-</div>
+  <div class="hero-line5">CIAL.</div>
+  <div class="description">Qing dynasty governor Ding Baozhen loved spicy diced chicken. They named the dish after his title. Then the Cultural Revolution renamed it. Then they changed it back.</div>
+  <div class="dish-label">Kung Pao Chicken 宫保鸡丁</div>
+  <div class="handle">@borderlesskitchen</div>
+</div>
+
+</body>
+</html>

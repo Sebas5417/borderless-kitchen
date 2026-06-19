@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="hz:slide-selector" content=".yt-thumb">
+<meta name="hz:canvas-width" content="1280">
+<meta name="hz:canvas-height" content="720">
+<link rel="stylesheet" href="https://use.typekit.net/xoh2yqu.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.yt-thumb {
+  width: 1280px;
+  height: 720px;
+  position: relative;
+  overflow: hidden;
+  font-family: "acumin-pro", sans-serif;
+}
+
+/* ─── THUMB 1: MAPO TOFU — The Science of Numbing ─── */
+.yt-thumb.t1 { background: #0E0E0E; }
+.yt-thumb.t1 .left-panel {
+  position: absolute;
+  top: 0; left: 0;
+  width: 660px; height: 100%;
+  background: #0E0E0E;
+}
+.yt-thumb.t1 .right-panel {
+  position: absolute;
+  top: 0; right: 0;
+  width: 620px; height: 100%;
+  background: #D04A1F;
+}
+.yt-thumb.t1 .right-stripe {
+  position: absolute;
+  top: 0; left: 640px;
+  width: 20px; height: 100%;
+  background: #D04A1F;
+}
+.yt-thumb.t1 .label {
+  position: absolute;
+  top: 52px; left: 52px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #D04A1F;
+}
+.yt-thumb.t1 .hero {
+  position: absolute;
+  top: 100px; left: 52px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 156px;
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #F5F0E8;
+}
+.yt-thumb.t1 .sub {
+  position: absolute;
+  bottom: 60px; left: 52px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  color: #5A5550;
+  letter-spacing: 0.05em;
+}
+.yt-thumb.t1 .right-text {
+  position: absolute;
+  top: 50%; right: 52px;
+  transform: translateY(-50%);
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 80px;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #F5F0E8;
+  text-align: right;
+}
+.yt-thumb.t1 .channel {
+  position: absolute;
+  bottom: 52px; right: 52px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  color: rgba(245,240,232,0.6);
+  text-align: right;
+}
+
+/* ─── THUMB 2: RENDANG — 3 Hours ─── */
+.yt-thumb.t2 { background: #0A0804; }
+.yt-thumb.t2 .bg-band {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 300px;
+  background: #1C0E02;
+}
+.yt-thumb.t2 .number {
+  position: absolute;
+  top: -20px; left: 40px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 380px;
+  line-height: 0.85;
+  color: #C4862A;
+  letter-spacing: -0.06em;
+}
+.yt-thumb.t2 .word {
+  position: absolute;
+  top: 68px; left: 280px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 180px;
+  line-height: 0.9;
+  color: #F5F0E8;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+.yt-thumb.t2 .label {
+  position: absolute;
+  top: 48px; right: 52px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #C4862A;
+  text-align: right;
+}
+.yt-thumb.t2 .tagline {
+  position: absolute;
+  bottom: 60px; left: 52px; right: 52px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 72px;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #F5F0E8;
+}
+.yt-thumb.t2 .tagline span {
+  color: #C4862A;
+}
+.yt-thumb.t2 .channel {
+  position: absolute;
+  bottom: 52px; right: 52px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  color: rgba(196,134,42,0.5);
+  text-align: right;
+}
+
+/* ─── THUMB 3: 5 THAI CURRIES EXPLAINED ─── */
+.yt-thumb.t3 { background: #F5F0E8; }
+.yt-thumb.t3 .top-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 8px;
+  background: #1A1A1A;
+}
+.yt-thumb.t3 .bottom-bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 8px;
+  background: #1A1A1A;
+}
+.yt-thumb.t3 .left-accent {
+  position: absolute;
+  top: 0; left: 0;
+  width: 8px; height: 100%;
+  background: #1A1A1A;
+}
+.yt-thumb.t3 .hero {
+  position: absolute;
+  top: 48px; left: 52px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 210px;
+  line-height: 0.86;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #1A1A1A;
+}
+.yt-thumb.t3 .hero span {
+  font-style: italic;
+  color: #C4862A;
+}
+.yt-thumb.t3 .right-block {
+  position: absolute;
+  top: 8px; right: 0;
+  width: 360px; height: 704px;
+  background: #1A1A1A;
+}
+.yt-thumb.t3 .curry-list {
+  position: absolute;
+  top: 50%; right: 20px;
+  transform: translateY(-50%);
+  text-align: right;
+}
+.yt-thumb.t3 .curry-list div {
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #F5F0E8;
+  margin-bottom: 16px;
+}
+.yt-thumb.t3 .curry-list div.active {
+  color: #C4862A;
+  font-size: 32px;
+}
+.yt-thumb.t3 .channel {
+  position: absolute;
+  bottom: 26px; left: 52px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  color: #AAA498;
+}
+
+/* ─── THUMB 4: XIAOLONGBAO — Soup Inside ─── */
+.yt-thumb.t4 { background: #0D0D0D; }
+.yt-thumb.t4 .center-line {
+  position: absolute;
+  top: 0; left: 50%;
+  width: 2px; height: 100%;
+  background: #2A2A2A;
+  transform: translateX(-50%);
+}
+.yt-thumb.t4 .left-big {
+  position: absolute;
+  top: 40px; left: 40px;
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 320px;
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  color: #F5F0E8;
+}
+.yt-thumb.t4 .right-text {
+  position: absolute;
+  top: 40px; right: 40px;
+  text-align: right;
+}
+.yt-thumb.t4 .right-text .line1 {
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #5A5550;
+  margin-bottom: 16px;
+}
+.yt-thumb.t4 .right-text .line2 {
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 100px;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #F5F0E8;
+}
+.yt-thumb.t4 .right-text .line3 {
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 100px;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #E8823A;
+  font-style: italic;
+}
+.yt-thumb.t4 .right-text .line4 {
+  font-family: "memimas-pro", sans-serif;
+  font-weight: 900;
+  font-size: 100px;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #F5F0E8;
+}
+.yt-thumb.t4 .bottom-label {
+  position: absolute;
+  bottom: 40px; left: 40px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #F5F0E8;
+  background: #E8823A;
+  padding: 10px 20px;
+}
+.yt-thumb.t4 .channel {
+  position: absolute;
+  bottom: 50px; right: 40px;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  color: #2A2A2A;
+  text-align: right;
+}
+</style>
+</head>
+<body>
+
+<!-- YT THUMB 1: MAPO TOFU -->
+<div class="yt-thumb t1" data-canvas-width="1280" data-canvas-height="720">
+  <div class="right-panel"></div>
+  <div class="right-stripe"></div>
+  <div class="left-panel"></div>
+  <div class="label">Sichuan · China</div>
+  <div class="hero">MAPO<br>TOFU</div>
+  <div class="sub">The Complete Guide</div>
+  <div class="right-text">YOUR<br>MOUTH<br>GOES<br>NUMB<br>ON<br>PURPOSE</div>
+  <div class="channel">@borderlesskitchen</div>
+</div>
+
+<!-- YT THUMB 2: RENDANG -->
+<div class="yt-thumb t2" data-canvas-width="1280" data-canvas-height="720">
+  <div class="bg-band"></div>
+  <div class="number">3</div>
+  <div class="word">HRS</div>
+  <div class="label">West Sumatra · Indonesia</div>
+  <div class="tagline">WHY RENDANG TAKES<br><span>3 HOURS</span> — EXPLAINED</div>
+  <div class="channel">@borderlesskitchen</div>
+</div>
+
+<!-- YT THUMB 3: 5 THAI CURRIES -->
+<div class="yt-thumb t3" data-canvas-width="1280" data-canvas-height="720">
+  <div class="top-bar"></div>
+  <div class="bottom-bar"></div>
+  <div class="left-accent"></div>
+  <div class="right-block"></div>
+  <div class="hero">5<br><span>THAI</span><br>CUR-<br>RIES</div>
+  <div class="curry-list">
+    <div>Green</div>
+    <div class="active">Red</div>
+    <div>Yellow</div>
+    <div>Massaman</div>
+    <div>Panang</div>
+  </div>
+  <div class="channel">@borderlesskitchen</div>
+</div>
+
+<!-- YT THUMB 4: XIAOLONGBAO -->
+<div class="yt-thumb t4" data-canvas-width="1280" data-canvas-height="720">
+  <div class="center-line"></div>
+  <div class="left-big">XLB</div>
+  <div class="right-text">
+    <div class="line1">Shanghai · China</div>
+    <div class="line2">THE</div>
+    <div class="line3">SOUP</div>
+    <div class="line4">INSIDE</div>
+  </div>
+  <div class="bottom-label">Xiaolongbao Guide</div>
+  <div class="channel">@borderlesskitchen</div>
+</div>
+
+</body>
+</html>
