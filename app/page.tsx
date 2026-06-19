@@ -27,7 +27,9 @@ export default function HomePage() {
     .filter((b) => b.status === "coming")
     .sort((a, b) => (a.ordering ?? 100) - (b.ordering ?? 100))
     .slice(0, 3);
+  const now = new Date();
   const stories = [...allStories]
+    .filter((s) => new Date(s.date) <= now)
     .sort((a, b) => +new Date(b.date) - +new Date(a.date))
     .slice(0, 3);
   const notes = [...allFieldNotes]

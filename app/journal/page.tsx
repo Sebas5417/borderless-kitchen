@@ -14,9 +14,11 @@ export const metadata: Metadata = {
 };
 
 export default function JournalPage() {
-  const stories = [...allStories].sort(
-    (a, b) => +new Date(b.date) - +new Date(a.date),
-  );
+  const today = new Date();
+  today.setHours(23, 59, 59, 999);
+  const stories = [...allStories]
+    .filter((s) => new Date(s.date) <= today)
+    .sort((a, b) => +new Date(b.date) - +new Date(a.date));
 
   return (
     <>

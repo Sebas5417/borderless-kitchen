@@ -17,12 +17,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: book.status === "available" ? 0.9 : 0.5,
   }));
 
-  const stories = allStories.map((story) => ({
-    url: `${siteUrl}/journal/${story.slug}`,
-    lastModified: new Date(story.date),
-    changeFrequency: "yearly" as const,
-    priority: 0.7,
-  }));
+  const now = new Date();
+  const stories = allStories
+    .filter((story) => new Date(story.date) <= now)
+    .map((story) => ({
+      url: `${siteUrl}/journal/${story.slug}`,
+      lastModified: new Date(story.date),
+      changeFrequency: "yearly" as const,
+      priority: 0.7,
+    }));
 
   const pantry = allPantryEntries.map((entry) => ({
     url: `${siteUrl}/culture/${entry.slug}`,

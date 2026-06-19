@@ -12,8 +12,9 @@ function escapeXml(str: string): string {
 }
 
 export async function GET() {
+  const now = new Date();
   const stories = allStories
-    .filter((s) => Boolean(s.date))
+    .filter((s) => Boolean(s.date) && new Date(s.date) <= now)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   const recipes = allFreeRecipes
