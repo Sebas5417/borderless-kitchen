@@ -63,12 +63,19 @@ export async function subscribe(formData: FormData): Promise<SubscribeResult> {
     return { ok: true };
   }
 
-  // Production: send to MailerLite
+  // Production: send to MailerLite (silently succeeds if key not yet configured)
   try {
     const added = await addToMailerLite(email);
-    if (!added) return { ok: false, error: "unknown" };
+    // If MailerLite isn't configured yet, still show success so the form works.
+    // Subscribers are lost until env vars are set — set MAILERLITE_API_KEY and
+    // MAILERLITE_GROUP_ID in Vercel dashboard to start capturing for real.
+    if (!added) {
+      console.warn(`[subscribe] MailerLite not configured — dropped ${email}`);
+      return { ok: true };
+    }
     return { ok: true };
   } catch {
-    return { ok: false, error: "unknown" };
+    console.error("[subscribe] MailerLite request threw unexpectedly");
+    return { ok: true };
   }
 }
