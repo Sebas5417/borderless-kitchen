@@ -5,6 +5,7 @@ Usage:
   python scripts/bk_weekly_post.py          # releases 1 story
   python scripts/bk_weekly_post.py --count 3  # releases 3 stories
   python scripts/bk_weekly_post.py --preview  # shows what would be posted (dry run)
+  python scripts/bk_weekly_post.py --count 2 --json-output  # machine-readable JSON for n8n
 
 What it does:
   1. Picks next story from content/_archive/stories/
@@ -29,8 +30,9 @@ STORIES  = ROOT / "content" / "stories"
 ARCHIVE  = ROOT / "content" / "_archive" / "stories"
 LOG_FILE = Path(__file__).parent / "posting_log.json"
 DATE_RE  = re.compile(r'^(date:\s*)"[^"]*"', re.MULTILINE)
-TITLE_RE = re.compile(r'^title:\s*"([^"]+)"', re.MULTILINE)
-DEK_RE   = re.compile(r'^dek:\s*"([^"]+)"', re.MULTILINE)
+TITLE_RE  = re.compile(r'^title:\s*"([^"]+)"', re.MULTILINE)
+DEK_RE    = re.compile(r'^dek:\s*"([^"]+)"', re.MULTILINE)
+HERO_RE   = re.compile(r'^heroImageSrc:\s*"([^"]+)"', re.MULTILINE)
 
 
 def load_log() -> dict:
@@ -77,38 +79,44 @@ def generate_ig_caption(title: str, dek: str) -> str:
     return caption
 
 
-def release_story(story_path: Path, dry_run: bool = False) -> dict:
-    text = story_path.read_text(encoding="utf-8")
-    title = extract_field(text, TITLE_RE)
-    dek   = extract_field(text, DEK_RE)
-    today = date.today().isoformat()
+def release_story(story_path: Path, dry_run: bool = False, quiet: bool = False) -> dict:
+    text      = story_path.read_text(encoding="utf-8")
+    title     = extract_field(text, TITLE_RE)
+    dek       = extract_field(text, DEK_RE)
+    hero      = extract_field(text, HERO_RE)
+    today     = date.today().isoformat()
+    slug      = story_path.stem
 
     new_text = DATE_RE.sub(f'\\g<1>"{today}"', text)
     dest     = STORIES / story_path.name
 
     if dry_run:
-        print(f"\n[DRY RUN] Would post: {story_path.name}")
-        print(f"  Title: {title}")
-        print(f"  Date → {today}")
-        ig = generate_ig_caption(title, dek)
-        print(f"\n  IG Caption:\n{ig}")
-        return {"file": story_path.name, "title": title, "date": today, "dry_run": True}
+        if not quiet:
+            print(f"\n[DRY RUN] Would post: {story_path.name}")
+            print(f"  Title: {title}")
+            print(f"  Date → {today}")
+            ig = generate_ig_caption(title, dek)
+            print(f"\n  IG Caption:\n{ig}")
+        return {"file": story_path.name, "title": title, "date": today, "slug": slug, "heroImageSrc": hero, "dry_run": True}
 
     dest.write_text(new_text, encoding="utf-8")
     story_path.unlink()
 
     ig_caption = generate_ig_caption(title, dek)
 
-    print(f"\n✓ Released: {story_path.name}")
-    print(f"  Title: {title}")
-    print(f"  Date:  {today}")
-    print(f"\n📸 IG Caption:\n{ig_caption}")
-    print("\n" + "─" * 60)
+    if not quiet:
+        print(f"\n✓ Released: {story_path.name}")
+        print(f"  Title: {title}")
+        print(f"  Date:  {today}")
+        print(f"\n📸 IG Caption:\n{ig_caption}")
+        print("\n" + "─" * 60)
 
     return {
         "file": story_path.name,
         "title": title,
         "date": today,
+        "slug": slug,
+        "heroImageSrc": hero,
         "ig_caption": ig_caption,
     }
 
@@ -136,28 +144,54 @@ def main():
     parser = argparse.ArgumentParser(description="BK Weekly Story Poster")
     parser.add_argument("--count", type=int, default=1, help="Number of stories to release")
     parser.add_argument("--preview", action="store_true", help="Dry run — show what would be posted")
+    parser.add_argument("--json-output", action="store_true",
+                        help="Output JSON for n8n integration (suppresses human-readable output)")
     args = parser.parse_args()
+
+    quiet = args.json_output  # suppress prints when n8n is calling us
 
     log     = load_log()
     stories = pick_stories(args.count, log)
 
     if not stories:
+        if quiet:
+            print(json.dumps({"stories_released": [], "ig_captions": [], "error": "archive_empty"}))
         return
 
     released = []
     for story in stories:
-        result = release_story(story, dry_run=args.preview)
+        result = release_story(story, dry_run=args.preview, quiet=quiet)
         if not args.preview:
             released.append(result)
             log["posted"].append(story.name)
 
     if released:
         save_log(log)
-        git_commit_and_push([r["file"] for r in released])
-        remaining = len(list(ARCHIVE.glob("*.mdx"))) - len(log["posted"])
-        print(f"\n📦 {remaining} stories remaining in archive")
-        weeks_left = remaining // 2
-        print(f"   At 2/week → {weeks_left} more weeks of content")
+        push_ok = git_commit_and_push([r["file"] for r in released])
+
+        if quiet:
+            # Machine-readable output consumed by wf-008 n8n workflow
+            output = {
+                "stories_released": [
+                    {
+                        "title": r["title"],
+                        "date": r["date"],
+                        "slug": r["slug"],
+                        "heroImageSrc": r.get("heroImageSrc", ""),
+                        "file": r["file"],
+                    }
+                    for r in released
+                ],
+                "ig_captions": [r.get("ig_caption", "") for r in released],
+                "push_success": push_ok,
+                "error": None,
+            }
+            print(json.dumps(output))
+        else:
+            remaining = len(list(ARCHIVE.glob("*.mdx"))) - len(log["posted"])
+            print(f"\n📦 {remaining} stories remaining in archive")
+            weeks_left = remaining // 2
+            print(f"   At 2/week → {weeks_left} more weeks of content")
 
 
 if __name__ == "__main__":
