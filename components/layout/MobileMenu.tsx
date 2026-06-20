@@ -10,7 +10,8 @@ const NAV = [
   { href: "/culture", label: "Culture" },
   { href: "/about", label: "About" },
   { href: "/connect", label: "Connect" },
-  { href: "/free", label: "Free", highlight: true },
+  { href: "/30-day-challenge", label: "Challenge", highlight: true },
+  { href: "/free", label: "Free", highlight: false },
   { href: "/preorder", label: "Vol. II — Coming Soon", highlight: false },
 ] as const;
 

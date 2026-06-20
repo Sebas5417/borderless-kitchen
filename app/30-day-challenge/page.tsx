@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
+import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 export const metadata: Metadata = {
   title: "30-Day Japanese Kitchen Challenge — Build a Japanese Pantry From Scratch",
@@ -239,26 +240,11 @@ export default function ThirtyDayChallengePage() {
                 <p className="font-body text-sm text-ink/50 mb-8">
                   No credit card. No catch. Just the challenge.
                 </p>
-                {/* Inline email form — replace action URL with MailerLite embed */}
-                <form
-                  action="https://assets.mailerlite.com/jsonp/1234/forms/XXXXXXX/subscribe"
-                  method="post"
-                  className="space-y-3"
-                >
-                  <input
-                    type="email"
-                    name="fields[email]"
-                    placeholder="Your email address"
-                    required
-                    className="w-full border border-hairline px-4 py-3 font-body text-sm text-ink placeholder:text-ink/30 focus:outline-none focus:border-ink bg-transparent"
-                  />
-                  <button
-                    type="submit"
-                    className="w-full font-ui text-eyebrow uppercase text-paper bg-ink px-8 py-4 hover:bg-vermillion transition-colors duration-300"
-                  >
-                    Start the 30-Day Challenge →
-                  </button>
-                </form>
+                <NewsletterForm
+                  label="Enter your email to start Day 1"
+                  placeholder="you@somewhere.com"
+                  buttonLabel="Start the challenge →"
+                />
                 <p className="font-ui text-eyebrow uppercase text-ink/30 text-center mt-4 text-xs">
                   Unsubscribe anytime. We email once per day during the challenge.
                 </p>
