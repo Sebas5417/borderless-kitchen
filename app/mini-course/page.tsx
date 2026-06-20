@@ -23,30 +23,35 @@ const DAYS = [
     title: "Dashi — The Invisible Foundation",
     description:
       "Make ichiban dashi from scratch. Understand why kombu and katsuobushi together produce more umami than any other combination. Apply it to miso soup and as the base for Day 2.",
+    href: "/mini-course/day-1",
   },
   {
     day: "Day 2",
     title: "Miso — Where Fermented Depth Meets Italian Technique",
     description:
       "Dissolve miso into pasta water. Make miso butter. Understand why white miso and Parmigiano are structurally equivalent and when to use each.",
+    href: "/mini-course/day-2",
   },
   {
     day: "Day 3",
     title: "The Umami Pairing System",
     description:
       "Work through the Flavor Pairing Matrix. Learn the 24 Italian-Japanese swaps and why the synergy pairs (glutamate + inosinate) multiply umami 6-8x. Cook Ramen alla Carbonara.",
+    href: "/mini-course/day-3",
   },
   {
     day: "Day 4",
     title: "Mirin, Sake, and the Japanese Approach to Sweetness",
     description:
       "Cook teriyaki from scratch. Understand why mirin is not the same as sugar and what fermented sweetness adds to a dish that refined sugar doesn't.",
+    href: "/mini-course/day-4",
   },
   {
     day: "Day 5",
     title: "Build Your Own Fusion Dish",
     description:
       "Using the framework: identify the structure of an Italian or Japanese dish you love, find the equivalent components in the other tradition, and make it. The five-day course culminates in a dish you invented.",
+    href: "/mini-course/day-5",
   },
 ];
 
@@ -121,24 +126,28 @@ export default function MiniCoursePage() {
             </h2>
             <div className="space-y-0">
               {DAYS.map((item) => (
-                <div
+                <Link
                   key={item.day}
-                  className="flex flex-col md:flex-row gap-4 md:gap-10 py-10 border-b border-hairline"
+                  href={item.href}
+                  className="flex flex-col md:flex-row gap-4 md:gap-10 py-10 border-b border-hairline group hover:bg-ink/[0.02] transition-colors duration-300 -mx-4 px-4"
                 >
                   <div className="md:w-32 shrink-0">
                     <p className="font-ui text-eyebrow uppercase text-vermillion">
                       {item.day}
                     </p>
                   </div>
-                  <div>
-                    <h3 className="font-display text-xl text-ink mb-2 leading-tight">
+                  <div className="flex-1">
+                    <h3 className="font-display text-xl text-ink mb-2 leading-tight group-hover:text-vermillion transition-colors duration-300">
                       {item.title}
                     </h3>
                     <p className="font-body text-base text-ink/70 leading-relaxed max-w-prose">
                       {item.description}
                     </p>
                   </div>
-                </div>
+                  <div className="shrink-0 self-center">
+                    <span className="font-ui text-eyebrow uppercase text-ink/30 group-hover:text-vermillion transition-colors">Read →</span>
+                  </div>
+                </Link>
               ))}
             </div>
           </FadeRise>
