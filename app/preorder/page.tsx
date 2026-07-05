@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Seoul Meets Mexico City — Borderless Kitchen Vol. II",
     description:
-      "80 recipes where Korean and Mexican cooking traditions meet. Get early access, preview recipes, and launch-day pricing.",
+      "80 recipes where Korean and Mexican cooking traditions meet. Get early access and preview recipes.",
     type: "website",
   },
 };
@@ -211,7 +211,7 @@ export default function PreorderPage() {
 
       <EmailCaptureCTA
         heading="Be first when Seoul Meets Mexico City launches."
-        body="Join the list for early access, launch-day pricing, and the complete Flavor Pairing Matrix for Korean-Mexican cooking — sent before the book ships."
+        body="Join the list for early access and the complete Flavor Pairing Matrix for Korean-Mexican cooking — sent before the book ships."
         cta="Get early access →"
       />
     </>
