@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Container } from "./Container";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 
-const TMT_AMAZON = process.env.NEXT_PUBLIC_AMAZON_URL_TMT ?? "https://www.amazon.com/dp/B0GY8H2TCQ";
+import { TMT_AMAZON } from "@/lib/amazon";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();

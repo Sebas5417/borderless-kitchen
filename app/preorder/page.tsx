@@ -183,7 +183,7 @@ export default function PreorderPage() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
-                    href="https://www.amazon.com/dp/B0GY8H2TCQ"
+                    href="https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block font-ui text-eyebrow uppercase text-paper bg-ink px-8 py-4 hover:bg-vermillion transition-colors duration-300"

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "Sebastian Dri is the author of the Borderless Kitchen cookbook series. Cross-cultural cooking grounded in technique, restraint, and the conversation between cuisines.",
 };
 
-const TMT_AMAZON = process.env.NEXT_PUBLIC_AMAZON_URL_TMT ?? "https://www.amazon.com/dp/B0GY8H2TCQ";
+import { TMT_AMAZON } from "@/lib/amazon";
 
 export default function AboutPage() {
   return (

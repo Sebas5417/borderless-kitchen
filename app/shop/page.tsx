@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 // Replace [ASSOCIATE-ID] with your actual Amazon Associates ID
 const AMZ = (asin: string) =>
-  `https://www.amazon.com/dp/${asin}?tag=[ASSOCIATE-ID]`;
+  `https://www.amazon.com/dp/${asin}?tag=borderlesskitchen-20`;
 
 const JAPANESE_PANTRY = [
   {
@@ -375,7 +375,7 @@ export default function ShopPage() {
                 The recipes that use all of this are in the book.
               </p>
               <Link
-                href="https://www.amazon.com/dp/B0GY8H2TCQ"
+                href="https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block font-ui text-eyebrow uppercase text-paper bg-ink px-8 py-4 hover:bg-vermillion transition-colors duration-300"
