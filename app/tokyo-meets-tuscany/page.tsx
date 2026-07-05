@@ -30,7 +30,7 @@ const AMAZON_URL =
   process.env.NEXT_PUBLIC_AMAZON_URL_TMT &&
   process.env.NEXT_PUBLIC_AMAZON_URL_TMT !== "#"
     ? process.env.NEXT_PUBLIC_AMAZON_URL_TMT
-    : "https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskit-20";
+    : "https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20";
 
 const RECIPES = [
   {
