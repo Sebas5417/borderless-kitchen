@@ -39,15 +39,13 @@ export async function POST(req: Request) {
   const groupId = LIST_GROUP_ENV[list];
 
   if (!apiKey || !groupId) {
-    // Local dev without keys: accept so the form UX can be exercised.
-    if (process.env.NODE_ENV === "development") {
-      console.warn(`[api/subscribe] dev mode, no MailerLite config — ${list}`);
-      return NextResponse.json({ ok: true });
-    }
+    // Not configured yet: show success so the funnel still delivers the
+    // lead magnet link — same convention as app/_actions/subscribe.ts.
+    // Leads are DROPPED until MAILERLITE_API_KEY + group IDs are set.
     console.error(
-      `[api/subscribe] missing MAILERLITE_API_KEY or group id for "${list}"`,
+      `[api/subscribe] MailerLite not configured for "${list}" — lead dropped`,
     );
-    return NextResponse.json({ ok: false, error: "retry" }, { status: 503 });
+    return NextResponse.json({ ok: true });
   }
 
   try {
