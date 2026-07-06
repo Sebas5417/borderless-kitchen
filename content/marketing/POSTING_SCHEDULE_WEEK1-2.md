@@ -1,66 +1,63 @@
 # Posting Schedule — Weeks 1–2 (assets in marketing/png/)
 
-**All links use the LIVE domain** `https://borderless-kitchen.vercel.app` — do NOT use
-borderlesskitchenseries.com until that domain is attached in Vercel.
+**All links verified against live content** and use the LIVE domain
+`https://borderless-kitchen.vercel.app` — do NOT use borderlesskitchenseries.com
+until that domain is attached in Vercel.
 
-Every pin: image file + title + description below. Pinterest → "Create Pin" → upload PNG →
+Every pin: image file + title + link below; descriptions live in
+`PINTEREST_PINS_BATCH2.md` (match by topic). Pinterest → "Create Pin" → upload PNG →
 paste title/description → paste link → pick board. ~3 min each.
+
+> Some pins point to `/flavor-guide` — the free-guide email-capture page — because no
+> exact article exists yet. That's intentional: those pins convert straight to subscribers.
 
 ---
 
 ## Day 1 (today)
-| Asset | Platform / Board | Title | Link |
-|---|---|---|---|
-| `pins/pin-01.png` | Pinterest / Japanese Cooking Techniques | The Japanese Cold Infusion That Takes 5 Minutes of Active Work | /journal/cold-dashi-mizudashi-guide |
-| `pins/pin-04.png` | Pinterest / Umami Science | Miso and Parmigiano Are the Same Ingredient (Functionally) | /journal/umami-science-italian-japanese |
-| **Video (MP4)** | YouTube | Why miso makes cacio e pepe taste MORE like cheese | pin site link in description |
-
-Descriptions: copy from `PINTEREST_PINS_BATCH2.md` Pin 1; for pin-04 use the miso/parmigiano
-paragraph from `VIDEO_SCRIPTS_JUNE19.md` Video 2 intro.
+- `pins/pin-01.png` → board **Japanese Cooking Techniques** — "The 15-Minute Japanese Broth That Outperforms 4-Hour Stock" → `/recipes/japanese-dashi-miso-soup-scratch`
+- `pins/pin-04.png` → board **Umami Science** — "Miso and Parmigiano Are the Same Ingredient (Functionally)" → `/journal/fermentation-science-how-miso-and-aged-cheese-work-the-same-way`
+- **Video (MP4)** → YouTube — title: "Why miso makes cacio e pepe taste MORE like cheese" — site link + `/recipes/doenjang-cacio-e-pepe` in description
 
 ## Day 2
-| `pins/pin-02.png` | Japanese Cooking Techniques | Never Boil Miso — Here's What It Destroys | /journal/miso-dissolution-technique |
-| `pins/pin-03.png` | Pantry Upgrades | You're Using Tomato Paste Wrong | /journal/tomato-paste-caramelization |
-| Reddit r/cooking | Post 1 from SOCIAL_CONTENT_BATCH_01.md (taramasalata) — no link in body |
+- `pins/pin-02.png` → Japanese Cooking Techniques — "Never Boil Miso — Here's What It Destroys" → `/journal/fermentation-science-how-miso-and-aged-cheese-work-the-same-way`
+- `pins/pin-03.png` → Pantry Upgrades — "You're Using Tomato Paste Wrong" → `/journal/how-to-add-umami-to-any-dish-9-techniques`
+- Reddit r/cooking → Post 1 from `SOCIAL_CONTENT_BATCH_01.md` (taramasalata) — no link in body, site link in profile bio
 
 ## Day 3
-| `pins/pin-05.png` | Japanese Cooking Techniques | Sake Deglazing: What Japanese Chefs Do After Every Sear | /journal/sake-deglazing-technique |
-| `pins/pin-06.png` | Japanese Cooking Techniques | Why Teriyaki Chars But Never Burns | /journal/mirin-glazing-technique |
-| Instagram | Video (CapCut 9:16 re-canvas) as Reel; cover = `reel-covers/cover-01.png`; caption from INSTAGRAM_CAPTIONS_JUNE19.md |
+- `pins/pin-05.png` → Japanese Cooking Techniques — "Sake Deglazing: What Japanese Chefs Do After Every Sear" → `/journal/sake-substitute-in-cooking-what-to-use-when-you-dont-have-sake`
+- `pins/pin-06.png` → Japanese Cooking Techniques — "Why Teriyaki Chars But Never Burns" → `/journal/how-to-use-mirin-in-cooking-beyond-teriyaki`
+- Instagram → Reel: the video re-canvased to 9:16 in CapCut; cover `reel-covers/cover-01.png`; caption from `INSTAGRAM_CAPTIONS_JUNE19.md`
 
 ## Day 4
-| `pins/pin-07.png` | Japanese Cooking Techniques | The Dashi Step Most Recipes Skip | /journal/katsuobushi-blooming-dashi |
-| `pins/pin-08.png` | Japanese Cooking Techniques | Perfect Tamagoyaki Is About Heat, Not Folding | /journal/tamagoyaki-heat-control |
-| Quora | 2 answers from QUORA_ANSWERS_JUNE19.md |
+- `pins/pin-07.png` → Japanese Cooking Techniques — "The Dashi Step Most Recipes Skip" → `/journal/how-to-add-umami-to-any-dish-9-techniques`
+- `pins/pin-08.png` → Japanese Cooking Techniques — "Perfect Tamagoyaki Is About Heat, Not Folding" → `/journal/dashimaki-tamago-recipe-japanese-rolled-omelette`
+- Quora → 2 answers from `QUORA_ANSWERS_JUNE19.md`
 
 ## Day 5
-| `pins/pinb-01.png` | Ingredients Explained | White vs Red vs Mixed: A Plain-English Miso Guide | /journal/miso-types-guide |
-| `pins/pinb-02.png` | Ingredients Explained | Tamari Is Not Just Gluten-Free Soy Sauce | /journal/soy-sauce-types-guide |
-| Reddit r/food | Post 2 from SOCIAL_CONTENT_BATCH_01.md (crossing-the-bridge noodles) |
+- `pins/pinb-01.png` → Ingredients Explained — "White vs Red vs Mixed: A Plain-English Miso Guide" → `/flavor-guide`
+- `pins/pinb-02.png` → Ingredients Explained — "Tamari Is Not Just Gluten-Free Soy Sauce" → `/journal/white-soy-sauce-shiro-shoyu-what-it-is-and-how-to-use-it`
+- Reddit r/food → Post 2 from `SOCIAL_CONTENT_BATCH_01.md` (crossing-the-bridge noodles)
 
 ## Day 6
-| `pins/pinb-03.png` | Ingredients Explained | Mirin vs Sake: Not Interchangeable — Here's Why | /journal/mirin-vs-sake |
-| `pins/pinb-04.png` | Ingredients Explained | What Bonito Flakes Are Actually Made Of | /journal/katsuobushi-guide |
+- `pins/pinb-03.png` → Ingredients Explained — "Mirin vs Sake: Not Interchangeable — Here's Why" → `/journal/sake-substitute-in-cooking-what-to-use-when-you-dont-have-sake`
+- `pins/pinb-04.png` → Ingredients Explained — "What Bonito Flakes Are Actually Made Of" → `/flavor-guide`
 
 ## Day 7
-| `pins/pinb-05.png` | Italian-Japanese Fusion | The Pasta Water Trick Nobody Told You Involves Miso | /journal/miso-pasta-water-trick |
-| `pins/pinb-06.png` | Italian-Japanese Fusion | Dashi Risotto: Italian Technique, Japanese Broth | /recipes/dashi-risotto |
-| Review Pinterest analytics → tell Claude the top pin |
+- `pins/pinb-05.png` → Italian-Japanese Fusion — "The Pasta Water Trick Nobody Told You Involves Miso" → `/recipes/doenjang-cacio-e-pepe`
+- `pins/pinb-06.png` → Italian-Japanese Fusion — "Dashi Risotto: Italian Technique, Japanese Broth" → `/recipes/dashi-risotto`
+- Review Pinterest analytics → tell Claude the top pin
 
-## Day 8–12 (one or two per day)
-- `pinb-07.png` → Fusion / Parmigiano & Katsuobushi Are Cousins → /journal/parmigiano-katsuobushi
-- `pinb-08.png` → Fusion / The Science of a Bolognese You Can't Stop Eating → /journal/umami-synergy-bolognese
-- `pinb-09.png` → Food Science / Searing Is Chemistry, Not Crust → /journal/maillard-reaction-cooking-science
-- `pinb-10.png` → Food Science / When You Salt Changes Everything → /journal/salt-timing-osmosis-science
-- `pinb-11.png` → Pantry Essentials / Four Bottles Unlock 80% of Japanese Cooking → /journal/japanese-pantry-starter-kit
-- `pinb-12.png` → Pantry Essentials / How Long Your Japanese Pantry Actually Lasts → /journal/japanese-pantry-storage-guide
-
-**If a /journal/ slug 404s:** search the live site for the closest article and use that URL —
-never leave a pin pointing at a 404. Check with: site search (⌘K on the site) or
-`https://borderless-kitchen.vercel.app/journal`.
+## Days 8–12 (one or two per day)
+- `pinb-07.png` → Fusion — "Parmigiano and Katsuobushi Are Cousins" → `/journal/fermentation-science-how-miso-and-aged-cheese-work-the-same-way`
+- `pinb-08.png` → Fusion — "The Science of a Bolognese You Can't Stop Eating" → `/journal/bolognese-ragu-tagliatelle-guide-recipe`
+- `pinb-09.png` → Food Science — "Searing Is Chemistry, Not Crust" → `/journal/caramelization-sugar-cooking-and-the-maillard-reaction`
+- `pinb-10.png` → Food Science — "When You Salt Changes Everything About Texture" → `/flavor-guide`
+- `pinb-11.png` → Pantry Essentials — "Four Bottles Unlock 80% of Japanese Cooking" → `/journal/best-japanese-pantry-starter-kit-ingredients`
+- `pinb-12.png` → Pantry Essentials — "How Long Your Japanese Pantry Actually Lasts" → `/journal/japanese-pantry-essentials-for-italian-home-cooks`
 
 ## Standing rules
 - Repin your best performer to a second relevant board 48h later.
-- Reddit: link only in profile bio, never in post body (except where batch file says otherwise).
-- Reels: post between 11am–1pm or 7–9pm local.
-- Every platform bio links to: https://borderless-kitchen.vercel.app/free (email capture).
+- Reddit: link only in profile bio, never in post body (except where a batch file says otherwise).
+- Reels: post between 11am–1pm or 7–9pm local time.
+- Every platform bio links to: `https://borderless-kitchen.vercel.app/free` (email capture).
+- Never let a pin point at a 404 — spot-check each link once before pinning.
