@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="hz:slide-selector" content=".pin">
+<meta name="hz:canvas-width" content="1000">
+<meta name="hz:canvas-height" content="1500">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #0E0E0E;
+  --char: #1A1815;
+  --cream: #F5F0E8;
+  --cream-dim: #A09A90;
+  --verm: #D04A1F;
+  --verm-deep: #B3442E;
+}
+
+.pin {
+  width: 1000px;
+  height: 1500px;
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  font-family: "Inter", sans-serif;
+}
+
+.pin .kicker {
+  position: absolute;
+  top: 90px; left: 70px;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--verm);
+}
+.pin .rule {
+  position: absolute;
+  top: 145px; left: 70px;
+  width: 110px; height: 3px;
+  background: var(--verm);
+}
+.pin .headline {
+  position: absolute;
+  top: 210px; left: 70px; right: 70px;
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  font-size: 92px;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  color: var(--cream);
+}
+.pin .headline em {
+  font-style: italic;
+  color: var(--verm);
+}
+.pin .support {
+  position: absolute;
+  bottom: 330px; left: 70px; right: 70px;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--cream-dim);
+}
+.pin .tag {
+  position: absolute;
+  bottom: 200px; left: 70px;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: var(--verm);
+  padding: 16px 30px;
+}
+.pin .site {
+  position: absolute;
+  bottom: 90px; left: 70px;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #5A5550;
+}
+.pin .folio {
+  position: absolute;
+  bottom: 80px; right: 70px;
+  font-family: "Fraunces", serif;
+  font-weight: 900;
+  font-size: 150px;
+  line-height: 1;
+  color: #1E1C19;
+}
+
+/* Cream variant */
+.pin.light { background: var(--cream); }
+.pin.light .headline { color: var(--char); }
+.pin.light .headline em { color: var(--verm-deep); }
+.pin.light .support { color: #6B655C; }
+.pin.light .site { color: #A8A093; }
+.pin.light .folio { color: #E9E2D4; }
+.pin.light .kicker { color: var(--verm-deep); }
+.pin.light .rule { background: var(--verm-deep); }
+
+/* Vermilion block variant */
+.pin.block .band {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 560px;
+  background: var(--verm-deep);
+}
+.pin.block .kicker { color: var(--cream); }
+.pin.block .rule { background: var(--cream); }
+.pin.block .headline { color: var(--cream); }
+.pin.block .headline em { color: var(--ink); }
+
+/* ── PIN 1 — cold dashi ── */
+/* ── PIN 2 — miso boiling ── */
+/* ── PIN 3 — tomato paste ── */
+/* ── PIN 4 — miso × parmigiano ── */
+/* ── PIN 5 — sake deglazing ── */
+/* ── PIN 6 — mirin glaze ── */
+/* ── PIN 7 — katsuobushi ── */
+/* ── PIN 8 — tamagoyaki ── */
+</style>
+</head>
+<body>
+
+<div class="pin">
+  <p class="kicker">Japanese Technique</p>
+  <div class="rule"></div>
+  <h1 class="headline">The cold-brew <em>dashi</em> that takes 5 minutes of work</h1>
+  <p class="support">Mizudashi — kombu and katsuobushi steeped overnight in cold water — makes the cleanest, sweetest broth you'll ever taste. No stove. No skimming. No timing anxiety.</p>
+  <span class="tag">Full guide linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">01</span>
+</div>
+
+<div class="pin light">
+  <p class="kicker">Stop Doing This</p>
+  <div class="rule"></div>
+  <h1 class="headline">Never boil <em>miso.</em> Here's what it destroys</h1>
+  <p class="support">Miso's enzymes and aromatics break down above 80°C. Dissolve it in a ladle of hot broth off-heat, then stir it back in. Thirty seconds of patience, measurable difference.</p>
+  <span class="tag">Full guide linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">02</span>
+</div>
+
+<div class="pin block">
+  <div class="band"></div>
+  <p class="kicker">Pantry Upgrade</p>
+  <div class="rule"></div>
+  <h1 class="headline">You're using tomato paste <em>wrong</em></h1>
+  <p class="support">Caramelize it in the dry center of the pan — 2–3 minutes, bright red to brick — before any liquid. Maillard reactions turn "tomato" into depth. One step, every sauce improved.</p>
+  <span class="tag">Full guide linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">03</span>
+</div>
+
+<div class="pin">
+  <p class="kicker">Umami Science</p>
+  <div class="rule"></div>
+  <h1 class="headline">Miso and Parmigiano are the <em>same ingredient</em></h1>
+  <p class="support">Both fermented. Both loaded with glutamate. Both dissolve into fat and season while they deepen. Swap a third of the Pecorino in cacio e pepe for white miso — and taste why.</p>
+  <span class="tag">Recipe linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">04</span>
+</div>
+
+<div class="pin light">
+  <p class="kicker">Japanese Technique</p>
+  <div class="rule"></div>
+  <h1 class="headline">What Japanese chefs do <em>after</em> every sear</h1>
+  <p class="support">A splash of sake lifts the fond and layers in amino acids that water or wine can't replicate. The alcohol is gone in seconds; the depth stays in the pan.</p>
+  <span class="tag">Full guide linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">05</span>
+</div>
+
+<div class="pin">
+  <p class="kicker">Glaze Chemistry</p>
+  <div class="rule"></div>
+  <h1 class="headline">Why teriyaki chars but never <em>burns</em></h1>
+  <p class="support">Mirin's sugars lacquer at lower temperatures than refined sugar — a glossy set without bitterness. One ratio to soy, one moment of heat. Every glaze you make changes.</p>
+  <span class="tag">Full guide linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">06</span>
+</div>
+
+<div class="pin block">
+  <div class="band"></div>
+  <p class="kicker">30-Second Fix</p>
+  <div class="rule"></div>
+  <h1 class="headline">The dashi step most recipes <em>skip</em></h1>
+  <p class="support">Bonito flakes bloom just below a simmer — boiling water turns the broth bitter. One temperature adjustment separates flat dashi from the real thing.</p>
+  <span class="tag">Full guide linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">07</span>
+</div>
+
+<div class="pin light">
+  <p class="kicker">Egg Mastery</p>
+  <div class="rule"></div>
+  <h1 class="headline">Perfect <em>tamagoyaki</em> is about heat, not folding</h1>
+  <p class="support">Each layer must bond to the last while it's just set — too hot turns it rubbery, too cool and the layers separate. Read the surface, not the clock.</p>
+  <span class="tag">Full guide linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">08</span>
+</div>
+
+</body>
+</html>
