@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="hz:slide-selector" content=".pin">
+<meta name="hz:canvas-width" content="1000">
+<meta name="hz:canvas-height" content="1500">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #0E0E0E;
+  --char: #1A1815;
+  --cream: #F5F0E8;
+  --cream-dim: #A09A90;
+  --verm: #D04A1F;
+  --verm-deep: #B3442E;
+}
+
+.pin {
+  width: 1000px;
+  height: 1500px;
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  font-family: "Inter", sans-serif;
+}
+.pin .kicker {
+  position: absolute;
+  top: 90px; left: 70px;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--verm);
+}
+.pin .rule {
+  position: absolute;
+  top: 145px; left: 70px;
+  width: 110px; height: 3px;
+  background: var(--verm);
+}
+.pin .headline {
+  position: absolute;
+  top: 210px; left: 70px; right: 70px;
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  font-size: 88px;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  color: var(--cream);
+}
+.pin .headline em { font-style: italic; color: var(--verm); }
+.pin .support {
+  position: absolute;
+  bottom: 330px; left: 70px; right: 70px;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--cream-dim);
+}
+.pin .tag {
+  position: absolute;
+  bottom: 200px; left: 70px;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: var(--verm);
+  padding: 16px 30px;
+}
+.pin .site {
+  position: absolute;
+  bottom: 90px; left: 70px;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #5A5550;
+}
+.pin .folio {
+  position: absolute;
+  bottom: 80px; right: 70px;
+  font-family: "Fraunces", serif;
+  font-weight: 900;
+  font-size: 150px;
+  line-height: 1;
+  color: #1E1C19;
+}
+.pin.light { background: var(--cream); }
+.pin.light .headline { color: var(--char); }
+.pin.light .headline em { color: var(--verm-deep); }
+.pin.light .support { color: #6B655C; }
+.pin.light .site { color: #A8A093; }
+.pin.light .folio { color: #E9E2D4; }
+.pin.light .kicker { color: var(--verm-deep); }
+.pin.light .rule { background: var(--verm-deep); }
+.pin.block .band {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 560px;
+  background: var(--verm-deep);
+}
+.pin.block .kicker { color: var(--cream); }
+.pin.block .rule { background: var(--cream); }
+.pin.block .headline { color: var(--cream); }
+.pin.block .headline em { color: var(--ink); }
+
+/* list variant — ranked/numbered content */
+.pin .list {
+  position: absolute;
+  top: 620px; left: 70px; right: 70px;
+  list-style: none;
+}
+.pin .list li {
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--cream);
+  padding: 26px 0;
+  border-bottom: 1px solid #2A2722;
+}
+.pin .list li strong { color: var(--verm); font-weight: 700; }
+.pin.light .list li { color: var(--char); border-bottom-color: #DDD5C6; }
+.pin.light .list li strong { color: var(--verm-deep); }
+</style>
+</head>
+<body>
+
+<!-- Board 2: Ingredients Explained -->
+<div class="pin">
+  <p class="kicker">Miso, Decoded</p>
+  <div class="rule"></div>
+  <h1 class="headline">White. Red. Mixed. Which <em>miso</em> do you actually need?</h1>
+  <p class="support">White for dressings, glazes, and anything delicate. Red for stews, marinades, and depth. Mixed when one tub has to do everything. The fermentation time is the whole difference.</p>
+  <span class="tag">Full guide linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">09</span>
+</div>
+
+<div class="pin light">
+  <p class="kicker">Ingredients Explained</p>
+  <div class="rule"></div>
+  <h1 class="headline">Tamari is not just <em>gluten-free</em> soy sauce</h1>
+  <p class="support">Tamari, koikuchi, usukuchi — three different brews with different ratios of soybean to wheat, different salt levels, and different jobs in the kitchen. Using the right one changes the dish.</p>
+  <span class="tag">Full guide linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">10</span>
+</div>
+
+<div class="pin block">
+  <div class="band"></div>
+  <p class="kicker">Don't Swap These</p>
+  <div class="rule"></div>
+  <h1 class="headline">Mirin and sake are <em>not</em> interchangeable</h1>
+  <p class="support">Mirin brings sugar and gloss; sake brings brightness and lift. Swap one for the other and the dish loses either its lacquer or its aroma. Two bottles, two jobs.</p>
+  <span class="tag">Full guide linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">12</span>
+</div>
+
+<div class="pin">
+  <p class="kicker">Ingredients Explained</p>
+  <div class="rule"></div>
+  <h1 class="headline">What bonito flakes are <em>actually</em> made of</h1>
+  <p class="support">Skipjack tuna — simmered, smoked over oak for weeks, cultivated with mold, and aged until it's the hardest food in the world. Then shaved paper-thin. That's katsuobushi.</p>
+  <span class="tag">Full guide linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">13</span>
+</div>
+
+<!-- Board 3: Italian-Japanese Fusion -->
+<div class="pin light">
+  <p class="kicker">Fusion That Works</p>
+  <div class="rule"></div>
+  <h1 class="headline">The pasta water trick nobody told you involves <em>miso</em></h1>
+  <p class="support">A spoonful of white miso whisked into starchy pasta water builds a sauce that clings harder and tastes deeper — the glutamate does the work the cheese usually does alone.</p>
+  <span class="tag">Recipe linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">15</span>
+</div>
+
+<div class="pin">
+  <p class="kicker">Fusion That Works</p>
+  <div class="rule"></div>
+  <h1 class="headline"><em>Dashi</em> risotto: Italian technique, Japanese broth</h1>
+  <p class="support">The mantecatura doesn't care what the broth is. Kombu and katsuobushi make a stock lighter than chicken but deeper than vegetable — and the rice drinks it beautifully.</p>
+  <span class="tag">Recipe linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">16</span>
+</div>
+
+<div class="pin block">
+  <div class="band"></div>
+  <p class="kicker">Two Traditions</p>
+  <div class="rule"></div>
+  <h1 class="headline">Parmigiano and katsuobushi are <em>cousins</em></h1>
+  <p class="support">Both aged for months until rock hard. Both loaded with free glutamate. Both grated over food as a finishing umami bomb. Italy and Japan solved the same problem the same way.</p>
+  <span class="tag">Full guide linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">18</span>
+</div>
+
+<div class="pin light">
+  <p class="kicker">Deeper Bolognese</p>
+  <div class="rule"></div>
+  <h1 class="headline">The science of a bolognese you can't stop <em>eating</em></h1>
+  <p class="support">Glutamate from tomato, inosinate from meat — the synergy multiplies perceived umami up to eight times. One anchovy or a spoon of miso pushes it further. That's the whole secret.</p>
+  <span class="tag">Full guide linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">19</span>
+</div>
+
+<!-- Board 4: Food Science -->
+<div class="pin">
+  <p class="kicker">Food Science</p>
+  <div class="rule"></div>
+  <h1 class="headline">Searing isn't about the crust. It's about <em>chemistry</em></h1>
+  <p class="support">The Maillard reaction is hundreds of reactions between amino acids and sugars. Two variables control it: temperature and moisture. Master those and you know exactly when to sear.</p>
+  <span class="tag">Full guide linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">21</span>
+</div>
+
+<div class="pin light">
+  <p class="kicker">Food Science</p>
+  <div class="rule"></div>
+  <h1 class="headline">When you salt changes <em>everything</em> about texture</h1>
+  <p class="support">Salt eggplant an hour ahead and the cell walls collapse into silk. Salt a steak forty minutes out and the moisture returns, seasoned deeper. Same chemistry, opposite timing.</p>
+  <span class="tag">Full guide linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">25</span>
+</div>
+
+<!-- Board 5: Pantry Essentials -->
+<div class="pin block">
+  <div class="band"></div>
+  <p class="kicker">Start Here</p>
+  <div class="rule"></div>
+  <h1 class="headline">Four bottles unlock <em>80%</em> of Japanese cooking</h1>
+  <p class="support">Soy sauce for salt and glutamate. Mirin for sweetness and gloss. Sake for brightness. Miso for fermented depth. Get these four right before buying anything exotic.</p>
+  <span class="tag">Full guide linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">26</span>
+</div>
+
+<div class="pin light">
+  <p class="kicker">Pantry Essentials</p>
+  <div class="rule"></div>
+  <h1 class="headline">How long your Japanese pantry <em>actually</em> lasts</h1>
+  <p class="support">Miso: a year in the fridge with plastic pressed on the surface. Soy sauce: months, but refrigerate after opening. Mirin and sake: nearly forever sealed. Buy accordingly.</p>
+  <span class="tag">Full guide linked</span>
+  <span class="site">borderless kitchen</span>
+  <span class="folio">30</span>
+</div>
+
+</body>
+</html>
