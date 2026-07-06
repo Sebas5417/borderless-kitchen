@@ -10,8 +10,9 @@ import { MDXContent } from "@/components/MDXContent";
 import { EditorialImage } from "@/components/media/EditorialImage";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
+import { tmtAmazonUrl } from "@/lib/amazon";
 
-const TMT_AMAZON = process.env.NEXT_PUBLIC_AMAZON_URL_TMT ?? "https://www.amazon.com/dp/B0GY8H2TCQ";
+const TMT_AMAZON = tmtAmazonUrl();
 
 export async function generateStaticParams() {
   return allBooks.map((book) => ({ slug: book.slug }));

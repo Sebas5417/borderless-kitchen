@@ -9,6 +9,7 @@ import { ProseLayout } from "@/components/editorial/ProseLayout";
 import { MDXContent } from "@/components/MDXContent";
 import { EditorialImage } from "@/components/media/EditorialImage";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
+import { tmtAmazonUrl } from "@/lib/amazon";
 
 export async function generateStaticParams() {
   return allPantryEntries.map((e) => ({ slug: e.slug }));
@@ -28,7 +29,7 @@ export async function generateMetadata({
   };
 }
 
-const TMT_AMAZON = process.env.NEXT_PUBLIC_AMAZON_URL_TMT ?? "https://www.amazon.com/dp/B0GY8H2TCQ";
+const TMT_AMAZON = tmtAmazonUrl();
 
 export default async function CultureEntryPage({
   params,

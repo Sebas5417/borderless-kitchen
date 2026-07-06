@@ -4,6 +4,7 @@ import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { PageHero } from "@/components/editorial/PageHero";
+import { tmtAmazonUrl } from "@/lib/amazon";
 
 export const metadata: Metadata = {
   title: "Connect",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     "Notes from the kitchen — the free starter guide, news on new Borderless Kitchen volumes, and the occasional recipe note that didn't make the book.",
 };
 
-const TMT_AMAZON = process.env.NEXT_PUBLIC_AMAZON_URL_TMT ?? "https://www.amazon.com/dp/B0GY8H2TCQ";
+const TMT_AMAZON = tmtAmazonUrl();
 
 export default function ConnectPage() {
   return (

@@ -12,6 +12,7 @@ import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { FadeRise } from "@/components/motion/FadeRise";
+import { tmtAmazonUrl } from "@/lib/amazon";
 
 export const metadata: Metadata = {
   title: {
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   },
 };
 
-const TMT_AMAZON = process.env.NEXT_PUBLIC_AMAZON_URL_TMT ?? "https://www.amazon.com/dp/B0GY8H2TCQ";
+const TMT_AMAZON = tmtAmazonUrl();
 
 export default function HomePage() {
   const tmt = allBooks.find((b) => b.slug === "tokyo-meets-tuscany");

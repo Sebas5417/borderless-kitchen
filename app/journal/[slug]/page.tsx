@@ -10,6 +10,7 @@ import { NextPrevious } from "@/components/navigation/NextPrevious";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { EditorialImage } from "@/components/media/EditorialImage";
+import { tmtAmazonUrl } from "@/lib/amazon";
 
 export async function generateStaticParams() {
   return allStories.map((story) => ({ slug: story.slug }));
@@ -36,7 +37,7 @@ export async function generateMetadata({
   };
 }
 
-const TMT_AMAZON = process.env.NEXT_PUBLIC_AMAZON_URL_TMT ?? "https://www.amazon.com/dp/B0GY8H2TCQ";
+const TMT_AMAZON = tmtAmazonUrl();
 
 export default async function JournalEntryPage({
   params,

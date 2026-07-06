@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
+import { tmtAmazonUrl } from "@/lib/amazon";
 
 export const metadata: Metadata = {
   title: "Seoul Meets Mexico City — Coming Soon | Borderless Kitchen Vol. II",
@@ -183,7 +184,7 @@ export default function PreorderPage() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
-                    href="https://www.amazon.com/dp/B0GY8H2TCQ"
+                    href={tmtAmazonUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block font-ui text-eyebrow uppercase text-paper bg-ink px-8 py-4 hover:bg-vermillion transition-colors duration-300"

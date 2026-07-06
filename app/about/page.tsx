@@ -5,6 +5,7 @@ import { Container } from "@/components/layout/Container";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { FadeRise } from "@/components/motion/FadeRise";
+import { tmtAmazonUrl } from "@/lib/amazon";
 
 export const metadata: Metadata = {
   title: "About",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     "Sebastian Dri is the author of the Borderless Kitchen cookbook series. Cross-cultural cooking grounded in technique, restraint, and the conversation between cuisines.",
 };
 
-const TMT_AMAZON = process.env.NEXT_PUBLIC_AMAZON_URL_TMT ?? "https://www.amazon.com/dp/B0GY8H2TCQ";
+const TMT_AMAZON = tmtAmazonUrl();
 
 export default function AboutPage() {
   return (

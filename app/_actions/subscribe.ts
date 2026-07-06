@@ -32,6 +32,23 @@ async function addToMailerLite(email: string): Promise<boolean> {
   return res.status === 200 || res.status === 201 || res.status === 409;
 }
 
+// Optional safety net so leads aren't silently lost while MailerLite is being
+// set up: point LEAD_CAPTURE_WEBHOOK_URL at any webhook (Zapier, Make, a
+// Google Apps Script) that appends the email somewhere durable.
+async function notifyFallbackWebhook(email: string): Promise<void> {
+  const url = process.env.LEAD_CAPTURE_WEBHOOK_URL;
+  if (!url) return;
+  try {
+    await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, at: new Date().toISOString(), source: "borderlesskitchen" }),
+    });
+  } catch {
+    /* best-effort only */
+  }
+}
+
 export async function subscribe(formData: FormData): Promise<SubscribeResult> {
   const raw = formData.get("email");
   const email = typeof raw === "string" ? raw.trim().toLowerCase() : "";
@@ -70,12 +87,14 @@ export async function subscribe(formData: FormData): Promise<SubscribeResult> {
     // Subscribers are lost until env vars are set — set MAILERLITE_API_KEY and
     // MAILERLITE_GROUP_ID in Vercel dashboard to start capturing for real.
     if (!added) {
-      console.warn(`[subscribe] MailerLite not configured — dropped ${email}`);
+      console.warn(`[subscribe] MailerLite not configured or rejected — falling back for ${email}`);
+      await notifyFallbackWebhook(email);
       return { ok: true };
     }
     return { ok: true };
   } catch {
     console.error("[subscribe] MailerLite request threw unexpectedly");
+    await notifyFallbackWebhook(email);
     return { ok: true };
   }
 }

@@ -4,6 +4,11 @@ import { allFreeRecipes } from "contentlayer/generated";
 import { Container } from "@/components/layout/Container";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { FadeRise } from "@/components/motion/FadeRise";
+import { tmtAmazonUrl } from "@/lib/amazon";
+
+// Unset until the Gumroad product actually exists — don't advertise a $7.99
+// purchase that lands on the generic Gumroad homepage.
+const GUMROAD_FLAVOR_MATRIX_URL = process.env.NEXT_PUBLIC_GUMROAD_FLAVOR_MATRIX_URL;
 
 export const metadata: Metadata = {
   title: "Free Recipes + Flavor Pairing Chart | Borderless Kitchen",
@@ -120,16 +125,21 @@ export default function FreePage() {
                   buttonLabel="Send it →"
                 />
                 <p className="font-ui text-xs text-ink/30 mt-4">
-                  No spam. You can also buy the formatted PDF version at{" "}
-                  <a
-                    href="https://gumroad.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline hover:text-vermillion transition-colors"
-                  >
-                    Gumroad
-                  </a>{" "}
-                  for $7.99 if you want the print-quality version.
+                  No spam.{" "}
+                  {GUMROAD_FLAVOR_MATRIX_URL && (
+                    <>
+                      You can also buy the formatted PDF version on{" "}
+                      <a
+                        href={GUMROAD_FLAVOR_MATRIX_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline hover:text-vermillion transition-colors"
+                      >
+                        Gumroad
+                      </a>{" "}
+                      for $7.99 if you want the print-quality version.
+                    </>
+                  )}
                 </p>
               </div>
 
@@ -231,7 +241,7 @@ export default function FreePage() {
               </div>
               <div className="shrink-0">
                 <Link
-                  href="https://www.amazon.com/dp/B0GY8H2TCQ"
+                  href={tmtAmazonUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block font-ui text-eyebrow uppercase text-paper bg-ink px-10 py-5 hover:bg-vermillion transition-colors duration-300"

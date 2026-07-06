@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { PageHero } from "@/components/editorial/PageHero";
 import { FadeRise } from "@/components/motion/FadeRise";
+import { pantryAmazonUrl, tmtAmazonUrl } from "@/lib/amazon";
 
 export const metadata: Metadata = {
   title: "The Pantry | Borderless Kitchen",
@@ -16,9 +17,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Replace [ASSOCIATE-ID] with your actual Amazon Associates ID
-const AMZ = (asin: string) =>
-  `https://www.amazon.com/dp/${asin}?tag=[ASSOCIATE-ID]`;
+const AMZ = pantryAmazonUrl;
 
 const JAPANESE_PANTRY = [
   {
@@ -375,7 +374,7 @@ export default function ShopPage() {
                 The recipes that use all of this are in the book.
               </p>
               <Link
-                href="https://www.amazon.com/dp/B0GY8H2TCQ"
+                href={tmtAmazonUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block font-ui text-eyebrow uppercase text-paper bg-ink px-8 py-4 hover:bg-vermillion transition-colors duration-300"
