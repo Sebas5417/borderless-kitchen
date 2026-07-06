@@ -74,3 +74,19 @@ Get the mini-course group ID from MailerLite → Subscribers → Groups → Mini
 - Day 5 is the primary book conversion email — reply CTA + Amazon link
 - Each email ends with unsubscribe link (MailerLite handles this automatically)
 - Suggest adding a tag "mini-course-completed" after Day 5 for future segmentation
+
+---
+
+## THE LEAD MAGNET IS BUILT ✅ (added by Claude)
+
+The promised "47 rules" PDF now exists and ships with the site:
+- **File in repo:** `public/guides/asian-flavor-cheat-sheet.pdf`
+- **Live URL (after deploy):** `https://borderless-kitchen.vercel.app/guides/asian-flavor-cheat-sheet.pdf`
+
+**In the MailerLite welcome email (Day 0), paste this download button/link** so subscribers
+actually receive what /flavor-guide promised:
+
+> Your cheat sheet is here → https://borderless-kitchen.vercel.app/guides/asian-flavor-cheat-sheet.pdf
+
+Without this link in the automation, subscribers get an empty promise. This is the delivery
+half of the funnel — the capture half needs MAILERLITE_API_KEY + MAILERLITE_GROUP_ID in Vercel.
