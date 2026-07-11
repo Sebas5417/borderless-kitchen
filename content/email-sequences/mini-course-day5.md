@@ -83,7 +83,7 @@ The mini-course is done. The framework is yours.
 
 If you want to go further:
 
-**Tokyo Meets Tuscany** — the book — has 30 full fusion recipes, each built on the same system you've been using this week. Every recipe includes a structural breakdown: why it works, what you could substitute, where the Japanese and Italian techniques meet. Available on [Amazon](https://www.amazon.com/dp/B0GY8H2TCQ) and wherever books are sold.
+**Tokyo Meets Tuscany** — the book — has 30 full fusion recipes, each built on the same system you've been using this week. Every recipe includes a structural breakdown: why it works, what you could substitute, where the Japanese and Italian techniques meet. Available on [Amazon](https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20) and wherever books are sold.
 
 The journal at [borderlesskitchenseries.com/journal](https://borderlesskitchenseries.com/journal) publishes new essays on cross-cultural cooking every week — the history behind these dishes, the conversations between cuisines, the techniques worth knowing.
 
@@ -96,5 +96,5 @@ Sebastian
 ---
 
 *Borderless Kitchen Series — borderlesskitchenseries.com*
-*To get the book: amazon.com/dp/B0GY8H2TCQ*
+*To get the book: https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20*
 *[Unsubscribe]*

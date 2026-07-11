@@ -23,7 +23,7 @@ Reply and tell me. I read every reply — and your answer actually shapes what I
 
 — Sebastian
 
-P.S. If the mini-course convinced you that there's something real going on between Japanese and Italian cooking, the book goes deeper. 85 recipes, the full science, and the history of how these two traditions developed the same flavor logic independently. [Get Tokyo Meets Tuscany on Amazon](https://amazon.com/dp/B0GY8H2TCQ)
+P.S. If the mini-course convinced you that there's something real going on between Japanese and Italian cooking, the book goes deeper. 85 recipes, the full science, and the history of how these two traditions developed the same flavor logic independently. [Get Tokyo Meets Tuscany on Amazon](https://amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20)
 
 ---
 
@@ -96,7 +96,7 @@ Also: if you haven't tried anything yet and the course is sitting in your inbox 
 
 ---
 
-For everyone who does want to go deeper: the book has 85 tested recipes organized around the same framework as the course. It's the full system. [Tokyo Meets Tuscany on Amazon.](https://amazon.com/dp/B0GY8H2TCQ)
+For everyone who does want to go deeper: the book has 85 tested recipes organized around the same framework as the course. It's the full system. [Tokyo Meets Tuscany on Amazon.](https://amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20)
 
 — Sebastian
 

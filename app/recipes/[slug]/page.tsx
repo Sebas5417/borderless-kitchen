@@ -34,8 +34,7 @@ export async function generateMetadata({
   };
 }
 
-const TMT_AMAZON =
-  process.env.NEXT_PUBLIC_AMAZON_URL_TMT ?? "https://www.amazon.com/dp/B0GY8H2TCQ";
+import { TMT_AMAZON } from "@/lib/amazon";
 
 export default async function RecipePage({
   params,

@@ -94,7 +94,7 @@ const FAQS = [
   },
   {
     q: "Is this free?",
-    a: "Yes, completely free. You get the PDF challenge guide, the cheat sheets, and the daily emails at no cost. We do sell a more advanced Mini-Course for cooks who want to go deeper — but the 30-Day Challenge is a standalone, complete resource.",
+    a: "Yes, completely free. You get the PDF challenge guide, the cheat sheets, and the daily emails at no cost. We also offer a free 5-Day Mini-Course for cooks who want to go deeper into Japanese-Italian fusion specifically — but the 30-Day Challenge is a standalone, complete resource.",
   },
   {
     q: "What level of cooking experience do I need?",

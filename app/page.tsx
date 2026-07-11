@@ -17,9 +17,11 @@ export const metadata: Metadata = {
   title: {
     absolute: "Borderless Kitchen — Italian soul. Japanese precision.",
   },
+  description:
+    "Borderless Kitchen — Italian soul meets Japanese precision. Shop Tokyo Meets Tuscany and explore bold, cross-cultural cookbooks and recipes by Sebastian.",
 };
 
-const TMT_AMAZON = process.env.NEXT_PUBLIC_AMAZON_URL_TMT ?? "https://www.amazon.com/dp/B0GY8H2TCQ";
+import { TMT_AMAZON } from "@/lib/amazon";
 
 export default function HomePage() {
   const tmt = allBooks.find((b) => b.slug === "tokyo-meets-tuscany");

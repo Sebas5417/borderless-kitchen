@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "Four cookbooks in the Borderless Kitchen series — each volume pairs two cuisines and looks for what they already share. Tokyo Meets Tuscany. Seoul Meets Mexico City. And two more to come.",
 };
 
-const TMT_AMAZON = process.env.NEXT_PUBLIC_AMAZON_URL_TMT ?? "https://www.amazon.com/dp/B0GY8H2TCQ";
+import { TMT_AMAZON } from "@/lib/amazon";
 
 export default function BooksPage() {
   const tmt = allBooks.find((b) => b.slug === "tokyo-meets-tuscany")!;
