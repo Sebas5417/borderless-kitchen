@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { TMT_AMAZON } from "@/lib/amazon";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 
@@ -263,7 +264,7 @@ export default function Day5Page() {
                 </p>
               </div>
               <Link
-                href="https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20"
+                href={TMT_AMAZON}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block font-ui text-eyebrow uppercase text-ink bg-paper px-10 py-5 hover:bg-vermillion hover:text-paper transition-colors duration-300 shrink-0"

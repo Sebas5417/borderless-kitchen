@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { TMT_AMAZON } from "@/lib/amazon";
 import { Container } from "@/components/layout/Container";
 import { SubscribeForm } from "@/components/forms/SubscribeForm";
 import { SmmcWaitlist } from "@/components/cta/SmmcWaitlist";
@@ -26,11 +27,7 @@ export const metadata: Metadata = {
   },
 };
 
-const AMAZON_URL =
-  process.env.NEXT_PUBLIC_AMAZON_URL_TMT &&
-  process.env.NEXT_PUBLIC_AMAZON_URL_TMT !== "#"
-    ? process.env.NEXT_PUBLIC_AMAZON_URL_TMT
-    : "https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20";
+const AMAZON_URL = TMT_AMAZON;
 
 const RECIPES = [
   {
