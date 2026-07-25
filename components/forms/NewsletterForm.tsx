@@ -8,12 +8,15 @@ type Props = {
   label?: string;
   placeholder?: string;
   buttonLabel?: string;
+  /** Optional link rendered after the success message (e.g. lead magnet). */
+  successLink?: { href: string; label: string };
 };
 
 export function NewsletterForm({
   label = "Letters from the kitchen",
   placeholder = "Your email",
   buttonLabel = "Subscribe",
+  successLink,
 }: Props) {
   const [pending, startTransition] = useTransition();
   const [state, setState] = useState<
@@ -71,9 +74,19 @@ export function NewsletterForm({
       {state.kind === "error" ? (
         <p className="mt-3 font-ui text-xs text-vermillion">{state.message}</p>
       ) : state.kind === "ok" ? (
-        <p className="mt-3 font-ui text-xs text-ink/60">
-          You'll hear from the kitchen soon.
-        </p>
+        <div className="mt-3">
+          <p className="font-ui text-xs text-ink/60">
+            You'll hear from the kitchen soon.
+          </p>
+          {successLink ? (
+            <a
+              href={successLink.href}
+              className="mt-3 inline-block font-ui text-eyebrow uppercase text-vermillion border-b border-vermillion pb-1 hover:opacity-80 transition-opacity duration-300"
+            >
+              {successLink.label}
+            </a>
+          ) : null}
+        </div>
       ) : null}
     </form>
   );

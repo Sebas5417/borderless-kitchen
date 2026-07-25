@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { allFreeRecipes } from "contentlayer/generated";
+import { TMT_AMAZON } from "@/lib/amazon";
+import { GUMROAD_MATRIX_URL } from "@/lib/gumroad";
 import { Container } from "@/components/layout/Container";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { FadeRise } from "@/components/motion/FadeRise";
@@ -118,19 +120,27 @@ export default function FreePage() {
                   label="Get the chart"
                   placeholder="your@email.com"
                   buttonLabel="Send it →"
+                  successLink={{
+                    href: "/flavor-pairing-matrix.pdf",
+                    label: "Download the matrix →",
+                  }}
                 />
-                <p className="font-ui text-xs text-ink/30 mt-4">
-                  No spam. You can also buy the formatted PDF version at{" "}
-                  <a
-                    href="https://gumroad.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline hover:text-vermillion transition-colors"
-                  >
-                    Gumroad
-                  </a>{" "}
-                  for $7.99 if you want the print-quality version.
-                </p>
+                {GUMROAD_MATRIX_URL ? (
+                  <p className="font-ui text-xs text-ink/30 mt-4">
+                    No spam. You can also buy the formatted PDF version at{" "}
+                    <a
+                      href={GUMROAD_MATRIX_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-vermillion transition-colors"
+                    >
+                      Gumroad
+                    </a>{" "}
+                    for $7.99 if you want the print-quality version.
+                  </p>
+                ) : (
+                  <p className="font-ui text-xs text-ink/30 mt-4">No spam.</p>
+                )}
               </div>
 
               <div className="lg:col-span-8">
@@ -231,7 +241,7 @@ export default function FreePage() {
               </div>
               <div className="shrink-0">
                 <Link
-                  href="https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20"
+                  href={TMT_AMAZON}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block font-ui text-eyebrow uppercase text-paper bg-ink px-10 py-5 hover:bg-vermillion transition-colors duration-300"
