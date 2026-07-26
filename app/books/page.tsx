@@ -10,6 +10,7 @@ import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { PageHero } from "@/components/editorial/PageHero";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/books" },
   title: "The Series",
   description:
     "Four cookbooks in the Borderless Kitchen series — each volume pairs two cuisines and looks for what they already share. Tokyo Meets Tuscany. Seoul Meets Mexico City. And two more to come.",
@@ -86,7 +87,7 @@ export default function BooksPage() {
                     apartments. All of them learned to belong to one another.
                   </p>
                   <p className="font-ui text-eyebrow uppercase text-ink/50">
-                    Paperback $24.99 · Hardcover $34.99 · eBook $9.99
+                    Paperback $19.99 · Kindle $9.99
                   </p>
                 </div>
                 <div className="mt-10 flex flex-wrap items-center gap-8">

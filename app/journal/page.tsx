@@ -8,6 +8,7 @@ import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { PageHero } from "@/components/editorial/PageHero";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/journal" },
   title: "Journal",
   description:
     "Notes on food, culture, memory, and movement — essays from the Borderless Kitchen series on cross-cultural cooking and the conversations between cuisines.",
@@ -35,7 +36,7 @@ export default function JournalPage() {
           <FadeRise>
             <div className="mb-12 pb-12 border-b border-hairline">
               <Link
-                href="/journal/start-here-your-guide-to-japanese-italian-fusion-cooking"
+                href="/journal/japanese-cooking-for-beginners-guide-to-getting-started"
                 className="group inline-flex flex-col gap-2"
               >
                 <p className="font-ui text-eyebrow uppercase text-vermillion">

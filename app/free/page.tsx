@@ -8,15 +8,27 @@ import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { FadeRise } from "@/components/motion/FadeRise";
 
 export const metadata: Metadata = {
-  title: "Free Recipes + Flavor Pairing Chart | Borderless Kitchen",
+  title: "Free Recipes + Flavor Pairing Chart",
+  alternates: { canonical: "/free" },
   description:
-    "Nineteen free fusion recipes and the Flavor Pairing Matrix — the Italian × Japanese ingredient chart that maps every component of Tokyo Meets Tuscany. No signup required for the recipes.",
+    "Free fusion recipes and the Flavor Pairing Matrix — the Italian × Japanese ingredient chart that maps every component of Tokyo Meets Tuscany. No signup required for the recipes.",
   openGraph: {
     title: "Free Recipes + Flavor Pairing Chart",
     description:
-      "The Borderless Kitchen free collection: nineteen cross-cultural recipes and the Flavor Pairing Matrix that explains why they work.",
+      "The Borderless Kitchen free collection: a full library of cross-cultural recipes and the Flavor Pairing Matrix that explains why they work.",
     type: "website",
+    url: "/free",
+    images: [
+      {
+        url: "/images/banner-carousel-1.png",
+        width: 1200,
+        height: 630,
+        alt: "Borderless Kitchen free recipes and Flavor Pairing Matrix",
+      },
+    ],
   },
+  twitter: { card: "summary_large_image", images: ["/images/banner-carousel-1.png"] },
+
 };
 
 const FREE_RECIPES = allFreeRecipes
@@ -249,7 +261,7 @@ export default function FreePage() {
                   Tokyo Meets Tuscany on Amazon →
                 </Link>
                 <p className="font-ui text-eyebrow uppercase text-ink/30 mt-3 text-xs">
-                  Paperback $24.99 · Hardcover $34.99 · Kindle $9.99
+                  Paperback $19.99 · Kindle $9.99
                 </p>
               </div>
             </div>

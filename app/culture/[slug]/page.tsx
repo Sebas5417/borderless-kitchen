@@ -24,6 +24,7 @@ export async function generateMetadata({
   if (!entry) return {};
   return {
     title: entry.term,
+    alternates: { canonical: `/culture/${entry.slug}` },
     description: `${entry.classification} · ${entry.origin.join(", ")} — from the Borderless Kitchen culture library.`,
   };
 }

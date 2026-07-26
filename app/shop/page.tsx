@@ -6,7 +6,8 @@ import { PageHero } from "@/components/editorial/PageHero";
 import { FadeRise } from "@/components/motion/FadeRise";
 
 export const metadata: Metadata = {
-  title: "The Pantry | Borderless Kitchen",
+  title: "The Pantry",
+  alternates: { canonical: "/shop" },
   description:
     "The Japanese and Italian pantry ingredients behind every recipe in the Borderless Kitchen series — with sourcing notes and where to find them.",
   openGraph: {
@@ -14,7 +15,18 @@ export const metadata: Metadata = {
     description:
       "Japanese and Italian pantry essentials for fusion cooking — the ingredients behind Tokyo Meets Tuscany.",
     type: "website",
+    url: "/shop",
+    images: [
+      {
+        url: "/images/tmt-cover-new.png",
+        width: 1200,
+        height: 630,
+        alt: "Tokyo Meets Tuscany — the pantry behind the book",
+      },
+    ],
   },
+  twitter: { card: "summary_large_image", images: ["/images/tmt-cover-new.png"] },
+
 };
 
 // Replace [ASSOCIATE-ID] with your actual Amazon Associates ID
@@ -384,7 +396,7 @@ export default function ShopPage() {
                 Tokyo Meets Tuscany on Amazon →
               </Link>
               <p className="font-ui text-eyebrow uppercase text-ink/40 mt-3">
-                Paperback · Kindle · Hardcover
+                Paperback · Kindle
               </p>
             </div>
           </FadeRise>

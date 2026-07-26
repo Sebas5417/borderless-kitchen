@@ -7,6 +7,7 @@ import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { FadeRise } from "@/components/motion/FadeRise";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "About",
   description:
     "Sebastian Dri is the author of the Borderless Kitchen cookbook series. Cross-cultural cooking grounded in technique, restraint, and the conversation between cuisines.",
@@ -121,7 +122,7 @@ export default function AboutPage() {
                       New here?
                     </p>
                     <Link
-                      href="/journal/start-here-your-guide-to-japanese-italian-fusion-cooking"
+                      href="/journal/japanese-cooking-for-beginners-guide-to-getting-started"
                       className="font-body text-sm text-ink/70 leading-relaxed hover:text-vermillion transition-colors duration-200"
                     >
                       Start with the complete guide — what to read, what to cook first, and what order to build the pantry. →
@@ -130,7 +131,7 @@ export default function AboutPage() {
                   <div className="pt-4">
                     <AmazonCTA href={TMT_AMAZON} label="Get Vol. I on Amazon" />
                     <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
-                      Paperback $24.99 · Hardcover $34.99 · eBook $9.99
+                      Paperback $19.99 · Kindle $9.99
                     </p>
                   </div>
                 </div>

@@ -11,11 +11,13 @@ export const metadata: Metadata = {
   title: "Tokyo Meets Tuscany — Japanese Precision. Italian Comfort.",
   description:
     "A modern Japanese–Italian fusion cookbook for weeknight dinners that feel restaurant-level without restaurant prices. Download the free 5-Sauce Pack and get the book on Amazon.",
+  alternates: { canonical: "/tokyo-meets-tuscany" },
   openGraph: {
     title: "Tokyo Meets Tuscany | Borderless Kitchen",
     description:
       "Japanese precision meets Italian comfort. Thirty tested fusion recipes — miso butter pasta, chili oil lasagna, soy-balsamic glaze. Free Sauce Pack download + book on Amazon.",
     type: "website",
+    url: "/tokyo-meets-tuscany",
     images: [
       {
         url: "/images/tmt-cover-new.png",
@@ -25,9 +27,50 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: { card: "summary_large_image", images: ["/images/tmt-cover-new.png"] },
 };
 
 const AMAZON_URL = TMT_AMAZON;
+
+// Verified against the KDP interior + live Amazon listing (2026-07-26):
+// 30 recipes, 6 master sauces, 90 pages, paperback $19.99 / Kindle $9.99, ISBN 9798257577871.
+const tmtBookSchema = {
+  "@context": "https://schema.org",
+  "@type": "Book",
+  name: "Borderless Kitchen: Tokyo Meets Tuscany",
+  alternateName:
+    "Tokyo Meets Tuscany: A Modern Italian–Japanese Fusion Cookbook",
+  author: {
+    "@type": "Person",
+    name: "Sebastian Dri",
+    url: "https://borderlesskitchenseries.com/about",
+  },
+  publisher: { "@type": "Organization", name: "Borderless Kitchen" },
+  isbn: "9798257577871",
+  bookFormat: "https://schema.org/Paperback",
+  numberOfPages: 90,
+  inLanguage: "en",
+  datePublished: "2026-04-20",
+  genre: ["Cookbook", "Fusion Cuisine", "Cross-cultural cooking"],
+  description:
+    "A modern Japanese–Italian fusion cookbook — 30 recipes and 6 master sauces at the intersection of Japanese precision and Italian comfort, built on the Flavor Pairing Matrix.",
+  image: "https://borderlesskitchenseries.com/images/tmt-cover-new.png",
+  url: "https://borderlesskitchenseries.com/tokyo-meets-tuscany",
+  sameAs: "https://www.amazon.com/dp/B0GY8H2TCQ",
+  isPartOf: {
+    "@type": "BookSeries",
+    name: "Borderless Kitchen",
+    url: "https://borderlesskitchenseries.com/books",
+  },
+  offers: {
+    "@type": "Offer",
+    url: TMT_AMAZON,
+    priceCurrency: "USD",
+    price: "19.99",
+    availability: "https://schema.org/InStock",
+    seller: { "@type": "Organization", name: "Amazon" },
+  },
+};
 
 const RECIPES = [
   {
@@ -53,6 +96,10 @@ const RECIPES = [
 export default function TokyoMeetsTuscanyPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(tmtBookSchema) }}
+      />
       {/* Hero */}
       <section className="relative bg-charcoal-deep overflow-hidden">
         <div className="absolute inset-0">
@@ -96,7 +143,7 @@ export default function TokyoMeetsTuscanyPage() {
               </a>
             </div>
             <p className="font-ui text-xs text-paper/40 mt-4">
-              Paperback $24.99 · Hardcover $34.99 · Kindle $9.99
+              Paperback $19.99 · Kindle $9.99
             </p>
           </FadeRise>
         </Container>
@@ -270,7 +317,7 @@ export default function TokyoMeetsTuscanyPage() {
                   Tokyo Meets Tuscany on Amazon →
                 </a>
                 <p className="font-ui text-xs text-ink/40 mt-3">
-                  Paperback $24.99 · Hardcover $34.99 · Kindle $9.99
+                  Paperback $19.99 · Kindle $9.99
                 </p>
               </div>
             </div>

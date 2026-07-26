@@ -6,6 +6,7 @@ import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/30-day-challenge" },
   title: "30-Day Japanese Kitchen Challenge — Build a Japanese Pantry From Scratch",
   description:
     "A free 30-day challenge to build your Japanese pantry from scratch, cook one Japanese technique per day, and permanently change how you think about umami, dashi, and fermented flavor.",

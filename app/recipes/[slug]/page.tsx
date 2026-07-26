@@ -14,6 +14,22 @@ export async function generateStaticParams() {
   return allFreeRecipes.map((r) => ({ slug: r.slug }));
 }
 
+/** "PT3H20M" → "3 hr 20 min", "PT45M" → "45 min". */
+function formatDuration(iso: string): string {
+  const m = iso.match(/^PT(?:(\d+)H)?(?:(\d+)M)?$/);
+  if (!m) return iso;
+  const parts: string[] = [];
+  if (m[1]) parts.push(`${m[1]} hr`);
+  if (m[2]) parts.push(`${m[2]} min`);
+  return parts.join(" ") || iso;
+}
+
+/** Strip a manual "| Borderless Kitchen" suffix — the layout template already brands titles. */
+function pageTitle(recipe: { metaTitle?: string; title: string }): string {
+  const raw = recipe.metaTitle ?? `${recipe.title} Recipe`;
+  return raw.replace(/\s*\|\s*Borderless Kitchen\s*$/i, "");
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -22,15 +38,22 @@ export async function generateMetadata({
   const { slug } = await params;
   const recipe = allFreeRecipes.find((r) => r.slug === slug);
   if (!recipe) return {};
+  const title = pageTitle(recipe);
+  const description = recipe.metaDescription ?? recipe.dek;
   return {
-    title: recipe.metaTitle,
-    description: recipe.metaDescription,
+    title,
+    description,
+    alternates: { canonical: `/recipes/${recipe.slug}` },
     openGraph: {
-      title: recipe.metaTitle,
-      description: recipe.metaDescription,
+      title,
+      description,
       type: "article",
+      url: `/recipes/${recipe.slug}`,
       images: recipe.heroImageSrc ? [{ url: recipe.heroImageSrc }] : [],
     },
+    twitter: recipe.heroImageSrc
+      ? { card: "summary_large_image", images: [recipe.heroImageSrc] }
+      : undefined,
   };
 }
 
@@ -56,8 +79,8 @@ export default async function RecipePage({
       url: "https://borderlesskitchenseries.com/about",
     },
     datePublished: recipe.date,
-    cookTime: recipe.cookTime,
-    prepTime: recipe.prepTime,
+    ...(recipe.cookTime ? { cookTime: recipe.cookTime } : {}),
+    ...(recipe.prepTime ? { prepTime: recipe.prepTime } : {}),
     totalTime: recipe.totalTime,
     recipeYield: recipe.recipeYield,
     recipeCategory: recipe.category,
@@ -127,7 +150,7 @@ export default async function RecipePage({
               </span>
               <span className="text-paper/30">·</span>
               <span className="font-ui text-eyebrow uppercase text-paper/50">
-                {recipe.totalTime.replace("PT", "").replace("M", " min")}
+                {formatDuration(recipe.totalTime)}
               </span>
               <span className="text-paper/30">·</span>
               <span className="font-ui text-eyebrow uppercase text-paper/50">
@@ -154,11 +177,11 @@ export default async function RecipePage({
           {/* Book CTA */}
           <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">
             <p className="font-display italic text-display-3 text-ink/60 mb-6 leading-tight">
-              36 more recipes in the book.
+              30 recipes and 6 master sauces in the book.
             </p>
             <AmazonCTA href={TMT_AMAZON} label="Get Tokyo Meets Tuscany on Amazon" />
             <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
-              Paperback · Hardcover · Kindle
+              Paperback · Kindle
             </p>
           </div>
 
