@@ -29,7 +29,6 @@ export const metadata: Metadata = {
 
 };
 
-// Replace [ASSOCIATE-ID] with your actual Amazon Associates ID
 const AMZ = (asin: string) =>
   `https://www.amazon.com/dp/${asin}?tag=borderlesskitchen-20`;
 
