@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "Four cookbooks in the Borderless Kitchen series — each volume pairs two cuisines and looks for what they already share. Tokyo Meets Tuscany. Seoul Meets Mexico City. And two more to come.",
 };
 
-import { TMT_AMAZON } from "@/lib/amazon";
+import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
 
 export default function BooksPage() {
   const tmt = allBooks.find((b) => b.slug === "tokyo-meets-tuscany")!;
@@ -114,7 +114,7 @@ export default function BooksPage() {
                 <div className="lg:col-span-5 order-2 lg:order-1">
                   <div className="pt-6 lg:pt-0">
                     <p className="font-ui text-eyebrow uppercase text-vermillion mb-4">
-                      Vol. II — Coming soon
+                      Vol. II — Now on Kindle
                     </p>
                     <h2 className="font-display text-display-1 text-ink leading-tight">
                       {smmc.title}
@@ -135,13 +135,22 @@ export default function BooksPage() {
                         arriving at the same truth from opposite directions.
                       </p>
                     </div>
-                    <div className="mt-10">
+                    <div className="mt-10 flex flex-col gap-4 items-start">
                       <a
-                        href="https://free.borderlesskitchenseries.com"
+                        href={SMMC_AMAZON}
                         className="font-ui text-eyebrow uppercase text-ink border-b border-ink/40 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
                       >
-                        Get notified when it drops →
+                        Buy Seoul Meets Mexico City on Amazon →
                       </a>
+                      <p className="font-ui text-eyebrow uppercase text-ink/40">
+                        Kindle $9.99 · Paperback coming
+                      </p>
+                      <Link
+                        href="/books/seoul-meets-mexico-city"
+                        className="link-quiet text-ink text-base"
+                      >
+                        Inside the book
+                      </Link>
                     </div>
                   </div>
                 </div>

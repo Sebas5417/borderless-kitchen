@@ -11,7 +11,7 @@ import { EditorialImage } from "@/components/media/EditorialImage";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 
-import { TMT_AMAZON } from "@/lib/amazon";
+import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
 
 export async function generateStaticParams() {
   return allBooks.map((book) => ({ slug: book.slug }));
@@ -58,13 +58,19 @@ export default async function BookPage({
   const book = allBooks.find((b) => b.slug === slug);
   if (!book) notFound();
 
-  const amazonUrl = book.status === "available" ? TMT_AMAZON : null;
-
-  const allTeasers = allRecipeTeasers.filter((r) => r.bookSlug === book.slug);
-
   // Verified against the KDP interior + live Amazon listing (2026-07-26):
   // 30 recipes, 6 master sauces, 90 pages, paperback $19.99 / Kindle $9.99.
   const isTmt = book.slug === "tokyo-meets-tuscany";
+  const isSmmc = book.slug === "seoul-meets-mexico-city";
+
+  // SMMC eBook live on Amazon (ASIN B0H6VD21M2, Kindle $9.99, verified
+  // 2026-07-30); paperback still in KDP review, so Kindle-only pricing.
+  const amazonUrl =
+    book.status === "available" ? (isSmmc ? SMMC_AMAZON : TMT_AMAZON) : null;
+  const priceLine = isSmmc ? "Kindle $9.99" : "Paperback $19.99 · Kindle $9.99";
+  const schemaPrice = isSmmc ? "9.99" : "19.99";
+
+  const allTeasers = allRecipeTeasers.filter((r) => r.bookSlug === book.slug);
   const bookSchema = {
     "@context": "https://schema.org",
     "@type": "Book",
@@ -100,7 +106,7 @@ export default async function BookPage({
             "@type": "Offer",
             url: amazonUrl,
             priceCurrency: "USD",
-            price: "19.99",
+            price: schemaPrice,
             availability: "https://schema.org/InStock",
             seller: { "@type": "Organization", name: "Amazon" },
           },
@@ -176,9 +182,9 @@ export default async function BookPage({
             </div>
             {amazonUrl ? (
               <div className="mt-10">
-                <AmazonCTA href={amazonUrl} label="Buy Tokyo Meets Tuscany on Amazon" />
+                <AmazonCTA href={amazonUrl} label={`Buy ${book.title} on Amazon`} />
                 <p className="font-ui text-eyebrow uppercase text-ink/40 mt-3">
-                  Paperback $19.99 · Kindle $9.99
+                  {priceLine}
                 </p>
               </div>
             ) : (
@@ -257,9 +263,9 @@ export default async function BookPage({
               <p className="font-display italic text-display-3 text-ink/60 mb-8 max-w-xl mx-auto">
                 The full recipes live inside the book.
               </p>
-              <AmazonCTA href={amazonUrl} label="Buy Tokyo Meets Tuscany on Amazon" />
+              <AmazonCTA href={amazonUrl} label={`Buy ${book.title} on Amazon`} />
               <p className="font-ui text-eyebrow uppercase text-ink/40 mt-4">
-                Paperback $19.99 · Kindle $9.99
+                {priceLine}
               </p>
             </div>
           ) : null}

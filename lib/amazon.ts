@@ -11,3 +11,11 @@ const fromEnv = process.env.NEXT_PUBLIC_AMAZON_URL_TMT;
 
 export const TMT_AMAZON =
   fromEnv && fromEnv !== "#" ? fromEnv : FALLBACK;
+
+const SMMC_FALLBACK =
+  "https://www.amazon.com/dp/B0H6VD21M2?tag=borderlesskitchen-20";
+
+const smmcFromEnv = process.env.NEXT_PUBLIC_AMAZON_URL_SMMC;
+
+export const SMMC_AMAZON =
+  smmcFromEnv && smmcFromEnv !== "#" ? smmcFromEnv : SMMC_FALLBACK;
