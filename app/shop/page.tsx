@@ -4,7 +4,6 @@ import { TMT_AMAZON } from "@/lib/amazon";
 import { Container } from "@/components/layout/Container";
 import { PageHero } from "@/components/editorial/PageHero";
 import { FadeRise } from "@/components/motion/FadeRise";
-import { pantryAmazonUrl, tmtAmazonUrl } from "@/lib/amazon";
 
 export const metadata: Metadata = {
   title: "The Pantry",

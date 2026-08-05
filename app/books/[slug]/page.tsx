@@ -10,7 +10,6 @@ import { MDXContent } from "@/components/MDXContent";
 import { EditorialImage } from "@/components/media/EditorialImage";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
-import { tmtAmazonUrl } from "@/lib/amazon";
 
 import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
 

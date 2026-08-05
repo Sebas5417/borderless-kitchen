@@ -4,7 +4,6 @@ import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { PageHero } from "@/components/editorial/PageHero";
-import { tmtAmazonUrl } from "@/lib/amazon";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/connect" },

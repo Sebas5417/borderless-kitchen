@@ -9,7 +9,6 @@ import { MDXContent } from "@/components/MDXContent";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { EditorialImage } from "@/components/media/EditorialImage";
-import { tmtAmazonUrl } from "@/lib/amazon";
 
 export async function generateStaticParams() {
   return allFreeRecipes.map((r) => ({ slug: r.slug }));

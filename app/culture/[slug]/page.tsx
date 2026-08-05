@@ -9,7 +9,6 @@ import { ProseLayout } from "@/components/editorial/ProseLayout";
 import { MDXContent } from "@/components/MDXContent";
 import { EditorialImage } from "@/components/media/EditorialImage";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
-import { tmtAmazonUrl } from "@/lib/amazon";
 
 export async function generateStaticParams() {
   return allPantryEntries.map((e) => ({ slug: e.slug }));

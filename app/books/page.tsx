@@ -8,7 +8,6 @@ import { EditorialImage } from "@/components/media/EditorialImage";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { PageHero } from "@/components/editorial/PageHero";
-import { tmtAmazonUrl } from "@/lib/amazon";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/books" },

@@ -12,7 +12,6 @@ import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { FadeRise } from "@/components/motion/FadeRise";
-import { tmtAmazonUrl } from "@/lib/amazon";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },

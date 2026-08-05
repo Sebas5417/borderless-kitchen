@@ -3,7 +3,6 @@ import Link from "next/link";
 import { TMT_AMAZON } from "@/lib/amazon";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
-import { tmtAmazonUrl } from "@/lib/amazon";
 
 export const metadata: Metadata = {
   title: "Day 5: Build Your Own Fusion Dish | Fusion Kitchen Mini-Course",

@@ -4,7 +4,6 @@ import { TMT_AMAZON } from "@/lib/amazon";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
-import { tmtAmazonUrl } from "@/lib/amazon";
 
 export const metadata: Metadata = {
   title: "Seoul Meets Mexico City — Vol. II, Coming Soon",

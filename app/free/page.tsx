@@ -6,11 +6,6 @@ import { GUMROAD_MATRIX_URL } from "@/lib/gumroad";
 import { Container } from "@/components/layout/Container";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { FadeRise } from "@/components/motion/FadeRise";
-import { tmtAmazonUrl } from "@/lib/amazon";
-
-// Unset until the Gumroad product actually exists — don't advertise a $7.99
-// purchase that lands on the generic Gumroad homepage.
-const GUMROAD_FLAVOR_MATRIX_URL = process.env.NEXT_PUBLIC_GUMROAD_FLAVOR_MATRIX_URL;
 
 export const metadata: Metadata = {
   title: "Free Recipes + Flavor Pairing Chart",

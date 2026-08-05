@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Container } from "./Container";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
-import { tmtAmazonUrl } from "@/lib/amazon";
 
 import { TMT_AMAZON } from "@/lib/amazon";
 
