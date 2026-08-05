@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="hz:slide-selector" content=".slide">
+<meta name="hz:canvas-width" content="1080">
+<meta name="hz:canvas-height" content="1920">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,600..900&family=Inter:wght@400;500;600;700&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --ink:#0E0E0E; --char:#1A1815; --cream:#F5F0E8; --dim:#A09A90; --verm:#D04A1F; --brick:#8A2E16; }
+.slide {
+  width: 1080px; height: 1920px; position: relative; overflow: hidden;
+  background: var(--ink); font-family: "Inter", sans-serif; color: var(--cream);
+}
+.stripe { position: absolute; top: 0; left: 0; width: 16px; height: 100%; background: var(--verm); }
+.kicker { position: absolute; top: 120px; left: 80px; font-size: 30px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--verm); }
+.rule { position: absolute; top: 180px; left: 80px; width: 130px; height: 3px; background: var(--verm); }
+.big { position: absolute; left: 80px; right: 80px; font-family: "Fraunces", serif; font-weight: 800; line-height: 0.98; letter-spacing: -0.02em; }
+.big em { font-style: italic; color: var(--verm); }
+.body { position: absolute; left: 80px; right: 80px; font-size: 44px; line-height: 1.42; color: var(--dim); font-weight: 400; }
+.body b { color: var(--cream); font-weight: 600; }
+.step-no { position: absolute; font-family: "Archivo Black", sans-serif; font-size: 300px; line-height: 1; color: #1C1A17; right: 60px; }
+.handle { position: absolute; bottom: 90px; left: 80px; font-size: 34px; letter-spacing: 0.1em; color: #5A5550; }
+.pill { position: absolute; bottom: 210px; left: 80px; font-size: 27px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; background: var(--verm); color: var(--cream); padding: 18px 34px; }
+.swipe { position: absolute; bottom: 90px; right: 80px; font-size: 30px; color: var(--verm); font-weight: 600; }
+.light { background: var(--cream); color: var(--char); }
+.light .body { color: #6B655C; } .light .body b { color: var(--char); }
+.light .handle { color: #B0A897; } .light .step-no { color: #E9E2D4; }
+
+/* S1 hook */
+.s1 .big { top: 260px; font-size: 128px; }
+.s1 .body { bottom: 420px; }
+/* S2 reveal */
+.s2 .big { top: 300px; font-size: 150px; }
+.s2 .body { bottom: 420px; }
+/* steps */
+.step .big { top: 520px; font-size: 96px; }
+.step .body { bottom: 380px; }
+/* science */
+.sci .big { top: 300px; font-size: 104px; }
+.sci .body { bottom: 360px; }
+/* cta */
+.cta .big { top: 420px; font-size: 120px; }
+.cta .body { bottom: 520px; }
+</style>
+</head>
+<body>
+
+<!-- 1 HOOK -->
+<div class="slide s1">
+  <div class="stripe"></div>
+  <div class="kicker">Pantry Fix</div><div class="rule"></div>
+  <h1 class="big">You already own the <em>best</em> flavor booster in your kitchen.</h1>
+  <p class="body">And you've been using it at a fraction of its power. It's sitting in a little can right now.</p>
+  <span class="pill">Swipe →</span>
+  <span class="handle">borderless kitchen</span>
+</div>
+
+<!-- 2 REVEAL -->
+<div class="slide s2 light">
+  <div class="stripe"></div>
+  <div class="kicker">The Reveal</div><div class="rule"></div>
+  <h1 class="big"><em>Tomato paste.</em></h1>
+  <p class="body">Most people squeeze it straight into the sauce. Not wrong — but you're skipping the step that changes everything.</p>
+  <span class="handle">borderless kitchen</span>
+  <span class="swipe">→</span>
+</div>
+
+<!-- 3 STEP -->
+<div class="slide step">
+  <div class="stripe"></div>
+  <span class="step-no" style="top:180px;">1</span>
+  <div class="kicker">The Technique</div><div class="rule"></div>
+  <h1 class="big">Push everything to the sides. Paste in the <em>bare centre.</em></h1>
+  <p class="body">Direct contact with the hot pan. Let it sit. <b>Two to three minutes.</b></p>
+  <span class="handle">borderless kitchen</span>
+  <span class="swipe">→</span>
+</div>
+
+<!-- 4 STEP -->
+<div class="slide step light">
+  <div class="stripe"></div>
+  <span class="step-no" style="top:180px;">2</span>
+  <div class="kicker">Watch the Colour</div><div class="rule"></div>
+  <h1 class="big">Cook it from bright red to <em>brick.</em></h1>
+  <p class="body">It'll darken and smell almost <b>caramelised</b> — nutty, deep, roasted. That's your signal.</p>
+  <span class="handle">borderless kitchen</span>
+  <span class="swipe">→</span>
+</div>
+
+<!-- 5 SCIENCE -->
+<div class="slide sci">
+  <div class="stripe"></div>
+  <div class="kicker">Why It Works</div><div class="rule"></div>
+  <h1 class="big">You just <em>concentrated the glutamate</em> and triggered the Maillard reaction.</h1>
+  <p class="body">The paste goes from "tomato" to pure <b>depth</b> — the savoury backbone every great sauce is built on.</p>
+  <span class="handle">borderless kitchen</span>
+  <span class="swipe">→</span>
+</div>
+
+<!-- 6 CTA -->
+<div class="slide cta light">
+  <div class="stripe"></div>
+  <div class="kicker">Your Move</div><div class="rule"></div>
+  <h1 class="big">Add your liquid. The brick paste <em>melts</em> into everything.</h1>
+  <p class="body">One of 47 flavour rules in the free cheat sheet. <b>Link in bio.</b></p>
+  <span class="pill">Free guide in bio</span>
+  <span class="handle">borderless kitchen</span>
+</div>
+
+</body>
+</html>
