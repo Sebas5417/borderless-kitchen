@@ -114,13 +114,19 @@
 - **Pinterest ×2:** cycle remaining, re-pin a winner
 - **Community:** 1 Reddit or Quora touch
 
-### Day 19 — Mon Aug 24 · Day 20 — Tue Aug 25
-- **TikTok + IG:** re-post your **2 best-performing carousels from Days 15–18** to whichever platform they haven't hit yet.
-- **Pinterest:** keep 2/day — pins compound for months, never stop.
+### Day 19 — Mon Aug 24
+- **TikTok + IG:** `birria-ramen` recipe carousel (6 slides). New format — drives straight to the recipe page, not the email guide. Caption: *"Mexico and Japan solved the same problem 🍜🌶️ Birria ramen is what happens when you combine them. Recipe linked. #birriaramen #fusionfood #foodtok #birria"*
+- **Pinterest ×2:** cycle remaining, re-pin a winner
+- **Community:** —
+
+### Day 20 — Tue Aug 25
+- **TikTok + IG:** `bibimbap-risotto` recipe carousel (6 slides). Caption: *"What if risotto was actually Korean? 🍚 The technique doesn't care what pantry you use. Recipe linked. #bibimbap #risotto #koreanfood #fusionrecipe"*
+- **Pinterest ×2:** cycle remaining
 - **Community:** —
 
 ### Day 21 — Wed Aug 26
-- **Full analytics review.** Which topics won across all 3 platforms? Tell Claude the results → Month 2 batch gets built entirely around what's proven, plus 1 wildcard test topic per week.
+- **TikTok + IG:** `tteokbokki-arrabbiata` recipe carousel (6 slides). Caption: *"Arrabbiata and tteokbokki are the same recipe 🌶️ Different countries, same four-ingredient logic. Recipe linked. #tteokbokki #arrabbiata #koreanitalian #fusionfood"*
+- **Full analytics review.** Which topics won across all 3 platforms? Which converts better — technique carousels (email capture) or recipe carousels (direct recipe traffic)? Tell Claude the results → Month 2 batch gets built entirely around what's proven, plus 1 wildcard test topic per week.
 - **Pinterest ×2** as usual.
 
 ---
@@ -138,6 +144,13 @@
 | sesame-oil carousel | `png/sesame-oil/sesame-oil-01..06` | 6 slides |
 | tamagoyaki carousel | `png/tamagoyaki/tamagoyaki-01..06` | 6 slides |
 | salt-timing carousel | `png/salt-timing/salt-timing-01..06` | 6 slides |
+| kombu carousel | `png/kombu/kombu-01..06` | 6 slides |
+| fish-sauce carousel | `png/fish-sauce/fish-sauce-01..06` | 6 slides |
+| gochujang carousel | `png/gochujang/gochujang-01..06` | 6 slides |
+| MSG-myth carousel | `png/msg/msg-01..06` | 6 slides |
+| birria-ramen recipe carousel | `png/birria-ramen/birria-ramen-01..06` | 6 slides |
+| bibimbap-risotto recipe carousel | `png/bibimbap-risotto/bibimbap-risotto-01..06` | 6 slides |
+| tteokbokki-arrabbiata recipe carousel | `png/tteokbokki-arrabbiata/tteokbokki-arrabbiata-01..06` | 6 slides |
 | Pinterest pins | `png/pins/pin-01..08`, `pinb-01..12` | 20 pins |
 | reel covers | `png/reel-covers/cover-01..05` | 5 covers |
 | YouTube thumbnails | `png/yt-thumbs/thumb-01..04` | 4 thumbs |
