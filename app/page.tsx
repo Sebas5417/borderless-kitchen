@@ -15,12 +15,15 @@ import { FadeRise } from "@/components/motion/FadeRise";
 import { tmtAmazonUrl } from "@/lib/amazon";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/" },
   title: {
     absolute: "Borderless Kitchen — Italian soul. Japanese precision.",
   },
+  description:
+    "Borderless Kitchen — Italian soul meets Japanese precision. Shop Tokyo Meets Tuscany and explore bold, cross-cultural cookbooks and recipes by Sebastian.",
 };
 
-const TMT_AMAZON = tmtAmazonUrl();
+import { TMT_AMAZON } from "@/lib/amazon";
 
 export default function HomePage() {
   const tmt = allBooks.find((b) => b.slug === "tokyo-meets-tuscany");
@@ -103,7 +106,7 @@ export default function HomePage() {
                     belong to one another at the same counter.
                   </p>
                   <p className="font-ui text-eyebrow uppercase text-ink/50 mt-4">
-                    Paperback $24.99 · Hardcover $34.99 · eBook $9.99
+                    Paperback $19.99 · Kindle $9.99
                   </p>
                   <div className="mt-10 flex flex-wrap items-center gap-8">
                     <AmazonCTA href={TMT_AMAZON} />
@@ -228,7 +231,7 @@ export default function HomePage() {
           <FadeRise>
             <div className="mb-10 pb-10 border-b border-hairline">
               <Link
-                href="/journal/start-here-your-guide-to-japanese-italian-fusion-cooking"
+                href="/journal/japanese-cooking-for-beginners-guide-to-getting-started"
                 className="group flex flex-col md:flex-row md:items-start gap-4 md:gap-8"
               >
                 <p className="font-ui text-eyebrow uppercase text-vermillion shrink-0">

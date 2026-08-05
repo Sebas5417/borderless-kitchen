@@ -6,7 +6,8 @@ import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 
 export const metadata: Metadata = {
-  title: "The Japanese-Italian Fusion Kitchen: A Free 5-Day Mini-Course | Borderless Kitchen",
+  title: "The Japanese-Italian Fusion Kitchen: A Free 5-Day Mini-Course",
+  alternates: { canonical: "/mini-course" },
   description:
     "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and five foundational fusion recipes. Delivered free to your inbox.",
   openGraph: {
@@ -14,7 +15,18 @@ export const metadata: Metadata = {
     description:
       "5 days, 5 techniques, 5 recipes. The complete Japanese-Italian cooking foundation — delivered daily to your inbox, free.",
     type: "website",
+    url: "/mini-course",
+    images: [
+      {
+        url: "/images/banner-carousel-2.png",
+        width: 1200,
+        height: 630,
+        alt: "The Japanese-Italian Fusion Kitchen mini-course",
+      },
+    ],
   },
+  twitter: { card: "summary_large_image", images: ["/images/banner-carousel-2.png"] },
+
 };
 
 const DAYS = [

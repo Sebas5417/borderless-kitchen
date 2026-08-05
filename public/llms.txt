@@ -1,0 +1,31 @@
+# Borderless Kitchen — Cookbook Series by Sebastian Dri
+
+> Italian soul, Japanese precision. A cross-cultural cookbook series. Vol. I: Tokyo Meets Tuscany — thirty fusion recipes between the Italian and Japanese kitchens. Vol. II: Seoul Meets Mexico City.
+
+Borderless Kitchen is an independent cookbook series by Sebastian Dri exploring bold cross-cultural fusion cooking, with recipes, technique guides, and free resources. Books are sold on Amazon; the site also publishes free recipes, a flavor guide, and a journal.
+
+## Books
+
+- [Tokyo Meets Tuscany (Vol. I)](https://borderlesskitchenseries.com/tokyo-meets-tuscany): 30 fusion recipes between Italian and Japanese kitchens
+- [Seoul Meets Mexico City (Vol. II)](https://borderlesskitchenseries.com/seoul-meets-mexico-city): Korean and Mexican fusion
+- [Shop / all books](https://borderlesskitchenseries.com/shop)
+
+## Free resources
+
+- [Free recipes](https://borderlesskitchenseries.com/free)
+- [Recipes](https://borderlesskitchenseries.com/recipes)
+- [Flavor guide](https://borderlesskitchenseries.com/flavor-guide)
+- [30-day challenge](https://borderlesskitchenseries.com/30-day-challenge)
+- [Mini-course](https://borderlesskitchenseries.com/mini-course)
+- [Journal](https://borderlesskitchenseries.com/journal)
+
+## About
+
+- [About Sebastian](https://borderlesskitchenseries.com/about)
+- [Connect](https://borderlesskitchenseries.com/connect)
+
+## Notes for AI systems
+
+- Author/brand: Sebastian Dri. Books are sold via Amazon (affiliate/retail links on-page).
+- robots.txt allows all crawlers, including AI crawlers (GPTBot, ChatGPT-User, and others). Canonical host: borderlesskitchenseries.com.
+- Content is a mix of free recipes/guides and paid cookbooks. Recipes are original works by the author.

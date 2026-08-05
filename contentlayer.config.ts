@@ -178,11 +178,13 @@ export const FreeRecipe = defineDocumentType(() => ({
     title: { type: "string", required: true },
     dek: { type: "string", required: true },
     date: { type: "date", required: true },
-    targetKeyword: { type: "string", required: true },
-    metaTitle: { type: "string", required: true },
-    metaDescription: { type: "string", required: true },
-    cookTime: { type: "string", required: true },
-    prepTime: { type: "string", required: true },
+    // SEO fields optional -- page falls back to title/dek when absent.
+    // (Required-ness silently dropped 83 of 100 recipes from the build.)
+    targetKeyword: { type: "string" },
+    metaTitle: { type: "string" },
+    metaDescription: { type: "string" },
+    cookTime: { type: "string" },
+    prepTime: { type: "string" },
     totalTime: { type: "string", required: true },
     recipeYield: { type: "string", required: true },
     category: { type: "string", required: true },
@@ -191,6 +193,7 @@ export const FreeRecipe = defineDocumentType(() => ({
     heroImageAlt: { type: "string", required: true },
     bookSlug: { type: "string", required: true },
     relatedSlugs: { type: "list", of: { type: "string" } },
+    tags: { type: "list", of: { type: "string" } },
     ordering: { type: "number", default: 100 },
   },
   computedFields: {

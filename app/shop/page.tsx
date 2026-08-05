@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { TMT_AMAZON } from "@/lib/amazon";
 import { Container } from "@/components/layout/Container";
 import { PageHero } from "@/components/editorial/PageHero";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { pantryAmazonUrl, tmtAmazonUrl } from "@/lib/amazon";
 
 export const metadata: Metadata = {
-  title: "The Pantry | Borderless Kitchen",
+  title: "The Pantry",
+  alternates: { canonical: "/shop" },
   description:
     "The Japanese and Italian pantry ingredients behind every recipe in the Borderless Kitchen series — with sourcing notes and where to find them.",
   openGraph: {
@@ -14,10 +16,22 @@ export const metadata: Metadata = {
     description:
       "Japanese and Italian pantry essentials for fusion cooking — the ingredients behind Tokyo Meets Tuscany.",
     type: "website",
+    url: "/shop",
+    images: [
+      {
+        url: "/images/tmt-cover-new.png",
+        width: 1200,
+        height: 630,
+        alt: "Tokyo Meets Tuscany — the pantry behind the book",
+      },
+    ],
   },
+  twitter: { card: "summary_large_image", images: ["/images/tmt-cover-new.png"] },
+
 };
 
-const AMZ = pantryAmazonUrl;
+const AMZ = (asin: string) =>
+  `https://www.amazon.com/dp/${asin}?tag=borderlesskitchen-20`;
 
 const JAPANESE_PANTRY = [
   {
@@ -374,7 +388,7 @@ export default function ShopPage() {
                 The recipes that use all of this are in the book.
               </p>
               <Link
-                href={tmtAmazonUrl()}
+                href={TMT_AMAZON}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block font-ui text-eyebrow uppercase text-paper bg-ink px-8 py-4 hover:bg-vermillion transition-colors duration-300"
@@ -382,7 +396,7 @@ export default function ShopPage() {
                 Tokyo Meets Tuscany on Amazon →
               </Link>
               <p className="font-ui text-eyebrow uppercase text-ink/40 mt-3">
-                Paperback · Kindle · Hardcover
+                Paperback · Kindle
               </p>
             </div>
           </FadeRise>

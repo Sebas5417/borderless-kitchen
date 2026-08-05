@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { allFreeRecipes } from "contentlayer/generated";
+import { TMT_AMAZON } from "@/lib/amazon";
+import { GUMROAD_MATRIX_URL } from "@/lib/gumroad";
 import { Container } from "@/components/layout/Container";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { FadeRise } from "@/components/motion/FadeRise";
@@ -11,15 +13,27 @@ import { tmtAmazonUrl } from "@/lib/amazon";
 const GUMROAD_FLAVOR_MATRIX_URL = process.env.NEXT_PUBLIC_GUMROAD_FLAVOR_MATRIX_URL;
 
 export const metadata: Metadata = {
-  title: "Free Recipes + Flavor Pairing Chart | Borderless Kitchen",
+  title: "Free Recipes + Flavor Pairing Chart",
+  alternates: { canonical: "/free" },
   description:
-    "Nineteen free fusion recipes and the Flavor Pairing Matrix — the Italian × Japanese ingredient chart that maps every component of Tokyo Meets Tuscany. No signup required for the recipes.",
+    "Free fusion recipes and the Flavor Pairing Matrix — the Italian × Japanese ingredient chart that maps every component of Tokyo Meets Tuscany. No signup required for the recipes.",
   openGraph: {
     title: "Free Recipes + Flavor Pairing Chart",
     description:
-      "The Borderless Kitchen free collection: nineteen cross-cultural recipes and the Flavor Pairing Matrix that explains why they work.",
+      "The Borderless Kitchen free collection: a full library of cross-cultural recipes and the Flavor Pairing Matrix that explains why they work.",
     type: "website",
+    url: "/free",
+    images: [
+      {
+        url: "/images/banner-carousel-1.png",
+        width: 1200,
+        height: 630,
+        alt: "Borderless Kitchen free recipes and Flavor Pairing Matrix",
+      },
+    ],
   },
+  twitter: { card: "summary_large_image", images: ["/images/banner-carousel-1.png"] },
+
 };
 
 const FREE_RECIPES = allFreeRecipes
@@ -123,24 +137,27 @@ export default function FreePage() {
                   label="Get the chart"
                   placeholder="your@email.com"
                   buttonLabel="Send it →"
+                  successLink={{
+                    href: "/flavor-pairing-matrix.pdf",
+                    label: "Download the matrix →",
+                  }}
                 />
-                <p className="font-ui text-xs text-ink/30 mt-4">
-                  No spam.{" "}
-                  {GUMROAD_FLAVOR_MATRIX_URL && (
-                    <>
-                      You can also buy the formatted PDF version on{" "}
-                      <a
-                        href={GUMROAD_FLAVOR_MATRIX_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline hover:text-vermillion transition-colors"
-                      >
-                        Gumroad
-                      </a>{" "}
-                      for $7.99 if you want the print-quality version.
-                    </>
-                  )}
-                </p>
+                {GUMROAD_MATRIX_URL ? (
+                  <p className="font-ui text-xs text-ink/30 mt-4">
+                    No spam. You can also buy the formatted PDF version at{" "}
+                    <a
+                      href={GUMROAD_MATRIX_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-vermillion transition-colors"
+                    >
+                      Gumroad
+                    </a>{" "}
+                    for $7.99 if you want the print-quality version.
+                  </p>
+                ) : (
+                  <p className="font-ui text-xs text-ink/30 mt-4">No spam.</p>
+                )}
               </div>
 
               <div className="lg:col-span-8">
@@ -241,7 +258,7 @@ export default function FreePage() {
               </div>
               <div className="shrink-0">
                 <Link
-                  href={tmtAmazonUrl()}
+                  href={TMT_AMAZON}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block font-ui text-eyebrow uppercase text-paper bg-ink px-10 py-5 hover:bg-vermillion transition-colors duration-300"
@@ -249,7 +266,7 @@ export default function FreePage() {
                   Tokyo Meets Tuscany on Amazon →
                 </Link>
                 <p className="font-ui text-eyebrow uppercase text-ink/30 mt-3 text-xs">
-                  Paperback $24.99 · Hardcover $34.99 · Kindle $9.99
+                  Paperback $19.99 · Kindle $9.99
                 </p>
               </div>
             </div>

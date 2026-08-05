@@ -7,6 +7,7 @@ import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { PageHero } from "@/components/editorial/PageHero";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/culture" },
   title: "Culture",
   description:
     "A knowledge library of ingredients, techniques, and traditions from the Borderless Kitchen series.",

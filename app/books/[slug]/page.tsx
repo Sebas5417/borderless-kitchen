@@ -12,11 +12,20 @@ import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { tmtAmazonUrl } from "@/lib/amazon";
 
-const TMT_AMAZON = tmtAmazonUrl();
+import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
 
 export async function generateStaticParams() {
   return allBooks.map((book) => ({ slug: book.slug }));
 }
+
+/**
+ * Volumes with a dedicated sales/landing page: the catalog page canonicalizes
+ * to it so the two routes stop competing in search (audit F4).
+ */
+const CANONICAL_OVERRIDES: Record<string, string> = {
+  "tokyo-meets-tuscany": "/tokyo-meets-tuscany",
+  "seoul-meets-mexico-city": "/seoul-meets-mexico-city",
+};
 
 export async function generateMetadata({
   params,
@@ -26,12 +35,16 @@ export async function generateMetadata({
   const { slug } = await params;
   const book = allBooks.find((b) => b.slug === slug);
   if (!book) return {};
+  const canonical = CANONICAL_OVERRIDES[book.slug] ?? `/books/${book.slug}`;
   return {
     title: book.title,
     description: `${book.regionA} meets ${book.regionB}. ${book.subtitle ?? "A volume in the Borderless Kitchen series."}`,
+    alternates: { canonical },
     openGraph: {
       title: book.title,
       description: `${book.regionA} meets ${book.regionB}.`,
+      type: "website",
+      url: canonical,
       images: book.coverImageSrc ? [{ url: book.coverImageSrc }] : [],
     },
   };
@@ -46,21 +59,60 @@ export default async function BookPage({
   const book = allBooks.find((b) => b.slug === slug);
   if (!book) notFound();
 
-  const amazonUrl = book.status === "available" ? TMT_AMAZON : null;
+  // Verified against the KDP interior + live Amazon listing (2026-07-26):
+  // 30 recipes, 6 master sauces, 90 pages, paperback $19.99 / Kindle $9.99.
+  const isTmt = book.slug === "tokyo-meets-tuscany";
+  const isSmmc = book.slug === "seoul-meets-mexico-city";
+
+  // SMMC eBook live on Amazon (ASIN B0H6VD21M2, Kindle $9.99, verified
+  // 2026-07-30); paperback still in KDP review, so Kindle-only pricing.
+  const amazonUrl =
+    book.status === "available" ? (isSmmc ? SMMC_AMAZON : TMT_AMAZON) : null;
+  const priceLine = isSmmc ? "Kindle $9.99" : "Paperback $19.99 · Kindle $9.99";
+  const schemaPrice = isSmmc ? "9.99" : "19.99";
 
   const allTeasers = allRecipeTeasers.filter((r) => r.bookSlug === book.slug);
-
   const bookSchema = {
     "@context": "https://schema.org",
     "@type": "Book",
     name: book.title,
-    author: { "@type": "Person", name: "Sebastian Dri" },
+    author: {
+      "@type": "Person",
+      name: "Sebastian Dri",
+      url: "https://borderlesskitchenseries.com/about",
+    },
     publisher: { "@type": "Organization", name: "Borderless Kitchen" },
     description: `${book.regionA} meets ${book.regionB}. ${book.subtitle ?? "A volume in the Borderless Kitchen series."}`,
     genre: ["Cookbook", "Fusion Cuisine", "Cross-cultural cooking"],
     inLanguage: "en",
-    ...(book.year ? { datePublished: String(book.year) } : {}),
-    ...(amazonUrl ? { url: amazonUrl } : {}),
+    isPartOf: {
+      "@type": "BookSeries",
+      name: "Borderless Kitchen",
+      url: "https://borderlesskitchenseries.com/books",
+    },
+    ...(isTmt
+      ? {
+          isbn: "9798257577871",
+          bookFormat: "https://schema.org/Paperback",
+          numberOfPages: 90,
+          datePublished: "2026-04-20",
+          sameAs: "https://www.amazon.com/dp/B0GY8H2TCQ",
+        }
+      : {}),
+    ...(book.year && !isTmt ? { datePublished: String(book.year) } : {}),
+    ...(amazonUrl
+      ? {
+          url: `https://borderlesskitchenseries.com${CANONICAL_OVERRIDES[book.slug] ?? `/books/${book.slug}`}`,
+          offers: {
+            "@type": "Offer",
+            url: amazonUrl,
+            priceCurrency: "USD",
+            price: schemaPrice,
+            availability: "https://schema.org/InStock",
+            seller: { "@type": "Organization", name: "Amazon" },
+          },
+        }
+      : {}),
     ...(book.coverImageSrc
       ? { image: `https://borderlesskitchenseries.com${book.coverImageSrc}` }
       : {}),
@@ -131,9 +183,9 @@ export default async function BookPage({
             </div>
             {amazonUrl ? (
               <div className="mt-10">
-                <AmazonCTA href={amazonUrl} label="Buy Tokyo Meets Tuscany on Amazon" />
+                <AmazonCTA href={amazonUrl} label={`Buy ${book.title} on Amazon`} />
                 <p className="font-ui text-eyebrow uppercase text-ink/40 mt-3">
-                  Paperback $24.99 · Hardcover $34.99 · eBook $9.99
+                  {priceLine}
                 </p>
               </div>
             ) : (
@@ -212,9 +264,9 @@ export default async function BookPage({
               <p className="font-display italic text-display-3 text-ink/60 mb-8 max-w-xl mx-auto">
                 The full recipes live inside the book.
               </p>
-              <AmazonCTA href={amazonUrl} label="Buy Tokyo Meets Tuscany on Amazon" />
+              <AmazonCTA href={amazonUrl} label={`Buy ${book.title} on Amazon`} />
               <p className="font-ui text-eyebrow uppercase text-ink/40 mt-4">
-                Paperback $24.99 · Hardcover $34.99 · eBook $9.99
+                {priceLine}
               </p>
             </div>
           ) : null}

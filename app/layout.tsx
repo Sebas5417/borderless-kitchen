@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Playfair_Display, Montserrat, Lato } from "next/font/google";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -44,6 +45,21 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "Borderless Kitchen",
     type: "website",
+    images: [
+      {
+        url: `${siteUrl}/images/banner-carousel-1.png`,
+        width: 1200,
+        height: 630,
+        alt: "Borderless Kitchen — cross-cultural cookbook series",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Borderless Kitchen — Italian soul. Japanese precision.",
+    description:
+      "A cookbook series by Sebastian Dri. Vol. I: Tokyo Meets Tuscany — thirty fusion recipes between Italian and Japanese kitchens.",
+    images: [`${siteUrl}/images/banner-carousel-1.png`],
   },
   robots: { index: true, follow: true },
   alternates: {
@@ -51,10 +67,24 @@ export const metadata: Metadata = {
       "application/rss+xml": `${siteUrl}/feed.xml`,
     },
   },
-  // Add NEXT_PUBLIC_GSC_VERIFY env var to verify Google Search Console ownership
-  ...(process.env.NEXT_PUBLIC_GSC_VERIFY
-    ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFY } }
-    : {}),
+  verification: { google: "UjQR4K2FvHN0imPHmH_LkT8SJK_HPz4GiQtipWpy6ks" },
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Borderless Kitchen",
+  url: siteUrl,
+  description:
+    "A cookbook series exploring cross-cultural cuisine. Each volume pairs two culinary traditions and finds what they share.",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${siteUrl}/recipes?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
 };
 
 const organizationSchema = {
@@ -92,11 +122,16 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col">
         <script
           type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <Analytics />
       </body>
     </html>
   );

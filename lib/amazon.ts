@@ -1,26 +1,21 @@
-const TMT_ASIN_FALLBACK = "https://www.amazon.com/dp/B0GY8H2TCQ";
+/**
+ * Canonical Amazon URL for Tokyo Meets Tuscany — always carries the
+ * Associates tag. The env override wins unless it's empty or the literal
+ * "#": that value is truthy, so a plain `??` fallback never triggered and
+ * every CTA on the site once pointed at "#".
+ */
+const FALLBACK =
+  "https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20";
 
-// Treat unset, empty, and the .env.example placeholder the same way so a
-// careless `cp .env.example .env` can't silently break every book link.
-const PLACEHOLDER_VALUES = new Set(["#", ""]);
+const fromEnv = process.env.NEXT_PUBLIC_AMAZON_URL_TMT;
 
-/** Appends the Associates tracking tag to any Amazon URL, if one is configured. */
-export function withAssociateTag(url: string): string {
-  const tag = process.env.NEXT_PUBLIC_AMAZON_ASSOCIATES_TAG;
-  if (!tag) return url;
-  const separator = url.includes("?") ? "&" : "?";
-  return `${url}${separator}tag=${encodeURIComponent(tag)}`;
-}
+export const TMT_AMAZON =
+  fromEnv && fromEnv !== "#" ? fromEnv : FALLBACK;
 
-/** Canonical, tag-aware link to Tokyo Meets Tuscany on Amazon. */
-export function tmtAmazonUrl(): string {
-  const configured = process.env.NEXT_PUBLIC_AMAZON_URL_TMT;
-  const base =
-    !configured || PLACEHOLDER_VALUES.has(configured) ? TMT_ASIN_FALLBACK : configured;
-  return withAssociateTag(base);
-}
+const SMMC_FALLBACK =
+  "https://www.amazon.com/dp/B0H6VD21M2?tag=borderlesskitchen-20";
 
-/** Tag-aware link to a pantry item by ASIN, for the shop page. */
-export function pantryAmazonUrl(asin: string): string {
-  return withAssociateTag(`https://www.amazon.com/dp/${asin}`);
-}
+const smmcFromEnv = process.env.NEXT_PUBLIC_AMAZON_URL_SMMC;
+
+export const SMMC_AMAZON =
+  smmcFromEnv && smmcFromEnv !== "#" ? smmcFromEnv : SMMC_FALLBACK;

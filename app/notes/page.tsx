@@ -6,6 +6,7 @@ import { FadeRise } from "@/components/motion/FadeRise";
 import { PageHero } from "@/components/editorial/PageHero";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/notes" },
   title: "Field Notes",
   description:
     "Short fragments from the road and the counter — smells, knife marks, restaurants without names, ingredients in motion.",

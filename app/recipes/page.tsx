@@ -7,6 +7,7 @@ import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/recipes" },
   title: "Free Recipes | Borderless Kitchen",
   description:
     "Free Japanese-Italian fusion recipes from the Borderless Kitchen series — Ramen alla Carbonara, Udon Bolognese, Miso White Pizza, and more. Full instructions, no paywall.",

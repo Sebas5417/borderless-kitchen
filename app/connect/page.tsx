@@ -7,12 +7,13 @@ import { PageHero } from "@/components/editorial/PageHero";
 import { tmtAmazonUrl } from "@/lib/amazon";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/connect" },
   title: "Connect",
   description:
     "Notes from the kitchen — the free starter guide, news on new Borderless Kitchen volumes, and the occasional recipe note that didn't make the book.",
 };
 
-const TMT_AMAZON = tmtAmazonUrl();
+import { TMT_AMAZON } from "@/lib/amazon";
 
 export default function ConnectPage() {
   return (
@@ -61,7 +62,7 @@ export default function ConnectPage() {
                 </p>
                 <AmazonCTA href={TMT_AMAZON} label="Get Tokyo Meets Tuscany" />
                 <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
-                  Paperback $24.99 · Hardcover $34.99 · eBook $9.99
+                  Paperback $19.99 · Kindle $9.99
                 </p>
               </div>
 

@@ -1,20 +1,32 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { TMT_AMAZON } from "@/lib/amazon";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { tmtAmazonUrl } from "@/lib/amazon";
 
 export const metadata: Metadata = {
-  title: "Seoul Meets Mexico City — Coming Soon | Borderless Kitchen Vol. II",
+  title: "Seoul Meets Mexico City — Vol. II, Coming Soon",
   description:
-    "The second Borderless Kitchen book — 80 recipes at the intersection of Korean and Mexican cooking. Get notified when it launches and receive preview recipes now.",
+    "The second Borderless Kitchen book — 30 recipes and 6 master sauces at the intersection of Korean and Mexican cooking. Get notified when it launches and receive preview recipes now.",
+  alternates: { canonical: "/preorder" },
   openGraph: {
     title: "Seoul Meets Mexico City — Borderless Kitchen Vol. II",
     description:
-      "80 recipes where Korean and Mexican cooking traditions meet. Get early access, preview recipes, and launch-day pricing.",
+      "30 recipes and 6 master sauces where Korean and Mexican cooking traditions meet. Get early access and preview recipes.",
     type: "website",
+    url: "/preorder",
+    images: [
+      {
+        url: "/images/smmc-cover.png",
+        width: 1200,
+        height: 630,
+        alt: "Seoul Meets Mexico City — Borderless Kitchen Vol. II cover",
+      },
+    ],
   },
+  twitter: { card: "summary_large_image", images: ["/images/smmc-cover.png"] },
 };
 
 const PREVIEW_RECIPES = [
@@ -60,7 +72,7 @@ const WHY_POINTS = [
     body: "Korea perfected fermented vegetables, spice pastes, and umami-forward condiments over thousands of years. Mexico perfected dried chili complexity, masa-based starch, and bright acid. Combined, they fill each other's gaps.",
   },
   {
-    heading: "80 original fusion recipes.",
+    heading: "30 original fusion recipes. 6 master sauces.",
     body: "Birria with doenjang broth. Mole negro with gochujang. Elote with gochugaru. Kimchi quesadilla. Korean fried chicken tacos. Every recipe follows the Flavor Pairing Matrix principle: find the structural equivalent, swap at the ingredient level.",
   },
 ];
@@ -80,14 +92,14 @@ export default function PreorderPage() {
                 Seoul Meets<br />Mexico City
               </h1>
               <p className="font-body text-xl text-ink/70 leading-relaxed mb-8 max-w-prose">
-                Eighty recipes where Korean and Mexican cooking traditions collide —
+                Thirty recipes and six master sauces where Korean and Mexican cooking traditions collide —
                 gochujang meets mole, kimchi meets salsa, tteok meets masa.
                 The second volume in the Borderless Kitchen series.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-start">
                 <div className="inline-block bg-ink/5 border border-hairline px-5 py-3">
                   <p className="font-ui text-eyebrow uppercase text-ink/60">Status</p>
-                  <p className="font-display text-lg text-ink mt-1">Coming Soon — 2026</p>
+                  <p className="font-display text-lg text-ink mt-1">Coming Soon</p>
                 </div>
                 <div className="inline-block bg-ink/5 border border-hairline px-5 py-3">
                   <p className="font-ui text-eyebrow uppercase text-ink/60">Preview Recipes</p>
@@ -178,13 +190,13 @@ export default function PreorderPage() {
                   Start with Volume I.
                 </h2>
                 <p className="font-body text-base text-ink/70 leading-relaxed mb-6">
-                  Tokyo Meets Tuscany — 80 recipes at the intersection of Japanese and Italian cooking.
+                  Tokyo Meets Tuscany — 30 recipes at the intersection of Japanese and Italian cooking.
                   The same Flavor Pairing Matrix logic, applied to the Japanese-Italian axis.
                   Available now on Amazon.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
-                    href={tmtAmazonUrl()}
+                    href={TMT_AMAZON}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block font-ui text-eyebrow uppercase text-paper bg-ink px-8 py-4 hover:bg-vermillion transition-colors duration-300"
@@ -212,7 +224,7 @@ export default function PreorderPage() {
 
       <EmailCaptureCTA
         heading="Be first when Seoul Meets Mexico City launches."
-        body="Join the list for early access, launch-day pricing, and the complete Flavor Pairing Matrix for Korean-Mexican cooking — sent before the book ships."
+        body="Join the list for early access and the complete Flavor Pairing Matrix for Korean-Mexican cooking — delivered to the list first."
         cta="Get early access →"
       />
     </>

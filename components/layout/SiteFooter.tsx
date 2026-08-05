@@ -3,7 +3,7 @@ import { Container } from "./Container";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { tmtAmazonUrl } from "@/lib/amazon";
 
-const TMT_AMAZON = tmtAmazonUrl();
+import { TMT_AMAZON } from "@/lib/amazon";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();

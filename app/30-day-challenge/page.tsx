@@ -6,6 +6,7 @@ import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/30-day-challenge" },
   title: "30-Day Japanese Kitchen Challenge — Build a Japanese Pantry From Scratch",
   description:
     "A free 30-day challenge to build your Japanese pantry from scratch, cook one Japanese technique per day, and permanently change how you think about umami, dashi, and fermented flavor.",
@@ -94,7 +95,7 @@ const FAQS = [
   },
   {
     q: "Is this free?",
-    a: "Yes, completely free. You get the PDF challenge guide, the cheat sheets, and the daily emails at no cost. We do sell a more advanced Mini-Course for cooks who want to go deeper — but the 30-Day Challenge is a standalone, complete resource.",
+    a: "Yes, completely free. You get the PDF challenge guide, the cheat sheets, and the daily emails at no cost. We also offer a free 5-Day Mini-Course for cooks who want to go deeper into Japanese-Italian fusion specifically — but the 30-Day Challenge is a standalone, complete resource.",
   },
   {
     q: "What level of cooking experience do I need?",

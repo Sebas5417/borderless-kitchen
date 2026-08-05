@@ -10,11 +10,14 @@ import {
 const siteUrl = "https://borderlesskitchenseries.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  // /books/* catalog pages canonicalize to the dedicated sales pages for
+  // TMT and SMMC (audit F4) — keep them at a supporting priority so the
+  // sales pages are the unambiguous primaries.
   const books = allBooks.map((book) => ({
     url: `${siteUrl}/books/${book.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
-    priority: book.status === "available" ? 0.9 : 0.5,
+    priority: 0.5,
   }));
 
   const now = new Date();
@@ -51,7 +54,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: siteUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
     { url: `${siteUrl}/books`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
-    { url: `${siteUrl}/books/tokyo-meets-tuscany`, lastModified: new Date(), changeFrequency: "monthly", priority: 1 },
+    { url: `${siteUrl}/tokyo-meets-tuscany`, lastModified: new Date(), changeFrequency: "monthly", priority: 1 },
+    { url: `${siteUrl}/seoul-meets-mexico-city`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/journal`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteUrl}/culture`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteUrl}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },

@@ -27,6 +27,7 @@ export async function generateMetadata({
   return {
     title: story.title,
     description: story.dek,
+    alternates: { canonical: `/journal/${story.slug}` },
     openGraph: {
       title: story.title,
       description: story.dek,
@@ -37,7 +38,7 @@ export async function generateMetadata({
   };
 }
 
-const TMT_AMAZON = tmtAmazonUrl();
+import { TMT_AMAZON } from "@/lib/amazon";
 
 export default async function JournalEntryPage({
   params,
@@ -167,7 +168,7 @@ export default async function JournalEntryPage({
             </p>
             <AmazonCTA href={TMT_AMAZON} label="Get Tokyo Meets Tuscany on Amazon" />
             <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
-              Paperback $24.99 · Hardcover $34.99 · eBook $9.99
+              Paperback $19.99 · Kindle $9.99
             </p>
           </div>
 
