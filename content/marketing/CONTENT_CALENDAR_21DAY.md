@@ -94,15 +94,34 @@
 
 > By now you know your winners. Days 15–21: **re-post each winning carousel once more** to its weaker platform, keep pinning 2/day, and add community touches. Ask Claude for a **fresh batch of carousels built around your top-performing topic** — that's the highest-ROI new content.
 
-### Day 15 — Thu Aug 20 · Day 16 — Fri Aug 21 · Day 17 — Sat Aug 22
-- **TikTok + IG:** one winning carousel per day, alternating platforms.
-- **Pinterest ×2/day:** cycle any pins not yet posted, then re-pin winners to new boards.
-- **Community:** 1 Reddit or Quora touch every other day.
+### Day 15 — Thu Aug 20
+- **TikTok + IG:** `katsuobushi` carousel (6 slides). Caption: *"This block of dried fish rings like wood when you tap it 🐟 The wildest pantry ingredient in Japanese cooking. #katsuobushi #japanesefood #umami #foodfacts"*
+- **Pinterest ×2:** `pin-13` (if not yet posted) → `/flavor-guide` · re-pin best performer to a new board
+- **Community:** —
 
-### Day 18 — Sun Aug 23 → Day 21 — Wed Aug 26
-- **TikTok + IG:** **new carousels from Claude** (built on your best topic) + remaining re-posts.
+### Day 16 — Fri Aug 21
+- **TikTok + IG:** `sesame-oil` carousel (6 slides). Caption: *"Stop cooking with toasted sesame oil 🚫 You're destroying the thing you paid for. #cookingtips #sesameoil #foodscience #kitchenhacks"*
+- **Pinterest ×2:** `pin-14` → `/flavor-guide` · cycle remaining unposted pins
+- **Community:** 1 Reddit or Quora touch
+
+### Day 17 — Sat Aug 22
+- **TikTok + IG:** `tamagoyaki` carousel (6 slides). Caption: *"Sushi chefs are judged on how they cook an omelette 🍳 Here's why it's harder than it looks. #tamagoyaki #japanesecooking #techniquetok #foodtok"*
+- **Pinterest ×2:** cycle remaining unposted pins, re-pin a winner
+- **Community:** —
+
+### Day 18 — Sun Aug 23
+- **TikTok + IG:** `salt-timing` carousel (6 slides). Caption: *"Same salt, same chemistry, opposite result 🧂 Why timing changes everything. #foodscience #cookingtips #saltyfacts #chefknowledge"*
+- **Pinterest ×2:** cycle remaining, re-pin a winner
+- **Community:** 1 Reddit or Quora touch
+
+### Day 19 — Mon Aug 24 · Day 20 — Tue Aug 25
+- **TikTok + IG:** re-post your **2 best-performing carousels from Days 15–18** to whichever platform they haven't hit yet.
 - **Pinterest:** keep 2/day — pins compound for months, never stop.
-- **Day 21:** full analytics review → plan Month 2 with Claude.
+- **Community:** —
+
+### Day 21 — Wed Aug 26
+- **Full analytics review.** Which topics won across all 3 platforms? Tell Claude the results → Month 2 batch gets built entirely around what's proven, plus 1 wildcard test topic per week.
+- **Pinterest ×2** as usual.
 
 ---
 
@@ -115,6 +134,10 @@
 | sake carousel | `png/sake/sake-01..06` | 6 slides |
 | mirin carousel | `png/mirin/mirin-01..06` | 6 slides |
 | japanese-pantry carousel | `png/jpg/slide-01..08` | 8 slides |
+| katsuobushi carousel | `png/katsuobushi/katsuobushi-01..06` | 6 slides |
+| sesame-oil carousel | `png/sesame-oil/sesame-oil-01..06` | 6 slides |
+| tamagoyaki carousel | `png/tamagoyaki/tamagoyaki-01..06` | 6 slides |
+| salt-timing carousel | `png/salt-timing/salt-timing-01..06` | 6 slides |
 | Pinterest pins | `png/pins/pin-01..08`, `pinb-01..12` | 20 pins |
 | reel covers | `png/reel-covers/cover-01..05` | 5 covers |
 | YouTube thumbnails | `png/yt-thumbs/thumb-01..04` | 4 thumbs |
