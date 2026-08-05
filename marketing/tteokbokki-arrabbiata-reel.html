@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="hz:slide-selector" content=".slide"><meta name="hz:canvas-width" content="1080"><meta name="hz:canvas-height" content="1920">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,600..900&family=Inter:wght@400;500;600;700&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root { --ink:#0E0E0E; --char:#1A1815; --cream:#F5F0E8; --dim:#A09A90; --verm:#D04A1F; }
+.slide { width:1080px; height:1920px; position:relative; overflow:hidden; background:var(--ink); font-family:"Inter",sans-serif; color:var(--cream); }
+.stripe { position:absolute; top:0; left:0; width:16px; height:100%; background:var(--verm); }
+.kicker { position:absolute; top:120px; left:80px; font-size:30px; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:var(--verm); }
+.rule { position:absolute; top:180px; left:80px; width:130px; height:3px; background:var(--verm); }
+.big { position:absolute; left:80px; right:80px; font-family:"Fraunces",serif; font-weight:800; line-height:0.98; letter-spacing:-0.02em; }
+.big em { font-style:italic; color:var(--verm); }
+.body { position:absolute; left:80px; right:80px; bottom:400px; font-size:44px; line-height:1.42; color:var(--dim); font-weight:400; }
+.body b { color:var(--cream); font-weight:600; }
+.handle { position:absolute; bottom:90px; left:80px; font-size:34px; letter-spacing:0.1em; color:#5A5550; }
+.pill { position:absolute; bottom:210px; left:80px; font-size:27px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; background:var(--verm); color:var(--cream); padding:18px 34px; }
+.swipe { position:absolute; bottom:90px; right:80px; font-size:30px; color:var(--verm); font-weight:600; }
+.light { background:var(--cream); color:var(--char); }
+.light .body { color:#6B655C; } .light .body b { color:var(--char); }
+.light .handle { color:#B0A897; }
+.hook .big { top:280px; font-size:150px; } .hook .body { bottom:430px; }
+.combo { display:flex; align-items:center; gap:40px; position:absolute; top:640px; left:80px; right:80px; }
+.combo .side { font-family:"Fraunces",serif; font-weight:800; font-size:74px; line-height:1.05; flex:1; }
+.combo .plus { font-family:"Archivo Black",sans-serif; font-size:90px; color:var(--verm); }
+.name .big { top:420px; font-size:130px; } .name .body { bottom:480px; }
+.why .big { top:300px; font-size:104px; }
+.cta .big { top:420px; font-size:112px; } .cta .body { bottom:520px; }
+</style></head><body><div class="slide hook"><div class="stripe"></div><div class="kicker">Fusion Recipe</div><div class="rule"></div><h1 class="big">Arrabbiata and tteokbokki are the <em>same recipe.</em></h1><p class="body">Different countries. Same four-ingredient logic. Nobody told you because nobody looked closely enough.</p><span class="pill">Swipe →</span><span class="handle">borderless kitchen</span></div>
+<div class="slide light"><div class="stripe"></div><div class="kicker">The Combo</div><div class="rule"></div><div class="combo"><span class="side">Tteokbokki</span><span class="plus">×</span><span class="side">Arrabbiata</span></div><p class="body" style="bottom:340px;">Korean rice cakes meet Italian chili-tomato-garlic sauce.</p><span class="swipe">→</span><span class="handle">borderless kitchen</span></div>
+<div class="slide name"><div class="stripe"></div><div class="kicker">The Dish</div><div class="rule"></div><h1 class="big">Tteokbokki <em>Arrabbiata.</em></h1><p class="body">Chewy Korean rice cakes in a chili-tomato sauce built with gochujang and fish sauce instead of peperoncino.</p><span class="swipe">→</span><span class="handle">borderless kitchen</span></div>
+<div class="slide why light"><div class="stripe"></div><div class="kicker">Why It Works</div><div class="rule"></div><h1 class="big">Chili. Garlic. Tomato. <em>Savoury base.</em></h1><p class="body">That's arrabbiata's whole structure — and it's also tteokbokki's. Swapping the pantry doesn't change the logic.</p><span class="swipe">→</span><span class="handle">borderless kitchen</span></div>
+<div class="slide why"><div class="stripe"></div><div class="kicker">The Payoff</div><div class="rule"></div><h1 class="big">The tteok holds sauce <em>better than pasta does.</em></h1><p class="body">Its chewy, absorbent texture grabs the chili-tomato sauce in a way spaghetti never quite manages.</p><span class="swipe">→</span><span class="handle">borderless kitchen</span></div>
+<div class="slide cta light"><div class="stripe"></div><div class="kicker">Make It</div><div class="rule"></div><h1 class="big">Full recipe, <em>25 minutes.</em></h1><p class="body">One pan. No pasta water to save. Genuinely faster than ordering in.</p><span class="pill">Recipe linked</span><span class="handle">borderless kitchen</span></div></body></html>
