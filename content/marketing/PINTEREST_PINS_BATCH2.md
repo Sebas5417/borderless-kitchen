@@ -1,6 +1,19 @@
 # Pinterest Pins — Batch 2 (30 Pins, 6 Boards)
 *Borderless Kitchen Series | Created: 2026-06-19*
 
+> **Caveat added 2026-08-05:** spot-checked 5 of the 30 `Link:` URLs below
+> against the actual content files — none of the 5 exist
+> (`cold-dashi-mizudashi-guide`, `mirin-glazing-technique`,
+> `dashi-risotto-recipe`, `proteolysis-fermentation-food-science`,
+> `japanese-pantry-starter-kit` are all 404s; real articles on similar
+> topics exist under different slugs, e.g. the actual dashi risotto recipe
+> is at `/recipes/dashi-risotto`, not `/journal/dashi-risotto-recipe`).
+> Treat every link in this file as unverified until checked against real
+> content — do not pin these URLs as-is. No images exist for this batch
+> either. See `content/marketing/PINTEREST_PINS_IMAGES.md` for a separate,
+> smaller pin set (from `PINTEREST_STRATEGY_JUNE19.md`) that does have
+> real verified URLs and finished images.
+
 ---
 
 ## Board 1: Japanese Cooking Techniques (8 Pins)
