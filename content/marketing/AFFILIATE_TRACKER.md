@@ -1,17 +1,16 @@
 # Affiliate Program Tracker
 **Created: 2026-06-19**
-**Status: ACTION REQUIRED — sign up for these programs**
+**Updated: 2026-08-05** — see status notes below; only items explicitly marked LIVE have been verified against the actual code/account, everything else in this file is unverified and may be stale.
+**Status: MIXED — some programs live, most below still need signup**
 
 ---
 
 ## Priority 1: Sign Up Now (Highest Revenue Potential)
 
-### Amazon Associates
-**URL:** affiliate-program.amazon.com
+### Amazon Associates — ✅ LIVE (Borderless Kitchen)
+**Status:** Signed up, tag `borderlesskitchen-20` registered and active. Every Amazon link on borderlesskitchenseries.com (book CTAs across ~20 pages, all `/shop` pantry links, SMMC Kindle link) carries the tag via `lib/amazon.ts`. FTC affiliate disclosure is live on `/shop`.
 **Commission:** 3-8% depending on category (kitchen/books = 4%)
-**Why:** Every umami.guide link, every BK pantry recommendation, every book link
-**Action:** Sign up, replace all `YOURTAG-20` in umami-guide HTML files with real tag
-**Estimated monthly:** $50-500 when sites have traffic
+**Remaining action for BK:** none — this channel is fully wired. (umami.guide's own Associates status is unverified — check that site separately before assuming the same tag/setup applies there.)
 
 ---
 
@@ -116,7 +115,7 @@
 
 | Site | Primary Revenue | Secondary |
 |------|-----------------|-----------|
-| borderlesskitchenseries.com | Book sales (Amazon affiliate) | MailerLite subscribers → email → book |
+| borderlesskitchenseries.com | Book sales (Amazon affiliate — ✅ live, tag active) | MailerLite subscribers → email → book (✅ live, confirmed sending) |
 | umami.guide | Amazon Associates (ingredients) | AdSense (once traffic) |
 | ai-toolbox | AI tool affiliates (Perplexity, ElevenLabs, etc.) | AdSense |
 | ai-prompt-vault | AI tool affiliate links (Claude, ChatGPT, Midjourney, Cursor) | Gumroad prompt pack |
