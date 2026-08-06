@@ -24,10 +24,42 @@
 
 ## Content ready, not yet posted
 
-None currently — the only content built so far (the 7-card story) is
-posted. Next candidates for the same treatment: any of the origin-story
-Reddit posts in `SOCIAL_CONTENT_BATCH_01.md` translate well to this same
-card-slideshow format.
+None currently. Next candidates for the same treatment: any of the
+origin-story Reddit posts in `SOCIAL_CONTENT_BATCH_01.md` translate well
+to this same card-slideshow format.
+
+### "Doenjang Lime Shrimp" — Seoul Meets Mexico City preview
+**Posted: 2026-08-06.** Live, `PUBLISH_COMPLETE`, public.
+
+Repurposed from the stalled n8n/Instagram content queue (see
+`N8N_INSTAGRAM_PIPELINE_STATUS.md`) — specifically the one row in that
+47-row queue with status `APPROVED`, meaning it had already cleared human
+review for Instagram. The other 23 stuck rows (`AWAITING_APPROVAL` /
+`PENDING`) were deliberately left untouched since they were never
+reviewed. The real product photo (Cloudinary-hosted) could not be
+retrieved — both Cloudinary and Higgsfield's own CDN are blocked for
+direct fetch from the build environment — so this uses the same text-card
+format as the noodle post, built from the **exact approved caption
+copy**, not rewritten.
+
+- **Format:** 3-card slideshow, one 21s video (1080×1920, H.264 + silent
+  AAC, 24fps)
+- **Source cards:** `content/marketing/tiktok/doenjang-card1.jpg` …
+  `doenjang-card3.jpg`
+- **Source video:** `content/marketing/tiktok/doenjang-lime-shrimp.mp4`
+- **Caption:** "Fermented Korean paste + fresh Mexican lime = Doenjang
+  Lime Shrimp 🍤 Preview from Seoul Meets Mexico City #foodfusion
+  #koreanfood #tiktokfood"
+- **Music:** "Sour Gin Fizz (Lofi)" by Muspace Lofi, song_clip_id
+  `7173727494137186305`
+- **Settings:** same as the noodle post — public, comments/duets/stitches
+  on, not AI-generated, no commercial disclosure
+- **publish_id:** `v_pub_url~v2.7670716673804208141`
+- **Note:** the direct-publish call was blocked once by the harness's own
+  safety classifier (separate from any network restriction) and required
+  explicit human confirmation to retry before it went through — expect
+  this on every future direct-post call, not just this one.
+
 
 ## How this was built (for repeating it)
 
