@@ -1,16 +1,34 @@
 # Affiliate Program Tracker
 **Created: 2026-06-19**
-**Status: ACTION REQUIRED — sign up for these programs**
+**Updated: 2026-08-10**
+**Status: Amazon Associates DONE on borderlesskitchenseries.com. New Priority 0 below covers video/reel affiliates — those still need signup.**
+
+---
+
+## Priority 0: Borderless Kitchen — Video/Reel/Description Affiliates (2026-08-10)
+
+Amazon Associates is live and wired into the site (`lib/amazon.ts`, tag `borderlesskitchen-20`) — that link already goes in any clip/reel description that mentions cookware or the books. The gap is everything *not* sold on Amazon: specialty Japanese/Korean/Mexican pantry items and boutique cookware, which fit the BK niche better than generic AdSense and pay higher commission than Amazon's 4% kitchen rate.
+
+Sign-up requires the actual business/tax info only Sebastian has — this is a shortlist to work through, not something Claude can complete. Verify each program is still live and check current commission at signup; affiliate programs change terms often.
+
+| Program | Fit | Where to apply | Est. commission |
+|---|---|---|---|
+| **Bokksu** | Already live (`?refer=borderlesskitchen`) — reuse in every Japanese-pantry clip/description | Already have it | ~10% |
+| **The Japanese Pantry** (thejapanesepantry.com) | Niche Japanese ingredients (soy sauce, vinegar, knives) — direct fit for every Japanese-technique video | Check site footer for "Affiliate" or email them directly — small boutique shops often run informal ambassador deals | Ask (informal programs vary) |
+| **ThermoWorks** | Thermometers/probes shown in any cooking demo — frequently recommended, evergreen | thermoworks.com, or via Impact/Awin network — check their site footer | ~8-10% |
+| **Made In Cookware** | Premium pans/knives, matches the editorial "restraint, one good tool" brand voice | madeincookware.com affiliate page, or via ShareASale/Impact | ~8% |
+| **Sur La Table / Williams Sonoma** | Broad kitchen equipment fallback when a specific tool isn't on Amazon | Via Rakuten Advertising or CJ Affiliate — search the network for the brand | ~4-8% |
+| **Snuk Foods** (snukfoods.com) | Specialty Italian + Japanese pantry imports — fits the TMT side of the catalog | Site footer or direct outreach | Ask |
+
+**Action for Sebastian:** pick 2-3 from this list (Made In + ThermoWorks are the highest-leverage starting point — broad appeal, established programs), apply, then send Claude the approved referral links to wire into `lib/amazon.ts`-style constants and the video description template below.
 
 ---
 
 ## Priority 1: Sign Up Now (Highest Revenue Potential)
 
-### Amazon Associates
-**URL:** affiliate-program.amazon.com
-**Commission:** 3-8% depending on category (kitchen/books = 4%)
-**Why:** Every umami.guide link, every BK pantry recommendation, every book link
-**Action:** Sign up, replace all `YOURTAG-20` in umami-guide HTML files with real tag
+### Amazon Associates — ✅ DONE on borderlesskitchenseries.com
+**Tag:** `borderlesskitchen-20`, wired in `lib/amazon.ts` and used site-wide (shop page, gift-guide articles, book CTAs).
+**Still open:** umami.guide and other network sites may still have the `YOURTAG-20` placeholder — verify per-site before assuming this is done everywhere.
 **Estimated monthly:** $50-500 when sites have traffic
 
 ---

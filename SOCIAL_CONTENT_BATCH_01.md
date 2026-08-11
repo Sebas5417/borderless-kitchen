@@ -485,8 +485,44 @@ Subject: "The AI tool I switched to last month (and the food origin story that m
 
 Content: Mix of AI tool recommendation (Claude) + food story (crossing-the-bridge noodles) + links to both sites. Builds the cross-audience between food and AI.
 
-### YouTube Description Templates:
-[Copy from video scripts above, add full timestamps and recipe links in description]
+### YouTube / Reel / TikTok Description Template (2026-08-10)
+
+Copy this structure for every clip, fill in the bracketed parts, then paste. Amazon links always carry `?tag=borderlesskitchen-20` — copy the exact URLs from `lib/amazon.ts` rather than retyping the ASIN, so the tag can't be dropped by accident.
+
+```
+[One-line hook matching the video title]
+
+Full recipe: https://borderlesskitchenseries.com/journal/[slug]
+
+📖 From Seoul Meets Mexico City (out now):
+https://www.amazon.com/dp/B0H6VD21M2?tag=borderlesskitchen-20
+
+📖 From Tokyo Meets Tuscany:
+https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20
+
+🔪 What I used in this video:
+- [Tool 1] — [affiliate link]
+- [Tool 2] — [affiliate link]
+
+More recipes + the free Flavor Pairing Matrix:
+https://borderlesskitchenseries.com/free
+
+Timestamps:
+0:00 [hook]
+0:0X [step]
+...
+
+#koreanmexicanfood #borderlesskitchen [+ 3-5 relevant tags]
+
+---
+As an Amazon Associate I earn from qualifying purchases. Some links above are affiliate links — I may earn a commission at no extra cost to you.
+```
+
+**Rules for filling it in:**
+- Only link a book if the clip's recipe is actually from it (SMMC recipes → SMMC link, TMT recipes → TMT link, not both every time).
+- "What I used in this video" only lists gear that's actually visible on camera — don't pad it with unrelated affiliate links, that's what kills trust and CTR both.
+- Cookware/tool links go here once Priority 0 in `content/marketing/AFFILIATE_TRACKER.md` has approved affiliate URLs (Made In, ThermoWorks, etc.) — until then, leave that block out entirely rather than linking a non-affiliate URL for free.
+- The disclosure line at the bottom is required by FTC guidelines whenever an affiliate link is present — never drop it.
 
 ---
 
