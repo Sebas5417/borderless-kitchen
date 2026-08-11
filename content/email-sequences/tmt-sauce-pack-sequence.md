@@ -37,7 +37,7 @@ That's the whole system.
 
 — Sebastian, Borderless Kitchen
 
-P.S. Each sauce is also in *Tokyo Meets Tuscany* in its full recipe context. The book is on Amazon if you want the whole thing: [Tokyo Meets Tuscany →](https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskit-20)
+P.S. Each sauce is also in *Tokyo Meets Tuscany* in its full recipe context. The book is on Amazon if you want the whole thing: [Tokyo Meets Tuscany →](https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20)
 
 ---
 
@@ -93,7 +93,7 @@ By the time I had 37 recipes, I had a book.
 
 *Tokyo Meets Tuscany* is on Amazon now — paperback, hardcover, and Kindle. It's everything that came out of that logic applied consistently: 37 Japanese-Italian fusion recipes, all built on function, all tested in a home kitchen.
 
-**[Get Tokyo Meets Tuscany on Amazon →](https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskit-20)**
+**[Get Tokyo Meets Tuscany on Amazon →](https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20)**
 
 Paperback $24.99 · Hardcover $34.99 · Kindle $9.99
 

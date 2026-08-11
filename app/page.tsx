@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     "Borderless Kitchen — Italian soul meets Japanese precision. Shop Tokyo Meets Tuscany and explore bold, cross-cultural cookbooks and recipes by Sebastian.",
 };
 
-import { TMT_AMAZON } from "@/lib/amazon";
+import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
 
 export default function HomePage() {
   const tmt = allBooks.find((b) => b.slug === "tokyo-meets-tuscany");
@@ -43,11 +43,11 @@ export default function HomePage() {
     <>
       {/* 1. Hero carousel — rotates through all five editorial banners */}
       <HeroCarousel
-        eyebrow="Vol. II — Seoul Meets Mexico City — Coming Soon"
+        eyebrow="Vol. II — Seoul Meets Mexico City — Out now on Amazon"
         headline="The borders are optional."
         link={{
-          label: "Get notified when Vol. II drops →",
-          href: "https://free.borderlesskitchenseries.com",
+          label: "Get it on Amazon →",
+          href: SMMC_AMAZON,
         }}
         images={[
           { src: "/images/banner-carousel-1.png", alt: "Golden sunset over Mexico City with food — Borderless Kitchen." },
@@ -129,20 +129,20 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <p className="font-ui text-eyebrow uppercase text-vermillion mb-2">
-                Vol. II — Coming soon
+                Vol. II — Out now
               </p>
               <p className="font-display text-display-3 text-paper leading-tight">
                 Seoul Meets Mexico City
               </p>
               <p className="font-body text-base text-paper/60 mt-2">
-                Fermented depth meets layered heat.
+                Fermented depth meets layered heat. Kindle $9.99 · paperback on the way.
               </p>
             </div>
             <Link
-              href="/preorder"
+              href={SMMC_AMAZON}
               className="font-ui text-eyebrow uppercase text-paper/80 border-b border-paper/30 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300 shrink-0"
             >
-              Early access + 6 free preview recipes →
+              Buy Seoul Meets Mexico City on Amazon →
             </Link>
           </div>
         </Container>

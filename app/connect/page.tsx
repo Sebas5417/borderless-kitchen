@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "Notes from the kitchen — the free starter guide, news on new Borderless Kitchen volumes, and the occasional recipe note that didn't make the book.",
 };
 
-import { TMT_AMAZON } from "@/lib/amazon";
+import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
 
 export default function ConnectPage() {
   return (
@@ -65,20 +65,18 @@ export default function ConnectPage() {
                 </p>
               </div>
 
-              {/* Vol II tease */}
+              {/* Vol II */}
               <div className="mt-10 pt-8 border-t border-hairline">
                 <p className="font-ui text-eyebrow uppercase text-vermillion mb-2">
-                  Vol. II — Coming soon
+                  Vol. II — Out now
                 </p>
                 <p className="font-body text-base text-ink/70">
                   Seoul Meets Mexico City. Fermented depth meets layered heat.
                 </p>
-                <a
-                  href="https://free.borderlesskitchenseries.com"
-                  className="inline-block mt-3 font-ui text-eyebrow uppercase text-ink border-b border-ink/40 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
-                >
-                  Notify me when it drops →
-                </a>
+                <AmazonCTA href={SMMC_AMAZON} label="Get Seoul Meets Mexico City" className="mt-3" />
+                <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
+                  Kindle $9.99 · paperback on the way
+                </p>
               </div>
             </div>
 

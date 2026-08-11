@@ -3,16 +3,17 @@ import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { SmmcWaitlist } from "@/components/cta/SmmcWaitlist";
 import { FadeRise } from "@/components/motion/FadeRise";
+import { SMMC_AMAZON } from "@/lib/amazon";
 
 export const metadata: Metadata = {
-  title: "Seoul Meets Mexico City — Coming Soon",
+  title: "Seoul Meets Mexico City — Out Now on Amazon",
   alternates: { canonical: "/seoul-meets-mexico-city" },
   description:
-    "Seoul Meets Mexico City — the Korean–Mexican collision. Volume II of the Borderless Kitchen series. Join the waitlist to be first to know when it lands.",
+    "Seoul Meets Mexico City — the Korean–Mexican collision. Volume II of the Borderless Kitchen series. Available now on Kindle; paperback on the way.",
   openGraph: {
     title: "Seoul Meets Mexico City | Borderless Kitchen — Vol. II",
     description:
-      "The Korean–Mexican collision. Coming soon. Join the waitlist.",
+      "The Korean–Mexican collision. Available now on Kindle.",
     type: "website",
     url: "/seoul-meets-mexico-city",
     images: [
@@ -27,7 +28,8 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", images: ["/images/smmc-cover.png"] },
 };
 
-// Vol. II is unpublished and waitlist-only: no date, no ISBN, no offers (deliberate).
+// SMMC eBook live on Amazon (ASIN B0H6VD21M2, Kindle $9.99) — mirrors the
+// schema on /books/seoul-meets-mexico-city.
 const smmcBookSchema = {
   "@context": "https://schema.org",
   "@type": "Book",
@@ -44,10 +46,19 @@ const smmcBookSchema = {
     "The second Borderless Kitchen volume — 30 recipes and 6 master sauces where Korean and Mexican cooking traditions meet.",
   image: "https://borderlesskitchenseries.com/images/smmc-cover.png",
   url: "https://borderlesskitchenseries.com/seoul-meets-mexico-city",
+  sameAs: "https://www.amazon.com/dp/B0H6VD21M2",
   isPartOf: {
     "@type": "BookSeries",
     name: "Borderless Kitchen",
     url: "https://borderlesskitchenseries.com/books",
+  },
+  offers: {
+    "@type": "Offer",
+    url: SMMC_AMAZON,
+    priceCurrency: "USD",
+    price: "9.99",
+    availability: "https://schema.org/InStock",
+    seller: { "@type": "Organization", name: "Amazon" },
   },
 };
 

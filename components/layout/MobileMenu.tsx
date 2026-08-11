@@ -12,7 +12,7 @@ const NAV = [
   { href: "/connect", label: "Connect" },
   { href: "/30-day-challenge", label: "Challenge", highlight: true },
   { href: "/free", label: "Free", highlight: false },
-  { href: "/preorder", label: "Vol. II — Coming Soon", highlight: false },
+  { href: "/preorder", label: "Vol. II — Out Now", highlight: false },
 ] as const;
 
 export function MobileMenu() {

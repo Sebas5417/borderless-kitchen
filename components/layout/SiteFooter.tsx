@@ -54,7 +54,7 @@ export function SiteFooter() {
               { href: "/free", label: "Free Recipes" },
               { href: "/30-day-challenge", label: "30-Day Challenge" },
               { href: "/mini-course", label: "5-Day Mini-Course" },
-              { href: "/preorder", label: "Vol. II — Coming Soon" },
+              { href: "/preorder", label: "Vol. II — Out Now" },
               { href: "/journal", label: "Journal" },
               { href: "/culture", label: "Culture" },
               { href: "/about", label: "About" },
