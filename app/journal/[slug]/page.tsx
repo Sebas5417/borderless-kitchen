@@ -37,7 +37,7 @@ export async function generateMetadata({
   };
 }
 
-import { TMT_AMAZON } from "@/lib/amazon";
+import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
 
 export default async function JournalEntryPage({
   params,
@@ -54,6 +54,11 @@ export default async function JournalEntryPage({
   const story = sorted[idx];
   const prev = sorted[idx + 1] ?? null;
   const next = sorted[idx - 1] ?? null;
+
+  const isKoreanThemed = story.themes?.includes("korean-cooking") ?? false;
+  const bookCta = isKoreanThemed
+    ? { href: SMMC_AMAZON, label: "Get Seoul Meets Mexico City on Amazon" }
+    : { href: TMT_AMAZON, label: "Get Tokyo Meets Tuscany on Amazon" };
 
   const formattedDate = new Date(story.date).toLocaleDateString("en-US", {
     month: "long",
@@ -165,7 +170,7 @@ export default async function JournalEntryPage({
             <p className="font-display italic text-display-3 text-ink/60 mb-6 leading-tight">
               The full recipes live in the book.
             </p>
-            <AmazonCTA href={TMT_AMAZON} label="Get Tokyo Meets Tuscany on Amazon" />
+            <AmazonCTA href={bookCta.href} label={bookCta.label} />
             <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
               Paperback $19.99 · Kindle $9.99
             </p>
