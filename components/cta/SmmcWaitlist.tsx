@@ -8,8 +8,13 @@ type Props = {
 };
 
 /**
- * Seoul Meets Mexico City is live on Kindle — this block sells it and
- * captures email for the paperback launch, not a pre-release waitlist.
+ * Seoul Meets Mexico City is fully published — Kindle since 2026-07-31, paperback
+ * since 2026-08-11. This block sells it. It is not a waitlist and has not been one
+ * for a while; the name is kept because two pages import it.
+ *
+ * Do not reintroduce "coming soon" / "notify me for the paperback" copy here. That
+ * wording survived on this component and on 18 Instagram posts for weeks after the
+ * book shipped, telling people they could not buy something they could.
  */
 export function SmmcWaitlist({ dark = true }: Props) {
   return (
@@ -27,8 +32,8 @@ export function SmmcWaitlist({ dark = true }: Props) {
       <p
         className={`font-body text-lg leading-relaxed mb-6 max-w-prose ${dark ? "text-paper/60" : "text-ink/60"}`}
       >
-        Gochujang and adobo. Kimchi and tacos. Doenjang and mole. Kindle
-        $9.99 — paperback on the way.
+        Gochujang and adobo. Kimchi and tacos. Doenjang and mole. Thirty recipes
+        and six master sauces, in paperback and on Kindle.
       </p>
       <div className="mb-8">
         <AmazonCTA href={SMMC_AMAZON} label="Buy Seoul Meets Mexico City on Amazon →" className={dark ? "text-paper border-paper" : undefined} />
@@ -36,9 +41,9 @@ export function SmmcWaitlist({ dark = true }: Props) {
       <SubscribeForm
         list="smmc"
         placeholder="your@email.com"
-        buttonLabel="Notify me for the paperback"
+        buttonLabel="Send me recipes"
         dark={dark}
-        successMessage="You're on the list. We'll email you the moment the Seoul Meets Mexico City paperback ships."
+        successMessage="You're on the list. Free Korean-Mexican recipes are on the way."
       />
     </div>
   );

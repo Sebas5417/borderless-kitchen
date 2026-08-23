@@ -9,7 +9,7 @@ import { AmazonCTA } from "@/components/cta/AmazonCTA";
 export const metadata: Metadata = {
   title: "Seoul Meets Mexico City — Vol. II, Out Now on Amazon",
   description:
-    "The second Borderless Kitchen book — 30 recipes and 6 master sauces at the intersection of Korean and Mexican cooking. Available now on Kindle, paperback coming soon. Preview recipes free.",
+    "The second Borderless Kitchen book — 30 recipes and 6 master sauces at the intersection of Korean and Mexican cooking. Out now in paperback and on Kindle. Preview recipes free.",
   alternates: { canonical: "/preorder" },
   openGraph: {
     title: "Seoul Meets Mexico City — Borderless Kitchen Vol. II",
@@ -108,7 +108,7 @@ export default function PreorderPage() {
               </div>
               <div className="mt-8">
                 <AmazonCTA href={SMMC_AMAZON} label="Buy Seoul Meets Mexico City on Amazon →" />
-                <p className="font-body text-sm text-ink/50 mt-2">Kindle $9.99 · paperback on the way.</p>
+                <p className="font-body text-sm text-ink/50 mt-2">Paperback and Kindle, both available now.</p>
               </div>
             </div>
           </FadeRise>
@@ -227,9 +227,9 @@ export default function PreorderPage() {
       </section>
 
       <EmailCaptureCTA
-        heading="Be first when the Seoul Meets Mexico City paperback ships."
-        body="Seoul Meets Mexico City is live on Kindle now. Join the list for the paperback launch and the complete Flavor Pairing Matrix for Korean-Mexican cooking."
-        cta="Get early access →"
+        heading="Start with six recipes, free."
+        body="Seoul Meets Mexico City is out now in paperback and on Kindle. Join the list for free Korean-Mexican recipes and the complete Flavor Pairing Matrix."
+        cta="Send them to me →"
       />
     </>
   );

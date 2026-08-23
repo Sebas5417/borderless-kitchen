@@ -273,9 +273,9 @@ export default async function BookPage({
       </section>
 
       <EmailCaptureCTA
-        heading="The second volume is coming."
-        body="Seoul Meets Mexico City — fermented depth meets layered heat. Be the first to know."
-        cta="Notify me →"
+        heading="Both volumes are out now."
+        body="Tokyo Meets Tuscany and Seoul Meets Mexico City — Japanese technique against Italian tradition, Korean fermentation against Mexican fire. Start with three recipes, free."
+        cta="Get the free recipes →"
       />
     </>
   );

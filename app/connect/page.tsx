@@ -75,7 +75,7 @@ export default function ConnectPage() {
                 </p>
                 <AmazonCTA href={SMMC_AMAZON} label="Get Seoul Meets Mexico City" className="mt-3" />
                 <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
-                  Kindle $9.99 · paperback on the way
+                  Paperback and Kindle, out now
                 </p>
               </div>
             </div>

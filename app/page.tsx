@@ -135,7 +135,7 @@ export default function HomePage() {
                 Seoul Meets Mexico City
               </p>
               <p className="font-body text-base text-paper/60 mt-2">
-                Fermented depth meets layered heat. Kindle $9.99 · paperback on the way.
+                Fermented depth meets layered heat. Paperback and Kindle, out now.
               </p>
             </div>
             <Link

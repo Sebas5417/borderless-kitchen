@@ -97,7 +97,9 @@ By the time I had 37 recipes, I had a book.
 
 Paperback $24.99 · Hardcover $34.99 · Kindle $9.99
 
-The second book in the series — *Seoul Meets Mexico City* — applies the same logic to Korean and Mexican cuisine. It's coming soon. I'll let you know when it's ready.
+The second book in the series — *Seoul Meets Mexico City* — applies the same logic to Korean and Mexican cuisine. Gochujang and adobo. Kimchi and tacos. Doenjang and mole. It's out now, in paperback and on Kindle.
+
+**[Get Seoul Meets Mexico City on Amazon →](https://www.amazon.com/dp/B0H6VD21M2?tag=borderlesskitchen-20)**
 
 — Sebastian, Borderless Kitchen
 

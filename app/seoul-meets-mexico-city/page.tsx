@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Seoul Meets Mexico City — Out Now on Amazon",
   alternates: { canonical: "/seoul-meets-mexico-city" },
   description:
-    "Seoul Meets Mexico City — the Korean–Mexican collision. Volume II of the Borderless Kitchen series. Available now on Kindle; paperback on the way.",
+    "Seoul Meets Mexico City — the Korean–Mexican collision. Volume II of the Borderless Kitchen series. Out now in paperback and on Kindle.",
   openGraph: {
     title: "Seoul Meets Mexico City | Borderless Kitchen — Vol. II",
     description:
