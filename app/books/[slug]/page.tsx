@@ -63,12 +63,12 @@ export default async function BookPage({
   const isTmt = book.slug === "tokyo-meets-tuscany";
   const isSmmc = book.slug === "seoul-meets-mexico-city";
 
-  // SMMC eBook live on Amazon (ASIN B0H6VD21M2, Kindle $9.99, verified
-  // 2026-07-30); paperback still in KDP review, so Kindle-only pricing.
+  // SMMC paperback went live 2026-08-11 (ASIN B0HDRBMLPT) — both formats
+  // available now, same pricing as TMT.
   const amazonUrl =
     book.status === "available" ? (isSmmc ? SMMC_AMAZON : TMT_AMAZON) : null;
-  const priceLine = isSmmc ? "Kindle $9.99" : "Paperback $19.99 · Kindle $9.99";
-  const schemaPrice = isSmmc ? "9.99" : "19.99";
+  const priceLine = "Paperback $19.99 · Kindle $9.99";
+  const schemaPrice = "19.99";
 
   const allTeasers = allRecipeTeasers.filter((r) => r.bookSlug === book.slug);
   const bookSchema = {

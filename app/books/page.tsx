@@ -114,7 +114,7 @@ export default function BooksPage() {
                 <div className="lg:col-span-5 order-2 lg:order-1">
                   <div className="pt-6 lg:pt-0">
                     <p className="font-ui text-eyebrow uppercase text-vermillion mb-4">
-                      Vol. II — Now on Kindle
+                      Vol. II — Available now
                     </p>
                     <h2 className="font-display text-display-1 text-ink leading-tight">
                       {smmc.title}
@@ -143,7 +143,7 @@ export default function BooksPage() {
                         Buy Seoul Meets Mexico City on Amazon →
                       </a>
                       <p className="font-ui text-eyebrow uppercase text-ink/40">
-                        Kindle $9.99 · Paperback coming
+                        Paperback $19.99 · Kindle $9.99
                       </p>
                       <Link
                         href="/books/seoul-meets-mexico-city"
