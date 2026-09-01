@@ -12,6 +12,7 @@ import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 
 import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
+import { amazonOffer, absoluteImage } from "@/lib/merchant-schema";
 
 export async function generateStaticParams() {
   return allBooks.map((book) => ({ slug: book.slug }));
@@ -102,19 +103,11 @@ export default async function BookPage({
     ...(amazonUrl
       ? {
           url: `https://borderlesskitchenseries.com${CANONICAL_OVERRIDES[book.slug] ?? `/books/${book.slug}`}`,
-          offers: {
-            "@type": "Offer",
-            url: amazonUrl,
-            priceCurrency: "USD",
-            price: schemaPrice,
-            availability: "https://schema.org/InStock",
-            seller: { "@type": "Organization", name: "Amazon" },
-          },
+          offers: amazonOffer({ url: amazonUrl, price: schemaPrice }),
         }
       : {}),
-    ...(book.coverImageSrc
-      ? { image: `https://borderlesskitchenseries.com${book.coverImageSrc}` }
-      : {}),
+    // Required by Google for merchant listings, so never conditional.
+    image: absoluteImage(book.coverImageSrc),
   };
 
   return (

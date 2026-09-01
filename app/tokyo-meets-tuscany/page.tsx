@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { TMT_AMAZON } from "@/lib/amazon";
+import { amazonOffer } from "@/lib/merchant-schema";
 import { Container } from "@/components/layout/Container";
 import { SubscribeForm } from "@/components/forms/SubscribeForm";
 import { SmmcWaitlist } from "@/components/cta/SmmcWaitlist";
@@ -62,14 +63,7 @@ const tmtBookSchema = {
     name: "Borderless Kitchen",
     url: "https://borderlesskitchenseries.com/books",
   },
-  offers: {
-    "@type": "Offer",
-    url: TMT_AMAZON,
-    priceCurrency: "USD",
-    price: "19.99",
-    availability: "https://schema.org/InStock",
-    seller: { "@type": "Organization", name: "Amazon" },
-  },
+  offers: amazonOffer({ url: TMT_AMAZON, price: "19.99" }),
 };
 
 const RECIPES = [

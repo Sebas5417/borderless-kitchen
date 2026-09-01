@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/Container";
 import { SmmcWaitlist } from "@/components/cta/SmmcWaitlist";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { SMMC_AMAZON } from "@/lib/amazon";
+import { amazonOffer } from "@/lib/merchant-schema";
 
 export const metadata: Metadata = {
   title: "Seoul Meets Mexico City — Out Now on Amazon",
@@ -52,14 +53,7 @@ const smmcBookSchema = {
     name: "Borderless Kitchen",
     url: "https://borderlesskitchenseries.com/books",
   },
-  offers: {
-    "@type": "Offer",
-    url: SMMC_AMAZON,
-    priceCurrency: "USD",
-    price: "9.99",
-    availability: "https://schema.org/InStock",
-    seller: { "@type": "Organization", name: "Amazon" },
-  },
+  offers: amazonOffer({ url: SMMC_AMAZON, price: "9.99", digital: true }),
 };
 
 export default function SeoulMeetsMexicoCityPage() {
