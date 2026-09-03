@@ -67,7 +67,10 @@ export const metadata: Metadata = {
       "application/rss+xml": `${siteUrl}/feed.xml`,
     },
   },
-  verification: { google: "UjQR4K2FvHN0imPHmH_LkT8SJK_HPz4GiQtipWpy6ks" },
+  verification: {
+    google: "UjQR4K2FvHN0imPHmH_LkT8SJK_HPz4GiQtipWpy6ks",
+    other: { "p:domain_verify": "6c5a7b11b29964be4ac0252a531e8c31" },
+  },
 };
 
 const websiteSchema = {
