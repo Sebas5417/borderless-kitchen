@@ -31,20 +31,35 @@ export function HeroCarousel({ images, eyebrow, headline, link, interval = 5000 
     setSeen((s) => (active > s ? active : s));
   }, [active]);
 
+  // Auto-rotation starts only after the visitor's first scroll / pointer /
+  // touch / key input. Largest Contentful Paint keeps accepting new candidates
+  // until the first input, so a crossfade before that point re-timestamps LCP
+  // to the moment the second slide appears (measured 10.7 s on mobile). After
+  // the first input the metric is frozen and the rotation is free.
+  const [engaged, setEngaged] = useState(false);
   useEffect(() => {
-    if (paused) return;
-    // Hold the first (priority) slide roughly twice as long so the page's
-    // largest paint is the eagerly loaded image, then rotate normally.
-    let id: ReturnType<typeof setInterval> | undefined;
-    const first = setTimeout(() => {
-      next();
-      id = setInterval(next, interval);
-    }, interval * 2);
+    if (engaged) return;
+    const on = () => setEngaged(true);
+    const opts: AddEventListenerOptions = { once: true, passive: true };
+    window.addEventListener("scroll", on, opts);
+    window.addEventListener("pointermove", on, opts);
+    window.addEventListener("pointerdown", on, opts);
+    window.addEventListener("touchstart", on, opts);
+    window.addEventListener("keydown", on, opts);
     return () => {
-      clearTimeout(first);
-      if (id) clearInterval(id);
+      window.removeEventListener("scroll", on);
+      window.removeEventListener("pointermove", on);
+      window.removeEventListener("pointerdown", on);
+      window.removeEventListener("touchstart", on);
+      window.removeEventListener("keydown", on);
     };
-  }, [paused, next, interval]);
+  }, [engaged]);
+
+  useEffect(() => {
+    if (paused || !engaged) return;
+    const id = setInterval(next, interval);
+    return () => clearInterval(id);
+  }, [paused, engaged, next, interval]);
 
   return (
     <section
