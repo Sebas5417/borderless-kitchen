@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { allStories, allPantryEntries, allFreeRecipes } from "contentlayer/generated";
 import { relatedRecipesFor } from "@/lib/relatedRecipes";
 import { breadcrumbJson } from "@/lib/breadcrumbSchema";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { ProseLayout } from "@/components/editorial/ProseLayout";
 import { MDXContent } from "@/components/MDXContent";
@@ -26,12 +27,12 @@ export async function generateMetadata({
   const story = allStories.find((s) => s.slug === slug);
   if (!story) return {};
   return {
-    title: story.title,
-    description: story.dek,
+    title: fitTitle(story.title),
+    description: fitDescription(story.dek),
     alternates: { canonical: `/journal/${story.slug}` },
     openGraph: {
       title: story.title,
-      description: story.dek,
+      description: fitDescription(story.dek),
       type: "article",
       publishedTime: story.date,
       images: story.heroImageSrc ? [{ url: story.heroImageSrc }] : [],

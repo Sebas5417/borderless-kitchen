@@ -10,6 +10,7 @@ import { MDXContent } from "@/components/MDXContent";
 import { EditorialImage } from "@/components/media/EditorialImage";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { breadcrumbJson } from "@/lib/breadcrumbSchema";
+import { fitDescription } from "@/lib/seoMeta";
 
 export async function generateStaticParams() {
   return allPantryEntries.map((e) => ({ slug: e.slug }));
@@ -26,7 +27,9 @@ export async function generateMetadata({
   return {
     title: entry.term,
     alternates: { canonical: `/culture/${entry.slug}` },
-    description: `${entry.classification} · ${entry.origin.join(", ")} — from the Borderless Kitchen culture library.`,
+    description: fitDescription(
+      `${entry.term}: a ${entry.classification.toLowerCase()} from ${entry.origin.join(" and ")}. What it is, how it tastes and how the Borderless Kitchen recipes use it — from the culture library.`,
+    ),
   };
 }
 

@@ -12,6 +12,7 @@ import { EditorialImage } from "@/components/media/EditorialImage";
 import { parseRecipeIngredients, parseRecipeInstructions } from "@/lib/recipeSchema";
 import { breadcrumbJson } from "@/lib/breadcrumbSchema";
 import { hubFor } from "@/lib/cuisines";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 
 export async function generateStaticParams() {
   return allFreeRecipes.map((r) => ({ slug: r.slug }));
@@ -42,9 +43,9 @@ export async function generateMetadata({
   const recipe = allFreeRecipes.find((r) => r.slug === slug);
   if (!recipe) return {};
   const title = pageTitle(recipe);
-  const description = recipe.metaDescription ?? recipe.dek;
+  const description = fitDescription(recipe.metaDescription ?? recipe.dek);
   return {
-    title,
+    title: fitTitle(title),
     description,
     alternates: { canonical: `/recipes/${recipe.slug}` },
     openGraph: {
