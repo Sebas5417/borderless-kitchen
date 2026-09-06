@@ -20,8 +20,10 @@ type HowToSection = {
   itemListElement: HowToStep[];
 };
 
-const INGREDIENTS_HEADING = /^## (?:Ingredients|What You Need|What you.ll need)\s*$/im;
-const METHOD_HEADING = /^## (?:Method|How to Make It|Instructions)\s*$/im;
+// Trailing qualifiers are allowed: "## Ingredients (serves 2)", "## Ingredients (4 cups)"
+// (2026-09-06: 3 recipes emitted no recipeIngredient/recipeInstructions purely because of these.)
+const INGREDIENTS_HEADING = /^## (?:Ingredients|What You Need|What you.ll need)\b[^\n]*$/im;
+const METHOD_HEADING = /^## (?:Method|How to Make It|Instructions)\b[^\n]*$/im;
 const NEXT_H2 = /^## /m;
 
 /** Strip inline markdown (bold, italics, links, code) down to plain text. */
