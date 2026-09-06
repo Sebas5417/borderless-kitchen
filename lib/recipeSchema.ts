@@ -72,6 +72,8 @@ function stepsFrom(chunk: string): HowToStep[] {
   }
   return texts
     .map((t) => plain(t.replace(/^\s*(?:\d+\.|[-*])\s+/gm, "")))
+    // bold-numbered steps ("**1. Toast…**") keep their marker after plain()
+    .map((t) => t.replace(/^\d+[.)]\s+/, ""))
     .filter((t) => t.length > 0)
     .map((text) => ({ "@type": "HowToStep" as const, text }));
 }
