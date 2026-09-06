@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { allStories, allPantryEntries } from "contentlayer/generated";
+import { allStories, allPantryEntries, allFreeRecipes } from "contentlayer/generated";
+import { relatedRecipesFor } from "@/lib/relatedRecipes";
 import { Container } from "@/components/layout/Container";
 import { ProseLayout } from "@/components/editorial/ProseLayout";
 import { MDXContent } from "@/components/MDXContent";
@@ -57,6 +58,9 @@ export default async function JournalEntryPage({
   const pantryRefs = (story.pantryRefs ?? []).filter((ref) => pantrySlugSet.has(ref));
   const prev = sorted[idx + 1] ?? null;
   const next = sorted[idx - 1] ?? null;
+  // Three free recipes related to this story (internal-link crawl 2026-09-06:
+  // recipe pages had 1–2 inbound links each; journal entries are the hub).
+  const relatedRecipes = relatedRecipesFor(story, allFreeRecipes, 3);
 
   const isKoreanThemed = story.themes?.includes("korean-cooking") ?? false;
   const bookCta = isKoreanThemed
@@ -165,6 +169,32 @@ export default async function JournalEntryPage({
                       className="font-ui text-eyebrow uppercase text-ink border border-hairline px-4 py-2 hover:border-vermillion hover:text-vermillion transition-colors duration-300"
                     >
                       {ref.replace(/-/g, " ")}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
+          {/* Related free recipes */}
+          {relatedRecipes.length > 0 ? (
+            <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">
+              <p className="font-ui text-eyebrow uppercase text-ink/50 mb-4">
+                Free recipes from this world
+              </p>
+              <ul className="grid gap-3 sm:grid-cols-3">
+                {relatedRecipes.map((r) => (
+                  <li key={r.slug}>
+                    <Link
+                      href={`/recipes/${r.slug}`}
+                      className="block h-full border border-hairline px-4 py-3 hover:border-vermillion transition-colors duration-300"
+                    >
+                      <span className="font-ui text-eyebrow uppercase text-ink/40 block mb-1">
+                        {r.cuisine}
+                      </span>
+                      <span className="font-display text-lg text-ink leading-snug">
+                        {r.title}
+                      </span>
                     </Link>
                   </li>
                 ))}
