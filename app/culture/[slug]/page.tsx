@@ -9,6 +9,7 @@ import { ProseLayout } from "@/components/editorial/ProseLayout";
 import { MDXContent } from "@/components/MDXContent";
 import { EditorialImage } from "@/components/media/EditorialImage";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
+import { breadcrumbJson } from "@/lib/breadcrumbSchema";
 
 export async function generateStaticParams() {
   return allPantryEntries.map((e) => ({ slug: e.slug }));
@@ -49,6 +50,15 @@ export default async function CultureEntryPage({
 
   return (
     <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: breadcrumbJson([
+            { name: "Culture", path: "/culture" },
+            { name: entry.term, path: `/culture/${entry.slug}` },
+          ]),
+        }}
+      />
       {/* Full-bleed editorial moment */}
       <section className="relative bg-charcoal-deep overflow-hidden" style={{ minHeight: "50vh" }}>
         <div className="absolute inset-0">

@@ -10,6 +10,7 @@ import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { EditorialImage } from "@/components/media/EditorialImage";
 import { parseRecipeIngredients, parseRecipeInstructions } from "@/lib/recipeSchema";
+import { breadcrumbJson } from "@/lib/breadcrumbSchema";
 
 export async function generateStaticParams() {
   return allFreeRecipes.map((r) => ({ slug: r.slug }));
@@ -109,20 +110,15 @@ export default async function RecipePage({
     },
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://borderlesskitchenseries.com" },
-      { "@type": "ListItem", position: 2, name: "Recipes", item: "https://borderlesskitchenseries.com/recipes" },
-      { "@type": "ListItem", position: 3, name: recipe.title, item: `https://borderlesskitchenseries.com/recipes/${recipe.slug}` },
-    ],
-  };
+  const breadcrumbLd = breadcrumbJson([
+    { name: "Recipes", path: "/recipes" },
+    { name: recipe.title, path: `/recipes/${recipe.slug}` },
+  ]);
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(recipeSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbLd }} />
 
       {/* Hero */}
       <section className="relative bg-charcoal-deep overflow-hidden" style={{ minHeight: "55vh" }}>

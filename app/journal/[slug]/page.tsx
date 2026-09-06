@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { allStories, allPantryEntries, allFreeRecipes } from "contentlayer/generated";
 import { relatedRecipesFor } from "@/lib/relatedRecipes";
+import { breadcrumbJson } from "@/lib/breadcrumbSchema";
 import { Container } from "@/components/layout/Container";
 import { ProseLayout } from "@/components/editorial/ProseLayout";
 import { MDXContent } from "@/components/MDXContent";
@@ -97,6 +98,15 @@ export default async function JournalEntryPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: breadcrumbJson([
+            { name: "Journal", path: "/journal" },
+            { name: story.title, path: `/journal/${story.slug}` },
+          ]),
+        }}
       />
       {/* Hero */}
       <section className="relative bg-charcoal-deep overflow-hidden" style={{ minHeight: "60vh" }}>

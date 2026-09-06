@@ -12,6 +12,7 @@ import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 
 import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
+import { breadcrumbJson } from "@/lib/breadcrumbSchema";
 
 export async function generateStaticParams() {
   return allBooks.map((book) => ({ slug: book.slug }));
@@ -125,6 +126,15 @@ export default async function BookPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(bookSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: breadcrumbJson([
+            { name: "Books", path: "/books" },
+            { name: book.title, path: CANONICAL_OVERRIDES[book.slug] ?? `/books/${book.slug}` },
+          ]),
+        }}
       />
       {/* Hero image */}
       <section className="relative bg-charcoal-deep overflow-hidden" style={{ minHeight: "55vh" }}>
