@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { allStories } from "contentlayer/generated";
+import { allStories, allPantryEntries } from "contentlayer/generated";
 import { Container } from "@/components/layout/Container";
 import { ProseLayout } from "@/components/editorial/ProseLayout";
 import { MDXContent } from "@/components/MDXContent";
@@ -52,6 +52,9 @@ export default async function JournalEntryPage({
   if (idx === -1) notFound();
 
   const story = sorted[idx];
+  // Only link pantry terms that actually have a /culture/ page (97 journal→culture 404s found 2026-09-05).
+  const pantrySlugSet = new Set(allPantryEntries.map((e) => e.slug));
+  const pantryRefs = (story.pantryRefs ?? []).filter((ref) => pantrySlugSet.has(ref));
   const prev = sorted[idx + 1] ?? null;
   const next = sorted[idx - 1] ?? null;
 
@@ -141,17 +144,21 @@ export default async function JournalEntryPage({
       <article className="py-16 md:py-24">
         <Container>
           <ProseLayout>
-            <MDXContent code={story.body.code} />
+            <MDXContent
+              code={story.body.code}
+              storySlugs={allStories.map((s) => s.slug)}
+              pantrySlugs={allPantryEntries.map((e) => e.slug)}
+            />
           </ProseLayout>
 
           {/* Pantry cross-links */}
-          {story.pantryRefs && story.pantryRefs.length > 0 ? (
+          {pantryRefs.length > 0 ? (
             <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">
               <p className="font-ui text-eyebrow uppercase text-ink/50 mb-4">
                 From the pantry
               </p>
               <ul className="flex flex-wrap gap-3">
-                {story.pantryRefs.map((ref) => (
+                {pantryRefs.map((ref) => (
                   <li key={ref}>
                     <Link
                       href={`/culture/${ref}`}
