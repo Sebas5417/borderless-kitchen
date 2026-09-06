@@ -9,6 +9,7 @@ import { MDXContent } from "@/components/MDXContent";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { EditorialImage } from "@/components/media/EditorialImage";
+import { parseRecipeIngredients, parseRecipeInstructions } from "@/lib/recipeSchema";
 
 export async function generateStaticParams() {
   return allFreeRecipes.map((r) => ({ slug: r.slug }));
@@ -85,6 +86,19 @@ export default async function RecipePage({
     recipeYield: recipe.recipeYield,
     recipeCategory: recipe.category,
     recipeCuisine: recipe.cuisine,
+    // Ingredients + steps parsed from the page body so rich results can show
+    // (2026-09-05). Omitted when a recipe uses a heading the parser doesn't know.
+    ...(() => {
+      const recipeIngredient = parseRecipeIngredients(recipe.body.raw);
+      const recipeInstructions = parseRecipeInstructions(recipe.body.raw);
+      return {
+        ...(recipeIngredient.length ? { recipeIngredient } : {}),
+        ...(recipeInstructions.length ? { recipeInstructions } : {}),
+      };
+    })(),
+    ...(recipe.targetKeyword || recipe.tags?.length
+      ? { keywords: [recipe.targetKeyword, ...(recipe.tags ?? [])].filter(Boolean).join(", ") }
+      : {}),
     ...(recipe.heroImageSrc
       ? { image: [`https://borderlesskitchenseries.com${recipe.heroImageSrc}`] }
       : {}),
