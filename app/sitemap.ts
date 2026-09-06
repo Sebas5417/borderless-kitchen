@@ -13,7 +13,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // /books/* catalog pages canonicalize to the dedicated sales pages for
   // TMT and SMMC (audit F4) — keep them at a supporting priority so the
   // sales pages are the unambiguous primaries.
-  const books = allBooks.map((book) => ({
+  // Unreleased "coming" volumes are thin placeholder pages with no inbound
+  // links (crawl 2026-09-06) — keep them out of the sitemap; they also carry
+  // a noindex robots tag until they have a real launch.
+  const books = allBooks.filter((book) => book.status === "available").map((book) => ({
     url: `${siteUrl}/books/${book.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,

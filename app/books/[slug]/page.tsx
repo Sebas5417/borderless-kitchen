@@ -39,6 +39,9 @@ export async function generateMetadata({
     title: book.title,
     description: `${book.regionA} meets ${book.regionB}. ${book.subtitle ?? "A volume in the Borderless Kitchen series."}`,
     alternates: { canonical },
+    // Unreleased volumes are placeholders: keep them crawlable but out of the
+    // index until launch (2026-09-06).
+    ...(book.status === "available" ? {} : { robots: { index: false, follow: true } }),
     openGraph: {
       title: book.title,
       description: `${book.regionA} meets ${book.regionB}.`,
