@@ -51,8 +51,31 @@ export default async function CultureEntryPage({
   const prev = sorted[idx - 1] ?? null;
   const next = sorted[idx + 1] ?? null;
 
+  // DefinedTerm schema (2026-09-06): the 38 culture entries are glossary
+  // definitions (term + classification + origin) and previously carried only a
+  // BreadcrumbList, so search engines had nothing describing what the page is.
+  const termSchema = {
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    name: entry.term,
+    description: fitDescription(
+      entry.body.raw.replace(/[*_`#>]/g, "").replace(/\s+/g, " ").trim(),
+    ),
+    inDefinedTermSet: {
+      "@type": "DefinedTermSet",
+      name: "Borderless Kitchen Culture Library",
+      url: "https://borderlesskitchenseries.com/culture",
+    },
+    url: `https://borderlesskitchenseries.com/culture/${entry.slug}`,
+    termCode: entry.slug,
+  };
+
   return (
     <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(termSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
