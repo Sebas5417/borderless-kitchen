@@ -5,6 +5,8 @@ import { Container } from "@/components/layout/Container";
 import { PageHero } from "@/components/editorial/PageHero";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
+import { RecipeListItem } from "@/components/cards/RecipeListItem";
+import { cuisineHubs } from "@/lib/cuisines";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/recipes" },
@@ -21,6 +23,7 @@ export const metadata: Metadata = {
 
 export default function RecipesPage() {
   const recipes = [...allFreeRecipes].sort((a, b) => a.ordering - b.ordering);
+  const hubs = cuisineHubs(allFreeRecipes);
 
   return (
     <>
@@ -34,30 +37,27 @@ export default function RecipesPage() {
 
       <section className="py-16 md:py-24">
         <Container>
+          {hubs.length > 0 ? (
+            <div className="mb-12">
+              <p className="font-ui text-eyebrow uppercase text-ink/40 mb-4">Browse by cuisine</p>
+              <ul className="flex flex-wrap gap-3">
+                {hubs.map((h) => (
+                  <li key={h.slug}>
+                    <Link
+                      href={`/recipes/cuisine/${h.slug}`}
+                      className="font-ui text-eyebrow uppercase text-ink border border-hairline px-4 py-2 hover:border-vermillion hover:text-vermillion transition-colors duration-300"
+                    >
+                      {h.label} ({h.recipes.length})
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
           <FadeRise>
             <ul className="divide-y divide-hairline">
               {recipes.map((recipe) => (
-                <li key={recipe.slug}>
-                  <Link
-                    href={`/recipes/${recipe.slug}`}
-                    className="group flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8 py-8 hover:text-vermillion transition-colors duration-300"
-                  >
-                    <span className="font-ui text-eyebrow uppercase text-ink/40 md:w-32 shrink-0">
-                      {recipe.cuisine.split("-")[0].trim()}
-                    </span>
-                    <div className="flex-1">
-                      <h2 className="font-display text-display-3 text-ink group-hover:text-vermillion transition-colors duration-300 leading-tight">
-                        {recipe.title}
-                      </h2>
-                      <p className="font-body text-base text-ink/60 mt-1">
-                        {recipe.dek}
-                      </p>
-                    </div>
-                    <span className="font-ui text-eyebrow uppercase text-ink/30 md:w-24 shrink-0 md:text-right">
-                      {recipe.totalTime.replace("PT", "").replace("M", " min")}
-                    </span>
-                  </Link>
-                </li>
+                <RecipeListItem key={recipe.slug} recipe={recipe} />
               ))}
             </ul>
           </FadeRise>

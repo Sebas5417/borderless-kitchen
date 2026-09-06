@@ -11,6 +11,7 @@ import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { EditorialImage } from "@/components/media/EditorialImage";
 import { parseRecipeIngredients, parseRecipeInstructions } from "@/lib/recipeSchema";
 import { breadcrumbJson } from "@/lib/breadcrumbSchema";
+import { hubFor } from "@/lib/cuisines";
 
 export async function generateStaticParams() {
   return allFreeRecipes.map((r) => ({ slug: r.slug }));
@@ -110,6 +111,7 @@ export default async function RecipePage({
     },
   };
 
+  const cuisineHub = hubFor(recipe, allFreeRecipes);
   const breadcrumbLd = breadcrumbJson([
     { name: "Recipes", path: "/recipes" },
     { name: recipe.title, path: `/recipes/${recipe.slug}` },
@@ -155,9 +157,18 @@ export default async function RecipePage({
               </Link>
             </nav>
             <div className="flex flex-wrap items-center gap-4 mb-4">
-              <span className="font-ui text-eyebrow uppercase text-paper/50">
-                {recipe.cuisine}
-              </span>
+              {cuisineHub ? (
+                <Link
+                  href={`/recipes/cuisine/${cuisineHub}`}
+                  className="font-ui text-eyebrow uppercase text-paper/50 hover:text-paper/80 transition-colors duration-300"
+                >
+                  {recipe.cuisine}
+                </Link>
+              ) : (
+                <span className="font-ui text-eyebrow uppercase text-paper/50">
+                  {recipe.cuisine}
+                </span>
+              )}
               <span className="text-paper/30">·</span>
               <span className="font-ui text-eyebrow uppercase text-paper/50">
                 {formatDuration(recipe.totalTime)}

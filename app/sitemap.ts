@@ -6,6 +6,7 @@ import {
   allFieldNotes,
   allFreeRecipes,
 } from "contentlayer/generated";
+import { cuisineHubs } from "@/lib/cuisines";
 
 const siteUrl = "https://borderlesskitchenseries.com";
 
@@ -47,6 +48,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.4,
   }));
 
+  // Cuisine hub pages (2026-09-06): one per cuisine with 3+ free recipes.
+  const cuisines = cuisineHubs(allFreeRecipes).map((hub) => ({
+    url: `${siteUrl}/recipes/cuisine/${hub.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
   const freeRecipes = allFreeRecipes.map((recipe) => ({
     url: `${siteUrl}/recipes/${recipe.slug}`,
     lastModified: new Date(recipe.date),
@@ -73,6 +82,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...stories,
     ...pantry,
     ...notes,
+    ...cuisines,
     ...freeRecipes,
   ];
 }
