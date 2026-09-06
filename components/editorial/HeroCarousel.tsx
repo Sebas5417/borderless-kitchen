@@ -17,15 +17,33 @@ type Props = {
 export function HeroCarousel({ images, eyebrow, headline, link, interval = 5000 }: Props) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  // Highest slide index shown so far. Slides beyond `seen + 1` are not mounted,
+  // so the browser only fetches the current slide and the next one instead of
+  // all five hero images at once (2026-09-06: Lighthouse mobile LCP was 10.7 s
+  // because the lazily-loaded second slide became the LCP element).
+  const [seen, setSeen] = useState(0);
 
   const next = useCallback(() => {
     setActive((i) => (i + 1) % images.length);
   }, [images.length]);
 
   useEffect(() => {
+    setSeen((s) => (active > s ? active : s));
+  }, [active]);
+
+  useEffect(() => {
     if (paused) return;
-    const id = setInterval(next, interval);
-    return () => clearInterval(id);
+    // Hold the first (priority) slide roughly twice as long so the page's
+    // largest paint is the eagerly loaded image, then rotate normally.
+    let id: ReturnType<typeof setInterval> | undefined;
+    const first = setTimeout(() => {
+      next();
+      id = setInterval(next, interval);
+    }, interval * 2);
+    return () => {
+      clearTimeout(first);
+      if (id) clearInterval(id);
+    };
   }, [paused, next, interval]);
 
   return (
@@ -42,14 +60,17 @@ export function HeroCarousel({ images, eyebrow, headline, link, interval = 5000 
             className="absolute inset-0 transition-opacity duration-1000"
             style={{ opacity: i === active ? 1 : 0 }}
           >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              fill
-              priority={i === 0}
-              sizes="100vw"
-              className="object-cover object-center"
-            />
+            {i <= seen + 1 ? (
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                priority={i === 0}
+                loading={i === 0 ? undefined : "lazy"}
+                sizes="100vw"
+                className="object-cover object-center"
+              />
+            ) : null}
           </div>
         ))}
         <div className="absolute inset-0 bg-black/55" />
