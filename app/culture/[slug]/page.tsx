@@ -28,7 +28,7 @@ export async function generateMetadata({
     title: entry.term,
     alternates: { canonical: `/culture/${entry.slug}` },
     description: fitDescription(
-      `${entry.term}: a ${entry.classification.toLowerCase()} from ${entry.origin.join(" and ")}. What it is, how it tastes and how the Borderless Kitchen recipes use it — from the culture library.`,
+      `${entry.term}: ${/^[aeiou]/i.test(entry.classification) ? "an" : "a"} ${entry.classification.toLowerCase()} from ${entry.origin.join(" and ")}. What it is, how it tastes and how the Borderless Kitchen recipes use it — from the culture library.`,
     ),
   };
 }
