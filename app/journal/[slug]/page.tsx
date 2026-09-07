@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { allStories, allPantryEntries, allFreeRecipes } from "contentlayer/generated";
 import { relatedRecipesFor } from "@/lib/relatedRecipes";
+import { relatedStoriesFor } from "@/lib/relatedStories";
 import { breadcrumbJson } from "@/lib/breadcrumbSchema";
 import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
@@ -63,6 +64,9 @@ export default async function JournalEntryPage({
   // Three free recipes related to this story (internal-link crawl 2026-09-06:
   // recipe pages had 1–2 inbound links each; journal entries are the hub).
   const relatedRecipes = relatedRecipesFor(story, allFreeRecipes, 3);
+  // Three related journal entries (2026-09-06): stories linked recipes and
+  // pantry terms but never each other; 7 of 8 buying guides had no inbound links.
+  const relatedStories = relatedStoriesFor(story, allStories, 3);
 
   const isKoreanThemed = story.themes?.includes("korean-cooking") ?? false;
   const bookCta = isKoreanThemed
@@ -220,6 +224,32 @@ export default async function JournalEntryPage({
                       </span>
                       <span className="font-display text-lg text-ink leading-snug">
                         {r.title}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
+          {/* Related journal entries */}
+          {relatedStories.length > 0 ? (
+            <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">
+              <p className="font-ui text-eyebrow uppercase text-ink/50 mb-4">
+                Related reading
+              </p>
+              <ul className="grid gap-3 sm:grid-cols-3">
+                {relatedStories.map((s) => (
+                  <li key={s.slug}>
+                    <Link
+                      href={`/journal/${s.slug}`}
+                      className="block h-full border border-hairline px-4 py-3 hover:border-vermillion transition-colors duration-300"
+                    >
+                      <span className="font-ui text-eyebrow uppercase text-ink/40 block mb-1">
+                        {(s.themes?.[0] ?? "journal").replace(/-/g, " ")}
+                      </span>
+                      <span className="font-display text-lg text-ink leading-snug">
+                        {s.title}
                       </span>
                     </Link>
                   </li>
