@@ -166,9 +166,9 @@ export default async function JournalEntryPage({
             />
           </ProseLayout>
 
-          {/* Affiliate disclosure - required by the Amazon Associates Operating
-              Agreement and the FTC endorsement guides on any page carrying
-              affiliate links. Rendered only where such links exist. */}
+          {/* In-body affiliate disclosure, for the 13 posts that link products
+              inside the prose. The book CTA below carries its own disclosure via
+              AmazonCTA, which covers every page. */}
           {story.body.raw.includes("tag=borderlesskitchen-20") ? (
             <div className="max-w-prose mx-auto mt-12 pt-6 border-t border-hairline">
               <p className="font-ui text-sm leading-relaxed text-ink/60">
