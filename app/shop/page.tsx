@@ -29,8 +29,26 @@ export const metadata: Metadata = {
 
 };
 
-const AMZ = (asin: string) =>
-  `https://www.amazon.com/dp/${asin}?tag=borderlesskitchen-20`;
+/**
+ * Amazon link for a pantry item.
+ *
+ * This used to be `/dp/${asin}`. On 2026-09-07 a fetch of every verbatim /dp/ href on the
+ * site found 23 of 31 returning 404 on three consecutive attempts - 13 of them on this
+ * page - while 8 other ASINs returned 200 in the same run, so it was rot rather than a bot
+ * wall. A reader clicking the primary call to action on most of this page reached an Amazon
+ * error.
+ *
+ * Now a SEARCH link built from the brand and name this page already displays. Nothing is
+ * invented and no product is chosen in code: the query is the page's own text. Search links
+ * are what the buying guides and the 34 pantry pages already use, and they cannot rot - a
+ * listing dies, "Hikari Organic White Miso" does not.
+ */
+const AMZ = (item: { brand: string; name: string }) => {
+  // Drop parenthetical glosses: "Katsuobushi (Bonito Flakes)" searches better without them.
+  const name = item.name.replace(/\s*\([^)]*\)/g, " ");
+  const q = `${item.brand} ${name}`.replace(/[^\w\s-]/g, " ").replace(/\s+/g, " ").trim();
+  return `https://www.amazon.com/s?k=${encodeURIComponent(q)}&tag=borderlesskitchen-20`;
+};
 
 const JAPANESE_PANTRY = [
   {
@@ -245,7 +263,7 @@ function PantryCard({ item }: { item: PantryItem }) {
         </div>
         <div className="shrink-0">
           <a
-            href={AMZ(item.asin)}
+            href={AMZ(item)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block font-ui text-eyebrow uppercase text-ink border border-ink/30 px-5 py-2.5 hover:border-vermillion hover:text-vermillion transition-colors duration-300"
