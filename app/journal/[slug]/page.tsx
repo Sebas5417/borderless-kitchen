@@ -119,7 +119,7 @@ export default async function JournalEntryPage({
               fill
               priority
               sizes="100vw"
-              className="object-cover object-center opacity-60"
+              className="object-cover object-center opacity-80"
             />
           ) : (
             <EditorialImage
@@ -129,8 +129,8 @@ export default async function JournalEntryPage({
               className="w-full h-full"
             />
           )}
-          <div className="absolute inset-0 bg-charcoal-deep/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-deep/90 via-charcoal-deep/30 to-charcoal-deep/40" />
+          <div className="absolute inset-0 bg-charcoal-deep/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-deep/90 via-charcoal-deep/45 to-charcoal-deep/35" />
         </div>
         <div className="relative z-10 flex flex-col justify-end" style={{ minHeight: "60vh" }}>
           <Container className="pb-12 md:pb-20 pt-32">
