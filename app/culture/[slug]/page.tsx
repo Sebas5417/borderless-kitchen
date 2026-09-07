@@ -9,6 +9,7 @@ import { ProseLayout } from "@/components/editorial/ProseLayout";
 import { MDXContent } from "@/components/MDXContent";
 import { EditorialImage } from "@/components/media/EditorialImage";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
+import { pantryShopUrl, isShoppable } from "@/lib/pantryShopLink";
 import { breadcrumbJson } from "@/lib/breadcrumbSchema";
 import { fitDescription } from "@/lib/seoMeta";
 
@@ -162,6 +163,29 @@ export default async function CultureEntryPage({
                     </li>
                   ))}
                 </ul>
+              </div>
+            ) : null}
+
+            {/* Where to buy. Pantry pages are the highest buying-intent pages on
+                the site - a reader on "what is gochujang" is deciding whether to
+                buy gochujang - and all 38 previously had no way to. Search link,
+                not an ASIN, built from the entry's own term; ingredients only, so
+                "al dente" and "umami" never get a buy link. The disclosure is
+                suppressed here because the book CTA immediately below carries it. */}
+            {isShoppable(entry) ? (
+              <div className="mt-14 pt-10 border-t border-hairline">
+                <p className="font-ui text-eyebrow uppercase text-ink/50 mb-4">
+                  Where to buy
+                </p>
+                <p className="font-body text-sm text-ink/60 mb-5">
+                  Good {entry.term.replace(/\s*\([^)]*\)/, "")} is worth seeking out. If a
+                  local Asian or Italian grocer is not an option, it ships.
+                </p>
+                <AmazonCTA
+                  href={pantryShopUrl(entry.term)}
+                  label={`Shop ${entry.term.replace(/\s*\([^)]*\)/, "")} on Amazon`}
+                  hideDisclosure
+                />
               </div>
             ) : null}
 
