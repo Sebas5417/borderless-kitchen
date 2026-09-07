@@ -166,6 +166,21 @@ export default async function JournalEntryPage({
             />
           </ProseLayout>
 
+          {/* Affiliate disclosure - required by the Amazon Associates Operating
+              Agreement and the FTC endorsement guides on any page carrying
+              affiliate links. Rendered only where such links exist. */}
+          {story.body.raw.includes("tag=borderlesskitchen-20") ? (
+            <div className="max-w-prose mx-auto mt-12 pt-6 border-t border-hairline">
+              <p className="font-ui text-sm leading-relaxed text-ink/60">
+                Borderless Kitchen is a participant in the Amazon Services LLC
+                Associates Program. As an Amazon Associate we earn from qualifying
+                purchases. Product links on this page are affiliate links &mdash; they
+                cost you nothing extra, and we only recommend equipment and
+                ingredients we would tell a friend to buy.
+              </p>
+            </div>
+          ) : null}
+
           {/* Pantry cross-links */}
           {pantryRefs.length > 0 ? (
             <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">
