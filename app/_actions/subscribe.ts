@@ -9,11 +9,18 @@ export type SubscribeResult =
   | { ok: true }
   | { ok: false; error: "invalid-email" | "unknown" };
 
-async function addToMailerLite(email: string): Promise<boolean> {
+/**
+ * "not-configured" (no API key) and "failed" (MailerLite rejected us) used to
+ * both come back as `false`, so the caller could not tell a deliberate
+ * pass-through from a real error and swallowed both as success.
+ */
+type MailerLiteOutcome = "added" | "not-configured" | "failed";
+
+async function addToMailerLite(email: string): Promise<MailerLiteOutcome> {
   const apiKey = process.env.MAILERLITE_API_KEY;
   const groupId = process.env.MAILERLITE_GROUP_ID;
 
-  if (!apiKey) return false;
+  if (!apiKey) return "not-configured";
 
   const body: Record<string, unknown> = { email };
   if (groupId) body.groups = [groupId];
@@ -29,7 +36,9 @@ async function addToMailerLite(email: string): Promise<boolean> {
   });
 
   // 200 = updated existing, 201 = created new, 409 = already subscribed
-  return res.status === 200 || res.status === 201 || res.status === 409;
+  return res.status === 200 || res.status === 201 || res.status === 409
+    ? "added"
+    : "failed";
 }
 
 export async function subscribe(formData: FormData): Promise<SubscribeResult> {
@@ -63,19 +72,28 @@ export async function subscribe(formData: FormData): Promise<SubscribeResult> {
     return { ok: true };
   }
 
-  // Production: send to MailerLite (silently succeeds if key not yet configured)
   try {
-    const added = await addToMailerLite(email);
-    // If MailerLite isn't configured yet, still show success so the form works.
-    // Subscribers are lost until env vars are set — set MAILERLITE_API_KEY and
-    // MAILERLITE_GROUP_ID in Vercel dashboard to start capturing for real.
-    if (!added) {
-      console.warn(`[subscribe] MailerLite not configured — dropped ${email}`);
+    const outcome = await addToMailerLite(email);
+
+    // Deliberate pass-through: with no API key there is nowhere to put the
+    // lead, so still show success and let the funnel deliver the lead magnet.
+    // Leads ARE lost here — set MAILERLITE_API_KEY (+ MAILERLITE_GROUP_ID) in
+    // the Vercel project to start capturing for real.
+    if (outcome === "not-configured") {
+      console.error(`[subscribe] MailerLite not configured — lead dropped: ${email}`);
       return { ok: true };
     }
+
+    // A real failure. Previously this returned success and the lead was gone
+    // for good; the visitor is better served by being asked to try again.
+    if (outcome === "failed") {
+      console.error("[subscribe] MailerLite rejected the request");
+      return { ok: false, error: "unknown" };
+    }
+
     return { ok: true };
   } catch {
     console.error("[subscribe] MailerLite request threw unexpectedly");
-    return { ok: true };
+    return { ok: false, error: "unknown" };
   }
 }
