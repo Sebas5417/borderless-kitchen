@@ -1,0 +1,14 @@
+# Deploy hygiene - working files must never ship (2026-09-07)
+# `*.bak` does not match `index.html.pre_msskin.bak`'s siblings such as
+# `llms.txt.bak-refresh-2026-09-07`; list what the scripts actually write.
+*.bak
+*.bak.*
+*.bak-*
+*.pre_*
+*.tmp_write
+*.preview
+*.orig
+_bak-archive/
+__pycache__/
+*.py
+*.pyc
