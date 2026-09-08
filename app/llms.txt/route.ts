@@ -74,6 +74,7 @@ Borderless Kitchen is an independent cookbook series by Sebastian Dri exploring 
 ${line("Tokyo Meets Tuscany (Vol. I)", `${siteUrl}/tokyo-meets-tuscany`, "30 fusion recipes between Italian and Japanese kitchens")}
 ${line("Seoul Meets Mexico City (Vol. II)", `${siteUrl}/seoul-meets-mexico-city`, "Korean and Mexican fusion")}
 ${line("Shop / all books", `${siteUrl}/shop`)}
+${line("Kitchen printables", `${siteUrl}/printables`, "Paid fillable planners for the logistics half of cooking - the week, the batch, the dinner party, the holiday oven")}
 ${books.join("\n")}
 
 ## Free resources

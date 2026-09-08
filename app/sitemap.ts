@@ -101,6 +101,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/notes`, lastModified: newestNote, changeFrequency: "weekly", priority: 0.5 },
     { url: `${siteUrl}/recipes`, lastModified: newestRecipe, changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/shop`, changeFrequency: "monthly", priority: 0.7 },
+    // No lastModified: the page is a hand-written list of products, so nothing in the
+    // content implies a date and stamping today's would be the fake-lastmod problem again.
+    { url: `${siteUrl}/printables`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteUrl}/free`, lastModified: newestRecipe, changeFrequency: "monthly", priority: 0.9 },
     { url: `${siteUrl}/preorder`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/mini-course`, changeFrequency: "monthly", priority: 0.8 },
