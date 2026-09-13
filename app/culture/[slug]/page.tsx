@@ -25,12 +25,22 @@ export async function generateMetadata({
   const { slug } = await params;
   const entry = allPantryEntries.find((e) => e.slug === slug);
   if (!entry) return {};
+  const description = fitDescription(
+    `${entry.term}: ${/^[aeiou]/i.test(entry.classification) ? "an" : "a"} ${entry.classification.toLowerCase()} from ${entry.origin.join(" and ")}. What it is, how it tastes and how the Borderless Kitchen recipes use it — from the culture library.`,
+  );
   return {
     title: entry.term,
     alternates: { canonical: `/culture/${entry.slug}` },
-    description: fitDescription(
-      `${entry.term}: ${/^[aeiou]/i.test(entry.classification) ? "an" : "a"} ${entry.classification.toLowerCase()} from ${entry.origin.join(" and ")}. What it is, how it tastes and how the Borderless Kitchen recipes use it — from the culture library.`,
-    ),
+    description,
+    // 2026-09-13: this page never set an og:image, even when heroImageSrc
+    // is present — every /culture/* share card was blank. All 38 pantry
+    // entries now carry heroImageSrc, so wire it through like journal/recipes.
+    openGraph: {
+      title: entry.term,
+      description,
+      type: "article",
+      images: entry.heroImageSrc ? [{ url: entry.heroImageSrc }] : [],
+    },
   };
 }
 
