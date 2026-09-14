@@ -141,6 +141,12 @@ const nextConfig = {
         destination: "/journal/khao-soi-northern-thai-curry-noodle-soup-guide",
         permanent: true,
       },
+      {
+        // Former Pinterest campaign route → canonical buyer guide, same product.
+        source: "/journal/best-korean-bbq-gear-2026",
+        destination: "/journal/best-korean-bbq-grill-pan-for-home",
+        permanent: true,
+      },
     ];
   },
 };
