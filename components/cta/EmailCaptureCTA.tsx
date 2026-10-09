@@ -5,6 +5,7 @@ type Props = {
   body?: string;
   cta?: string;
   href?: string;
+  eyebrow?: string;
 };
 
 export function EmailCaptureCTA({
@@ -12,6 +13,7 @@ export function EmailCaptureCTA({
   body = "The Italian × Japanese ingredient chart behind every recipe in the book. Enter your email — free PDF, one page.",
   cta = "Get it free →",
   href = "/free",
+  eyebrow = "Free download",
 }: Props) {
   return (
     <section className="bg-ink text-paper py-16 md:py-20">
@@ -19,7 +21,7 @@ export function EmailCaptureCTA({
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           <div className="md:col-span-7">
             <p className="font-ui text-eyebrow uppercase text-paper/50 mb-3">
-              Free download
+              {eyebrow}
             </p>
             <h2 className="font-display text-display-3 text-paper leading-tight">
               {heading}
