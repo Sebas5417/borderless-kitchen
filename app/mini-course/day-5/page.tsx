@@ -208,7 +208,7 @@ export default function Day5Page() {
                 {[
                   {
                     title: "Tokyo Meets Tuscany",
-                    desc: "37 fully tested fusion recipes using the same system you just learned — the complete Borderless Kitchen cookbook.",
+                    desc: "Tokyo Meets Tuscany includes 30 original recipes plus six master sauces. Every recipe uses the same functional logic as the free ones.",
                     link: "/books/tokyo-meets-tuscany",
                     cta: "Get the book",
                   },
@@ -260,7 +260,7 @@ export default function Day5Page() {
                   Ready for 37 more recipes?
                 </p>
                 <p className="font-body text-base text-paper/60 max-w-prose leading-relaxed">
-                  Tokyo Meets Tuscany applies the same system you just learned to 37 fully tested dishes — the complete Borderless Kitchen fusion cookbook.
+                  Tokyo Meets Tuscany applies the same system you just learned to Tokyo Meets Tuscany includes 30 original recipes plus six master sauces.
                 </p>
               </div>
               <Link
