@@ -61,7 +61,7 @@ export async function generateMetadata({
   };
 }
 
-import { TMT_AMAZON } from "@/lib/amazon";
+import { bookFor } from "@/lib/amazon";
 
 export default async function RecipePage({
   params,
@@ -71,6 +71,7 @@ export default async function RecipePage({
   const { slug } = await params;
   const recipe = allFreeRecipes.find((r) => r.slug === slug);
   if (!recipe) notFound();
+  const book = bookFor(recipe.cuisine, recipe.tags, recipe.slug, recipe.title);
 
   const recipeSchema = {
     "@context": "https://schema.org",
@@ -199,9 +200,11 @@ export default async function RecipePage({
           {/* Book CTA */}
           <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">
             <p className="font-display italic text-display-3 text-ink/60 mb-6 leading-tight">
-              30 recipes and 6 master sauces in the book.
+              {book.title === "Tokyo Meets Tuscany"
+                ? "30 recipes and 6 master sauces in the book."
+                : "30 recipes in the book."}
             </p>
-            <AmazonCTA href={TMT_AMAZON} label="Get Tokyo Meets Tuscany on Amazon" />
+            <AmazonCTA href={book.href} label={`Get ${book.title} on Amazon`} />
             <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
               Paperback · Kindle
             </p>

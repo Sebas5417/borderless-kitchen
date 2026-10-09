@@ -41,7 +41,7 @@ export async function generateMetadata({
   };
 }
 
-import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
+import { bookFor } from "@/lib/amazon";
 
 export default async function JournalEntryPage({
   params,
@@ -68,10 +68,8 @@ export default async function JournalEntryPage({
   // pantry terms but never each other; 7 of 8 buying guides had no inbound links.
   const relatedStories = relatedStoriesFor(story, allStories, 3);
 
-  const isKoreanThemed = story.themes?.includes("korean-cooking") ?? false;
-  const bookCta = isKoreanThemed
-    ? { href: SMMC_AMAZON, label: "Get Seoul Meets Mexico City on Amazon" }
-    : { href: TMT_AMAZON, label: "Get Tokyo Meets Tuscany on Amazon" };
+  const book = bookFor(story.themes, story.slug, story.title);
+  const bookCta = { href: book.href, label: `Get ${book.title} on Amazon` };
 
   const formattedDate = new Date(story.date).toLocaleDateString("en-US", {
     month: "long",

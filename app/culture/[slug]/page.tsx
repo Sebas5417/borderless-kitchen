@@ -44,7 +44,7 @@ export async function generateMetadata({
   };
 }
 
-import { TMT_AMAZON } from "@/lib/amazon";
+import { bookFor } from "@/lib/amazon";
 
 export default async function CultureEntryPage({
   params,
@@ -54,6 +54,7 @@ export default async function CultureEntryPage({
   const { slug } = await params;
   const entry = allPantryEntries.find((e) => e.slug === slug);
   if (!entry) notFound();
+  const book = bookFor(entry.origin, entry.slug, entry.term);
 
   const sorted = [...allPantryEntries].sort((a, b) =>
     a.term.localeCompare(b.term),
@@ -202,9 +203,9 @@ export default async function CultureEntryPage({
             {/* Book CTA */}
             <div className="mt-14 pt-10 border-t border-hairline">
               <p className="font-body text-sm text-ink/60 mb-5">
-                {entry.term} appears in the recipes of Tokyo Meets Tuscany.
+                Cook more from this pantry in {book.title}.
               </p>
-              <AmazonCTA href={TMT_AMAZON} />
+              <AmazonCTA href={book.href} label={`Get ${book.title} on Amazon`} />
             </div>
 
             {/* Prev/Next */}
