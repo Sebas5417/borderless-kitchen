@@ -277,7 +277,16 @@ export default async function JournalEntryPage({
         </Container>
       </article>
 
-      <EmailCaptureCTA />
+      {story.themes?.includes("korean-mexican-fusion") ? (
+        <EmailCaptureCTA
+          eyebrow="Free recipes"
+          heading="Keep cooking across Korean and Mexican flavors."
+          body="Explore free Korean and Korean-Mexican recipes from the collection — no email or account needed."
+          cta="Browse free recipes →"
+        />
+      ) : (
+        <EmailCaptureCTA />
+      )}
     </>
   );
 }
