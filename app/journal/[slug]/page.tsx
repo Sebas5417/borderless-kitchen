@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import { allStories, allPantryEntries, allFreeRecipes } from "contentlayer/generated";
 import { relatedRecipesFor } from "@/lib/relatedRecipes";
 import { relatedStoriesFor } from "@/lib/relatedStories";
+import { shoppableIngredientsFor } from "@/lib/storyPantry";
+import { pantryShopUrl } from "@/lib/pantryShopLink";
 import { breadcrumbJson } from "@/lib/breadcrumbSchema";
 import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
@@ -67,6 +69,12 @@ export default async function JournalEntryPage({
   // Three related journal entries (2026-09-06): stories linked recipes and
   // pantry terms but never each other; 7 of 8 buying guides had no inbound links.
   const relatedStories = relatedStoriesFor(story, allStories, 3);
+  // Stories that already link products inline (buying guides) keep their own
+  // links; everything else gets the ingredients it cooks with (2026-10-09).
+  const hasInlineProductLinks = story.body.raw.includes("tag=borderlesskitchen-20");
+  const shopIngredients = hasInlineProductLinks
+    ? []
+    : shoppableIngredientsFor(story.body.raw, allPantryEntries);
 
   const book = bookFor(story.themes, story.slug, story.title);
   const bookCta = { href: book.href, label: `Get ${book.title} on Amazon` };
@@ -179,6 +187,37 @@ export default async function JournalEntryPage({
                 purchases. Product links on this page are affiliate links &mdash; they
                 cost you nothing extra, and we only recommend equipment and
                 ingredients we would tell a friend to buy.
+              </p>
+            </div>
+          ) : null}
+
+          {/* Shop the pantry: tagged Amazon searches for the ingredients this
+              story cooks with. Disclosure sits directly under the links. */}
+          {shopIngredients.length > 0 ? (
+            <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">
+              <p className="font-ui text-eyebrow uppercase text-ink/50 mb-4">
+                Shop the pantry
+              </p>
+              <ul className="flex flex-wrap gap-3">
+                {shopIngredients.map((e) => {
+                  const name = e.term.replace(/\s*\([^)]*\)/, "");
+                  return (
+                    <li key={e.slug}>
+                      <a
+                        href={pantryShopUrl(e.term)}
+                        target="_blank"
+                        rel="noopener noreferrer sponsored"
+                        className="font-ui text-eyebrow uppercase text-ink border border-hairline px-4 py-2 hover:border-vermillion hover:text-vermillion transition-colors duration-300"
+                      >
+                        {name} on Amazon
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+              <p className="font-ui text-xs leading-relaxed text-ink/45 mt-4">
+                As an Amazon Associate we earn from qualifying purchases. These
+                are affiliate links &mdash; they cost you nothing extra.
               </p>
             </div>
           ) : null}
