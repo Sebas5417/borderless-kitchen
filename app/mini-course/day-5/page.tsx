@@ -220,7 +220,7 @@ export default function Day5Page() {
                   },
                   {
                     title: "The Free Recipe Collection",
-                    desc: "19 free cross-cultural recipes plus the full Flavor Pairing Matrix. No account required — start cooking immediately.",
+                    desc: "85 free cross-cultural recipes plus the Flavor Pairing Matrix. No account required — start cooking immediately.",
                     link: "/free",
                     cta: "Browse free recipes",
                   },
@@ -257,10 +257,10 @@ export default function Day5Page() {
               <div>
                 <p className="font-ui text-eyebrow uppercase text-vermillion mb-3">Vol. I — Available now</p>
                 <p className="font-display text-display-2 text-paper leading-tight mb-3">
-                  Ready for 37 more recipes?
+                  Ready to cook with the full system?
                 </p>
                 <p className="font-body text-base text-paper/60 max-w-prose leading-relaxed">
-                  Tokyo Meets Tuscany applies the same system you just learned to Tokyo Meets Tuscany includes 30 original recipes plus six master sauces.
+                  Tokyo Meets Tuscany includes 30 original recipes plus six master sauces, using the same system you just learned.
                 </p>
               </div>
               <Link
