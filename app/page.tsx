@@ -35,6 +35,28 @@ export default function HomePage() {
     .filter((s) => new Date(s.date) <= now)
     .sort((a, b) => +new Date(b.date) - +new Date(a.date))
     .slice(0, 3);
+  // Buying guides, pinned (2026-10-09). The "Stories" grid shows only the
+  // newest essays, so the guides that carry product links fall off the
+  // homepage within days. Listed by slug; a missing slug is skipped, never a 404.
+  const GUIDE_SLUGS = [
+    "best-korean-cooking-gifts-for-home-cooks",
+    "best-mexican-cooking-gifts-for-home-cooks",
+    "best-japanese-cooking-gifts-for-home-cooks",
+    "korean-mexican-pantry-starter-kit",
+    "best-japanese-pantry-starter-kit-ingredients",
+    "best-kimchi-making-supplies-and-equipment",
+    "best-korean-cookbooks-for-home-cooks",
+    "best-mexican-cookbooks-for-home-cooks",
+    "best-japanese-cookbooks-for-home-cooks",
+    "gochujang-vs-gochugaru-difference",
+    "miso-vs-doenjang-difference",
+    "mirin-vs-rice-vinegar-difference",
+    "best-wok-for-home-cooking-buying-guide",
+    "best-korean-bbq-grill-pan-for-home",
+  ];
+  const guides = GUIDE_SLUGS.map((slug) => allStories.find((s) => s.slug === slug)).filter(
+    (s): s is (typeof allStories)[number] => Boolean(s),
+  );
   const notes = [...allFieldNotes]
     .sort((a, b) => +new Date(b.date) - +new Date(a.date))
     .slice(0, 3);
@@ -263,6 +285,32 @@ export default function HomePage() {
           </FadeRise>
         </Container>
       </section>
+
+      {/* 5a. Buying guides */}
+      {guides.length > 0 ? (
+        <section className="py-20 md:py-24 border-t border-hairline">
+          <Container>
+            <p className="font-ui text-eyebrow uppercase text-ink/50 mb-3">
+              Buying guides
+            </p>
+            <h2 className="font-display text-display-3 text-ink max-w-xl leading-tight mb-10">
+              What to buy, what to skip.
+            </h2>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+              {guides.map((g) => (
+                <li key={g.slug}>
+                  <Link
+                    href={`/journal/${g.slug}`}
+                    className="font-display text-lg text-ink leading-snug hover:text-vermillion transition-colors duration-300"
+                  >
+                    {g.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Container>
+        </section>
+      ) : null}
 
       {/* 5b. Field Notes — quiet surface */}
       {notes.length > 0 ? (
