@@ -53,6 +53,8 @@ export default function HomePage() {
     "mirin-vs-rice-vinegar-difference",
     "best-wok-for-home-cooking-buying-guide",
     "best-korean-bbq-grill-pan-for-home",
+    "best-short-grain-rice-for-japanese-and-korean-cooking",
+    "dashi-vs-korean-anchovy-broth",
   ];
   const guides = GUIDE_SLUGS.map((slug) => allStories.find((s) => s.slug === slug)).filter(
     (s): s is (typeof allStories)[number] => Boolean(s),
