@@ -267,7 +267,7 @@ export default function MiniCoursePage() {
 
       <EmailCaptureCTA
         heading="Not ready for the course? Start with the free collection."
-        body="Nineteen fusion recipes and the Flavor Pairing Matrix — free, no account needed."
+        body="Eighty-five free recipes and the Flavor Pairing Matrix — free, no account needed."
         cta="Get the free collection →"
       />
     </>
