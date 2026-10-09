@@ -6,7 +6,7 @@ import { allStories, allPantryEntries, allFreeRecipes } from "contentlayer/gener
 import { relatedRecipesFor } from "@/lib/relatedRecipes";
 import { relatedStoriesFor } from "@/lib/relatedStories";
 import { shoppableIngredientsFor } from "@/lib/storyPantry";
-import { pantryShopUrl } from "@/lib/pantryShopLink";
+import { ShopPantry } from "@/components/cta/ShopPantry";
 import { breadcrumbJson } from "@/lib/breadcrumbSchema";
 import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
@@ -191,36 +191,8 @@ export default async function JournalEntryPage({
             </div>
           ) : null}
 
-          {/* Shop the pantry: tagged Amazon searches for the ingredients this
-              story cooks with. Disclosure sits directly under the links. */}
-          {shopIngredients.length > 0 ? (
-            <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">
-              <p className="font-ui text-eyebrow uppercase text-ink/50 mb-4">
-                Shop the pantry
-              </p>
-              <ul className="flex flex-wrap gap-3">
-                {shopIngredients.map((e) => {
-                  const name = e.term.replace(/\s*\([^)]*\)/, "");
-                  return (
-                    <li key={e.slug}>
-                      <a
-                        href={pantryShopUrl(e.term)}
-                        target="_blank"
-                        rel="noopener noreferrer sponsored"
-                        className="font-ui text-eyebrow uppercase text-ink border border-hairline px-4 py-2 hover:border-vermillion hover:text-vermillion transition-colors duration-300"
-                      >
-                        {name} on Amazon
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-              <p className="font-ui text-xs leading-relaxed text-ink/45 mt-4">
-                As an Amazon Associate we earn from qualifying purchases. These
-                are affiliate links &mdash; they cost you nothing extra.
-              </p>
-            </div>
-          ) : null}
+          {/* Shop the pantry (2026-10-09) */}
+          <ShopPantry ingredients={shopIngredients} />
 
           {/* Pantry cross-links */}
           {pantryRefs.length > 0 ? (
