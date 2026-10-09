@@ -147,6 +147,13 @@ const nextConfig = {
         destination: "/journal/best-korean-bbq-grill-pan-for-home",
         permanent: true,
       },
+      {
+        // Duplicate soy sauce guide merged 2026-10-09: the two pages contradicted
+        // each other on what jin ganjang is. The more accurate one is kept.
+        source: "/journal/korean-ganjang-soy-sauce-types",
+        destination: "/journal/korean-soy-sauce-types-guide",
+        permanent: true,
+      },
     ];
   },
 };
