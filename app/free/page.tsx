@@ -246,8 +246,7 @@ export default function FreePage() {
                   The free recipes are the appetizer.
                 </h2>
                 <p className="font-body text-lg text-ink/60 mt-4 max-w-prose leading-relaxed">
-                  Thirty-seven fully tested fusion recipes — the complete Tokyo
-                  Meets Tuscany cookbook. Every recipe in the book runs through
+                  Tokyo Meets Tuscany includes 30 original recipes plus six master sauces. Every recipe in the book runs through
                   the same functional logic as the free ones.
                 </p>
               </div>
