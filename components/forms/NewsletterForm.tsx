@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useId, useState, useTransition } from "react";
 import { subscribe } from "@/app/_actions/subscribe";
 
 type Props = {
@@ -8,6 +8,8 @@ type Props = {
   label?: string;
   placeholder?: string;
   buttonLabel?: string;
+  /** Render readable controls on a dark background. */
+  variant?: "default" | "inverted";
   /** Optional link rendered after the success message (e.g. lead magnet). */
   successLink?: { href: string; label: string };
 };
@@ -24,12 +26,15 @@ export function NewsletterForm({
   label = "Letters from the kitchen",
   placeholder = "Your email",
   buttonLabel = "Subscribe",
+  variant = "default",
   successLink,
 }: Props) {
   const [pending, startTransition] = useTransition();
   const [state, setState] = useState<
     { kind: "idle" } | { kind: "ok" } | { kind: "error"; message: string }
   >({ kind: "idle" });
+  const emailInputId = useId();
+  const inverted = variant === "inverted";
 
   return (
     <form
@@ -59,26 +64,28 @@ export function NewsletterForm({
       }}
     >
       <label
-        htmlFor="newsletter-email"
-        className="font-ui text-eyebrow uppercase text-ink/70 block mb-3"
+        htmlFor={emailInputId}
+        className={["font-ui text-eyebrow uppercase block mb-3", inverted ? "text-paper/70" : "text-ink/70"].join(" ")}
       >
         {label}
       </label>
-      <div className="flex items-end gap-3 border-b border-ink/30 pb-2 focus-within:border-ink transition-colors duration-300">
+      <div
+        className={["flex items-end gap-3 border-b pb-2 transition-colors duration-300", inverted ? "border-paper/40 focus-within:border-paper" : "border-ink/30 focus-within:border-ink"].join(" ")}
+      >
         <input
-          id="newsletter-email"
+          id={emailInputId}
           name="email"
           type="email"
           required
           placeholder={placeholder}
           autoComplete="email"
           disabled={pending || state.kind === "ok"}
-          className="flex-1 bg-transparent font-body text-base placeholder:text-ink/40 focus:outline-none disabled:opacity-50"
+          className={["flex-1 bg-transparent font-body text-base focus:outline-none disabled:opacity-50", inverted ? "text-paper placeholder:text-paper/50" : "text-ink placeholder:text-ink/40"].join(" ")}
         />
         <button
           type="submit"
           disabled={pending || state.kind === "ok"}
-          className="font-ui text-eyebrow uppercase text-ink hover:text-vermillion transition-colors duration-300 disabled:opacity-50"
+          className={["font-ui text-eyebrow uppercase transition-colors duration-300 disabled:opacity-50", inverted ? "text-paper hover:text-vermillion" : "text-ink hover:text-vermillion"].join(" ")}
         >
           {state.kind === "ok" ? "Thank you" : pending ? "…" : buttonLabel}
         </button>
