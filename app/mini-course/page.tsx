@@ -48,7 +48,7 @@ const DAYS = [
     day: "Day 3",
     title: "The Umami Pairing System",
     description:
-      "Work through the Flavor Pairing Matrix. Explore 12 examples from the 16-pair Flavor Pairing Matrix, and learn why synergy pairs (glutamate + inosinate) multiply umami 6-8x. Cook Ramen alla Carbonara.",
+      "Explore 12 lesson examples from the complete 16-pair Flavor Pairing Matrix. Learn how glutamate + inosinate synergy multiplies umami 6-8x, then cook Ramen alla Carbonara.",
     href: "/mini-course/day-3",
   },
   {
