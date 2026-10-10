@@ -70,7 +70,7 @@ const DAYS = [
 const INCLUDES = [
   "5 detailed technique guides — one per day, straight to your inbox",
   "5 full recipes (including the Ramen alla Carbonara foundation recipe)",
-  "The Flavor Pairing Matrix — the full 24-pair chart",
+  "The Flavor Pairing Matrix — the full 16-pair chart",
   "The Umami Cheat Sheet (one-page quick reference)",
   "Shopping list: the 12 ingredients you need for all 5 days",
   "Permanent access — every email is yours to keep",
