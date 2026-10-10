@@ -7,7 +7,7 @@ import { NewsletterForm } from "@/components/forms/NewsletterForm";
 export const metadata: Metadata = {
   title: "Day 3: The Umami Pairing System | Fusion Kitchen Mini-Course",
   description:
-    "Work through the Flavor Pairing Matrix. Learn the 24 Italian-Japanese swaps and why the synergy pairs multiply umami 6-8x. Cook Ramen alla Carbonara.",
+    "Work through the Flavor Pairing Matrix. Learn the Italian-Japanese swaps and why the synergy pairs multiply umami 6-8x. Cook Ramen alla Carbonara.",
 };
 
 const PAIRINGS = [
@@ -204,10 +204,10 @@ export default function Day3Page() {
               <div>
                 <p className="font-ui text-eyebrow uppercase text-vermillion mb-3">Get the printable Pairing Matrix</p>
                 <p className="font-display text-display-3 text-ink leading-tight mb-4">
-                  All 24 pairs. One page.
+                  All 16 pairs. One page.
                 </p>
                 <p className="font-body text-sm text-ink/60 leading-relaxed">
-                  Sign up to receive the full Flavor Pairing Matrix as a downloadable PDF — with all 24 functional pairs, not just the 12 shown here.
+                  Sign up to receive the full Flavor Pairing Matrix as a downloadable PDF — with all 16 functional pairs.
                 </p>
               </div>
               <NewsletterForm
