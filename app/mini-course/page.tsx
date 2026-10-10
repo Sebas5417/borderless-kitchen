@@ -116,7 +116,7 @@ export default function MiniCoursePage() {
               </p>
               <div className="max-w-md">
                 <NewsletterForm
-                  label="Start Day 1 now — enter your email"
+                  variant="inverted" label="Start Day 1 now — enter your email"
                   placeholder="you@somewhere.com"
                   buttonLabel="Send me the course"
                 />
