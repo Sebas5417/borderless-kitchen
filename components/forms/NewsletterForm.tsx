@@ -12,6 +12,14 @@ type Props = {
   successLink?: { href: string; label: string };
 };
 
+type WindowWithGtag = Window & {
+  gtag?: (
+    command: string,
+    action: string,
+    parameters?: Record<string, string>,
+  ) => void;
+};
+
 export function NewsletterForm({
   label = "Letters from the kitchen",
   placeholder = "Your email",
@@ -34,6 +42,10 @@ export function NewsletterForm({
           if (result.ok) {
             setState({ kind: "ok" });
             (e.target as HTMLFormElement).reset();
+            (window as WindowWithGtag).gtag?.("event", "newsletter_signup", {
+              form_label: label,
+              page_path: window.location.pathname,
+            });
           } else {
             setState({
               kind: "error",
