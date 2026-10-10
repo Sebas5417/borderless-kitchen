@@ -154,6 +154,24 @@ const nextConfig = {
         destination: "/journal/korean-soy-sauce-types-guide",
         permanent: true,
       },
+      {
+        // Duplicate merged 2026-10-09. Same keyword ("how to make kimchi"); the beginner's guide is longer and linked.
+        source: "/journal/korean-kimchi-making-at-home",
+        destination: "/journal/how-to-make-kimchi-complete-beginners-guide",
+        permanent: true,
+      },
+      {
+        // Duplicate merged 2026-10-09. Two Japanese pantry starter kits; the kept one is on the homepage.
+        source: "/journal/japanese-pantry-starter-kit-what-to-buy-first",
+        destination: "/journal/best-japanese-pantry-starter-kit-ingredients",
+        permanent: true,
+      },
+      {
+        // Duplicate merged 2026-10-09. Two miyeok guk pages; the longer one is kept.
+        source: "/journal/korean-seaweed-miyeok-guk",
+        destination: "/journal/miyeok-guk-korean-birthday-seaweed-soup",
+        permanent: true,
+      },
     ];
   },
 };
