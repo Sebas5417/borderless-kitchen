@@ -59,6 +59,8 @@ export default function HomePage() {
     "kewpie-vs-regular-mayonnaise-difference",
     "masa-harina-vs-cornmeal-difference",
     "panko-vs-breadcrumbs-difference",
+    "best-tortilla-press-how-to-choose",
+    "ancho-vs-guajillo-vs-pasilla-dried-chiles",
   ];
   const guides = GUIDE_SLUGS.map((slug) => allStories.find((s) => s.slug === slug)).filter(
     (s): s is (typeof allStories)[number] => Boolean(s),
