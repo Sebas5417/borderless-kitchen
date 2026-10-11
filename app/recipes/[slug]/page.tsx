@@ -245,11 +245,21 @@ export default async function RecipePage({
         </Container>
       </article>
 
-      <EmailCaptureCTA
-        heading="Get the Flavor Pairing Matrix free."
-        body="The Italian × Japanese ingredient chart behind every recipe in the book. Printable, one page."
-        cta="Get the free chart →"
-      />
+      {book.title === "Seoul Meets Mexico City" ? (
+        <EmailCaptureCTA
+          eyebrow="Free recipes"
+          heading="Get free Korean and Korean-Mexican recipes."
+          body="Gochujang, doenjang, guajillo and mole, cooked side by side. Recipes from Seoul Meets Mexico City, sent free by email."
+          cta="Send me the recipes →"
+          href="/seoul-meets-mexico-city"
+        />
+      ) : (
+        <EmailCaptureCTA
+          heading="Get the Flavor Pairing Matrix free."
+          body="The Italian × Japanese ingredient chart behind every recipe in the book. Printable, one page."
+          cta="Get the free chart →"
+        />
+      )}
     </>
   );
 }

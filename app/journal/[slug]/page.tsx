@@ -286,12 +286,15 @@ export default async function JournalEntryPage({
         </Container>
       </article>
 
-      {story.themes?.includes("korean-mexican-fusion") ? (
+      {book.title === "Seoul Meets Mexico City" ? (
+        // Korean and Mexican readers get the Vol. II funnel (book + free
+        // Korean-Mexican recipes by email), not the Italian x Japanese matrix.
         <EmailCaptureCTA
           eyebrow="Free recipes"
-          heading="Keep cooking across Korean and Mexican flavors."
-          body="Explore free Korean and Korean-Mexican recipes from the collection — no email or account needed."
-          cta="Browse free recipes →"
+          heading="Get free Korean and Korean-Mexican recipes."
+          body="Gochujang, doenjang, guajillo and mole, cooked side by side. Recipes from Seoul Meets Mexico City, sent free by email."
+          cta="Send me the recipes →"
+          href="/seoul-meets-mexico-city"
         />
       ) : (
         <EmailCaptureCTA />
