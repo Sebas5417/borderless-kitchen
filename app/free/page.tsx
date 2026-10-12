@@ -41,7 +41,7 @@ const CHART_PREVIEW = [
   { italian: "Pecorino Romano", function: "Sharp fermented salt", japanese: "Shiro dashi", note: "Lower volume; stronger per gram" },
   { italian: "Spaghetti", function: "Structural starch noodle", japanese: "Ramen noodle", note: "Alkaline chew; holds sauce differently" },
   { italian: "Anchovy in oil", function: "Umami bomb, fat carrier", japanese: "Katsuobushi flakes", note: "Both dissolve into the fat invisibly" },
-  { italian: "White wine", function: "Acid cut + alcohol", japanese: "Dry sake", note: "Sake is lower in tannins; sweeter finish" },
+  { italian: "White wine", function: "Acid cut + alcohol", japanese: "Dry sake", note: "Sake brings gentle sweetness and savory depth; white wine tastes brighter and more acidic." },
   { italian: "Black pepper", function: "Aromatic contrasting heat", japanese: "Sansho pepper", note: "Sansho is more citrus-floral, less spice" },
   { italian: "Chicken stock", function: "Liquid body + mineral depth", japanese: "Kombu dashi", note: "Dashi is cleaner; no fat or roast notes" },
 ];
@@ -64,7 +64,7 @@ export default function FreePage() {
               Flavor Pairing Matrix: the Italian{" "}
               <span className="text-vermillion">×</span> Japanese ingredient
               chart that explains why every swap in{" "}
-              <em>Tokyo Meets Tuscany</em> works.
+              <em>Tokyo Meets Tuscany</em> works.{" "}<Link href="https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20" target="_blank" rel="noopener noreferrer" className="block w-fit mt-6 font-ui text-eyebrow uppercase text-paper bg-vermillion px-8 py-4 hover:bg-paper hover:text-ink transition-colors duration-300">Get Tokyo Meets Tuscany on Amazon →</Link>
             </p>
           </FadeRise>
         </Container>
@@ -246,8 +246,7 @@ export default function FreePage() {
                   The free recipes are the appetizer.
                 </h2>
                 <p className="font-body text-lg text-ink/60 mt-4 max-w-prose leading-relaxed">
-                  Thirty-seven fully tested fusion recipes — the complete Tokyo
-                  Meets Tuscany cookbook. Every recipe in the book runs through
+                  Tokyo Meets Tuscany includes 30 original recipes plus six master sauces. Every recipe in the book runs through
                   the same functional logic as the free ones.
                 </p>
               </div>

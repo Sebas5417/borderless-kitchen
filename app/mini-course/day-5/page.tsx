@@ -208,7 +208,7 @@ export default function Day5Page() {
                 {[
                   {
                     title: "Tokyo Meets Tuscany",
-                    desc: "37 fully tested fusion recipes using the same system you just learned — the complete Borderless Kitchen cookbook.",
+                    desc: "Tokyo Meets Tuscany includes 30 original recipes plus six master sauces. Every recipe uses the same functional logic as the free ones.",
                     link: "/books/tokyo-meets-tuscany",
                     cta: "Get the book",
                   },
@@ -220,7 +220,7 @@ export default function Day5Page() {
                   },
                   {
                     title: "The Free Recipe Collection",
-                    desc: "19 free cross-cultural recipes plus the full Flavor Pairing Matrix. No account required — start cooking immediately.",
+                    desc: "85 free cross-cultural recipes plus the Flavor Pairing Matrix. No account required — start cooking immediately.",
                     link: "/free",
                     cta: "Browse free recipes",
                   },
@@ -257,10 +257,10 @@ export default function Day5Page() {
               <div>
                 <p className="font-ui text-eyebrow uppercase text-vermillion mb-3">Vol. I — Available now</p>
                 <p className="font-display text-display-2 text-paper leading-tight mb-3">
-                  Ready for 37 more recipes?
+                  Ready to cook with the full system?
                 </p>
                 <p className="font-body text-base text-paper/60 max-w-prose leading-relaxed">
-                  Tokyo Meets Tuscany applies the same system you just learned to 37 fully tested dishes — the complete Borderless Kitchen fusion cookbook.
+                  Tokyo Meets Tuscany includes 30 original recipes plus six master sauces, using the same system you just learned.
                 </p>
               </div>
               <Link

@@ -82,7 +82,7 @@ export function SiteFooter() {
             href="/free"
             className="font-body text-sm text-ink hover:text-vermillion transition-colors duration-300 block mb-2"
           >
-            19 free fusion recipes →
+            85 free fusion recipes →
           </Link>
           <a
             href="https://free.borderlesskitchenseries.com"

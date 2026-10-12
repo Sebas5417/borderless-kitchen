@@ -17,18 +17,31 @@ export default function PrivacyPage() {
           </h1>
           <div className="space-y-6 font-body text-base text-ink/80 leading-relaxed">
             <p>
-              <strong>Last updated:</strong> January 2026
+              <strong>Last updated:</strong> October 2026
             </p>
             <p>
               Borderless Kitchen (<em>borderlesskitchenseries.com</em>) collects
-              email addresses submitted voluntarily through the newsletter form on
-              this site. We use these addresses only to send the newsletter and
-              related updates. We do not sell, share, or rent your data to any
-              third party.
+              email addresses submitted voluntarily through the newsletter form.
+              MailerLite processes these addresses to send the newsletter and
+              related updates. We do not sell or rent email addresses.
             </p>
             <p>
-              We do not use tracking cookies, behavioral analytics, or ad
-              networks on this site. No analytics are active at launch.
+              This site uses Google Analytics 4 to understand visits and site
+              activity. Analytics may include pages viewed, referral source,
+              browser and device details, and interactions such as Amazon book
+              link clicks and successful newsletter signups. We do not send the
+              email address entered in a form to Google Analytics. Google may use
+              cookies or similar identifiers for analytics, depending on the
+              measurement settings and your browser. For details, see{" "}
+              <a
+                href="https://policies.google.com/privacy"
+                className="text-vermillion hover:underline"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Google's Privacy Policy
+              </a>
+              .
             </p>
             <p>
               If you submitted your email and want it removed, email{" "}
@@ -39,10 +52,6 @@ export default function PrivacyPage() {
                 hello@borderlesskitchenseries.com
               </a>{" "}
               and we will delete it within 48 hours.
-            </p>
-            <p>
-              That's it. No fine print worth reading. We believe your data should
-              stay yours.
             </p>
           </div>
         </div>
