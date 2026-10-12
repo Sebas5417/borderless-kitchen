@@ -2,8 +2,8 @@
 **Group:** SMMC (env `MAILERLITE_SMMC_GROUP_ID`; the group already exists, since the SubscribeForm on /seoul-meets-mexico-city posts `list="smmc"`)
 **Trigger:** joins the SMMC group. The form promises: "Free Korean-Mexican recipes are on the way."
 **Where subscribers come from (from 10-11):** every Korean or Mexican journal story and recipe page now ends with "Get free Korean and Korean-Mexican recipes → /seoul-meets-mexico-city". So this sequence is the follow-up for the whole Korean/Mexican half of the site.
-**Goal:** deliver the promised recipes, then teach the pantry (with tagged buying-guide links), then make one soft book pitch.
-**Setup (Sebastian, about 10 minutes in MailerLite):** Automations → New → trigger "Joins group: SMMC" → paste emails 1–4 with the delays below → Activate. All links are already tagged and live **after the BK merge** (the buying guides are on the merge branch). Until then, emails 3–4 have a few links that 404, so **activate only after the merge.**
+**Goal:** deliver the promised recipes, then teach the pantry (links to the buying guides, which carry the tagged Amazon links), then make one soft book pitch.
+**Setup (Sebastian, about 10 minutes in MailerLite):** Automations → New → trigger "Joins group: SMMC" → paste emails 1–4 with the delays below → Activate. All links point to pages on borderlesskitchenseries.com, which go live **after the BK merge** (the buying guides are on the merge branch). Until then, emails 3–4 have a few links that 404, so **activate only after the merge.**
 
 ---
 
@@ -13,7 +13,7 @@
 
 Hi,
 
-Thanks for signing up. Here are the recipes I promised: five free dishes from the Korean-Mexican side of Borderless Kitchen.
+Thanks for signing up. Here are the recipes I promised: five free Korean-Mexican dishes from Borderless Kitchen.
 
 - **[Kimchi quesadilla](https://borderlesskitchenseries.com/recipes/kimchi-quesadilla)** — the gateway. Sour, spicy kimchi and melted cheese in a crisp tortilla. Ten minutes.
 - **[Gochujang braised short rib tacos](https://borderlesskitchenseries.com/recipes/gochujang-braised-short-rib-taco)** — a weekend project that feeds a crowd.
@@ -70,12 +70,12 @@ P.S. If you make tortillas, a cast-iron press changes everything: **[how to choo
 ---
 
 ## EMAIL 4 — Day 7
-**Subject:** The book these recipes come from
+**Subject:** If you liked these, here's the whole collection
 **Preview text:** 30 recipes and 6 master sauces. One soft pitch, then I'll leave you alone.
 
 Hi,
 
-The recipes you've been cooking come from *Seoul Meets Mexico City*, Volume II of Borderless Kitchen: 30 recipes and 6 master sauces where Korean and Mexican cooking meet. Gochujang beside guajillo. Doenjang beside mole.
+If you've liked cooking this way, *Seoul Meets Mexico City* (Volume II of Borderless Kitchen) is the full collection: 30 recipes and 6 master sauces where Korean and Mexican cooking meet. Gochujang beside guajillo. Doenjang beside mole.
 
 It's $9.99 on Kindle and $19.99 in paperback: **[Seoul Meets Mexico City →](https://borderlesskitchenseries.com/seoul-meets-mexico-city)** (the page links to Amazon)
 
@@ -86,6 +86,6 @@ If it's not for you, no problem. You'll still get the occasional free recipe fro
 ---
 
 ## Notes
-- **Prices:** check the Kindle and paperback prices on Amazon before activating. They match the BK gift guides (.99 / 9.99).
+- **Prices:** check the Kindle and paperback prices on Amazon before activating. They match the BK gift guides ($9.99 Kindle / $19.99 paperback).
 - **No Amazon affiliate links in emails.** Amazon's Associates rules don't allow tagged links in email, so Email 4 links to the book page on the site, which carries the tagged Amazon link. Keep it that way.
 - **Unsubscribe link:** MailerLite adds the unsubscribe footer automatically. Leave it on.
