@@ -30,6 +30,8 @@ const ALIASES: Record<string, string[]> = {
   "parmigiano-reggiano": ["Parmigiano"],
   "pecorino-romano": ["Pecorino"],
   anchovy: ["anchovies"],
+  togarashi: ["shichimi"],
+  "risotto-rice": ["Arborio", "Carnaroli", "Vialone Nano"],
 };
 
 /** Overlapping entries: when the specific one matches, drop the general. */
