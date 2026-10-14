@@ -2,13 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { allFreeRecipes, allPantryEntries } from "contentlayer/generated";
+import { allFreeRecipes, allPantryEntries, allStories } from "contentlayer/generated";
 import { Container } from "@/components/layout/Container";
 import { ProseLayout } from "@/components/editorial/ProseLayout";
 import { MDXContent } from "@/components/MDXContent";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { ShopPantry } from "@/components/cta/ShopPantry";
 import { shoppableIngredientsFor } from "@/lib/storyPantry";
+import { GuideCallout } from "@/components/cta/GuideCallout";
+import { guidesFor } from "@/lib/storyGuides";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { EditorialImage } from "@/components/media/EditorialImage";
 import { parseRecipeIngredients, parseRecipeInstructions } from "@/lib/recipeSchema";
@@ -78,6 +80,12 @@ export default async function RecipePage({
   const shopIngredients = recipe.body.raw.includes("tag=borderlesskitchen-20")
     ? []
     : shoppableIngredientsFor(recipe.body.raw, allPantryEntries);
+  // Buying guides this recipe's own text points at (2026-10-14).
+  const now = new Date();
+  const guideLinks = guidesFor(recipe.body.raw, "")
+    .map((g) => allStories.find((st) => st.slug === g && new Date(st.date) <= now))
+    .filter((g): g is (typeof allStories)[number] => Boolean(g))
+    .map((g) => ({ slug: g.slug, title: g.title }));
 
   const recipeSchema = {
     "@context": "https://schema.org",
@@ -204,6 +212,8 @@ export default async function RecipePage({
           </ProseLayout>
 
           <ShopPantry ingredients={shopIngredients} />
+
+          <GuideCallout guides={guideLinks} />
 
           {/* Book CTA */}
           <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">

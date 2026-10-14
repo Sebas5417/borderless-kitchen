@@ -7,6 +7,8 @@ import { relatedRecipesFor } from "@/lib/relatedRecipes";
 import { relatedStoriesFor } from "@/lib/relatedStories";
 import { shoppableIngredientsFor } from "@/lib/storyPantry";
 import { ShopPantry } from "@/components/cta/ShopPantry";
+import { GuideCallout } from "@/components/cta/GuideCallout";
+import { guidesFor } from "@/lib/storyGuides";
 import { breadcrumbJson } from "@/lib/breadcrumbSchema";
 import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
@@ -75,6 +77,14 @@ export default async function JournalEntryPage({
   const shopIngredients = hasInlineProductLinks
     ? []
     : shoppableIngredientsFor(story.body.raw, allPantryEntries);
+  // Buying guides this story's own text points at (2026-10-14).
+  const publishedBySlug = new Map(
+    sorted.filter((s) => new Date(s.date) <= new Date()).map((s) => [s.slug, s]),
+  );
+  const guideLinks = guidesFor(story.body.raw, story.slug)
+    .map((g) => publishedBySlug.get(g))
+    .filter((g): g is (typeof sorted)[number] => Boolean(g))
+    .map((g) => ({ slug: g.slug, title: g.title }));
 
   const book = bookFor(story.themes, story.slug, story.title);
   const bookCta = { href: book.href, label: `Get ${book.title} on Amazon` };
@@ -193,6 +203,8 @@ export default async function JournalEntryPage({
 
           {/* Shop the pantry (2026-10-09) */}
           <ShopPantry ingredients={shopIngredients} />
+
+          <GuideCallout guides={guideLinks} />
 
           {/* Pantry cross-links */}
           {pantryRefs.length > 0 ? (
