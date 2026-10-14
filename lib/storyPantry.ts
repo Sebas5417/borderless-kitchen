@@ -26,6 +26,10 @@ const NOT_SOLD_ONLINE = new Set(["sake", "rice-wine-makgeolli", "daikon", "sesam
 const ALIASES: Record<string, string[]> = {
   "toasted-sesame-oil": ["sesame oil"],
   bonito: ["bonito flakes"],
+  // Stories usually shorten these: "grate some Parmigiano", "a little Pecorino", "anchovies".
+  "parmigiano-reggiano": ["Parmigiano"],
+  "pecorino-romano": ["Pecorino"],
+  anchovy: ["anchovies"],
 };
 
 /** Overlapping entries: when the specific one matches, drop the general. */
@@ -57,11 +61,15 @@ export function shoppableIngredientsFor(
   const scored = entries
     .filter((entry) => isShoppable(entry) && !NOT_SOLD_ONLINE.has(entry.slug))
     .map((entry) => {
-      const count = namesFor(entry.slug, entry.term).reduce(
-        (n, name) =>
-          n + (text.match(new RegExp(`\\b${escape(name)}\\b`, "gi"))?.length ?? 0),
-        0,
-      );
+      // Count distinct match positions, so an alias that is a prefix of the term
+      // ("Parmigiano" inside "Parmigiano Reggiano") does not count one mention twice.
+      const starts = new Set<number>();
+      for (const name of namesFor(entry.slug, entry.term)) {
+        for (const m of text.matchAll(new RegExp(`\\b${escape(name)}\\b`, "gi"))) {
+          starts.add(m.index ?? -1);
+        }
+      }
+      const count = starts.size;
       return { entry, count };
     })
     .filter((s) => s.count >= 2);
