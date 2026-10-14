@@ -329,6 +329,12 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
+            <Link
+              href="/guides"
+              className="inline-block mt-10 font-ui text-eyebrow uppercase text-vermillion hover:text-ink transition-colors duration-300"
+            >
+              All buying guides →
+            </Link>
           </Container>
         </section>
       ) : null}
