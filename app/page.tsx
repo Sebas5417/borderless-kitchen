@@ -71,6 +71,9 @@ export default function HomePage() {
     "best-soy-sauce-brands-how-to-choose",
     "parmigiano-reggiano-vs-parmesan-how-to-buy",
     "best-chili-crisp-brands-how-to-choose",
+    "best-dolsot-korean-stone-bowl-how-to-choose",
+    "best-mexican-hot-sauce-valentina-vs-cholula-vs-tapatio",
+    "mexican-oregano-vs-oregano-difference",
   ];
   const guides = GUIDE_SLUGS.map((slug) => allStories.find((s) => s.slug === slug)).filter(
     (s): s is (typeof allStories)[number] => Boolean(s),
