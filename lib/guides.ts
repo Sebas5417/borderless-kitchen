@@ -36,6 +36,7 @@ export const GUIDE_SECTIONS: GuideSection[] = [
     dek: "Pantry, tools and the label words that matter.",
     slugs: [
       "best-japanese-pantry-starter-kit-ingredients",
+      "best-japanese-curry-roux-golden-curry-vs-vermont-vs-java",
       "best-soy-sauce-brands-how-to-choose",
       "soy-sauce-vs-tamari-difference",
       "best-miso-brands-how-to-choose",
@@ -62,7 +63,9 @@ export const GUIDE_SECTIONS: GuideSection[] = [
       "gochujang-substitute-what-to-use-instead",
       "miso-vs-doenjang-difference",
       "dashi-vs-korean-anchovy-broth",
+      "best-store-bought-kimchi-how-to-choose",
       "best-kimchi-making-supplies-and-equipment",
+      "best-korean-instant-ramyeon-shin-vs-buldak-vs-jin",
       "best-dolsot-korean-stone-bowl-how-to-choose",
       "best-korean-bbq-grill-pan-for-home",
     ],
