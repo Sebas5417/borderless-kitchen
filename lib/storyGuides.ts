@@ -50,7 +50,8 @@ function escape(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-export function guidesFor(bodyRaw: string, selfSlug: string, max = 2): string[] {
+/** minCount: mentions needed. 2 for stories and recipes; short glossary entries use 1. */
+export function guidesFor(bodyRaw: string, selfSlug: string, max = 2, minCount = 2): string[] {
   return GUIDE_RULES.filter(
     (rule) => rule.slug !== selfSlug && !bodyRaw.includes(`/journal/${rule.slug}`),
   )
@@ -63,7 +64,7 @@ export function guidesFor(bodyRaw: string, selfSlug: string, max = 2): string[] 
       }
       return { slug: rule.slug, count: starts.size };
     })
-    .filter((g) => g.count >= 2)
+    .filter((g) => g.count >= minCount)
     .sort((a, b) => b.count - a.count)
     .slice(0, max)
     .map((g) => g.slug);
