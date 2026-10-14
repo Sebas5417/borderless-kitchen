@@ -65,6 +65,9 @@ export default function HomePage() {
     "san-marzano-tomatoes-dop-how-to-buy",
     "best-donabe-japanese-clay-pot-how-to-choose",
     "best-japanese-mandoline-slicer-benriner",
+    "arborio-vs-carnaroli-vs-vialone-nano-risotto-rice",
+    "best-italian-cookbooks-for-home-cooks",
+    "best-whetstone-for-japanese-knives-how-to-choose",
   ];
   const guides = GUIDE_SLUGS.map((slug) => allStories.find((s) => s.slug === slug)).filter(
     (s): s is (typeof allStories)[number] => Boolean(s),
