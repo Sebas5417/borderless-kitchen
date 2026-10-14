@@ -61,6 +61,10 @@ export default function HomePage() {
     "panko-vs-breadcrumbs-difference",
     "best-tortilla-press-how-to-choose",
     "ancho-vs-guajillo-vs-pasilla-dried-chiles",
+    "best-pasta-maker-manual-vs-electric-vs-stand-mixer",
+    "san-marzano-tomatoes-dop-how-to-buy",
+    "best-donabe-japanese-clay-pot-how-to-choose",
+    "best-japanese-mandoline-slicer-benriner",
   ];
   const guides = GUIDE_SLUGS.map((slug) => allStories.find((s) => s.slug === slug)).filter(
     (s): s is (typeof allStories)[number] => Boolean(s),
