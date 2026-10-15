@@ -51,6 +51,7 @@ export const GUIDE_SECTIONS: GuideSection[] = [
       "best-whetstone-for-japanese-knives-how-to-choose",
       "best-japanese-mandoline-slicer-benriner",
       "best-donabe-japanese-clay-pot-how-to-choose",
+      "best-hot-pot-setup-for-home-electric-vs-induction-vs-butane",
       "best-sushi-making-kit-what-you-actually-need",
       "best-japanese-rice-cooker-for-home-cooks",
       "best-ramen-bowls-and-japanese-serving-equipment",

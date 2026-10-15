@@ -45,6 +45,7 @@ export default function HomePage() {
     "best-italian-cooking-gifts-for-home-cooks",
     "best-gifts-for-ramen-lovers",
     "best-sushi-making-kit-what-you-actually-need",
+    "best-hot-pot-setup-for-home-electric-vs-induction-vs-butane",
     "stocking-stuffers-for-home-cooks-under-25",
     "korean-mexican-pantry-starter-kit",
     "best-japanese-pantry-starter-kit-ingredients",
