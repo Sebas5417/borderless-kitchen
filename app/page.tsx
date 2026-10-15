@@ -81,6 +81,22 @@ export default function HomePage() {
   const guides = GUIDE_SLUGS.map((slug) => allStories.find((s) => s.slug === slug)).filter(
     (s): s is (typeof allStories)[number] => Boolean(s),
   );
+  // Seasonal gift band (2026-10-15): shown from Oct 15 to Dec 24, evaluated at
+  // build time, so it disappears on the first deploy after Christmas Eve.
+  const month = now.getMonth();
+  const day = now.getDate();
+  const giftSeason = (month === 9 && day >= 15) || month === 10 || (month === 11 && day <= 24);
+  const GIFT_SLUGS = [
+    "best-japanese-cooking-gifts-for-home-cooks",
+    "best-korean-cooking-gifts-for-home-cooks",
+    "best-mexican-cooking-gifts-for-home-cooks",
+    "best-italian-cooking-gifts-for-home-cooks",
+    "best-gifts-for-ramen-lovers",
+    "stocking-stuffers-for-home-cooks-under-25",
+  ];
+  const giftGuides = GIFT_SLUGS.map((slug) => allStories.find((s) => s.slug === slug)).filter(
+    (s): s is (typeof allStories)[number] => Boolean(s),
+  );
   const notes = [...allFieldNotes]
     .sort((a, b) => +new Date(b.date) - +new Date(a.date))
     .slice(0, 3);
@@ -106,6 +122,48 @@ export default function HomePage() {
 
       {/* 2. Philosophy strip */}
       <PhilosophyStrip />
+
+      {/* 2b. Seasonal: holiday gift guides */}
+      {giftSeason && giftGuides.length > 0 ? (
+        <section className="py-14 md:py-16 border-t border-hairline bg-ink text-paper">
+          <Container>
+            <div className="md:flex md:items-end md:justify-between gap-10 mb-8">
+              <div>
+                <p className="font-ui text-eyebrow uppercase text-vermillion mb-3">
+                  Holiday gift guides
+                </p>
+                <h2 className="font-display text-display-3 text-paper leading-tight max-w-xl">
+                  Gifts for the cook in your life, sorted by budget.
+                </h2>
+              </div>
+              <Link
+                href="/guides#gifts"
+                className="hidden md:inline-block shrink-0 font-ui text-eyebrow uppercase text-paper/70 border-b border-paper/30 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
+              >
+                All gift guides →
+              </Link>
+            </div>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-4">
+              {giftGuides.map((g) => (
+                <li key={g.slug}>
+                  <Link
+                    href={`/journal/${g.slug}`}
+                    className="font-display text-lg text-paper/90 leading-snug hover:text-vermillion transition-colors duration-300"
+                  >
+                    {g.title.replace(/\s*\(\d{4}\).*$/, "")} →
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/guides#gifts"
+              className="md:hidden inline-block mt-8 font-ui text-eyebrow uppercase text-paper/70 border-b border-paper/30 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
+            >
+              All gift guides →
+            </Link>
+          </Container>
+        </section>
+      ) : null}
 
       {/* 3. Featured book — TMT */}
       {tmt ? (
