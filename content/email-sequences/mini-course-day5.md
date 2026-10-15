@@ -85,6 +85,10 @@ If you want to go further:
 
 **Tokyo Meets Tuscany** — the book — has 30 full fusion recipes, each built on the same system you've been using this week. Every recipe includes a structural breakdown: why it works, what you could substitute, where the Japanese and Italian techniques meet. Available on Amazon — details at [borderlesskitchenseries.com/tokyo-meets-tuscany](https://borderlesskitchenseries.com/tokyo-meets-tuscany).
 
+**Want it on paper?** The Fusion Flavor Playbook puts this week's pairing logic in one printable PDF ($12): [facelesschannel.gumroad.com/l/uycpjs](https://facelesschannel.gumroad.com/l/uycpjs).
+<!-- When the Fusion Kitchen Workbook is published on Gumroad, replace the line above with:
+**Want the whole course on paper?** The Fusion Kitchen Workbook has all five lessons as a printable 24-page PDF, plus a pantry shopping list, substitution chart and one-week cooking plan: [WORKBOOK URL] -->
+
 The journal at [borderlesskitchenseries.com/journal](https://borderlesskitchenseries.com/journal) publishes new essays on cross-cultural cooking every week — the history behind these dishes, the conversations between cuisines, the techniques worth knowing.
 
 And if you made anything this week — I'd genuinely like to know how it went. Reply to this email.

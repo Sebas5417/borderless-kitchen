@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
+import { GUMROAD_WORKBOOK_URL } from "@/lib/gumroad";
 
 export const metadata: Metadata = {
   title: "The Japanese-Italian Fusion Kitchen: A Free 5-Day Mini-Course",
@@ -212,6 +213,20 @@ export default function MiniCoursePage() {
                     </Link>{" "}
                     has 30 full fusion recipes using the same system.
                   </p>
+                  {GUMROAD_WORKBOOK_URL ? (
+                    <p className="font-body text-sm text-ink/50 leading-relaxed mt-3">
+                      Prefer paper? The{" "}
+                      <a
+                        href={GUMROAD_WORKBOOK_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-ink hover:text-vermillion transition-colors underline"
+                      >
+                        printable workbook edition
+                      </a>{" "}
+                      has all five lessons plus a pantry list and substitution chart.
+                    </p>
+                  ) : null}
                 </div>
               </div>
             </div>
