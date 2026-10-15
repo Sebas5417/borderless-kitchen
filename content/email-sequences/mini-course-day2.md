@@ -5,7 +5,7 @@
 
 You made dashi yesterday. Today we use it.
 
-But first, a structural claim that might seem strange: **white miso and Parmigiano-Reggiano are the same type of ingredient.** Not the same flavor. The same *function*.
+But first, a structural claim that might seem strange: **white miso and Parmigiano-Reggiano do the same job in a dish.** Not the same flavor. The same *function*.
 
 Here's what I mean.
 

@@ -73,7 +73,7 @@ Notice how complex it tastes for how simple it is. That depth is umami synergy d
 
 ---
 
-Tomorrow: miso, and why it behaves exactly like Parmigiano.
+Tomorrow: miso, and why it does the same job as Parmigiano.
 
 Sebastian
 
