@@ -98,6 +98,10 @@ Also: if you haven't tried anything yet and the course is sitting in your inbox 
 
 For everyone who does want to go deeper: the book has 30 tested recipes and 6 master sauces organized around the same framework as the course. It's the full system. [Tokyo Meets Tuscany on Amazon.](https://borderlesskitchenseries.com/tokyo-meets-tuscany)
 
+If you'd rather have something printable for the counter, the Fusion Flavor Playbook puts the pairing logic on a few pages ($12): [facelesschannel.gumroad.com/l/uycpjs](https://facelesschannel.gumroad.com/l/uycpjs)
+<!-- Once the Fusion Kitchen Workbook is on Gumroad, swap the line above for:
+If you'd rather have the whole course on paper, the Fusion Kitchen Workbook has all five lessons, a pantry shopping list, a substitution chart and a one-week cooking plan: [WORKBOOK URL] -->
+
 — Sebastian
 
 ---
