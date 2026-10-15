@@ -67,7 +67,7 @@ export default function Day1Page() {
                   <ul className="space-y-2">
                     {[
                       "1 liter (4 cups) cold water",
-                      "20g kombu (about a 10cm / 4-inch piece)",
+                      "10–20g kombu (one or two 10cm / 4-inch squares)",
                       "20g katsuobushi (dried bonito flakes, loosely packed)",
                     ].map((item) => (
                       <li key={item} className="flex gap-3">
@@ -120,13 +120,13 @@ export default function Day1Page() {
                 Why this works.
               </h2>
               <p className="font-body text-base text-ink/80 leading-relaxed mb-6">
-                Dashi is the clearest demonstration of <strong>umami synergy</strong> in cooking. Kombu contains glutamates. Katsuobushi contains inosinate. When you combine them, the perceived umami isn't additive — it's multiplicative. Studies show the synergy between glutamate and inosinate can intensify umami perception by six to eight times compared to either ingredient alone.
+                Dashi is the clearest demonstration of <strong>umami synergy</strong> in cooking. Kombu contains glutamates. Katsuobushi contains inosinate. When you combine them, the perceived umami isn't additive — it's multiplicative. In lab taste tests at the ideal ratio, the synergy between glutamate and inosinate made umami taste up to about eight times stronger than either alone.
               </p>
               <p className="font-body text-base text-ink/80 leading-relaxed mb-6">
                 This is why dashi tastes so much more complex than it has any right to, given that it contains only two ingredients and no fat, no acid, no salt. You are extracting pure umami from the most efficient possible source.
               </p>
               <p className="font-body text-base text-ink/80 leading-relaxed mb-12">
-                The Italian equivalent isn't a single ingredient — it's the combination of Parmigiano Reggiano (glutamate) with guanciale or anchovy (inosinate). Every great Roman pasta dish uses this synergy intuitively. Dashi just makes the system visible.
+                The Italian equivalent isn't a single ingredient — it's layering umami sources: Parmigiano Reggiano with cured pork or anchovy, or with a meat stock (which brings inosinate). Every great Roman pasta dish layers umami this way, intuitively. Dashi just makes the system visible.
               </p>
 
               <h2 className="font-display text-display-2 text-ink mb-6 leading-tight">
@@ -142,7 +142,7 @@ export default function Day1Page() {
                 <ol className="space-y-4">
                   {[
                     "Bring 500ml of your dashi to a gentle simmer.",
-                    "Add 2-3 tablespoons of white miso (shiro miso). Add the miso off the heat — never boil miso, it kills the live cultures and dulls the flavor. Use a small strainer or whisk to dissolve it fully.",
+                    "Add 2-3 tablespoons of white miso (shiro miso). Add the miso off the heat — never boil miso, it drives off the aroma and dulls the flavor. Use a small strainer or whisk to dissolve it fully.",
                     "Add 100g soft tofu (silken or medium-firm), cut into 1.5cm cubes. Warm gently for 1 minute.",
                     "Add 1 tablespoon dried wakame seaweed, rehydrated for 5 minutes in cold water, then drained. Stir in just before serving.",
                     "Taste. Adjust miso if needed. Serve in warmed bowls. Top with thinly sliced green onion.",
@@ -169,7 +169,7 @@ export default function Day1Page() {
                 Save the spent kombu and katsuobushi. They are used in <strong>niban dashi</strong> (second dashi) — a weaker, earthier stock perfect for braising, noodle broths, and anything where a more rustic flavor profile is appropriate. Put them in a container of cold water in the fridge.
               </p>
               <p className="font-body text-base text-ink/80 leading-relaxed mb-12">
-                Tomorrow (Day 2), you'll use your fresh ichiban dashi to make miso butter — and discover why miso and Parmigiano are structurally the same ingredient.
+                Tomorrow (Day 2), you'll use your fresh ichiban dashi to make miso butter — and discover why miso and Parmigiano do the same job.
               </p>
 
               {/* Nav to Day 2 */}

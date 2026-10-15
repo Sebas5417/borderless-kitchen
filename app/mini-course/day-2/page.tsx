@@ -176,7 +176,7 @@ export default function Day2Page() {
                     "Cook pasta in generously salted boiling water until 2 minutes before al dente. Reserve 1 full cup of pasta water before draining.",
                     "In a wide pan over medium-low heat, whisk the miso with 3-4 tablespoons of hot pasta water until smooth. Add the butter and miso butter. Let it emulsify into a sauce.",
                     "Add the pasta to the pan (still slightly undercooked). Add pasta water a splash at a time, tossing constantly. The starch from the pasta water thickens the sauce.",
-                    "Remove from heat. Add Parmigiano in two additions, tossing vigorously. If using egg yolk, whisk it into 2 tablespoons of pasta water first, then add off-heat — the residual warmth is enough to cook it gently.",
+                    "Remove from heat. Add Parmigiano in two additions, tossing vigorously. If using egg yolk, whisk it into 2 tablespoons of pasta water first, then add off-heat — the residual warmth thickens it gently. (The yolk is only lightly cooked; skip it or use a pasteurized egg if you're cooking for anyone pregnant, elderly, very young or immunocompromised.)",
                     "Taste. You should not need more salt — the miso and Parm carry it. Add cracked black pepper generously. Serve immediately.",
                   ].map((step, i) => (
                     <li key={i} className="flex gap-6">

@@ -49,11 +49,11 @@ The flavor may be unfamiliar. The structure will hold. Good cooking is architect
 *Japanese parallels:*
 - Pecorino → white miso (same function, different fermented base)
 - Pasta water → dashi + pasta water (adds inosinate to the glutamate in the cheese)
-- Black pepper → sanshō pepper (Japanese mountain pepper — similar heat, more floral)
+- Black pepper → sanshō (Japanese mountain pepper — citrusy, with a tingling numbness instead of heat)
 
-*Fusion approach:* Amplify — use both Pecorino and miso, replace half the pasta water with dashi.
+*Fusion approach:* Amplify — use both Pecorino and miso, and add a few spoonfuls of dashi to the pasta water.
 
-*Result:* You made this on Day 2. It tastes like Cacio e Pepe that's been improved, not diluted.
+*Result:* You made this on Day 2, as Miso Cacio e Pepe. It tastes like Cacio e Pepe that's been improved, not diluted.
 
 ---
 
@@ -73,7 +73,7 @@ Some starting points if you need them:
 - Ramen broth → add Parmigiano rind to the dashi; finish with a knob of butter
 - Gyoza → use a filling of pork + fennel + miso; serve with tomato ponzu
 - Ochazuke → replace green tea with a light fish broth; add basil and olive oil
-- Tempura batter → add Parmigiano to the dipping sauce; serve with lemon instead of grated daikon
+- Tempura → add Parmigiano to the dipping sauce; serve with lemon instead of grated daikon
 
 ---
 
@@ -83,7 +83,7 @@ The mini-course is done. The framework is yours.
 
 If you want to go further:
 
-**Tokyo Meets Tuscany** — the book — has 30 full fusion recipes, each built on the same system you've been using this week. Every recipe includes a structural breakdown: why it works, what you could substitute, where the Japanese and Italian techniques meet. Available on [Amazon](https://borderlesskitchenseries.com/tokyo-meets-tuscany) and wherever books are sold.
+**Tokyo Meets Tuscany** — the book — has 30 full fusion recipes, each built on the same system you've been using this week. Every recipe includes a structural breakdown: why it works, what you could substitute, where the Japanese and Italian techniques meet. Available on Amazon — details at [borderlesskitchenseries.com/tokyo-meets-tuscany](https://borderlesskitchenseries.com/tokyo-meets-tuscany).
 
 The journal at [borderlesskitchenseries.com/journal](https://borderlesskitchenseries.com/journal) publishes new essays on cross-cultural cooking every week — the history behind these dishes, the conversations between cuisines, the techniques worth knowing.
 

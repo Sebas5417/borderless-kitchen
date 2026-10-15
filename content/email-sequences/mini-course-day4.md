@@ -3,7 +3,7 @@
 
 ---
 
-Italian cooking uses very little sugar. When sweetness appears in a savory Italian dish, it comes from slow-cooked onions, good tomatoes, or the natural sugars in wine that remain after alcohol burns off.
+Italian cooking uses very little sugar. When sweetness appears in a savory Italian dish, it comes from slow-cooked onions, good tomatoes, or the natural sugars in wine that remain after most of the alcohol cooks off.
 
 Japanese cooking is the same — and different.
 
@@ -13,13 +13,13 @@ Japanese savory cooking uses sweeteners constantly. But they're not sugar. They'
 
 **Mirin: what it actually is**
 
-Mirin (*MEE-rin*) is a sweet rice wine. It's made the same way sake is made — from steamed rice, koji mold, and water — but with a higher sugar content and lower alcohol (about 14%, compared to sake's 15-16%).
+Mirin (*MEE-rin*) is a sweet rice wine. Hon (true) mirin is made from steamed glutinous rice and rice koji, steeped in shochu (a distilled rice spirit) for months. The koji enzymes turn the starch to sugar, and the alcohol stops it from fermenting away — so mirin ends up sweet, at about 14% alcohol.
 
 The key: mirin's sweetness comes not from added sugar but from the starches in rice that have been enzymatically converted to glucose, maltose, and other complex sugars by koji mold. This process — the same fermentation that produces miso — creates a sweetness that is:
 
-- **Less sharp** than refined sugar (no sucrose spike)
+- **Rounder and less sharp** than refined sugar
 - **More aromatic** (contains hundreds of flavor compounds from fermentation)
-- **Glazing** — the sugars caramelize at lower heat than sucrose, producing the characteristic glossy finish on teriyaki
+- **Glazing** — its glucose browns readily with soy sauce's amino acids (the Maillard reaction), giving teriyaki its glossy lacquer
 
 This is why you can't substitute sugar for mirin. It's not just sweetness. It's texture, aroma, and caramelization behavior all in one.
 
@@ -32,11 +32,11 @@ Sake (*SAH-keh*) is Japan's answer to white wine in cooking — it adds:
 - **Acidity** — bright, slightly sharp (lower than wine, more subtle)
 - **Aromatics** — fruity, floral, clean
 - **Deglazing power** — pulls up fond from the pan the same way white wine does
-- **Alcohol** — carries fat-soluble aromatics, then burns off
+- **Alcohol** — carries fat-soluble aromatics, then mostly cooks off
 
-In a marinade, sake penetrates meat fibers and removes unwanted odors (particularly effective with chicken and fish). In a sauce, it lightens without adding the heavy grape-tannin character of wine.
+In a marinade, sake penetrates meat fibers and removes unwanted odors (particularly effective with chicken and fish). In a sauce, it lightens without adding the fruity, acidic grape character of wine.
 
-**The Italian parallel:** Sake : Japanese cooking = Dry white wine : Italian cooking. Use them interchangeably in any recipe where you'd normally reach for white wine — risotto, pan sauces, braises, marinades.
+**The Italian parallel:** Sake : Japanese cooking = Dry white wine : Italian cooking. Sake can replace white wine in most recipes — risotto, pan sauces, braises, marinades. Add a squeeze of lemon if the dish needs the acidity.
 
 ---
 
@@ -74,8 +74,8 @@ This dish shows the Japanese and Italian approaches to sweet-savory cooking in d
 1. Pat chicken dry. Season with salt.
 2. Heat oil in an oven-safe pan over medium-high. Sear chicken skin-side down, 8-10 minutes, until skin is deeply golden and most fat has rendered.
 3. Flip. Cook 3 minutes.
-4. Combine glaze ingredients in a bowl. Pour over chicken.
-5. Transfer to 200°C (400°F) oven. Roast 15-18 minutes, basting twice with pan glaze, until internal temp reaches 74°C (165°F).
+4. Combine glaze ingredients in a bowl with 2–3 tbsp water. Pour it around the chicken, not over the crisp skin.
+5. Transfer to 200°C (400°F) oven. Roast 15-18 minutes, until internal temp reaches 74°C (165°F). Check the glaze halfway; if it starts to darken, add a splash more water. Spoon some over the meat to serve.
 6. Rest 5 minutes.
 
 *To serve:* Spoon agrodolce onto plates. Place chicken on top. Drizzle remaining pan glaze over everything.
@@ -86,7 +86,7 @@ This dish shows the Japanese and Italian approaches to sweet-savory cooking in d
 
 **A note on substitutions:**
 
-If you can't find mirin: Use dry sherry + a pinch of sugar, or just reduce with sake and add a little honey as in the recipe above. Real mirin is worth finding (Kikkoman Hon Mirin is at most Asian grocery stores) — but don't let it stop you from cooking.
+If you can't find mirin: for each 1 tbsp mirin, use 1 tbsp sake or dry sherry + 1 tsp sugar. Real mirin is worth finding — look for "hon mirin" on the label (Takara is a common brand); most supermarket "aji-mirin" is a sweetened mirin-style seasoning. But don't let it stop you from cooking.
 
 ---
 
