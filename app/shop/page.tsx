@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TMT_AMAZON } from "@/lib/amazon";
-import { GUMROAD_SMMC, GUMROAD_PLAYBOOK, GUMROAD_WORKBOOK_URL } from "@/lib/gumroad";
+import { GUMROAD_PLAYBOOK, GUMROAD_WORKBOOK_URL } from "@/lib/gumroad";
 import { Container } from "@/components/layout/Container";
 import { PageHero } from "@/components/editorial/PageHero";
 import { FadeRise } from "@/components/motion/FadeRise";
@@ -235,7 +235,11 @@ interface DigitalItem {
   href: string | null;
 }
 
-/** Our own Gumroad products. Items with no URL yet are hidden. */
+/**
+ * Our own Gumroad products. Items with no URL yet are hidden.
+ * Deliberately no KDP book PDFs here: a KDP Select ebook must be exclusive to
+ * Amazon, so a Gumroad edition of TMT/SMMC is only safe if neither is enrolled.
+ */
 const DIGITAL: DigitalItem[] = [
   {
     name: "The Fusion Kitchen Workbook",
@@ -252,14 +256,6 @@ const DIGITAL: DigitalItem[] = [
       "The pairing logic on its own: which ingredients swap for which across cuisines, and why it works.",
     cta: "Get the playbook",
     href: GUMROAD_PLAYBOOK,
-  },
-  {
-    name: "Seoul Meets Mexico City — Digital Edition",
-    format: "PDF · $19",
-    note:
-      "Volume II as a digital edition: thirty recipes and six master sauces where Korean fermentation meets Mexican fire.",
-    cta: "Get the digital edition",
-    href: GUMROAD_SMMC,
   },
 ];
 
@@ -439,7 +435,7 @@ export default function ShopPage() {
             {/* Digital editions (Gumroad) */}
             <div className="mb-16">
               <h2 className="font-display text-display-2 text-ink mb-2">
-                Printable Guides &amp; Digital Editions
+                Printable Guides
               </h2>
               <p className="font-body text-lg text-ink/60 mb-8 max-w-prose">
                 Our own PDFs, sold directly. Instant download, print or read on a tablet.

@@ -10,7 +10,10 @@ const fromEnv = process.env.NEXT_PUBLIC_GUMROAD_MATRIX_URL;
 export const GUMROAD_MATRIX_URL: string | null =
   fromEnv && fromEnv !== "#" ? fromEnv : null;
 
-/** Live Gumroad listings (also linked from /instagram). */
+/**
+ * Live Gumroad listings. GUMROAD_SMMC is a PDF of a KDP book: check the ebook is
+ * NOT in KDP Select (exclusivity) before linking it anywhere new.
+ */
 export const GUMROAD_SMMC = "https://facelesschannel.gumroad.com/l/dqnqe";
 export const GUMROAD_PLAYBOOK = "https://facelesschannel.gumroad.com/l/uycpjs";
 
