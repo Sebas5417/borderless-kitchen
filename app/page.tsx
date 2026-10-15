@@ -42,6 +42,7 @@ export default function HomePage() {
     "best-korean-cooking-gifts-for-home-cooks",
     "best-mexican-cooking-gifts-for-home-cooks",
     "best-japanese-cooking-gifts-for-home-cooks",
+    "best-italian-cooking-gifts-for-home-cooks",
     "stocking-stuffers-for-home-cooks-under-25",
     "korean-mexican-pantry-starter-kit",
     "best-japanese-pantry-starter-kit-ingredients",
