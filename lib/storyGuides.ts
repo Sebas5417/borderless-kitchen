@@ -15,6 +15,8 @@ export const GUIDE_RULES: GuideRule[] = [
   { slug: "best-japanese-knives-for-home-cooks", terms: ["gyuto", "santoku", "Japanese knife", "Japanese knives"] },
   { slug: "best-whetstone-for-japanese-knives-how-to-choose", terms: ["whetstone", "whetstones"] },
   { slug: "best-japanese-rice-cooker-for-home-cooks", terms: ["rice cooker", "rice cookers"] },
+  { slug: "best-sushi-making-kit-what-you-actually-need", terms: ["sushi", "makizushi", "nigiri", "makisu"] },
+  { slug: "best-gifts-for-ramen-lovers", terms: ["ramen"] },
   { slug: "best-donabe-japanese-clay-pot-how-to-choose", terms: ["donabe"] },
   { slug: "best-dolsot-korean-stone-bowl-how-to-choose", terms: ["dolsot", "stone bowl"] },
   { slug: "best-tortilla-press-how-to-choose", terms: ["tortilla press", "tortillas"] },
