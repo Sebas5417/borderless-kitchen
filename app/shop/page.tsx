@@ -257,6 +257,14 @@ const DIGITAL: DigitalItem[] = [
     cta: "Get the playbook",
     href: GUMROAD_PLAYBOOK,
   },
+  {
+    name: "Kitchen Printables",
+    format: "Fillable PDFs · on Etsy",
+    note:
+      "Planners for the logistics half of cooking: the week, the batch, the dinner party, and the holiday oven.",
+    cta: "See the printables",
+    href: "/printables",
+  },
 ];
 
 interface PantryItem {
@@ -457,8 +465,7 @@ export default function ShopPage() {
                     <div className="shrink-0">
                       <a
                         href={d.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        {...(d.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                         className="inline-block font-ui text-eyebrow uppercase text-paper bg-ink px-5 py-2.5 hover:bg-vermillion transition-colors duration-300"
                       >
                         {d.cta} →
