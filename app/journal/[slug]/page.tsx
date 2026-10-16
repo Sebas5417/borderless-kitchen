@@ -10,7 +10,7 @@ import { ShopPantry } from "@/components/cta/ShopPantry";
 import { GuideCallout } from "@/components/cta/GuideCallout";
 import { guidesFor } from "@/lib/storyGuides";
 import { breadcrumbJson } from "@/lib/breadcrumbSchema";
-import { fitTitle, fitDescription } from "@/lib/seoMeta";
+import { snippetTitle, fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { ProseLayout } from "@/components/editorial/ProseLayout";
 import { MDXContent } from "@/components/MDXContent";
@@ -32,8 +32,8 @@ export async function generateMetadata({
   const story = allStories.find((s) => s.slug === slug);
   if (!story) return {};
   return {
-    title: fitTitle(story.title),
-    description: fitDescription(story.dek),
+    title: fitTitle(snippetTitle(story.title, story.metaTitle)),
+    description: fitDescription(story.metaDescription || story.dek),
     alternates: { canonical: `/journal/${story.slug}` },
     openGraph: {
       title: story.title,
