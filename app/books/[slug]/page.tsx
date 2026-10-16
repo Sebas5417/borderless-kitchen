@@ -203,10 +203,10 @@ export default async function BookPage({
             ) : (
               <div className="mt-10">
                 <a
-                  href="https://free.borderlesskitchenseries.com"
+                  href="/free"
                   className="font-ui text-eyebrow uppercase text-ink border-b border-ink/40 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
                 >
-                  Get notified when it drops →
+                  Join the list for launch news →
                 </a>
               </div>
             )}

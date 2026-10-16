@@ -85,6 +85,10 @@ export const Story = defineDocumentType(() => ({
     pantryRefs: { type: "list", of: { type: "string" } },
     heroImageAlt: { type: "string", required: true },
     heroImageSrc: { type: "string" },
+    // SEO overrides written into 243 stories but never declared, so they were dropped (2026-10-16).
+    targetKeyword: { type: "string" },
+    metaTitle: { type: "string" },
+    metaDescription: { type: "string" },
   },
   computedFields: {
     slug: {

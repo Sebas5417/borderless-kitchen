@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TMT_AMAZON } from "@/lib/amazon";
+import { GUMROAD_PLAYBOOK, GUMROAD_WORKBOOK_URL } from "@/lib/gumroad";
 import { Container } from "@/components/layout/Container";
 import { PageHero } from "@/components/editorial/PageHero";
 import { FadeRise } from "@/components/motion/FadeRise";
@@ -64,7 +65,7 @@ const JAPANESE_PANTRY = [
     brand: "Marutomo",
     asin: "B004WOTK4I",
     note:
-      "The inosinate source in dashi. When combined with kombu's glutamate, umami perception multiplies 6–8x. Also used as a finish on vegetables and tofu.",
+      "The inosinate source in dashi. Combined with kombu's glutamate, it makes umami taste far stronger than either alone (up to about eightfold in lab taste tests). Also used as a finish on vegetables and tofu.",
     use: "Dashi, Tonkotsu Cacio e Pepe, Dashi Risotto",
   },
   {
@@ -85,19 +86,11 @@ const JAPANESE_PANTRY = [
   },
   {
     name: "Mirin (Sweet Rice Wine)",
-    brand: "Kikkoman Hon Mirin",
+    brand: "Takara Hon Mirin",
     asin: "B07DD7H4G8",
     note:
       "The Japanese equivalent of Marsala — sweet, alcoholic, fermented rice. Use to deglaze where the recipe calls for white wine when you want a sweeter, less tannic result. Essential in tiramisu matcha soak.",
     use: "Matcha tiramisu, glazes, braises",
-  },
-  {
-    name: "Gochujang (Korean Chili Paste)",
-    brand: "Haechandle",
-    asin: "B00IK3II4W",
-    note:
-      "Fermented chili paste — heat plus umami plus sweetness. The Korean equivalent of Calabrian chili paste plus miso, combined. The ingredient behind both Korean-Mexican and Korean-Italian crossovers.",
-    use: "Gochujang Short Rib Taco, Gochujang Crema, Kimchi Quesadilla",
   },
   {
     name: "Rice Wine Vinegar",
@@ -123,7 +116,7 @@ const ITALIAN_PANTRY = [
     brand: "Fulvi",
     asin: "B01N4LGJ8I",
     note:
-      "Not Parmigiano. Sharper, saltier, higher in glutamates relative to its age. The correct cheese for carbonara, cacio e pepe, and amatriciana. When combining with miso, reduce salt everywhere else.",
+      "Not Parmigiano. Sheep's milk, sharper and saltier. The correct cheese for carbonara, cacio e pepe, and amatriciana. When combining with miso, reduce salt everywhere else.",
     use: "Ramen alla Carbonara, Miso Cacio e Pepe",
   },
   {
@@ -135,7 +128,7 @@ const ITALIAN_PANTRY = [
     use: "Ramen alla Carbonara, all carbonara variants",
   },
   {
-    name: "Calabrian Chili in Oil (Nduja paste or whole)",
+    name: "Calabrian Chili Paste (Crushed Chilies in Oil)",
     brand: "Tutto Calabria",
     asin: "B07J7R8Y3C",
     note:
@@ -166,6 +159,14 @@ const SUBSCRIPTIONS = [
 
 const KOREAN_PANTRY = [
   {
+    name: "Gochujang (Korean Chili Paste)",
+    brand: "Haechandle",
+    asin: "B00IK3II4W",
+    note:
+      "Fermented chili paste — heat plus umami plus sweetness. The Korean equivalent of Calabrian chili paste plus miso, combined. The ingredient behind both Korean-Mexican and Korean-Italian crossovers.",
+    use: "Gochujang Short Rib Taco, Gochujang Crema, Kimchi Quesadilla",
+  },
+  {
     name: "Gochugaru (Korean Red Pepper Flakes)",
     brand: "Taekyung",
     asin: "B09CLDRDBB",
@@ -186,7 +187,7 @@ const KOREAN_PANTRY = [
     brand: "Red Boat",
     asin: "B007Y9TGM4",
     note:
-      "The invisible umami intensifier across Korean, Thai, and Mexican coastal cooking. Red Boat is the premium standard — 40°N barrels, two-ingredient product (fish + salt). Used in kimchi paste, Korean soups, and anywhere you want savory depth without fishiness.",
+      "The invisible umami intensifier across Korean, Thai, and Mexican coastal cooking. Red Boat is the premium standard: just anchovy and salt, and the 40°N on the label is its protein (nitrogen) grade, not a barrel. Used in kimchi paste, Korean soups, and anywhere you want savory depth without fishiness.",
     use: "Kimchi, doenjang jjigae, Korean braising liquid",
   },
   {
@@ -223,6 +224,46 @@ const EQUIPMENT = [
     note:
       "For dusting matcha tiramisu and for straining dashi. The fine mesh is essential — coarser sieves clump matcha powder into blobs.",
     use: "Matcha Tiramisu, dashi straining",
+  },
+];
+
+interface DigitalItem {
+  name: string;
+  format: string;
+  note: string;
+  cta: string;
+  href: string | null;
+}
+
+/**
+ * Our own Gumroad products. Items with no URL yet are hidden.
+ * Deliberately no KDP book PDFs here: a KDP Select ebook must be exclusive to
+ * Amazon, so a Gumroad edition of TMT/SMMC is only safe if neither is enrolled.
+ */
+const DIGITAL: DigitalItem[] = [
+  {
+    name: "The Fusion Kitchen Workbook",
+    format: "PDF · 24 pages · printable",
+    note:
+      "The free 5-day mini-course as a printable workbook: five lessons and recipes, a fusion pantry shopping list, a substitution chart and a one-week cooking plan.",
+    cta: "Get the workbook",
+    href: GUMROAD_WORKBOOK_URL,
+  },
+  {
+    name: "The Fusion Flavor Playbook",
+    format: "PDF · $12",
+    note:
+      "The pairing logic on its own: which ingredients swap for which across cuisines, and why it works.",
+    cta: "Get the playbook",
+    href: GUMROAD_PLAYBOOK,
+  },
+  {
+    name: "Kitchen Printables",
+    format: "Fillable PDFs · on Etsy",
+    note:
+      "Planners for the logistics half of cooking: the week, the batch, the dinner party, and the holiday oven.",
+    cta: "See the printables",
+    href: "/printables",
   },
 ];
 
@@ -335,8 +376,8 @@ export default function ShopPage() {
                 Japanese Pantry
               </h2>
               <p className="font-body text-lg text-ink/60 mb-8 max-w-prose">
-                The eight ingredients that unlock both cuisines. Stock these
-                and you can make any recipe in Tokyo Meets Tuscany.
+                The Japanese ingredients behind Tokyo Meets Tuscany. Stock these
+                and you can cook most of the book.
               </p>
               {JAPANESE_PANTRY.map((item) => (
                 <PantryCard key={item.asin} item={item} />
@@ -396,6 +437,42 @@ export default function ShopPage() {
               </p>
               {EQUIPMENT.map((item) => (
                 <PantryCard key={item.asin} item={item} />
+              ))}
+            </div>
+
+            {/* Digital editions (Gumroad) */}
+            <div className="mb-16">
+              <h2 className="font-display text-display-2 text-ink mb-2">
+                Printable Guides
+              </h2>
+              <p className="font-body text-lg text-ink/60 mb-8 max-w-prose">
+                Our own PDFs, sold directly. Instant download, print or read on a tablet.
+              </p>
+              {DIGITAL.filter((d): d is DigitalItem & { href: string } => !!d.href).map((d) => (
+                <div key={d.name} className="border-b border-hairline py-8">
+                  <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
+                    <div className="flex-1">
+                      <h3 className="font-display text-xl text-ink leading-tight mb-1">
+                        {d.name}
+                      </h3>
+                      <p className="font-ui text-eyebrow uppercase text-ink/40 mb-3">
+                        {d.format}
+                      </p>
+                      <p className="font-body text-base text-ink/70 leading-relaxed">
+                        {d.note}
+                      </p>
+                    </div>
+                    <div className="shrink-0">
+                      <a
+                        href={d.href}
+                        {...(d.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        className="inline-block font-ui text-eyebrow uppercase text-paper bg-ink px-5 py-2.5 hover:bg-vermillion transition-colors duration-300"
+                      >
+                        {d.cta} →
+                      </a>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
 

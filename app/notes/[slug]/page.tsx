@@ -20,6 +20,7 @@ export async function generateMetadata({
   if (!note) return {};
   return {
     title: note.title,
+    alternates: { canonical: `/notes/${note.slug}` },
     description: note.place
       ? `Field note from ${note.place} — Borderless Kitchen.`
       : "A field note from the Borderless Kitchen series.",

@@ -47,10 +47,10 @@ export default function ConnectPage() {
                   Free starter guide
                 </p>
                 <a
-                  href="https://free.borderlesskitchenseries.com"
+                  href="/free"
                   className="font-display italic text-xl text-ink hover:text-vermillion transition-colors duration-300"
                 >
-                  free.borderlesskitchenseries.com →
+                  Free recipes + Flavor Pairing Matrix →
                 </a>
               </div>
 

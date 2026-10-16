@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TMT_AMAZON } from "@/lib/amazon";
+import { GUMROAD_PLAYBOOK, GUMROAD_WORKBOOK_URL } from "@/lib/gumroad";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/mini-course/day-5" },
   title: "Day 5: Build Your Own Fusion Dish | Fusion Kitchen Mini-Course",
   description:
     "The five-day course culminates in a dish you invented. Using the framework: identify structure, find the equivalent components, build something original.",
@@ -233,6 +235,29 @@ export default function Day5Page() {
                     </Link>
                   </div>
                 ))}
+              </div>
+
+              {/* Printable edition: the workbook once published, the Playbook until then */}
+              <div className="border border-ink p-8 mb-12 md:flex md:items-center md:justify-between md:gap-8">
+                <div>
+                  <p className="font-ui text-eyebrow uppercase text-vermillion mb-2">Keep it on the counter</p>
+                  <p className="font-display text-xl text-ink leading-tight mb-2">
+                    {GUMROAD_WORKBOOK_URL ? "The Fusion Kitchen Workbook" : "The Fusion Flavor Playbook"}
+                  </p>
+                  <p className="font-body text-sm text-ink/60 leading-relaxed max-w-prose">
+                    {GUMROAD_WORKBOOK_URL
+                      ? "All five lessons as a printable 24-page PDF, plus a pantry shopping list, substitution chart and one-week cooking plan."
+                      : "The pairing logic from this course on its own: which ingredients swap for which across cuisines, and why it works. PDF, $12."}
+                  </p>
+                </div>
+                <a
+                  href={GUMROAD_WORKBOOK_URL ?? GUMROAD_PLAYBOOK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 md:mt-0 inline-block shrink-0 font-ui text-eyebrow uppercase text-paper bg-ink px-6 py-3 hover:bg-vermillion transition-colors duration-300"
+                >
+                  {GUMROAD_WORKBOOK_URL ? "Get the workbook" : "Get the playbook"} →
+                </a>
               </div>
 
               <div className="border-t border-hairline pt-10 flex items-center gap-6">

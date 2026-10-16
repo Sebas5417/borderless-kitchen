@@ -5,8 +5,12 @@ import { notFound } from "next/navigation";
 import { allStories, allPantryEntries, allFreeRecipes } from "contentlayer/generated";
 import { relatedRecipesFor } from "@/lib/relatedRecipes";
 import { relatedStoriesFor } from "@/lib/relatedStories";
+import { shoppableIngredientsFor } from "@/lib/storyPantry";
+import { ShopPantry } from "@/components/cta/ShopPantry";
+import { GuideCallout } from "@/components/cta/GuideCallout";
+import { guidesFor } from "@/lib/storyGuides";
 import { breadcrumbJson } from "@/lib/breadcrumbSchema";
-import { fitTitle, fitDescription } from "@/lib/seoMeta";
+import { snippetTitle, fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { ProseLayout } from "@/components/editorial/ProseLayout";
 import { MDXContent } from "@/components/MDXContent";
@@ -28,8 +32,8 @@ export async function generateMetadata({
   const story = allStories.find((s) => s.slug === slug);
   if (!story) return {};
   return {
-    title: fitTitle(story.title),
-    description: fitDescription(story.dek),
+    title: fitTitle(snippetTitle(story.title, story.metaTitle)),
+    description: fitDescription(story.metaDescription || story.dek),
     alternates: { canonical: `/journal/${story.slug}` },
     openGraph: {
       title: story.title,
@@ -41,7 +45,7 @@ export async function generateMetadata({
   };
 }
 
-import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
+import { bookFor } from "@/lib/amazon";
 
 export default async function JournalEntryPage({
   params,
@@ -67,11 +71,23 @@ export default async function JournalEntryPage({
   // Three related journal entries (2026-09-06): stories linked recipes and
   // pantry terms but never each other; 7 of 8 buying guides had no inbound links.
   const relatedStories = relatedStoriesFor(story, allStories, 3);
+  // Stories that already link products inline (buying guides) keep their own
+  // links; everything else gets the ingredients it cooks with (2026-10-09).
+  const hasInlineProductLinks = story.body.raw.includes("tag=borderlesskitchen-20");
+  const shopIngredients = hasInlineProductLinks
+    ? []
+    : shoppableIngredientsFor(story.body.raw, allPantryEntries);
+  // Buying guides this story's own text points at (2026-10-14).
+  const publishedBySlug = new Map(
+    sorted.filter((s) => new Date(s.date) <= new Date()).map((s) => [s.slug, s]),
+  );
+  const guideLinks = guidesFor(story.body.raw, story.slug)
+    .map((g) => publishedBySlug.get(g))
+    .filter((g): g is (typeof sorted)[number] => Boolean(g))
+    .map((g) => ({ slug: g.slug, title: g.title }));
 
-  const isKoreanThemed = story.themes?.includes("korean-cooking") ?? false;
-  const bookCta = isKoreanThemed
-    ? { href: SMMC_AMAZON, label: "Get Seoul Meets Mexico City on Amazon" }
-    : { href: TMT_AMAZON, label: "Get Tokyo Meets Tuscany on Amazon" };
+  const book = bookFor(story.themes, story.slug, story.title);
+  const bookCta = { href: book.href, label: `Get ${book.title} on Amazon` };
 
   const formattedDate = new Date(story.date).toLocaleDateString("en-US", {
     month: "long",
@@ -185,6 +201,11 @@ export default async function JournalEntryPage({
             </div>
           ) : null}
 
+          {/* Shop the pantry (2026-10-09) */}
+          <ShopPantry ingredients={shopIngredients} />
+
+          <GuideCallout guides={guideLinks} />
+
           {/* Pantry cross-links */}
           {pantryRefs.length > 0 ? (
             <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">
@@ -277,12 +298,15 @@ export default async function JournalEntryPage({
         </Container>
       </article>
 
-      {story.themes?.includes("korean-mexican-fusion") ? (
+      {book.title === "Seoul Meets Mexico City" ? (
+        // Korean and Mexican readers get the Vol. II funnel (book + free
+        // Korean-Mexican recipes by email), not the Italian x Japanese matrix.
         <EmailCaptureCTA
           eyebrow="Free recipes"
-          heading="Keep cooking across Korean and Mexican flavors."
-          body="Explore free Korean and Korean-Mexican recipes from the collection — no email or account needed."
-          cta="Browse free recipes →"
+          heading="Get free Korean and Korean-Mexican recipes."
+          body="Gochujang, doenjang, guajillo and mole, cooked side by side. Recipes from Seoul Meets Mexico City, sent free by email."
+          cta="Send me the recipes →"
+          href="/seoul-meets-mexico-city"
         />
       ) : (
         <EmailCaptureCTA />

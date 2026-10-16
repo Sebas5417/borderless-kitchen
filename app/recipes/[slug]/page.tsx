@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { allFreeRecipes } from "contentlayer/generated";
+import { allFreeRecipes, allPantryEntries, allStories } from "contentlayer/generated";
 import { Container } from "@/components/layout/Container";
 import { ProseLayout } from "@/components/editorial/ProseLayout";
 import { MDXContent } from "@/components/MDXContent";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
+import { ShopPantry } from "@/components/cta/ShopPantry";
+import { shoppableIngredientsFor } from "@/lib/storyPantry";
+import { GuideCallout } from "@/components/cta/GuideCallout";
+import { guidesFor } from "@/lib/storyGuides";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { EditorialImage } from "@/components/media/EditorialImage";
 import { parseRecipeIngredients, parseRecipeInstructions } from "@/lib/recipeSchema";
@@ -61,7 +65,7 @@ export async function generateMetadata({
   };
 }
 
-import { TMT_AMAZON } from "@/lib/amazon";
+import { bookFor } from "@/lib/amazon";
 
 export default async function RecipePage({
   params,
@@ -71,6 +75,17 @@ export default async function RecipePage({
   const { slug } = await params;
   const recipe = allFreeRecipes.find((r) => r.slug === slug);
   if (!recipe) notFound();
+  const book = bookFor(recipe.cuisine, recipe.tags, recipe.slug, recipe.title);
+  // Ingredients this recipe cooks with, unless it already links products inline.
+  const shopIngredients = recipe.body.raw.includes("tag=borderlesskitchen-20")
+    ? []
+    : shoppableIngredientsFor(recipe.body.raw, allPantryEntries);
+  // Buying guides this recipe's own text points at (2026-10-14).
+  const now = new Date();
+  const guideLinks = guidesFor(recipe.body.raw, "")
+    .map((g) => allStories.find((st) => st.slug === g && new Date(st.date) <= now))
+    .filter((g): g is (typeof allStories)[number] => Boolean(g))
+    .map((g) => ({ slug: g.slug, title: g.title }));
 
   const recipeSchema = {
     "@context": "https://schema.org",
@@ -196,12 +211,18 @@ export default async function RecipePage({
             <MDXContent code={recipe.body.code} />
           </ProseLayout>
 
+          <ShopPantry ingredients={shopIngredients} />
+
+          <GuideCallout guides={guideLinks} />
+
           {/* Book CTA */}
           <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">
             <p className="font-display italic text-display-3 text-ink/60 mb-6 leading-tight">
-              30 recipes and 6 master sauces in the book.
+              {book.title === "Tokyo Meets Tuscany"
+                ? "30 recipes and 6 master sauces in the book."
+                : "30 recipes in the book."}
             </p>
-            <AmazonCTA href={TMT_AMAZON} label="Get Tokyo Meets Tuscany on Amazon" />
+            <AmazonCTA href={book.href} label={`Get ${book.title} on Amazon`} />
             <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
               Paperback · Kindle
             </p>
@@ -234,11 +255,21 @@ export default async function RecipePage({
         </Container>
       </article>
 
-      <EmailCaptureCTA
-        heading="Get the Flavor Pairing Matrix free."
-        body="The Italian × Japanese ingredient chart behind every recipe in the book. Printable, one page."
-        cta="Get the free chart →"
-      />
+      {book.title === "Seoul Meets Mexico City" ? (
+        <EmailCaptureCTA
+          eyebrow="Free recipes"
+          heading="Get free Korean and Korean-Mexican recipes."
+          body="Gochujang, doenjang, guajillo and mole, cooked side by side. Recipes from Seoul Meets Mexico City, sent free by email."
+          cta="Send me the recipes →"
+          href="/seoul-meets-mexico-city"
+        />
+      ) : (
+        <EmailCaptureCTA
+          heading="Get the Flavor Pairing Matrix free."
+          body="The Italian × Japanese ingredient chart behind every recipe in the book. Printable, one page."
+          cta="Get the free chart →"
+        />
+      )}
     </>
   );
 }

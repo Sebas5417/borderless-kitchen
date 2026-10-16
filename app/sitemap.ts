@@ -95,6 +95,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/tokyo-meets-tuscany`, changeFrequency: "monthly", priority: 1 },
     { url: `${siteUrl}/seoul-meets-mexico-city`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/journal`, lastModified: newestStory, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${siteUrl}/guides`, lastModified: newestStory, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteUrl}/culture`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteUrl}/about`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${siteUrl}/connect`, changeFrequency: "monthly", priority: 0.5 },

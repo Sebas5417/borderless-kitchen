@@ -57,6 +57,7 @@ export function SiteFooter() {
               { href: "/mini-course", label: "5-Day Mini-Course" },
               { href: "/preorder", label: "Vol. II — Out Now" },
               { href: "/journal", label: "Journal" },
+              { href: "/guides", label: "Buying Guides" },
               { href: "/culture", label: "Culture" },
               { href: "/about", label: "About" },
               { href: "/connect", label: "Connect" },
@@ -85,7 +86,7 @@ export function SiteFooter() {
             85 free fusion recipes →
           </Link>
           <a
-            href="https://free.borderlesskitchenseries.com"
+            href="/free"
             className="font-body text-xs text-ink/50 hover:text-vermillion transition-colors duration-300"
           >
             Email list + Flavor Pairing Matrix →

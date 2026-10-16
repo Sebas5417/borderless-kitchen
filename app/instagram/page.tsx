@@ -5,6 +5,7 @@ import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { SubscribeForm } from "@/components/forms/SubscribeForm";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
+import { GUMROAD_SMMC, GUMROAD_PLAYBOOK } from "@/lib/gumroad";
 
 /**
  * The landing page for @_borderlesskitchen traffic.
@@ -24,8 +25,6 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-const GUMROAD_SMMC = "https://facelesschannel.gumroad.com/l/dqnqe";
-const GUMROAD_PLAYBOOK = "https://facelesschannel.gumroad.com/l/uycpjs";
 
 const STARTER_RECIPES = [
   {
