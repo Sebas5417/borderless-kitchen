@@ -5,6 +5,7 @@ import { FadeRise } from "@/components/motion/FadeRise";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/mini-course/day-1" },
   title: "Day 1: Dashi — The Invisible Foundation | Fusion Kitchen Mini-Course",
   description:
     "Make ichiban dashi from scratch. Understand why kombu and katsuobushi together produce more umami than any other combination. The foundation of everything in this course.",

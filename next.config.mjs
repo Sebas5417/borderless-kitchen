@@ -172,6 +172,13 @@ const nextConfig = {
         destination: "/journal/miyeok-guk-korean-birthday-seaweed-soup",
         permanent: true,
       },
+      {
+        // Was a page-level redirect() stub that rendered a thin 200 page with no
+        // canonical (2026-10-16 audit). A real 301 passes the link equity.
+        source: "/journal/umami-science-italian-japanese",
+        destination: "/journal/the-science-of-umami-italian-japanese-fusion",
+        permanent: true,
+      },
     ];
   },
 };
