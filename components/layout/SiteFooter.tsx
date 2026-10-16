@@ -86,7 +86,7 @@ export function SiteFooter() {
             85 free fusion recipes →
           </Link>
           <a
-            href="https://free.borderlesskitchenseries.com"
+            href="/free"
             className="font-body text-xs text-ink/50 hover:text-vermillion transition-colors duration-300"
           >
             Email list + Flavor Pairing Matrix →

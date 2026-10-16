@@ -106,10 +106,10 @@ export function MobileMenu() {
               Get the free starter guide
             </p>
             <a
-              href="https://free.borderlesskitchenseries.com"
+              href="/free"
               className="font-display italic text-paper/80 hover:text-vermillion transition-colors duration-300"
             >
-              free.borderlesskitchenseries.com →
+              Free recipes + Flavor Pairing Matrix →
             </a>
           </div>
         </div>
