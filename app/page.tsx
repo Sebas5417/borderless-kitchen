@@ -156,6 +156,17 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
+            <p className="mt-8 font-body text-base text-paper/70">
+              Holiday menus:{" "}
+              <Link href="/journal/fusion-friendsgiving-menu-korean-japanese-italian" className="text-paper underline decoration-paper/30 underline-offset-4 hover:text-vermillion">
+                a fusion Friendsgiving
+              </Link>
+              {" "}and{" "}
+              <Link href="/journal/feast-of-the-seven-fishes-japanese-italian-menu" className="text-paper underline decoration-paper/30 underline-offset-4 hover:text-vermillion">
+                a Japanese-Italian Feast of the Seven Fishes
+              </Link>
+              .
+            </p>
             <Link
               href="/guides#gifts"
               className="md:hidden inline-block mt-8 font-ui text-eyebrow uppercase text-paper/70 border-b border-paper/30 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
