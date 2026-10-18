@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Seoul Meets Mexico City — Borderless Kitchen Vol. II",
     description:
-      "30 recipes and 6 master sauces where Korean and Mexican cooking traditions meet. Available now on Kindle.",
+      "30 recipes and 6 master sauces where Korean and Mexican cooking traditions meet. Out now in paperback and on Kindle.",
     type: "website",
     url: "/preorder",
     images: [
@@ -31,24 +31,9 @@ export const metadata: Metadata = {
 
 const PREVIEW_RECIPES = [
   {
-    slug: "gochujang-pasta",
-    title: "Gochujang Pasta",
-    dek: "The Korean answer to cacio e pepe.",
-  },
-  {
-    slug: "kimchi-fried-rice-arancini",
-    title: "Kimchi Fried Rice Arancini",
-    dek: "Korean fried rice in an Italian arancini shell.",
-  },
-  {
-    slug: "doenjang-carbonara",
-    title: "Doenjang Carbonara",
-    dek: "Korean soybean paste stands in for Parmigiano.",
-  },
-  {
-    slug: "bibimbap-risotto",
-    title: "Bibimbap Risotto",
-    dek: "The Korean rice bowl as a slow-cooked Italian grain dish.",
+    slug: "gochugaru-elote-korean-mexican-corn",
+    title: "Gochugaru Elote",
+    dek: "Mexican street corn with gochugaru heat and a gochujang mayo.",
   },
   {
     slug: "korean-fried-chicken-tacos",
@@ -56,9 +41,19 @@ const PREVIEW_RECIPES = [
     dek: "Gochujang glaze, kimchi slaw, sesame-lime crema.",
   },
   {
-    slug: "tteokbokki-arrabbiata",
-    title: "Tteokbokki Arrabbiata",
-    dek: "Korean rice cakes in the sauce Italy built for pasta.",
+    slug: "mexican-korean-birria-tacos",
+    title: "Korean-Mexican Birria Tacos",
+    dek: "Birria braised with gochugaru and doenjang, with a kimchi salsa.",
+  },
+  {
+    slug: "kimchi-quesadilla",
+    title: "Kimchi Quesadilla",
+    dek: "Kimchi and Oaxaca cheese in a crisp tortilla, in under 10 minutes.",
+  },
+  {
+    slug: "gochujang-braised-short-rib-taco",
+    title: "Gochujang Braised Short Rib Tacos",
+    dek: "Korean-braised short rib in corn tortillas with pickled daikon.",
   },
 ];
 
@@ -99,11 +94,11 @@ export default function PreorderPage() {
               <div className="flex flex-col sm:flex-row gap-4 items-start">
                 <div className="inline-block bg-ink/5 border border-hairline px-5 py-3">
                   <p className="font-ui text-eyebrow uppercase text-ink/60">Status</p>
-                  <p className="font-display text-lg text-ink mt-1">Available Now — Kindle</p>
+                  <p className="font-display text-lg text-ink mt-1">Paperback & Kindle</p>
                 </div>
                 <div className="inline-block bg-ink/5 border border-hairline px-5 py-3">
                   <p className="font-ui text-eyebrow uppercase text-ink/60">Preview Recipes</p>
-                  <p className="font-display text-lg text-ink mt-1">6 Free Now</p>
+                  <p className="font-display text-lg text-ink mt-1">5 Free Now</p>
                 </div>
               </div>
               <div className="mt-8">
@@ -148,7 +143,7 @@ export default function PreorderPage() {
                   Free now — no account needed
                 </p>
                 <h2 className="font-display text-display-2 text-ink leading-tight">
-                  Six preview recipes.
+                  Five Korean-Mexican recipes to try first.
                 </h2>
               </div>
               <Link
@@ -227,7 +222,7 @@ export default function PreorderPage() {
       </section>
 
       <EmailCaptureCTA
-        heading="Start with six recipes, free."
+        heading="Get more Korean-Mexican recipes, free."
         body="Seoul Meets Mexico City is out now in paperback and on Kindle. Join the list for free Korean-Mexican recipes and the complete Flavor Pairing Matrix."
         cta="Send them to me →"
       />
