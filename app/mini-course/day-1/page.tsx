@@ -6,7 +6,7 @@ import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/mini-course/day-1" },
-  title: "Day 1: Dashi — The Invisible Foundation | Fusion Kitchen Mini-Course",
+  title: "Mini-Course Day 1: Dashi, the Foundation",
   description:
     "Make ichiban dashi from scratch. Understand why kombu and katsuobushi together produce more umami than any other combination. The foundation of everything in this course.",
 };

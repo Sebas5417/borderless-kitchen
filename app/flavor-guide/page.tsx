@@ -5,7 +5,7 @@ import { FadeRise } from "@/components/motion/FadeRise";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/flavor-guide" },
-  title: "Free: The Asian Flavor Pairing Cheat Sheet — 47 Substitution Rules",
+  title: "Free Asian Flavor Pairing Cheat Sheet",
   description:
     "Download the free Asian Flavor Pairing Cheat Sheet — 47 ingredient substitution rules covering soy sauce, fish sauce, miso, rice vinegar, coconut milk, and more. Learn the logic behind Asian flavors in one page.",
   openGraph: {

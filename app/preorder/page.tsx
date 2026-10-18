@@ -7,7 +7,7 @@ import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 
 export const metadata: Metadata = {
-  title: "Seoul Meets Mexico City — Vol. II, Out Now on Amazon",
+  title: "Seoul Meets Mexico City: Vol. II, Out Now",
   description:
     "The second Borderless Kitchen book — 30 recipes and 6 master sauces at the intersection of Korean and Mexican cooking. Out now in paperback and on Kindle. Preview recipes free.",
   alternates: { canonical: "/preorder" },

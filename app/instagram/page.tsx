@@ -19,7 +19,7 @@ import { GUMROAD_SMMC, GUMROAD_PLAYBOOK } from "@/lib/gumroad";
  * letting Google index it would just split the ranking signal.
  */
 export const metadata: Metadata = {
-  title: "Welcome from Instagram — Your Free Fusion Recipe Pack",
+  title: "Your Free Fusion Recipe Pack",
   description:
     "The three fusion recipes we promised, plus both Borderless Kitchen cookbooks — Tokyo Meets Tuscany and Seoul Meets Mexico City.",
   robots: { index: false, follow: true },

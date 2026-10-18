@@ -8,7 +8,7 @@ import { SmmcWaitlist } from "@/components/cta/SmmcWaitlist";
 import { FadeRise } from "@/components/motion/FadeRise";
 
 export const metadata: Metadata = {
-  title: "Tokyo Meets Tuscany — Japanese Precision. Italian Comfort.",
+  title: "Tokyo Meets Tuscany: Japanese-Italian Cookbook",
   description:
     "A modern Japanese–Italian fusion cookbook for weeknight dinners that feel restaurant-level without restaurant prices. Download the free 5-Sauce Pack and get the book on Amazon.",
   alternates: { canonical: "/tokyo-meets-tuscany" },

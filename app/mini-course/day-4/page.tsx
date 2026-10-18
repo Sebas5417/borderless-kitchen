@@ -6,7 +6,7 @@ import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/mini-course/day-4" },
-  title: "Day 4: Mirin, Sake & Fermented Sweetness | Fusion Kitchen Mini-Course",
+  title: "Mini-Course Day 4: Mirin, Sake and Sweetness",
   description:
     "Cook teriyaki from scratch. Understand why mirin is not the same as sugar and what fermented sweetness adds to a dish that refined sugar doesn't.",
 };

@@ -7,7 +7,7 @@ import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { GUMROAD_WORKBOOK_URL } from "@/lib/gumroad";
 
 export const metadata: Metadata = {
-  title: "The Japanese-Italian Fusion Kitchen: A Free 5-Day Mini-Course",
+  title: "Free 5-Day Japanese-Italian Fusion Course",
   alternates: { canonical: "/mini-course" },
   description:
     "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and five foundational fusion recipes. Delivered free to your inbox.",

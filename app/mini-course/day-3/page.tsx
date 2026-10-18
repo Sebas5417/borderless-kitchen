@@ -6,7 +6,7 @@ import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/mini-course/day-3" },
-  title: "Day 3: The Umami Pairing System | Fusion Kitchen Mini-Course",
+  title: "Mini-Course Day 3: The Umami Pairing System",
   description:
     "Work through the Flavor Pairing Matrix. Learn the Italian-Japanese swaps and why the synergy pairs multiply umami. Cook Ramen alla Carbonara.",
 };
