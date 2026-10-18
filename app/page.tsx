@@ -161,9 +161,13 @@ export default function HomePage() {
               <Link href="/journal/fusion-friendsgiving-menu-korean-japanese-italian" className="text-paper underline decoration-paper/30 underline-offset-4 hover:text-vermillion">
                 a fusion Friendsgiving
               </Link>
-              {" "}and{" "}
+              ,{" "}
               <Link href="/journal/feast-of-the-seven-fishes-japanese-italian-menu" className="text-paper underline decoration-paper/30 underline-offset-4 hover:text-vermillion">
                 a Japanese-Italian Feast of the Seven Fishes
+              </Link>
+              {" "}and{" "}
+              <Link href="/journal/japanese-new-year-food-toshikoshi-soba-ozoni-osechi" className="text-paper underline decoration-paper/30 underline-offset-4 hover:text-vermillion">
+                Japanese New Year food
               </Link>
               .
             </p>
