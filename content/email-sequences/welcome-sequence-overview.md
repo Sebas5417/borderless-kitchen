@@ -14,7 +14,7 @@
 | Day 5 | +5 days | "What you can cook now (and what's next)" | Final lesson + warm book/upsell mention |
 | Email 6 | Day 12 | "The one pan technique that changes everything" | Re-engage, warm value |
 | Email 7 | Day 16 | "I made this last week — here's what happened" | Story + technique |
-| Email 8 | Day 23 | "The pantry I'd build if I was starting over" | Pantry guide + Amazon links |
+| Email 8 | Day 23 | "The pantry I'd build if I was starting over" | Pantry guide + links to the site's pantry guides (no Amazon links in email) |
 | Email 9 | Day 30 | "A question for you" | Engagement + soft ask |
 | Email 10 | Day 44 | "The borderless kitchen manifesto" | Brand statement + book mention |
 
@@ -40,7 +40,9 @@ All emails are in: content/email-sequences/
 ### Step 4: Vercel Environment Variables
 In Vercel project settings for borderless-kitchen-series:
 - MAILERLITE_API_KEY = [your API key from MailerLite → Integrations → API]
-- MAILERLITE_GROUP_ID = [ID of "Mini-Course Subscribers" group]
+- MAILERLITE_GROUP_ID = [ID of "Mini-Course Subscribers" group] (site-wide newsletter and mini-course forms)
+- MAILERLITE_TMT_GROUP_ID = [ID of "TMT Subscribers" group] (Sauce Pack form on /tokyo-meets-tuscany)
+- MAILERLITE_SMMC_GROUP_ID = [ID of the SMMC group] (form on /seoul-meets-mexico-city)
 
 ### Step 5: Test
 1. Submit the form on borderlesskitchenseries.com/mini-course with a test email
@@ -48,4 +50,4 @@ In Vercel project settings for borderless-kitchen-series:
 3. Check MailerLite → Automations — did the automation trigger?
 
 ## Revenue Path
-Subscriber → 5-day course (trust building) → Email 5 mention of upcoming book → Email 8 Amazon pantry links (affiliate) → Email 10 book launch teaser → Future: book pre-order / Gumroad product
+Subscriber → 5-day course (trust building) → Email 5 mention of upcoming book → Email 8 pantry guide (links to the site's pantry pages, which carry the affiliate links; Amazon's rules bar affiliate links in email) → Email 10 book CTA (both books are out) → Gumroad Playbook / Workbook

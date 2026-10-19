@@ -89,13 +89,13 @@ It was better than most things I'd made on purpose.
 
 Over the next few weeks I kept applying the same logic: what does this Italian ingredient *do*, and what Japanese ingredient does the same thing? The carbonara-ramen came out of it. The soy-balsamic glaze. The chili oil lasagna.
 
-By the time I had 37 recipes, I had a book.
+By the time I had 30 recipes, I had a book.
 
-*Tokyo Meets Tuscany* is on Amazon now — paperback, hardcover, and Kindle. It's everything that came out of that logic applied consistently: 37 Japanese-Italian fusion recipes, all built on function, all tested in a home kitchen.
+*Tokyo Meets Tuscany* is on Amazon now, in paperback and on Kindle. It's everything that came out of that logic applied consistently: 30 Japanese-Italian fusion recipes and six master sauces, all built on function, all tested in a home kitchen.
 
 **[Get Tokyo Meets Tuscany on Amazon →](https://borderlesskitchenseries.com/tokyo-meets-tuscany)**
 
-Paperback $24.99 · Hardcover $34.99 · Kindle $9.99
+Paperback $19.99 · Kindle $9.99
 
 The second book in the series — *Seoul Meets Mexico City* — applies the same logic to Korean and Mexican cuisine. Gochujang and adobo. Kimchi and tacos. Doenjang and mole. It's out now, in paperback and on Kindle.
 
@@ -112,7 +112,7 @@ The second book in the series — *Seoul Meets Mexico City* — applies the same
 3. Copy the Group ID (shown in the URL or group settings)
 4. Add to Vercel env vars:
    - `MAILERLITE_API_KEY` = your API key
-   - `MAILERLITE_GROUP_ID` = the group ID you just created
+   - `MAILERLITE_TMT_GROUP_ID` = the group ID you just created (the /tokyo-meets-tuscany form posts `list="tmt"`, which `app/api/subscribe/route.ts` maps to this variable)
 5. **Automation → Create new:**
    - Trigger: Subscriber joins group "TMT Subscribers"
    - Delay 0: Send Email 1
@@ -121,4 +121,4 @@ The second book in the series — *Seoul Meets Mexico City* — applies the same
 6. Set the Sauce Pack download link in Email 1 to: `https://borderlesskitchenseries.com/sauce-pack.pdf`
 7. Activate automation
 
-**Note:** The subscribe form on /tokyo-meets-tuscany uses the existing `subscribe` server action which already calls `https://connect.mailerlite.com/api/subscribers` with the configured group ID. No additional code changes needed once env vars are set.
+**Note:** The subscribe form on /tokyo-meets-tuscany posts to `/api/subscribe` with `list="tmt"`, which adds the subscriber to the group in `MAILERLITE_TMT_GROUP_ID`. No code changes are needed once the env vars are set.
