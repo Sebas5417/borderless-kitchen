@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "The Japanese-Italian Fusion Kitchen: A Free 5-Day Mini-Course",
   alternates: { canonical: "/mini-course" },
   description:
-    "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and five foundational fusion recipes. Delivered free to your inbox.",
+    "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and practical fusion recipes and your own final dish. Delivered free to your inbox.",
   openGraph: { ...({
     title: "Free: The Fusion Kitchen Mini-Course",
     description:
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
         alt: "The Japanese-Italian Fusion Kitchen mini-course",
       },
     ],
-  }), title: "The Japanese-Italian Fusion Kitchen: A Free 5-Day Mini-Course", description: "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and five foundational fusion recipes. Delivered free to your inbox.", url: "/mini-course" },
-  twitter: { ...({ card: "summary_large_image", images: ["/images/banner-carousel-2.png"] }), title: "The Japanese-Italian Fusion Kitchen: A Free 5-Day Mini-Course", description: "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and five foundational fusion recipes. Delivered free to your inbox.", card: "summary_large_image" },
+  }), title: "The Japanese-Italian Fusion Kitchen: A Free 5-Day Mini-Course", description: "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and practical fusion recipes and your own final dish. Delivered free to your inbox.", url: "/mini-course" },
+  twitter: { ...({ card: "summary_large_image", images: ["/images/banner-carousel-2.png"] }), title: "The Japanese-Italian Fusion Kitchen: A Free 5-Day Mini-Course", description: "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and practical fusion recipes and your own final dish. Delivered free to your inbox.", card: "summary_large_image" },
 
 };
 
@@ -69,10 +69,10 @@ const DAYS = [
 
 const INCLUDES = [
   "5 detailed technique guides — one per day, straight to your inbox",
-  "5 full recipes (including the Ramen alla Carbonara foundation recipe)",
+  "Four guided cooking lessons, then a framework for creating your own dish",
   "The Flavor Pairing Matrix — the full 16-pair chart",
-  "The Umami Cheat Sheet (one-page quick reference)",
-  "Shopping list: the 12 ingredients you need for all 5 days",
+  "Direct links to every lesson so you can cook at your own pace",
+  "Ingredient lists and step-by-step instructions in the recipe lessons",
   "Permanent access — every email is yours to keep",
 ];
 
@@ -87,7 +87,7 @@ const FAQS = [
   },
   {
     q: "How does it work?",
-    a: "Sign up and you'll receive Day 1 immediately. Days 2–5 arrive on consecutive days. Each email is a self-contained technique guide with a full recipe. Work at your own pace — they'll be in your inbox when you're ready.",
+    a: "Sign up and you'll receive Day 1 immediately. Days 2–5 arrive on consecutive days. The first four emails include practical recipes; Day 5 helps you create your own dish. Work at your own pace — they'll be in your inbox when you're ready.",
   },
   {
     q: "I've already bought the book — is this different?",
@@ -112,7 +112,7 @@ export default function MiniCoursePage() {
               <p className="font-body text-xl text-paper/70 leading-relaxed mb-10 max-w-2xl">
                 Five days. Five techniques. Everything you need to cook confidently at
                 the intersection of Japanese and Italian cooking — dashi, miso, the umami
-                pairing system, and five foundational fusion recipes. Delivered free to your inbox.
+                pairing system, and practical fusion recipes and your own final dish. Delivered free to your inbox.
               </p>
               <div className="max-w-md">
                 <NewsletterForm
