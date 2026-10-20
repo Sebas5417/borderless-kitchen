@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     url: "/seoul-meets-mexico-city",
     images: [
       {
-        url: "/images/smmc-cover.png",
+        url: "/images/smmc-cover-current.png",
         width: 1200,
         height: 630,
         alt: "Seoul Meets Mexico City — Borderless Kitchen Vol. II cover",
       },
     ],
   },
-  twitter: { card: "summary_large_image", images: ["/images/smmc-cover.png"] },
+  twitter: { card: "summary_large_image", images: ["/images/smmc-cover-current.png"] },
 };
 
 const PREVIEW_RECIPES = [
@@ -92,7 +92,7 @@ const smmcBookSchema = {
   genre: ["Cookbook", "Fusion Cuisine", "Cross-cultural cooking"],
   description:
     "The second Borderless Kitchen volume — 30 recipes and 6 master sauces where Korean and Mexican cooking traditions meet.",
-  image: "https://borderlesskitchenseries.com/images/smmc-cover.png",
+  image: "https://borderlesskitchenseries.com/images/smmc-cover-current.png",
   url: "https://borderlesskitchenseries.com/seoul-meets-mexico-city",
   sameAs: "https://www.amazon.com/dp/B0H6VD21M2",
   isPartOf: {
@@ -146,7 +146,7 @@ export default function SeoulMeetsMexicoCityPage() {
                 <p className="font-body text-sm text-ink/50 mt-2">Paperback and Kindle, both available now.</p>
               </div>
             </div>
-            <Image src="/images/smmc-cover.png" alt="Seoul Meets Mexico City cookbook cover" width={600} height={900} sizes="(min-width: 768px) 280px, 70vw" priority className="w-full max-w-[280px] mx-auto h-auto" />
+            <Image src="/images/smmc-cover-current.png" alt="Seoul Meets Mexico City cookbook cover" width={602} height={785} sizes="(min-width: 768px) 280px, 70vw" priority className="w-full max-w-[280px] mx-auto h-auto" />
             </div>
           </FadeRise>
         </Container>

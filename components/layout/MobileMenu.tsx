@@ -12,7 +12,7 @@ const NAV = [
   { href: "/connect", label: "Connect" },
   { href: "/30-day-challenge", label: "Challenge", highlight: true },
   { href: "/free", label: "Free", highlight: false },
-  { href: "/seoul-meets-mexico-city", label: "Vol. II — Out Now", highlight: false },
+  { href: "/seoul-meets-mexico-city", label: "Seoul Meets Mexico City — Out now", highlight: false },
 ] as const;
 
 export function MobileMenu() {

@@ -1,0 +1,8 @@
+{
+  "source": "https://drive.google.com/file/d/1xRwrjudYCwZOzqL0eMOR99CHWjlxtSFM/view",
+  "name": "smmc cover.png",
+  "modified": "2026-09-16T13:29:10.581Z",
+  "asset": "/images/smmc-cover-current.png",
+  "usage": "Homepage hero, both-book shelf, book detail pages, and related articles",
+  "verification": "Original Drive image copied without cropping or image generation. Production build passed; covers inspected in browser."
+}

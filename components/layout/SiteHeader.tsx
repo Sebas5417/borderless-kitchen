@@ -10,7 +10,7 @@ const NAV = [
   { href: "/connect", label: "Connect" },
   { href: "/30-day-challenge", label: "Challenge", highlight: true },
   { href: "/free", label: "Free" },
-  { href: "/seoul-meets-mexico-city", label: "Vol. II", preorder: true },
+  { href: "/seoul-meets-mexico-city", label: "Seoul × Mexico", preorder: true },
 ] as const;
 
 export function SiteHeader() {
@@ -27,7 +27,7 @@ export function SiteHeader() {
 
         {/* Desktop nav */}
         <nav aria-label="Primary" className="hidden md:block">
-          <ul className="flex items-center gap-8 font-ui text-eyebrow uppercase text-ink/70">
+          <ul className="flex items-center gap-5 lg:gap-8 font-ui text-eyebrow uppercase text-ink/70">
             {NAV.map((item) => (
               <li key={item.href}>
                 <Link
