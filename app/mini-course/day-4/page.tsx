@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   title: "Day 4: Mirin, Sake & Fermented Sweetness | Fusion Kitchen Mini-Course",
   description:
     "Cook teriyaki from scratch. Understand why mirin is not the same as sugar and what fermented sweetness adds to a dish that refined sugar doesn't.",
+
+  twitter: { ...({}), title: "Day 4: Mirin, Sake & Fermented Sweetness | Fusion Kitchen Mini-Course", description: "Cook teriyaki from scratch. Understand why mirin is not the same as sugar and what fermented sweetness adds to a dish that refined sugar doesn't.", card: "summary_large_image" },
+
+  openGraph: { ...({}), title: "Day 4: Mirin, Sake & Fermented Sweetness | Fusion Kitchen Mini-Course", description: "Cook teriyaki from scratch. Understand why mirin is not the same as sugar and what fermented sweetness adds to a dish that refined sugar doesn't.", url: "/mini-course/day-4" },
 };
 
 export default function Day4Page() {

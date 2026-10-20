@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   },
   description:
     "Explore Tokyo Meets Tuscany and Seoul Meets Mexico City: Japanese–Italian and Korean–Mexican cookbooks by Sebastian Dri, plus free recipes.",
+
+  twitter: { ...({}), title: "Borderless Kitchen — Japanese–Italian & Korean–Mexican Cookbooks", description: "Explore Tokyo Meets Tuscany and Seoul Meets Mexico City: Japanese–Italian and Korean–Mexican cookbooks by Sebastian Dri, plus free recipes.", card: "summary_large_image" },
+
+  openGraph: { ...({}), title: "Borderless Kitchen — Japanese–Italian & Korean–Mexican Cookbooks", description: "Explore Tokyo Meets Tuscany and Seoul Meets Mexico City: Japanese–Italian and Korean–Mexican cookbooks by Sebastian Dri, plus free recipes.", url: "/" },
 };
 
 import { SMMC_AMAZON } from "@/lib/amazon";

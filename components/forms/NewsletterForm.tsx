@@ -80,7 +80,7 @@ export function NewsletterForm({
           placeholder={placeholder}
           autoComplete="email"
           disabled={pending || state.kind === "ok"}
-          className={["flex-1 bg-transparent font-body text-base focus:outline-none disabled:opacity-50", inverted ? "text-paper placeholder:text-paper/50" : "text-ink placeholder:text-ink/40"].join(" ")}
+          className={["min-w-0 flex-1 bg-transparent font-body text-base focus:outline-none disabled:opacity-50", inverted ? "text-paper placeholder:text-paper/50" : "text-ink placeholder:text-ink/40"].join(" ")}
         />
         <button
           type="submit"
@@ -91,7 +91,7 @@ export function NewsletterForm({
         </button>
       </div>
       {state.kind === "error" ? (
-        <p className="mt-3 font-ui text-xs text-vermillion">{state.message}</p>
+        <p role="alert" className="mt-3 font-ui text-xs text-vermillion">{state.message}</p>
       ) : state.kind === "ok" ? (
         <div className="mt-3">
           <p className="font-ui text-xs text-ink/60">

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/mini-course" },
   description:
     "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and five foundational fusion recipes. Delivered free to your inbox.",
-  openGraph: {
+  openGraph: { ...({
     title: "Free: The Fusion Kitchen Mini-Course",
     description:
       "5 days, 5 techniques, 5 recipes. The complete Japanese-Italian cooking foundation — delivered daily to your inbox, free.",
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
         alt: "The Japanese-Italian Fusion Kitchen mini-course",
       },
     ],
-  },
-  twitter: { card: "summary_large_image", images: ["/images/banner-carousel-2.png"] },
+  }), title: "The Japanese-Italian Fusion Kitchen: A Free 5-Day Mini-Course", description: "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and five foundational fusion recipes. Delivered free to your inbox.", url: "/mini-course" },
+  twitter: { ...({ card: "summary_large_image", images: ["/images/banner-carousel-2.png"] }), title: "The Japanese-Italian Fusion Kitchen: A Free 5-Day Mini-Course", description: "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and five foundational fusion recipes. Delivered free to your inbox.", card: "summary_large_image" },
 
 };
 

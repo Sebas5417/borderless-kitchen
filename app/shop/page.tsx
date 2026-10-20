@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/shop" },
   description:
     "The Japanese and Italian pantry ingredients behind every recipe in the Borderless Kitchen series — with sourcing notes and where to find them.",
-  openGraph: {
+  openGraph: { ...({
     title: "The Borderless Kitchen Pantry",
     description:
       "Japanese and Italian pantry essentials for fusion cooking — the ingredients behind Tokyo Meets Tuscany.",
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
         alt: "Tokyo Meets Tuscany — the pantry behind the book",
       },
     ],
-  },
-  twitter: { card: "summary_large_image", images: ["/images/tmt-cover.jpg"] },
+  }), title: "The Pantry", description: "The Japanese and Italian pantry ingredients behind every recipe in the Borderless Kitchen series — with sourcing notes and where to find them.", url: "/shop" },
+  twitter: { ...({ card: "summary_large_image", images: ["/images/tmt-cover.jpg"] }), title: "The Pantry", description: "The Japanese and Italian pantry ingredients behind every recipe in the Borderless Kitchen series — with sourcing notes and where to find them.", card: "summary_large_image" },
 
 };
 

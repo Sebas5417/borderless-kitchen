@@ -20,6 +20,8 @@ export async function generateMetadata({
   if (!note) return {};
   return {
     title: note.title,
+    openGraph: { title: note.title, description: `${note.title} — a field note${note.place ? ` from ${note.place}` : ""} by Sebastian Dri.`, type: "article", url: `/notes/${note.slug}` },
+    twitter: { card: "summary_large_image", title: note.title, description: `${note.title} — a field note by Sebastian Dri.` },
     alternates: { canonical: `/notes/${note.slug}` },
     description: note.place
       ? `Field note from ${note.place} — Borderless Kitchen.`

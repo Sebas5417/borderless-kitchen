@@ -8,12 +8,14 @@ export const metadata: Metadata = {
   title: "Free: The Asian Flavor Pairing Cheat Sheet — 47 Substitution Rules",
   description:
     "Download the free Asian Flavor Pairing Cheat Sheet — 47 ingredient substitution rules covering soy sauce, fish sauce, miso, rice vinegar, coconut milk, and more. Learn the logic behind Asian flavors in one page.",
-  openGraph: {
+  openGraph: { ...({
     title: "Free: The Asian Flavor Pairing Cheat Sheet",
     description:
       "47 ingredient substitution rules. What to use when you're out of fish sauce, how to swap miso, when coconut cream beats coconut milk. One page, free download.",
     type: "website",
-  },
+  }), title: "Free: The Asian Flavor Pairing Cheat Sheet — 47 Substitution Rules", description: "Download the free Asian Flavor Pairing Cheat Sheet — 47 ingredient substitution rules covering soy sauce, fish sauce, miso, rice vinegar, coconut milk, and more. Learn the logic behind Asian flavors in one page.", url: "/flavor-guide" },
+
+  twitter: { ...({}), title: "Free: The Asian Flavor Pairing Cheat Sheet — 47 Substitution Rules", description: "Download the free Asian Flavor Pairing Cheat Sheet — 47 ingredient substitution rules covering soy sauce, fish sauce, miso, rice vinegar, coconut milk, and more. Learn the logic behind Asian flavors in one page.", card: "summary_large_image" },
 };
 
 const CHEAT_SHEET_ROWS = [

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/free" },
   description:
     "Free fusion recipes and the Flavor Pairing Matrix — the Italian × Japanese ingredient chart that maps every component of Tokyo Meets Tuscany. No signup required for the recipes.",
-  openGraph: {
+  openGraph: { ...({
     title: "Free Recipes + Flavor Pairing Chart",
     description:
       "The Borderless Kitchen free collection: a full library of cross-cultural recipes and the Flavor Pairing Matrix that explains why they work.",
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
         alt: "Borderless Kitchen free recipes and Flavor Pairing Matrix",
       },
     ],
-  },
-  twitter: { card: "summary_large_image", images: ["/images/banner-carousel-1.png"] },
+  }), title: "Free Recipes + Flavor Pairing Chart", description: "Free fusion recipes and the Flavor Pairing Matrix — the Italian × Japanese ingredient chart that maps every component of Tokyo Meets Tuscany. No signup required for the recipes.", url: "/free" },
+  twitter: { ...({ card: "summary_large_image", images: ["/images/banner-carousel-1.png"] }), title: "Free Recipes + Flavor Pairing Chart", description: "Free fusion recipes and the Flavor Pairing Matrix — the Italian × Japanese ingredient chart that maps every component of Tokyo Meets Tuscany. No signup required for the recipes.", card: "summary_large_image" },
 
 };
 

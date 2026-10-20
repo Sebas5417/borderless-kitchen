@@ -106,3 +106,15 @@ export function parseRecipeInstructions(
   }
   return result;
 }
+
+/** Separate explicitly labeled recipe variants instead of combining their ingredients. */
+export function parseRecipeVariants(bodyRaw: string) {
+  const variants: Array<{ name: string; recipeIngredient: string[]; recipeInstructions: Array<HowToSection | HowToStep> }> = [];
+  for (const match of bodyRaw.matchAll(/^## Version \d+: ([^\n]+)\n([\s\S]*?)(?=^## |$(?![\s\S]))/gm)) {
+    const normalized = match[2].replace(/\*\*Ingredients:\*\*/g, "## Ingredients").replace(/\*\*Method:\*\*/g, "## Method").replace(/\*\*Notes:\*\*/g, "## Notes").replace(/^---\s*$/gm, "");
+    const recipeIngredient = parseRecipeIngredients(normalized);
+    const recipeInstructions = parseRecipeInstructions(normalized);
+    if (recipeIngredient.length && recipeInstructions.length) variants.push({ name: match[1].trim(), recipeIngredient, recipeInstructions });
+  }
+  return variants;
+}

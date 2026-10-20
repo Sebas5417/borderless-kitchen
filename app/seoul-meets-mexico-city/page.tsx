@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "The second Borderless Kitchen book — 30 recipes and 6 master sauces at the intersection of Korean and Mexican cooking. Out now in paperback and on Kindle. Explore free Korean–Mexican recipes.",
   alternates: { canonical: "/seoul-meets-mexico-city" },
-  openGraph: {
+  openGraph: { ...({
     title: "Seoul Meets Mexico City — Borderless Kitchen Vol. II",
     description:
       "30 recipes and 6 master sauces where Korean and Mexican cooking traditions meet. Available now in paperback and on Kindle.",
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
         alt: "Seoul Meets Mexico City — Borderless Kitchen Vol. II cover",
       },
     ],
-  },
-  twitter: { card: "summary_large_image", images: ["/images/smmc-cover-current.png"] },
+  }), title: "Seoul Meets Mexico City — Vol. II, Out Now on Amazon", description: "The second Borderless Kitchen book — 30 recipes and 6 master sauces at the intersection of Korean and Mexican cooking. Out now in paperback and on Kindle. Explore free Korean–Mexican recipes.", url: "/seoul-meets-mexico-city" },
+  twitter: { ...({ card: "summary_large_image", images: ["/images/smmc-cover-current.png"] }), title: "Seoul Meets Mexico City — Vol. II, Out Now on Amazon", description: "The second Borderless Kitchen book — 30 recipes and 6 master sauces at the intersection of Korean and Mexican cooking. Out now in paperback and on Kindle. Explore free Korean–Mexican recipes.", card: "summary_large_image" },
 };
 
 const PREVIEW_RECIPES = [

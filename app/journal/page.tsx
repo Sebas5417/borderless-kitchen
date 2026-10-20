@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   title: "Journal",
   description:
     "Notes on food, culture, memory, and movement — essays from the Borderless Kitchen series on cross-cultural cooking and the conversations between cuisines.",
+
+  twitter: { ...({}), title: "Journal", description: "Notes on food, culture, memory, and movement — essays from the Borderless Kitchen series on cross-cultural cooking and the conversations between cuisines.", card: "summary_large_image" },
+
+  openGraph: { ...({}), title: "Journal", description: "Notes on food, culture, memory, and movement — essays from the Borderless Kitchen series on cross-cultural cooking and the conversations between cuisines.", url: "/journal" },
 };
 
 export default function JournalPage() {

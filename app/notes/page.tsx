@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   title: "Field Notes",
   description:
     "Short fragments from the road and the counter — smells, knife marks, restaurants without names, ingredients in motion.",
+
+  twitter: { ...({}), title: "Field Notes", description: "Short fragments from the road and the counter — smells, knife marks, restaurants without names, ingredients in motion.", card: "summary_large_image" },
+
+  openGraph: { ...({}), title: "Field Notes", description: "Short fragments from the road and the counter — smells, knife marks, restaurants without names, ingredients in motion.", url: "/notes" },
 };
 
 export default function NotesPage() {

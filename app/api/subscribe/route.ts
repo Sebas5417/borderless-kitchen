@@ -28,7 +28,7 @@ export async function POST(req: Request) {
     typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
   const list = typeof body.list === "string" ? body.list : "";
 
-  if (!EMAIL_RE.test(email) || !(list in LIST_GROUP_ENV)) {
+  if (!EMAIL_RE.test(email) || !Object.hasOwn(LIST_GROUP_ENV, list)) {
     return NextResponse.json(
       { ok: false, error: "invalid-email" },
       { status: 400 },
@@ -39,13 +39,8 @@ export async function POST(req: Request) {
   const groupId = LIST_GROUP_ENV[list];
 
   if (!apiKey || !groupId) {
-    // Not configured yet: show success so the funnel still delivers the
-    // lead magnet link — same convention as app/_actions/subscribe.ts.
-    // Leads are DROPPED until MAILERLITE_API_KEY + group IDs are set.
-    console.error(
-      `[api/subscribe] MailerLite not configured for "${list}" — lead dropped`,
-    );
-    return NextResponse.json({ ok: true });
+    console.error(`[api/subscribe] MailerLite not configured for "${list}"`);
+    return NextResponse.json({ ok: false, error: "retry" }, { status: 503 });
   }
 
   try {

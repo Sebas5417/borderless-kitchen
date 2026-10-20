@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
@@ -10,12 +9,14 @@ export const metadata: Metadata = {
   title: "30-Day Japanese Kitchen Challenge — Build a Japanese Pantry From Scratch",
   description:
     "A free 30-day challenge to build your Japanese pantry from scratch, cook one Japanese technique per day, and permanently change how you think about umami, dashi, and fermented flavor.",
-  openGraph: {
+  openGraph: { ...({
     title: "30-Day Japanese Kitchen Challenge",
     description:
       "Thirty days. Thirty techniques. One permanent foundation in Japanese cooking — dashi, miso, rice, fermented pantry, and the fusion possibilities they open up.",
     type: "website",
-  },
+  }), title: "30-Day Japanese Kitchen Challenge — Build a Japanese Pantry From Scratch", description: "A free 30-day challenge to build your Japanese pantry from scratch, cook one Japanese technique per day, and permanently change how you think about umami, dashi, and fermented flavor.", url: "/30-day-challenge" },
+
+  twitter: { ...({}), title: "30-Day Japanese Kitchen Challenge — Build a Japanese Pantry From Scratch", description: "A free 30-day challenge to build your Japanese pantry from scratch, cook one Japanese technique per day, and permanently change how you think about umami, dashi, and fermented flavor.", card: "summary_large_image" },
 };
 
 const WEEKS = [

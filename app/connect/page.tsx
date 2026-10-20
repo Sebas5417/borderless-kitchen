@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   title: "Connect",
   description:
     "Notes from the kitchen — the free starter guide, news on new Borderless Kitchen volumes, and the occasional recipe note that didn't make the book.",
+
+  twitter: { ...({}), title: "Connect", description: "Notes from the kitchen — the free starter guide, news on new Borderless Kitchen volumes, and the occasional recipe note that didn't make the book.", card: "summary_large_image" },
+
+  openGraph: { ...({}), title: "Connect", description: "Notes from the kitchen — the free starter guide, news on new Borderless Kitchen volumes, and the occasional recipe note that didn't make the book.", url: "/connect" },
 };
 
 import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";

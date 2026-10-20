@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/printables" },
   description:
     "Fillable planners for the parts of cooking that are logistics rather than recipes — the week, the batch, the dinner party, the holiday oven. Print at home or type into them on screen.",
-  openGraph: {
+  openGraph: { ...({
     title: "Borderless Kitchen Printables",
     description:
       "Planners for the logistics half of cooking: the week, the batch, the dinner party, and the holiday oven. Fillable PDFs, instant download.",
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
         alt: "Borderless Kitchen kitchen printables",
       },
     ],
-  },
-  twitter: { card: "summary_large_image", images: ["/images/banner-carousel-1.png"] },
+  }), title: "Kitchen Printables", description: "Fillable planners for the parts of cooking that are logistics rather than recipes — the week, the batch, the dinner party, the holiday oven. Print at home or type into them on screen.", url: "/printables" },
+  twitter: { ...({ card: "summary_large_image", images: ["/images/banner-carousel-1.png"] }), title: "Kitchen Printables", description: "Fillable planners for the parts of cooking that are logistics rather than recipes — the week, the batch, the dinner party, the holiday oven. Print at home or type into them on screen.", card: "summary_large_image" },
 };
 
 export default function PrintablesPage() {

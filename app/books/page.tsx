@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   title: "The Series",
   description:
     "Explore the Borderless Kitchen cookbooks: Tokyo Meets Tuscany and Seoul Meets Mexico City. Both available in paperback and on Kindle, with more volumes in development.",
+
+  twitter: { ...({}), title: "The Series", description: "Explore the Borderless Kitchen cookbooks: Tokyo Meets Tuscany and Seoul Meets Mexico City. Both available in paperback and on Kindle, with more volumes in development.", card: "summary_large_image" },
+
+  openGraph: { ...({}), title: "The Series", description: "Explore the Borderless Kitchen cookbooks: Tokyo Meets Tuscany and Seoul Meets Mexico City. Both available in paperback and on Kindle, with more volumes in development.", url: "/books" },
 };
 
 

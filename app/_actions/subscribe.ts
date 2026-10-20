@@ -75,13 +75,10 @@ export async function subscribe(formData: FormData): Promise<SubscribeResult> {
   try {
     const outcome = await addToMailerLite(email);
 
-    // Deliberate pass-through: with no API key there is nowhere to put the
-    // lead, so still show success and let the funnel deliver the lead magnet.
-    // Leads ARE lost here — set MAILERLITE_API_KEY (+ MAILERLITE_GROUP_ID) in
-    // the Vercel project to start capturing for real.
+    // A subscriber is only confirmed once the email service has accepted it.
     if (outcome === "not-configured") {
-      console.error(`[subscribe] MailerLite not configured — lead dropped: ${email}`);
-      return { ok: true };
+      console.error("[subscribe] MailerLite not configured");
+      return { ok: false, error: "unknown" };
     }
 
     // A real failure. Previously this returned success and the lead was gone

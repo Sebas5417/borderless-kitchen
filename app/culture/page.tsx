@@ -11,6 +11,10 @@ export const metadata: Metadata = {
   title: "Culture",
   description:
     "A knowledge library of ingredients, techniques, and traditions from the Borderless Kitchen series.",
+
+  twitter: { ...({}), title: "Culture", description: "A knowledge library of ingredients, techniques, and traditions from the Borderless Kitchen series.", card: "summary_large_image" },
+
+  openGraph: { ...({}), title: "Culture", description: "A knowledge library of ingredients, techniques, and traditions from the Borderless Kitchen series.", url: "/culture" },
 };
 
 const CLASSIFICATIONS = ["ingredient", "technique", "tradition", "term"] as const;

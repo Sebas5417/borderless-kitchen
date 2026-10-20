@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "A modern Japanese–Italian fusion cookbook for weeknight dinners that feel restaurant-level without restaurant prices. Download the free 5-Sauce Pack and get the book on Amazon.",
   alternates: { canonical: "/tokyo-meets-tuscany" },
-  openGraph: {
+  openGraph: { ...({
     title: "Tokyo Meets Tuscany | Borderless Kitchen",
     description:
       "Japanese precision meets Italian comfort. Thirty tested fusion recipes — miso butter pasta, chili oil lasagna, soy-balsamic glaze. Free Sauce Pack download + book on Amazon.",
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
         alt: "Tokyo Meets Tuscany cookbook cover",
       },
     ],
-  },
-  twitter: { card: "summary_large_image", images: ["/images/tmt-cover.jpg"] },
+  }), title: "Tokyo Meets Tuscany — Japanese Precision. Italian Comfort.", description: "A modern Japanese–Italian fusion cookbook for weeknight dinners that feel restaurant-level without restaurant prices. Download the free 5-Sauce Pack and get the book on Amazon.", url: "/tokyo-meets-tuscany" },
+  twitter: { ...({ card: "summary_large_image", images: ["/images/tmt-cover.jpg"] }), title: "Tokyo Meets Tuscany — Japanese Precision. Italian Comfort.", description: "A modern Japanese–Italian fusion cookbook for weeknight dinners that feel restaurant-level without restaurant prices. Download the free 5-Sauce Pack and get the book on Amazon.", card: "summary_large_image" },
 };
 
 const AMAZON_URL = TMT_AMAZON;

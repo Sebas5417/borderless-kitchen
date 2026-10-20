@@ -10,15 +10,17 @@ import { cuisineHubs } from "@/lib/cuisines";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/recipes" },
-  title: "Free Recipes | Borderless Kitchen",
+  title: "Free Recipes",
   description:
     "Free Japanese-Italian fusion recipes from the Borderless Kitchen series — Ramen alla Carbonara, Udon Bolognese, Miso White Pizza, and more. Full instructions, no paywall.",
-  openGraph: {
+  openGraph: { ...({
     title: "Free Recipes | Borderless Kitchen",
     description:
       "Japanese-Italian fusion recipes you can cook tonight. Full instructions, no paywall.",
     type: "website",
-  },
+  }), title: "Free Recipes", description: "Free Japanese-Italian fusion recipes from the Borderless Kitchen series — Ramen alla Carbonara, Udon Bolognese, Miso White Pizza, and more. Full instructions, no paywall.", url: "/recipes" },
+
+  twitter: { ...({}), title: "Free Recipes", description: "Free Japanese-Italian fusion recipes from the Borderless Kitchen series — Ramen alla Carbonara, Udon Bolognese, Miso White Pizza, and more. Full instructions, no paywall.", card: "summary_large_image" },
 };
 
 export default function RecipesPage() {
@@ -27,6 +29,10 @@ export default function RecipesPage() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org", "@type": "ItemList",
+        itemListElement: recipes.map((recipe, index) => ({ "@type": "ListItem", position: index + 1, url: "https://borderlesskitchenseries.com/recipes/" + recipe.slug })),
+      }) }} />
       <PageHero
         eyebrow="Free Recipes"
         headline="Cook the fusion. Free."
