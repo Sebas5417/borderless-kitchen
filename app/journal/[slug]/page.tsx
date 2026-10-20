@@ -28,13 +28,15 @@ export async function generateMetadata({
   const story = allStories.find((s) => s.slug === slug);
   if (!story) return {};
   return {
-    title: fitTitle(story.title),
-    description: fitDescription(story.dek),
+    title: fitTitle((story.metaTitle ?? story.title).replace(/\s*\|\s*Borderless Kitchen\s*$/i, "")),
+    description: fitDescription(story.metaDescription ?? story.dek),
     alternates: { canonical: `/journal/${story.slug}` },
+    twitter: { card: "summary_large_image", title: story.title, description: fitDescription(story.metaDescription ?? story.dek), images: story.heroImageSrc ? [story.heroImageSrc] : [] },
     openGraph: {
       title: story.title,
-      description: fitDescription(story.dek),
+      description: fitDescription(story.metaDescription ?? story.dek),
       type: "article",
+      url: `/journal/${story.slug}`,
       publishedTime: story.date,
       images: story.heroImageSrc ? [{ url: story.heroImageSrc }] : [],
     },

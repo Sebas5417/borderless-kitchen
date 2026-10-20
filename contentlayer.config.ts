@@ -77,6 +77,9 @@ export const Story = defineDocumentType(() => ({
   filePathPattern: "stories/*.mdx",
   contentType: "mdx",
   fields: {
+    targetKeyword: { type: "string" },
+    metaTitle: { type: "string" },
+    metaDescription: { type: "string" },
     title: { type: "string", required: true },
     dek: { type: "string", required: true },
     date: { type: "date", required: true },

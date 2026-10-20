@@ -139,7 +139,7 @@ export default function BooksPage() {
                       <a
                         href={SMMC_AMAZON}
                         className="font-ui text-eyebrow uppercase text-ink border-b border-ink/40 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
-                      >
+                       rel="sponsored">
                         Buy Seoul Meets Mexico City on Amazon →
                       </a>
                       <p className="font-ui text-eyebrow uppercase text-ink/40">

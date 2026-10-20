@@ -141,7 +141,7 @@ export default function HomePage() {
             <Link
               href={SMMC_AMAZON}
               className="font-ui text-eyebrow uppercase text-paper/80 border-b border-paper/30 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300 shrink-0"
-            >
+             rel="sponsored">
               Buy Seoul Meets Mexico City on Amazon →
             </Link>
           </div>

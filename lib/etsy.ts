@@ -91,4 +91,4 @@ export function etsyUrl(p: Printable): string {
   return `https://www.etsy.com/listing/${p.id}/${p.slug}?${UTM}`;
 }
 
-export const ETSY_SHOP_URL = `https://www.etsy.com/shop/FacelessChannel?${UTM}`;
+export const ETSY_SHOP_URL = `https://www.etsy.com/shop/KindredAndKeen?${UTM}`;

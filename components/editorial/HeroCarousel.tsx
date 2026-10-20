@@ -75,7 +75,7 @@ export function HeroCarousel({ images, eyebrow, headline, link, interval = 5000 
             className="absolute inset-0 transition-opacity duration-1000"
             style={{ opacity: i === active ? 1 : 0 }}
           >
-            {i <= seen + 1 ? (
+            {i === active || i <= seen + (engaged ? 1 : 0) ? (
               <Image
                 src={img.src}
                 alt={img.alt}
@@ -103,7 +103,7 @@ export function HeroCarousel({ images, eyebrow, headline, link, interval = 5000 
         </h1>
         {link ? (
           <p className="mt-10 md:mt-12 text-paper">
-            <Link href={link.href} className="link-quiet text-paper text-lg md:text-xl">
+            <Link href={link.href} rel={link.href.includes("amazon.com/") ? "sponsored noopener noreferrer" : undefined} className="link-quiet text-paper text-lg md:text-xl">
               {link.label}
             </Link>
           </p>

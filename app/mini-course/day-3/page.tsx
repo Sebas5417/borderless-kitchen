@@ -5,6 +5,7 @@ import { FadeRise } from "@/components/motion/FadeRise";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/mini-course/day-3" },
   title: "Day 3: The Umami Pairing System | Fusion Kitchen Mini-Course",
   description:
     "Work through the Flavor Pairing Matrix. Learn the Italian-Japanese swaps and why the synergy pairs multiply umami 6-8x. Cook Ramen alla Carbonara.",

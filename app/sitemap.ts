@@ -1,6 +1,5 @@
 import { MetadataRoute } from "next";
 import {
-  allBooks,
   allStories,
   allPantryEntries,
   allFieldNotes,
@@ -29,18 +28,6 @@ function newestDate(items: { date: string }[]): Date | undefined {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // /books/* catalog pages canonicalize to the dedicated sales pages for
-  // TMT and SMMC (audit F4) — keep them at a supporting priority so the
-  // sales pages are the unambiguous primaries.
-  // Unreleased "coming" volumes are thin placeholder pages with no inbound
-  // links (crawl 2026-09-06) — keep them out of the sitemap; they also carry
-  // a noindex robots tag until they have a real launch.
-  const books = allBooks.filter((book) => book.status === "available").map((book) => ({
-    url: `${siteUrl}/books/${book.slug}`,
-    changeFrequency: "monthly" as const,
-    priority: 0.5,
-  }));
-
   const now = new Date();
   const stories = allStories
     .filter((story) => new Date(story.date) <= now)
@@ -105,9 +92,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // content implies a date and stamping today's would be the fake-lastmod problem again.
     { url: `${siteUrl}/printables`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteUrl}/free`, lastModified: newestRecipe, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${siteUrl}/preorder`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/mini-course`, changeFrequency: "monthly", priority: 0.8 },
-    ...books,
     ...stories,
     ...pantry,
     ...notes,

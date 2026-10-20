@@ -30,7 +30,7 @@ export function SiteFooter() {
             {[
               { href: "/books", label: "All volumes" },
               { href: "/books/tokyo-meets-tuscany", label: "Tokyo Meets Tuscany" },
-              { href: "/preorder", label: "Seoul Meets Mexico City ↗" },
+              { href: "/seoul-meets-mexico-city", label: "Seoul Meets Mexico City ↗" },
             ].map((item) => (
               <li key={item.href}>
                 <Link
@@ -52,10 +52,11 @@ export function SiteFooter() {
           <ul className="space-y-2 font-body text-sm text-ink">
             {[
               { href: "/free", label: "Free Recipes" },
+              { href: "/shop", label: "Pantry & Equipment" },
               { href: "/printables", label: "Printables" },
               { href: "/30-day-challenge", label: "30-Day Challenge" },
               { href: "/mini-course", label: "5-Day Mini-Course" },
-              { href: "/preorder", label: "Vol. II — Out Now" },
+              { href: "/seoul-meets-mexico-city", label: "Vol. II — Out Now" },
               { href: "/journal", label: "Journal" },
               { href: "/culture", label: "Culture" },
               { href: "/about", label: "About" },

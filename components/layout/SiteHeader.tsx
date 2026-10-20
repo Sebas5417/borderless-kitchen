@@ -10,7 +10,7 @@ const NAV = [
   { href: "/connect", label: "Connect" },
   { href: "/30-day-challenge", label: "Challenge", highlight: true },
   { href: "/free", label: "Free" },
-  { href: "/preorder", label: "Vol. II", preorder: true },
+  { href: "/seoul-meets-mexico-city", label: "Vol. II", preorder: true },
 ] as const;
 
 export function SiteHeader() {

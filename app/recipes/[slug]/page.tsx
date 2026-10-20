@@ -56,7 +56,7 @@ export async function generateMetadata({
       images: recipe.heroImageSrc ? [{ url: recipe.heroImageSrc }] : [],
     },
     twitter: recipe.heroImageSrc
-      ? { card: "summary_large_image", images: [recipe.heroImageSrc] }
+      ? { card: "summary_large_image", title, description, images: [recipe.heroImageSrc] }
       : undefined,
   };
 }

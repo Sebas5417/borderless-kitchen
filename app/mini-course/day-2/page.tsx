@@ -5,6 +5,7 @@ import { FadeRise } from "@/components/motion/FadeRise";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/mini-course/day-2" },
   title: "Day 2: Miso — Where Fermented Depth Meets Italian Technique | Fusion Kitchen Mini-Course",
   description:
     "Dissolve miso into pasta water. Make miso butter. Understand why white miso and Parmigiano are structurally equivalent — and when to use each.",

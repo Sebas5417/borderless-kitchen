@@ -140,7 +140,7 @@ export default async function CuisineHubPage({
         heading={hub.slug === "korean-italian" ? "Explore another Korean fusion kitchen." : "Get the Flavor Pairing Matrix free."}
         body={hub.slug === "korean-italian" ? "Seoul Meets Mexico City pairs Korean fermentation with layered Mexican heat in 30 recipes and six master sauces." : "The Italian × Japanese ingredient chart behind every recipe in the book. Printable, one page."}
         cta={hub.slug === "korean-italian" ? "Explore Vol. II →" : "Get the free chart →"}
-        href={hub.slug === "korean-italian" ? "/preorder" : "/free"}
+        href={hub.slug === "korean-italian" ? "/seoul-meets-mexico-city" : "/free"}
       />
     </>
   );

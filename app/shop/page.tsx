@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { directProductUrl } from "@/lib/affiliateProducts";
 import Link from "next/link";
 import { TMT_AMAZON } from "@/lib/amazon";
 import { Container } from "@/components/layout/Container";
@@ -18,43 +19,29 @@ export const metadata: Metadata = {
     url: "/shop",
     images: [
       {
-        url: "/images/tmt-cover-new.png",
+        url: "/images/tmt-cover.jpg",
         width: 1200,
         height: 630,
         alt: "Tokyo Meets Tuscany — the pantry behind the book",
       },
     ],
   },
-  twitter: { card: "summary_large_image", images: ["/images/tmt-cover-new.png"] },
+  twitter: { card: "summary_large_image", images: ["/images/tmt-cover.jpg"] },
 
 };
 
-/**
- * Amazon link for a pantry item.
- *
- * This used to be `/dp/${asin}`. On 2026-09-07 a fetch of every verbatim /dp/ href on the
- * site found 23 of 31 returning 404 on three consecutive attempts - 13 of them on this
- * page - while 8 other ASINs returned 200 in the same run, so it was rot rather than a bot
- * wall. A reader clicking the primary call to action on most of this page reached an Amazon
- * error.
- *
- * Now a SEARCH link built from the brand and name this page already displays. Nothing is
- * invented and no product is chosen in code: the query is the page's own text. Search links
- * are what the buying guides and the 34 pantry pages already use, and they cannot rot - a
- * listing dies, "Hikari Organic White Miso" does not.
- */
+// Use only currently verified product pages. Unmatched products retain their
+// sourcing advice without an outbound shopping link.
 const AMZ = (item: { brand: string; name: string }) => {
-  // Drop parenthetical glosses: "Katsuobushi (Bonito Flakes)" searches better without them.
   const name = item.name.replace(/\s*\([^)]*\)/g, " ");
   const q = `${item.brand} ${name}`.replace(/[^\w\s-]/g, " ").replace(/\s+/g, " ").trim();
-  return `https://www.amazon.com/s?k=${encodeURIComponent(q)}&tag=borderlesskitchen-20`;
+  return directProductUrl(q);
 };
 
 const JAPANESE_PANTRY = [
   {
     name: "White Miso (Shiro Miso)",
     brand: "Hikari Organic",
-    asin: "B004O2Y7E0",
     note:
       "The miso for Western cooking. Short fermentation, mild, sweet. Goes in pizza bianca, compound butter, pasta water. Do not confuse with red miso.",
     use: "Miso White Pizza, Miso Aglio e Olio, compound butter",
@@ -62,7 +49,6 @@ const JAPANESE_PANTRY = [
   {
     name: "Katsuobushi (Bonito Flakes)",
     brand: "Marutomo",
-    asin: "B004WOTK4I",
     note:
       "The inosinate source in dashi. When combined with kombu's glutamate, umami perception multiplies 6–8x. Also used as a finish on vegetables and tofu.",
     use: "Dashi, Tonkotsu Cacio e Pepe, Dashi Risotto",
@@ -70,7 +56,6 @@ const JAPANESE_PANTRY = [
   {
     name: "Kombu (Dried Kelp)",
     brand: "Wel-Pac",
-    asin: "B001HTIKJQ",
     note:
       "Highest naturally-occurring source of glutamate — 2,240mg per 100g vs Parmigiano's 1,200mg. The umami foundation of Japanese cooking. Simmer in water or olive oil; discard before serving.",
     use: "Dashi, kombu-infused olive oil, broths",
@@ -78,7 +63,6 @@ const JAPANESE_PANTRY = [
   {
     name: "Soy Sauce (Koikuchi Shoyu)",
     brand: "Kikkoman",
-    asin: "B004QRBFHS",
     note:
       "The fermented glutamate carrier in Japanese cooking. 1,090mg glutamate per 100g — close to sun-dried tomato, far ahead of most Italian single ingredients. Use where you'd use anchovy-dissolved-in-oil for invisible depth.",
     use: "All broths, marinades, ramen alla carbonara (optional)",
@@ -86,7 +70,6 @@ const JAPANESE_PANTRY = [
   {
     name: "Mirin (Sweet Rice Wine)",
     brand: "Kikkoman Hon Mirin",
-    asin: "B07DD7H4G8",
     note:
       "The Japanese equivalent of Marsala — sweet, alcoholic, fermented rice. Use to deglaze where the recipe calls for white wine when you want a sweeter, less tannic result. Essential in tiramisu matcha soak.",
     use: "Matcha tiramisu, glazes, braises",
@@ -94,7 +77,6 @@ const JAPANESE_PANTRY = [
   {
     name: "Gochujang (Korean Chili Paste)",
     brand: "Haechandle",
-    asin: "B00IK3II4W",
     note:
       "Fermented chili paste — heat plus umami plus sweetness. The Korean equivalent of Calabrian chili paste plus miso, combined. The ingredient behind both Korean-Mexican and Korean-Italian crossovers.",
     use: "Gochujang Short Rib Taco, Gochujang Crema, Kimchi Quesadilla",
@@ -102,7 +84,6 @@ const JAPANESE_PANTRY = [
   {
     name: "Rice Wine Vinegar",
     brand: "Marukan",
-    asin: "B0011UGMBU",
     note:
       "Softer than red wine vinegar. Lower in acetic acid, slightly sweet. Use where you want acid brightness without wine vinegar's sharpness — quick pickles, dressings, braising liquid finishes.",
     use: "Pickled daikon, sesame-lime slaw, quick pickles",
@@ -110,7 +91,6 @@ const JAPANESE_PANTRY = [
   {
     name: "Toasted Sesame Oil",
     brand: "Kadoya",
-    asin: "B074H5CL3N",
     note:
       "Not a cooking oil — a finishing oil. Strong flavor, low smoke point. Add at the end of cooking, exactly as you'd add good olive oil over finished pasta. The Japanese equivalent of the finishing drizzle.",
     use: "Gochujang crema, sesame dressing, noodle finishes",
@@ -121,7 +101,6 @@ const ITALIAN_PANTRY = [
   {
     name: "Pecorino Romano (DOP)",
     brand: "Fulvi",
-    asin: "B01N4LGJ8I",
     note:
       "Not Parmigiano. Sharper, saltier, higher in glutamates relative to its age. The correct cheese for carbonara, cacio e pepe, and amatriciana. When combining with miso, reduce salt everywhere else.",
     use: "Ramen alla Carbonara, Miso Cacio e Pepe",
@@ -129,7 +108,6 @@ const ITALIAN_PANTRY = [
   {
     name: "Guanciale (Cured Pork Jowl)",
     brand: "La Quercia (or local Italian market)",
-    asin: "B01LWPE9U6",
     note:
       "Not pancetta. Not bacon. Cured pork jowl with a higher fat-to-lean ratio and no smoke character. Renders cleaner and deeper than either substitute. The inosinate source in carbonara — cannot be functionally replaced without changing the dish.",
     use: "Ramen alla Carbonara, all carbonara variants",
@@ -137,7 +115,6 @@ const ITALIAN_PANTRY = [
   {
     name: "Calabrian Chili in Oil (Nduja paste or whole)",
     brand: "Tutto Calabria",
-    asin: "B07J7R8Y3C",
     note:
       "The Italian equivalent of gochujang in the chili function — fruity, oily, moderately hot. Does not have gochujang's fermented depth but has a better fat-delivery mechanism (already in oil). Use in pasta, pizza, marinades.",
     use: "Pasta all'arrabbiata, chili oil lasagna, pizza",
@@ -145,30 +122,17 @@ const ITALIAN_PANTRY = [
   {
     name: "Imported Italian Pasta (Rigatoni / Spaghetti)",
     brand: "De Cecco",
-    asin: "B07CZ1ZFQT",
     note:
       "Bronze-die extruded pasta has a rough surface that holds sauce. Teflon-extruded (most cheap pasta) has a smooth surface that slides. The texture difference is significant in emulsified sauces like carbonara.",
     use: "Any pasta recipe",
   },
 ];
 
-const SUBSCRIPTIONS = [
-  {
-    name: "Bokksu — Japanese Snack Subscription",
-    brand: "Bokksu",
-    asin: "",
-    bokksuLink: "https://www.bokksu.com/?refer=borderlesskitchen",
-    note:
-      "Monthly Japanese snack and pantry box. The fastest way to start building familiarity with Japanese flavor profiles — mochi, dashi crackers, matcha sweets. Each box comes with a culture guide. $15 credit per referral.",
-    use: "Flavor exploration, pantry introduction, gift",
-  },
-];
 
 const KOREAN_PANTRY = [
   {
     name: "Gochugaru (Korean Red Pepper Flakes)",
     brand: "Taekyung",
-    asin: "B09CLDRDBB",
     note:
       "The chili flakes that define kimchi and tteokbokki. Not interchangeable with regular chili flakes — gochugaru has a sweet, fruity heat (3/10 on most scales) and a vivid red color. Buy the 500g bag and freeze what you don't use within a month.",
     use: "Kimchi, gochujang substitute, tteokbokki, Korean fried chicken",
@@ -176,7 +140,6 @@ const KOREAN_PANTRY = [
   {
     name: "Doenjang (Korean Soybean Paste)",
     brand: "Haechandle",
-    asin: "B00ZDH4SCW",
     note:
       "The Korean equivalent of aged Japanese miso — fermented soybean paste with a deeper, earthier funk than shiro miso. The fermentation is longer and less controlled, producing a more complex, almost blue-cheese intensity. Use where you'd use miso but want more edge.",
     use: "Doenjang Carbonara, soups, dipping sauce, marinades",
@@ -184,7 +147,6 @@ const KOREAN_PANTRY = [
   {
     name: "Fish Sauce (Vietnamese or Thai)",
     brand: "Red Boat",
-    asin: "B007Y9TGM4",
     note:
       "The invisible umami intensifier across Korean, Thai, and Mexican coastal cooking. Red Boat is the premium standard — 40°N barrels, two-ingredient product (fish + salt). Used in kimchi paste, Korean soups, and anywhere you want savory depth without fishiness.",
     use: "Kimchi, doenjang jjigae, Korean braising liquid",
@@ -192,7 +154,6 @@ const KOREAN_PANTRY = [
   {
     name: "Tteok — Cylinder Rice Cakes (refrigerated)",
     brand: "Choripdong",
-    asin: "B07TD9ZK8K",
     note:
       "The Korean rice cake for tteokbokki. Dense, chewy, made from short-grain rice flour. Holds its shape in simmering sauce without dissolving. Functions as pasta substitute in Korean-Italian fusions — same structural role, different texture and flavor.",
     use: "Tteokbokki Arrabbiata, tteok soup, stir-fries",
@@ -203,7 +164,6 @@ const EQUIPMENT = [
   {
     name: "Baking Steel (for pizza)",
     brand: "Baking Steel Original",
-    asin: "B00HGOIOAK",
     note:
       "Mandatory for Miso White Pizza. Preheated for 45 minutes at maximum heat, it produces pizzeria-quality char on a home oven. The single most impactful pizza equipment upgrade available.",
     use: "Miso White Pizza, any pizza",
@@ -211,7 +171,6 @@ const EQUIPMENT = [
   {
     name: "Heavy Dutch Oven (5.5 qt)",
     brand: "Lodge",
-    asin: "B00CCO89UE",
     note:
       "Required for braising. Udon Bolognese and Gochujang Short Ribs need a heavy pot that holds even heat over a 2–3 hour braise. Lodge's enameled cast iron is the best price-to-performance option.",
     use: "Udon Bolognese, Gochujang Short Rib, all braises",
@@ -219,7 +178,6 @@ const EQUIPMENT = [
   {
     name: "Fine Mesh Sieve (for matcha dusting)",
     brand: "Cuisinart",
-    asin: "B00004S7V8",
     note:
       "For dusting matcha tiramisu and for straining dashi. The fine mesh is essential — coarser sieves clump matcha powder into blobs.",
     use: "Matcha Tiramisu, dashi straining",
@@ -229,21 +187,13 @@ const EQUIPMENT = [
 interface PantryItem {
   name: string;
   brand: string;
-  asin: string;
   note: string;
   use: string;
 }
 
-interface SubscriptionItem {
-  name: string;
-  brand: string;
-  asin: string;
-  bokksuLink: string;
-  note: string;
-  use: string;
-}
 
 function PantryCard({ item }: { item: PantryItem }) {
+  const productUrl = AMZ(item);
   return (
     <div className="border-b border-hairline py-8 group">
       <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
@@ -262,47 +212,14 @@ function PantryCard({ item }: { item: PantryItem }) {
           </p>
         </div>
         <div className="shrink-0">
-          <a
-            href={AMZ(item)}
+          {productUrl ? <a
+            href={productUrl}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer sponsored"
             className="inline-block font-ui text-eyebrow uppercase text-ink border border-ink/30 px-5 py-2.5 hover:border-vermillion hover:text-vermillion transition-colors duration-300"
           >
-            Find on Amazon →
-          </a>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function SubscriptionCard({ item }: { item: SubscriptionItem }) {
-  return (
-    <div className="border-b border-hairline py-8">
-      <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
-        <div className="flex-1">
-          <h3 className="font-display text-xl text-ink leading-tight mb-1">
-            {item.name}
-          </h3>
-          <p className="font-ui text-eyebrow uppercase text-ink/40 mb-3">
-            {item.brand}
-          </p>
-          <p className="font-body text-base text-ink/70 leading-relaxed mb-3">
-            {item.note}
-          </p>
-          <p className="font-ui text-eyebrow uppercase text-ink/40">
-            Good for: {item.use}
-          </p>
-        </div>
-        <div className="shrink-0">
-          <a
-            href={item.bokksuLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block font-ui text-eyebrow uppercase text-ink border border-ink/30 px-5 py-2.5 hover:border-vermillion hover:text-vermillion transition-colors duration-300"
-          >
-            Visit Bokksu →
-          </a>
+            View product on Amazon →
+          </a> : null}
         </div>
       </div>
     </div>
@@ -339,7 +256,7 @@ export default function ShopPage() {
                 and you can make any recipe in Tokyo Meets Tuscany.
               </p>
               {JAPANESE_PANTRY.map((item) => (
-                <PantryCard key={item.asin} item={item} />
+                <PantryCard key={item.name} item={item} />
               ))}
             </div>
 
@@ -353,7 +270,7 @@ export default function ShopPage() {
                 alongside the Japanese pantry to unlock the full Borderless Kitchen range.
               </p>
               {KOREAN_PANTRY.map((item) => (
-                <PantryCard key={item.asin} item={item} />
+                <PantryCard key={item.name} item={item} />
               ))}
             </div>
 
@@ -367,21 +284,7 @@ export default function ShopPage() {
                 one worth sourcing correctly rather than substituting.
               </p>
               {ITALIAN_PANTRY.map((item) => (
-                <PantryCard key={item.asin} item={item} />
-              ))}
-            </div>
-
-            {/* Subscriptions */}
-            <div className="mb-16">
-              <h2 className="font-display text-display-2 text-ink mb-2">
-                Japanese Ingredient Subscriptions
-              </h2>
-              <p className="font-body text-lg text-ink/60 mb-8 max-w-prose">
-                The fastest way to build Japanese pantry fluency — curated
-                monthly boxes with ingredients you will actually use.
-              </p>
-              {SUBSCRIPTIONS.map((item) => (
-                <SubscriptionCard key={item.name} item={item} />
+                <PantryCard key={item.name} item={item} />
               ))}
             </div>
 
@@ -395,7 +298,7 @@ export default function ShopPage() {
                 for specific recipes.
               </p>
               {EQUIPMENT.map((item) => (
-                <PantryCard key={item.asin} item={item} />
+                <PantryCard key={item.name} item={item} />
               ))}
             </div>
 
@@ -407,7 +310,7 @@ export default function ShopPage() {
               <Link
                 href={TMT_AMAZON}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer sponsored"
                 className="inline-block font-ui text-eyebrow uppercase text-paper bg-ink px-8 py-4 hover:bg-vermillion transition-colors duration-300"
               >
                 Tokyo Meets Tuscany on Amazon →
