@@ -53,6 +53,7 @@ export function SiteFooter() {
             {[
               { href: "/free", label: "Free Recipes" },
               { href: "/shop", label: "Pantry & Equipment" },
+              { href: "/tools", label: "Free Kitchen Planning Tools" },
               { href: "/printables", label: "Printables" },
               { href: "/30-day-challenge", label: "30-Day Challenge" },
               { href: "/mini-course", label: "5-Day Mini-Course" },
