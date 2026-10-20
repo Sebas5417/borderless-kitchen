@@ -4,6 +4,7 @@ import { useId, useState, useTransition } from "react";
 import { subscribe } from "@/app/_actions/subscribe";
 
 type Props = {
+  audience?: "newsletter" | "course";
   /** Eyebrow / label copy. Defaults to a quiet editorial line. */
   label?: string;
   placeholder?: string;
@@ -23,6 +24,7 @@ type WindowWithGtag = Window & {
 };
 
 export function NewsletterForm({
+  audience = "newsletter",
   label = "Letters from the kitchen",
   placeholder = "Your email",
   buttonLabel = "Subscribe",
@@ -68,6 +70,7 @@ export function NewsletterForm({
         });
       }}
     >
+      <input type="hidden" name="audience" value={audience} />
       <label
         htmlFor={emailInputId}
         className={["font-ui text-eyebrow uppercase block mb-3", inverted ? "text-paper/70" : "text-ink/70"].join(" ")}

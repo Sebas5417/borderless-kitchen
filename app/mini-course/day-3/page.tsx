@@ -212,14 +212,15 @@ export default function Day3Page() {
                   All 16 pairs. One page.
                 </p>
                 <p className="font-body text-sm text-ink/60 leading-relaxed">
-                  Sign up to receive the full Flavor Pairing Matrix as a downloadable PDF — with all 16 functional pairs.
+                  Get the printable Flavor Pairing Matrix and all five course lessons by email, starting with Day 1.
                 </p>
               </div>
               <NewsletterForm
-                  successLink={{ href: "/mini-course/day-1", label: "Start the course now →" }}
+                audience="course"
+                  successLink={{ href: "/flavor-pairing-matrix.pdf", label: "Download the Pairing Matrix →" }}
                 label="Your email"
                 placeholder="you@somewhere.com"
-                buttonLabel="Send me the chart"
+                buttonLabel="Send the course + chart"
               />
             </div>
           </FadeRise>

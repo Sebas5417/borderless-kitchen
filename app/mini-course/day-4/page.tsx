@@ -256,14 +256,15 @@ export default function Day4Page() {
                   Tomorrow: build your own fusion dish.
                 </p>
                 <p className="font-body text-sm text-ink/60 leading-relaxed">
-                  Get Day 5 — and the full reference pack — by email. Or come back here tomorrow.
+                  Get all five lessons and the reference pack by email, starting with Day 1.
                 </p>
               </div>
               <NewsletterForm
+                audience="course"
                   successLink={{ href: "/mini-course/day-1", label: "Start the course now →" }}
                 label="Your email"
                 placeholder="you@somewhere.com"
-                buttonLabel="Send me Day 5"
+                buttonLabel="Email me the course"
               />
             </div>
           </FadeRise>

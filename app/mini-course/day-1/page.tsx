@@ -211,6 +211,7 @@ export default function Day1Page() {
                 </p>
               </div>
               <NewsletterForm
+                audience="course"
                   successLink={{ href: "/mini-course/day-1", label: "Start the course now →" }}
                 label="Your email"
                 placeholder="you@somewhere.com"
