@@ -246,6 +246,13 @@ export default function ShopPage() {
               use and trust.
             </p>
 
+            <section aria-labelledby="planning-tools-heading" className="mb-16 border border-hairline p-6 md:p-8">
+              <p className="font-ui text-eyebrow uppercase text-ink/50 mb-3">Before you buy</p>
+              <h2 id="planning-tools-heading" className="font-display text-display-3 text-ink mb-4">Measure the space. Count what you need.</h2>
+              <p className="font-body text-base text-ink/70 max-w-prose mb-5">Our free planning tools help you count meal-prep containers, check lunch-bag fit, and compare bottle sizes. No email required.</p>
+              <Link href="/tools" className="inline-block font-ui text-eyebrow uppercase text-paper bg-ink px-6 py-3 hover:bg-vermillion transition-colors">Open the free kitchen tools →</Link>
+            </section>
+
             {/* Japanese pantry */}
             <div className="mb-16">
               <h2 className="font-display text-display-2 text-ink mb-2">
