@@ -96,7 +96,7 @@ export default function JournalPage() {
       <EmailCaptureCTA
         heading="Notes from the kitchen."
         body="New essays, volumes, and the occasional thing that didn't make the book."
-        cta="free.borderlesskitchenseries.com →"
+        cta="Get the free Flavor Pairing Matrix →"
       />
     </>
   );

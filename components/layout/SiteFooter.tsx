@@ -85,12 +85,12 @@ export function SiteFooter() {
           >
             85 free fusion recipes →
           </Link>
-          <a
-            href="https://free.borderlesskitchenseries.com"
+          <Link
+            href="/free"
             className="font-body text-xs text-ink/50 hover:text-vermillion transition-colors duration-300"
           >
             Email list + Flavor Pairing Matrix →
-          </a>
+          </Link>
           <div className="mt-8 pt-6 border-t border-hairline">
             <p className="font-body text-xs text-ink/40">
               © {year} Sebastian Dri. All rights reserved.

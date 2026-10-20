@@ -171,7 +171,7 @@ export default function AboutPage() {
       <EmailCaptureCTA
         heading="Stay close to the kitchen."
         body="New volumes, stories from the counter, and the occasional thing that didn't make it into the book."
-        cta="free.borderlesskitchenseries.com →"
+        cta="Get the free Flavor Pairing Matrix →"
       />
     </>
   );

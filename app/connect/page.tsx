@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
@@ -50,12 +51,12 @@ export default function ConnectPage() {
                 <p className="font-ui text-eyebrow uppercase text-ink/50 mb-4">
                   Free starter guide
                 </p>
-                <a
-                  href="https://free.borderlesskitchenseries.com"
+                <Link
+                  href="/free"
                   className="font-display italic text-xl text-ink hover:text-vermillion transition-colors duration-300"
                 >
-                  free.borderlesskitchenseries.com →
-                </a>
+                  Get the free Flavor Pairing Matrix →
+                </Link>
               </div>
 
               {/* Book */}

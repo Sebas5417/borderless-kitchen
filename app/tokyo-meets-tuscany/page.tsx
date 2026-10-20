@@ -190,7 +190,6 @@ export default function TokyoMeetsTuscanyPage() {
                     </li>
                   ))}
                 </ul>
-                {/* TODO: replace public/sauce-pack.pdf placeholder with the real Sauce Pack PDF */}
                 <SubscribeForm
                   list="tmt"
                   placeholder="your@email.com"

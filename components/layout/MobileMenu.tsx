@@ -129,12 +129,12 @@ export function MobileMenu() {
             <p className="font-ui text-eyebrow uppercase text-paper/40 mb-3">
               Get the free starter guide
             </p>
-            <a
-              href="https://free.borderlesskitchenseries.com"
+            <Link
+              href="/free"
               className="font-display italic text-paper/80 hover:text-vermillion transition-colors duration-300"
             >
-              free.borderlesskitchenseries.com →
-            </a>
+              Get the free Flavor Pairing Matrix →
+            </Link>
           </div>
         </div>
       </div>

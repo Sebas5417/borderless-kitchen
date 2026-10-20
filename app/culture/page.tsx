@@ -71,8 +71,8 @@ export default function CulturePage() {
 
       <EmailCaptureCTA
         heading="Get the free starter guide."
-        body="Get the free starter guide — five pantry ingredients and three techniques that unlock both cuisines."
-        cta="free.borderlesskitchenseries.com →"
+        body="Get the Flavor Pairing Matrix and discover practical ingredient swaps across Japanese and Italian cooking."
+        cta="Get the free Flavor Pairing Matrix →"
       />
     </>
   );
