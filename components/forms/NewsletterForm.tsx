@@ -27,7 +27,7 @@ export function NewsletterForm({
   placeholder = "Your email",
   buttonLabel = "Subscribe",
   variant = "default",
-  successLink,
+  successLink = { href: "/flavor-pairing-matrix.pdf", label: "Download the Flavor Pairing Matrix →" },
 }: Props) {
   const [pending, startTransition] = useTransition();
   const [state, setState] = useState<
@@ -41,24 +41,29 @@ export function NewsletterForm({
       className="w-full max-w-md"
       onSubmit={(e) => {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget);
+        const form = e.currentTarget;
+        const formData = new FormData(form);
         startTransition(async () => {
-          const result = await subscribe(formData);
-          if (result.ok) {
-            setState({ kind: "ok" });
-            (e.target as HTMLFormElement).reset();
-            (window as WindowWithGtag).gtag?.("event", "newsletter_signup", {
-              form_label: label,
-              page_path: window.location.pathname,
-            });
-          } else {
-            setState({
-              kind: "error",
-              message:
-                result.error === "invalid-email"
-                  ? "That doesn't look like an email address."
-                  : "Something went wrong. Please try again.",
-            });
+          try {
+            const result = await subscribe(formData);
+            if (result.ok) {
+              setState({ kind: "ok" });
+              form.reset();
+              (window as WindowWithGtag).gtag?.("event", "newsletter_signup", {
+                form_label: label,
+                page_path: window.location.pathname,
+              });
+            } else {
+              setState({
+                kind: "error",
+                message:
+                  result.error === "invalid-email"
+                    ? "That doesn't look like an email address."
+                    : "Something went wrong. Please try again.",
+              });
+            }
+          } catch {
+            setState({ kind: "error", message: "We could not complete your signup. Please try again." });
           }
         });
       }}
@@ -93,9 +98,9 @@ export function NewsletterForm({
       {state.kind === "error" ? (
         <p role="alert" className="mt-3 font-ui text-xs text-vermillion">{state.message}</p>
       ) : state.kind === "ok" ? (
-        <div className="mt-3">
-          <p className="font-ui text-xs text-ink/60">
-            You'll hear from the kitchen soon.
+        <div className="mt-3" role="status">
+          <p className={`font-ui text-xs ${inverted ? "text-paper/70" : "text-ink/60"}`}>
+            You're subscribed. Your free resource is ready below.
           </p>
           {successLink ? (
             <a

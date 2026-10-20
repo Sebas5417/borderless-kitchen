@@ -116,6 +116,7 @@ export default function MiniCoursePage() {
               </p>
               <div className="max-w-md">
                 <NewsletterForm
+                  successLink={{ href: "/mini-course/day-1", label: "Start the course now →" }}
                   variant="inverted" label="Start Day 1 now — enter your email"
                   placeholder="you@somewhere.com"
                   buttonLabel="Send me the course"
@@ -197,6 +198,7 @@ export default function MiniCoursePage() {
                   Five emails. Five techniques. Zero cost.
                 </p>
                 <NewsletterForm
+                  successLink={{ href: "/mini-course/day-1", label: "Start the course now →" }}
                   label="Your email"
                   placeholder="you@somewhere.com"
                   buttonLabel="Start the course"
@@ -256,6 +258,7 @@ export default function MiniCoursePage() {
                 </p>
               </div>
               <NewsletterForm
+                  successLink={{ href: "/mini-course/day-1", label: "Start the course now →" }}
                 label="Start now"
                 placeholder="you@somewhere.com"
                 buttonLabel="Send me Day 1"

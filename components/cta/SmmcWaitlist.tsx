@@ -43,7 +43,8 @@ export function SmmcWaitlist({ dark = true }: Props) {
         placeholder="your@email.com"
         buttonLabel="Send me recipes"
         dark={dark}
-        successMessage="You're on the list. Free Korean-Mexican recipes are on the way."
+        successMessage="You're on the list. Start cooking with the free recipes below."
+        successLink={{ href: "/recipes/cuisine/korean-mexican", label: "Browse the Korean–Mexican recipes →" }}
       />
     </div>
   );
