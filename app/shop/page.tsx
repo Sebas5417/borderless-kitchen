@@ -7,10 +7,10 @@ import { PageHero } from "@/components/editorial/PageHero";
 import { FadeRise } from "@/components/motion/FadeRise";
 
 export const metadata: Metadata = {
-  title: "The Pantry",
+  title: "Japanese, Korean & Italian Pantry Essentials",
   alternates: { canonical: "/shop" },
   description:
-    "The Japanese and Italian pantry ingredients behind every recipe in the Borderless Kitchen series — with sourcing notes and where to find them.",
+    "Japanese, Korean, and Italian pantry essentials: miso, shoyu, mirin, gochujang, pecorino, recipe uses, and where to buy.",
   openGraph: { ...({
     title: "The Borderless Kitchen Pantry",
     description:
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
         alt: "Tokyo Meets Tuscany — the pantry behind the book",
       },
     ],
-  }), title: "The Pantry", description: "The Japanese and Italian pantry ingredients behind every recipe in the Borderless Kitchen series — with sourcing notes and where to find them.", url: "/shop" },
-  twitter: { ...({ card: "summary_large_image", images: ["/images/tmt-cover.jpg"] }), title: "The Pantry", description: "The Japanese and Italian pantry ingredients behind every recipe in the Borderless Kitchen series — with sourcing notes and where to find them.", card: "summary_large_image" },
+  }), title: "Japanese, Korean & Italian Pantry Essentials", description: "Japanese, Korean, and Italian pantry essentials: miso, shoyu, mirin, gochujang, pecorino, recipe uses, and where to buy.", url: "/shop" },
+  twitter: { ...({ card: "summary_large_image", images: ["/images/tmt-cover.jpg"] }), title: "Japanese, Korean & Italian Pantry Essentials", description: "Japanese, Korean, and Italian pantry essentials: miso, shoyu, mirin, gochujang, pecorino, recipe uses, and where to buy.", card: "summary_large_image" },
 
 };
 
@@ -231,8 +231,8 @@ export default function ShopPage() {
     <>
       <PageHero
         eyebrow="The Pantry"
-        headline="What to stock before you cook."
-        dek="The Japanese and Italian ingredients behind every recipe in the Borderless Kitchen series — what each one does and where to find it."
+        headline="Japanese, Korean & Italian pantry essentials."
+        dek="Ingredient-by-ingredient guide to Japanese, Korean, and Italian pantry staples: what they do, recipe uses, and where to find them."
         src="/images/banner-culture.png"
         alt="The Borderless Kitchen pantry — key ingredients from Japanese and Italian cooking traditions."
       />
