@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/tmt-cover.jpg",
-        width: 1200,
-        height: 630,
+        width: 1000,
+        height: 1293,
         alt: "Tokyo Meets Tuscany cookbook cover",
       },
     ],

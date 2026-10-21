@@ -49,8 +49,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: `${siteUrl}/images/banner-carousel-1.png`,
-        width: 1200,
-        height: 630,
+        width: 2172,
+        height: 724,
         alt: "Borderless Kitchen — cross-cultural cookbook series",
       },
     ],
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Borderless Kitchen — Cookbooks Across Cultures",
     description:
-      "A cookbook series by Sebastian Dri. Vol. I: Tokyo Meets Tuscany — thirty fusion recipes between Italian and Japanese kitchens.",
+      "Explore Tokyo Meets Tuscany and Seoul Meets Mexico City: Japanese–Italian and Korean–Mexican cookbooks by Sebastian Dri.",
     images: [`${siteUrl}/images/banner-carousel-1.png`],
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },

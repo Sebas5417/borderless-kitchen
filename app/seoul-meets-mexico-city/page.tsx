@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/smmc-cover-current.png",
-        width: 1200,
-        height: 630,
+        width: 602,
+        height: 785,
         alt: "Seoul Meets Mexico City — Borderless Kitchen Vol. II cover",
       },
     ],
@@ -89,6 +89,9 @@ const smmcBookSchema = {
   },
   publisher: { "@type": "Organization", name: "Borderless Kitchen" },
   inLanguage: "en",
+  bookFormat: "https://schema.org/EBook",
+  numberOfPages: 194,
+  datePublished: "2026-06-28",
   genre: ["Cookbook", "Fusion Cuisine", "Cross-cultural cooking"],
   description:
     "The second Borderless Kitchen volume — 30 recipes and 6 master sauces where Korean and Mexican cooking traditions meet.",
