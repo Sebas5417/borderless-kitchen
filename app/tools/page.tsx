@@ -13,6 +13,8 @@ const tools = [
   { title: "Count your meal-prep containers", detail: "Calculate the packing slots you need, then subtract containers you already own.", path: "/meal-prep-container-planner", action: "Calculate my container count", id: "container-count" },
   { title: "Check lunch-bag fit", detail: "Compare your bag's usable interior with a container's outside dimensions and leave clearance.", path: "/lunch-bag-fit-checker", action: "Check whether it fits", id: "lunch-fit" },
   { title: "Compare bottle sizes", detail: "Translate 24, 32 and 40 US fluid ounces into millilitres and compare the space each size takes.", path: "/water-bottle-size-comparison", action: "Compare bottle sizes", id: "bottle-size" },
+  { title: "Compare container-set costs", detail: "Enter two current prices and usable container counts. Lids are counted separately.", path: "/container-set-value-calculator", action: "Compare price per container", id: "set-value" },
+  { title: "Check your cupboard layout", detail: "Estimate an upright grid using shelf interior and container exterior measurements.", path: "/container-shelf-fit-calculator", action: "Check shelf fit", id: "shelf-fit" },
 ];
 
 export default function ToolsPage() {
