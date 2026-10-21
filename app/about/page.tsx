@@ -117,8 +117,8 @@ export default function AboutPage() {
                     <p className="font-body text-sm text-ink/70 leading-relaxed">
                       Four volumes. Four pairings of cuisines that already share
                       more than they admit. Vol.&nbsp;I — Tokyo Meets Tuscany —
-                      is out. Vol.&nbsp;II — Seoul Meets Mexico City — is in
-                      progress.
+                      is out. Vol.&nbsp;II — Seoul Meets Mexico City — is also
+                      available in paperback and on Kindle.
                     </p>
                   </div>
                   <div>

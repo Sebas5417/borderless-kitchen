@@ -89,13 +89,13 @@ It was better than most things I'd made on purpose.
 
 Over the next few weeks I kept applying the same logic: what does this Italian ingredient *do*, and what Japanese ingredient does the same thing? The carbonara-ramen came out of it. The soy-balsamic glaze. The chili oil lasagna.
 
-By the time I had 37 recipes, I had a book.
+By the time I had 30 recipes, I had a book.
 
-*Tokyo Meets Tuscany* is on Amazon now — paperback, hardcover, and Kindle. It's everything that came out of that logic applied consistently: 37 Japanese-Italian fusion recipes, all built on function, all tested in a home kitchen.
+*Tokyo Meets Tuscany* is on Amazon now — paperback and Kindle. It's everything that came out of that logic applied consistently: 30 Japanese-Italian fusion recipes, all built on function, all tested in a home kitchen.
 
 **[Get Tokyo Meets Tuscany on Amazon →](https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20)**
 
-Paperback $24.99 · Hardcover $34.99 · Kindle $9.99
+See Amazon for current formats and prices.
 
 The second book in the series — *Seoul Meets Mexico City* — applies the same logic to Korean and Mexican cuisine. Gochujang and adobo. Kimchi and tacos. Doenjang and mole. It's out now, in paperback and on Kindle.
 
