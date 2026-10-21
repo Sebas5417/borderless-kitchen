@@ -37,7 +37,7 @@ That's the whole system.
 
 — Sebastian, Borderless Kitchen
 
-P.S. Each sauce is also in *Tokyo Meets Tuscany* in its full recipe context. The book is on Amazon if you want the whole thing: [Tokyo Meets Tuscany →](https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20)
+P.S. Each sauce is also in *Tokyo Meets Tuscany* in its full recipe context. The book is on Amazon if you want the whole thing: [Tokyo Meets Tuscany →](https://borderlesskitchenseries.com/tokyo-meets-tuscany)
 
 ---
 
@@ -93,13 +93,13 @@ By the time I had 30 recipes, I had a book.
 
 *Tokyo Meets Tuscany* is on Amazon now — paperback and Kindle. It's everything that came out of that logic applied consistently: 30 Japanese-Italian fusion recipes, all built on function, all tested in a home kitchen.
 
-**[Get Tokyo Meets Tuscany on Amazon →](https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20)**
+**[Get Tokyo Meets Tuscany on Amazon →](https://borderlesskitchenseries.com/tokyo-meets-tuscany)**
 
 See Amazon for current formats and prices.
 
 The second book in the series — *Seoul Meets Mexico City* — applies the same logic to Korean and Mexican cuisine. Gochujang and adobo. Kimchi and tacos. Doenjang and mole. It's out now, in paperback and on Kindle.
 
-**[Get Seoul Meets Mexico City on Amazon →](https://www.amazon.com/dp/B0H6VD21M2?tag=borderlesskitchen-20)**
+**[Get Seoul Meets Mexico City on Amazon →](https://borderlesskitchenseries.com/seoul-meets-mexico-city)**
 
 — Sebastian, Borderless Kitchen
 
@@ -112,7 +112,7 @@ The second book in the series — *Seoul Meets Mexico City* — applies the same
 3. Copy the Group ID (shown in the URL or group settings)
 4. Add to Vercel env vars:
    - `MAILERLITE_API_KEY` = your API key
-   - `MAILERLITE_GROUP_ID` = the group ID you just created
+   - `MAILERLITE_TMT_GROUP_ID` = the group ID you just created (the /tokyo-meets-tuscany form posts `list="tmt"`, which `app/api/subscribe/route.ts` maps to this variable)
 5. **Automation → Create new:**
    - Trigger: Subscriber joins group "TMT Subscribers"
    - Delay 0: Send Email 1
@@ -121,4 +121,4 @@ The second book in the series — *Seoul Meets Mexico City* — applies the same
 6. Set the Sauce Pack download link in Email 1 to: `https://borderlesskitchenseries.com/sauce-pack.pdf`
 7. Activate automation
 
-**Note:** The subscribe form on /tokyo-meets-tuscany uses the existing `subscribe` server action which already calls `https://connect.mailerlite.com/api/subscribers` with the configured group ID. No additional code changes needed once env vars are set.
+**Note:** The subscribe form on /tokyo-meets-tuscany posts to `/api/subscribe` with `list="tmt"`, which adds the subscriber to the group in `MAILERLITE_TMT_GROUP_ID`. No code changes are needed once the env vars are set.

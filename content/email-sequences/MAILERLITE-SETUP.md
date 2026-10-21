@@ -80,7 +80,7 @@ Get the mini-course group ID from MailerLite → Subscribers → Groups → Mini
 ---
 
 ## Notes
-- All emails reference the book: amazon.com/dp/B0GY8H2TCQ
-- Day 5 is the primary book conversion email — reply CTA + Amazon link
+- Emails link to the book through the site (borderlesskitchenseries.com/tokyo-meets-tuscany), never straight to Amazon: Amazon Associates bars affiliate links in email.
+- Day 5 is the primary book conversion email: a reply CTA plus the site link to the book
 - Each email ends with unsubscribe link (MailerLite handles this automatically)
 - Suggest adding a tag "mini-course-completed" after Day 5 for future segmentation

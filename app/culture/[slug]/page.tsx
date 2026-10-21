@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { allPantryEntries } from "contentlayer/generated";
+import { allPantryEntries, allStories } from "contentlayer/generated";
 import { Container } from "@/components/layout/Container";
 import { RedRule } from "@/components/editorial/RedRule";
 import { ProseLayout } from "@/components/editorial/ProseLayout";
@@ -46,7 +46,9 @@ export async function generateMetadata({
   };
 }
 
-import { TMT_AMAZON } from "@/lib/amazon";
+import { bookFor } from "@/lib/amazon";
+import { GuideCallout } from "@/components/cta/GuideCallout";
+import { guidesFor } from "@/lib/storyGuides";
 
 export default async function CultureEntryPage({
   params,
@@ -56,6 +58,20 @@ export default async function CultureEntryPage({
   const { slug } = await params;
   const entry = allPantryEntries.find((e) => e.slug === slug);
   if (!entry) notFound();
+  // Buying guides this entry points at (2026-10-14): first any guide its own name
+  // matches (gochujang -> gochujang brands), then guides its text names twice.
+  const now = new Date();
+  const guideSlugs = [
+    ...new Set([
+      ...guidesFor(entry.term, "", 2, 1),
+      ...guidesFor(entry.body.raw, "", 2, 2),
+    ]),
+  ].slice(0, 2);
+  const guideLinks = guideSlugs
+    .map((g) => allStories.find((st) => st.slug === g && new Date(st.date) <= now))
+    .filter((g): g is (typeof allStories)[number] => Boolean(g))
+    .map((g) => ({ slug: g.slug, title: g.title }));
+  const book = bookFor(entry.origin, entry.slug, entry.term);
   const shoppingUrl = isShoppable(entry) ? pantryShopUrl(entry.term) : undefined;
 
   const sorted = [...allPantryEntries].sort((a, b) =>
@@ -202,12 +218,14 @@ export default async function CultureEntryPage({
               </div>
             ) : null}
 
+            <GuideCallout guides={guideLinks} />
+
             {/* Book CTA */}
             <div className="mt-14 pt-10 border-t border-hairline">
               <p className="font-body text-sm text-ink/60 mb-5">
-                {entry.term} appears in the recipes of Tokyo Meets Tuscany.
+                Cook more from this pantry in {book.title}.
               </p>
-              <AmazonCTA href={TMT_AMAZON} />
+              <AmazonCTA href={book.href} label={`Get ${book.title} on Amazon`} />
             </div>
 
             {/* Prev/Next */}

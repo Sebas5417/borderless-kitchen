@@ -63,6 +63,7 @@ export function SiteFooter() {
               { href: "/mini-course", label: "5-Day Mini-Course" },
               { href: "/seoul-meets-mexico-city", label: "Vol. II — Out Now" },
               { href: "/journal", label: "Journal" },
+              { href: "/guides", label: "Buying Guides" },
               { href: "/culture", label: "Culture" },
               { href: "/about", label: "About" },
               { href: "/connect", label: "Connect" },

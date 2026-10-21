@@ -6,13 +6,11 @@ import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/mini-course/day-3" },
-  title: "Day 3: The Umami Pairing System | Fusion Kitchen Mini-Course",
+  title: "Mini-Course Day 3: The Umami Pairing System",
   description:
-    "Work through the Flavor Pairing Matrix. Learn the Italian-Japanese swaps and why the synergy pairs multiply umami 6-8x. Cook Ramen alla Carbonara.",
-
-  twitter: { ...({}), title: "Day 3: The Umami Pairing System | Fusion Kitchen Mini-Course", description: "Work through the Flavor Pairing Matrix. Learn the Italian-Japanese swaps and why the synergy pairs multiply umami 6-8x. Cook Ramen alla Carbonara.", card: "summary_large_image" },
-
-  openGraph: { ...({}), title: "Day 3: The Umami Pairing System | Fusion Kitchen Mini-Course", description: "Work through the Flavor Pairing Matrix. Learn the Italian-Japanese swaps and why the synergy pairs multiply umami 6-8x. Cook Ramen alla Carbonara.", url: "/mini-course/day-3" },
+    "Work through the Flavor Pairing Matrix. Learn the Italian-Japanese swaps and why the synergy pairs multiply umami. Cook Ramen alla Carbonara.",
+  openGraph: { title: "Mini-Course Day 3: The Umami Pairing System", description: "Work through the Flavor Pairing Matrix. Learn the Italian-Japanese swaps and why the synergy pairs multiply umami. Cook Ramen alla Carbonara." },
+  twitter: { title: "Mini-Course Day 3: The Umami Pairing System", description: "Work through the Flavor Pairing Matrix. Learn the Italian-Japanese swaps and why the synergy pairs multiply umami. Cook Ramen alla Carbonara." },
 };
 
 const PAIRINGS = [
@@ -118,7 +116,7 @@ export default function Day3Page() {
                   Umami compounds fall into two categories: <strong>glutamates</strong> (found in fermented and aged foods: Parm, miso, soy sauce, kombu) and <strong>ribonucleotides</strong> — specifically inosinate and guanylate (found in meat, fish, and dried mushrooms).
                 </p>
                 <p className="font-body text-base text-ink/80 leading-relaxed">
-                  When glutamates and ribonucleotides appear together, umami perception increases by a factor of <strong>6–8x</strong> — not 2x, not additive, but multiplicative. This is called umami synergy. Parmigiano (glutamate) + guanciale (inosinate) in carbonara. Kombu (glutamate) + katsuobushi (inosinate) in dashi. These dishes taste so good partly because they exploit this synergy systematically.
+                  When glutamates and ribonucleotides appear together, umami can taste many times stronger — <strong>up to about 8x</strong> in lab taste tests — not additive, but multiplicative. This is called umami synergy. Parmigiano (glutamate) + chicken stock (inosinate) in risotto. Kombu (glutamate) + katsuobushi (inosinate) in dashi. These dishes taste so good partly because they exploit this synergy systematically.
                 </p>
               </div>
 
@@ -160,7 +158,7 @@ export default function Day3Page() {
                     "In a small bowl, whisk together eggs, yolks, and Parmigiano. Add the miso and whisk until smooth. This is your carbonara base — the miso replaces some Pecorino and adds fermented depth without being identifiable.",
                     "Cook guanciale in a dry pan over medium heat until crispy and the fat has rendered. Add the katsuobushi to the hot fat, stir for 30 seconds — it toasts and absorbs the pork fat. Remove from heat. The katsuobushi will crisp slightly.",
                     "Cook ramen noodles according to package. Reserve 1 cup of noodle water. Drain and add to the guanciale pan (heat off).",
-                    "Working quickly, pour the egg-miso mixture over the noodles. Toss constantly, adding pasta water a little at a time. The goal: creamy, glossy sauce — not scrambled eggs. The noodle water drops the temp of the pan and the starch helps emulsify.",
+                    "Working quickly, pour the egg-miso mixture over the noodles. Toss constantly, adding pasta water a little at a time. The goal: creamy, glossy sauce — not scrambled eggs. The noodle water drops the temp of the pan and the starch helps emulsify. (The eggs are only lightly cooked; use pasteurized eggs if you're cooking for anyone pregnant, elderly, very young or immunocompromised.)",
                     "Plate into warmed bowls. Finish with cracked black pepper, a few torn pieces of nori, and extra Parmigiano. Eat immediately.",
                   ].map((step, i) => (
                     <li key={i} className="flex gap-6">

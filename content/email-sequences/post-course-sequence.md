@@ -23,7 +23,7 @@ Reply and tell me. I read every reply — and your answer actually shapes what I
 
 — Sebastian
 
-P.S. If the mini-course convinced you that there's something real going on between Japanese and Italian cooking, the book goes deeper. 85 recipes, the full science, and the history of how these two traditions developed the same flavor logic independently. [Get Tokyo Meets Tuscany on Amazon](https://amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20)
+P.S. If the mini-course convinced you that there's something real going on between Japanese and Italian cooking, the book goes deeper. 30 recipes and 6 master sauces, the full science, and the history of how these two traditions developed the same flavor logic independently. [Get Tokyo Meets Tuscany on Amazon](https://borderlesskitchenseries.com/tokyo-meets-tuscany)
 
 ---
 
@@ -96,7 +96,11 @@ Also: if you haven't tried anything yet and the course is sitting in your inbox 
 
 ---
 
-For everyone who does want to go deeper: the book has 85 tested recipes organized around the same framework as the course. It's the full system. [Tokyo Meets Tuscany on Amazon.](https://amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20)
+For everyone who does want to go deeper: the book has 30 tested recipes and 6 master sauces organized around the same framework as the course. It's the full system. [Tokyo Meets Tuscany on Amazon.](https://borderlesskitchenseries.com/tokyo-meets-tuscany)
+
+If you'd rather have something printable for the counter, the Fusion Flavor Playbook puts the pairing logic on a few pages ($12): [facelesschannel.gumroad.com/l/uycpjs](https://facelesschannel.gumroad.com/l/uycpjs)
+<!-- Once the Fusion Kitchen Workbook is on Gumroad, swap the line above for:
+If you'd rather have the whole course on paper, the Fusion Kitchen Workbook has all five lessons, a pantry shopping list, a substitution chart and a one-week cooking plan: [WORKBOOK URL] -->
 
 — Sebastian
 

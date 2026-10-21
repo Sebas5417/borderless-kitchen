@@ -6,7 +6,7 @@ import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/mini-course/day-4" },
-  title: "Day 4: Mirin, Sake & Fermented Sweetness | Fusion Kitchen Mini-Course",
+  title: "Mini-Course Day 4: Mirin, Sake and Sweetness",
   description:
     "Cook teriyaki from scratch. Understand why mirin is not the same as sugar and what fermented sweetness adds to a dish that refined sugar doesn't.",
 
@@ -69,8 +69,8 @@ export default function Day4Page() {
                         "Pure sucrose — one-dimensional sweetness",
                         "No complexity or depth",
                         "Does not contribute aroma",
-                        "Caramelizes above 160°C into bitter compounds",
-                        "No protein interaction (no Maillard at normal temps)",
+                        "Caramelizes only at high heat (around 160°C)",
+                        "Sucrose isn't a reducing sugar, so it browns less readily with protein",
                       ].map((item) => (
                         <li key={item} className="flex gap-3">
                           <span className="text-ink/30">—</span>
@@ -83,10 +83,10 @@ export default function Day4Page() {
                     <p className="font-ui text-eyebrow uppercase text-vermillion mb-3">Mirin (hon-mirin)</p>
                     <ul className="space-y-3">
                       {[
-                        "Complex sugars from rice + koji fermentation",
+                        "Glucose-rich sweetness from rice and koji, steeped in shochu",
                         "Subtle sweetness with umami undertone",
-                        "Contributes aromatic depth (300+ compounds)",
-                        "Promotes glossy, lacquered surface on protein",
+                        "Contributes aromatic depth",
+                        "Its glucose browns readily with soy (Maillard), giving a glossy lacquer",
                         "The alcohol carries aromatics and tenderizes",
                       ].map((item) => (
                         <li key={item} className="flex gap-3">

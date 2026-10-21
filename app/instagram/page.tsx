@@ -5,6 +5,7 @@ import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { SubscribeForm } from "@/components/forms/SubscribeForm";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
+import { GUMROAD_SMMC, GUMROAD_PLAYBOOK } from "@/lib/gumroad";
 
 /**
  * The landing page for @_borderlesskitchen traffic.
@@ -18,14 +19,12 @@ import { AmazonCTA } from "@/components/cta/AmazonCTA";
  * letting Google index it would just split the ranking signal.
  */
 export const metadata: Metadata = {
-  title: "Welcome from Instagram — Your Free Fusion Recipe Pack",
+  title: "Your Free Fusion Recipe Pack",
   description:
     "The three fusion recipes we promised, plus both Borderless Kitchen cookbooks — Tokyo Meets Tuscany and Seoul Meets Mexico City.",
   robots: { index: false, follow: true },
 };
 
-const GUMROAD_SMMC = "https://facelesschannel.gumroad.com/l/dqnqe";
-const GUMROAD_PLAYBOOK = "https://facelesschannel.gumroad.com/l/uycpjs";
 
 const STARTER_RECIPES = [
   {
