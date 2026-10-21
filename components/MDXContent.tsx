@@ -26,19 +26,22 @@ export function MDXContent({ code, storySlugs, pantrySlugs }: Props) {
   const MDX = useMDXComponent(code);
 
   const components = useMemo(() => {
-    if (!storySlugs && !pantrySlugs) return undefined;
     const stories = new Set(storySlugs ?? []);
     const pantry = new Set(pantrySlugs ?? []);
 
     function SafeLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
-      const { href, children, ...rest } = props;
+      const { href, children, rel, ...rest } = props;
+      const affiliate = typeof href === "string" && /^https:\/\/(?:www\.)?(?:amazon\.com\/.*[?&]tag=|bokksu\.com\/.*[?&]refer=)/.test(href);
+      const linkRel = affiliate
+        ? Array.from(new Set([...(rel ?? "").split(/\s+/).filter(Boolean), "sponsored", "noopener", "noreferrer"])).join(" ")
+        : rel;
       if (typeof href === "string") {
         const j = href.match(JOURNAL_RE);
         if (j && storySlugs) {
           if (!stories.has(j[1])) return <span {...rest}>{children}</span>;
           // legacy /stories/<slug> → canonical /journal/<slug>
           return (
-            <Link href={`/journal/${j[1]}`} {...rest}>
+            <Link href={href.replace(/^\/stories\//, "/journal/")} {...rest} rel={linkRel}>
               {children}
             </Link>
           );
@@ -49,7 +52,7 @@ export function MDXContent({ code, storySlugs, pantrySlugs }: Props) {
         }
       }
       return (
-        <a href={href} {...rest}>
+        <a href={href} {...rest} rel={linkRel}>
           {children}
         </a>
       );

@@ -3,12 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { allBooks, allStories, allFieldNotes } from "contentlayer/generated";
 import { Container } from "@/components/layout/Container";
-import { HeroCarousel } from "@/components/editorial/HeroCarousel";
-import { PhilosophyStrip } from "@/components/editorial/PhilosophyStrip";
-import { EditorialImage } from "@/components/media/EditorialImage";
+import { AvailableBooks } from "@/components/editorial/AvailableBooks";
 import { BookCard } from "@/components/cards/BookCard";
 import { StoryCard } from "@/components/cards/StoryCard";
-import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { FadeRise } from "@/components/motion/FadeRise";
@@ -16,16 +13,19 @@ import { FadeRise } from "@/components/motion/FadeRise";
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
   title: {
-    absolute: "Borderless Kitchen — Italian soul. Japanese precision.",
+    absolute: "Borderless Kitchen — Japanese–Italian & Korean–Mexican Cookbooks",
   },
   description:
-    "Borderless Kitchen — Italian soul meets Japanese precision. Shop Tokyo Meets Tuscany and explore bold, cross-cultural cookbooks and recipes by Sebastian.",
+    "Explore Tokyo Meets Tuscany and Seoul Meets Mexico City: Japanese–Italian and Korean–Mexican cookbooks by Sebastian Dri, plus free recipes.",
+
+  twitter: { ...({}), title: "Borderless Kitchen — Japanese–Italian & Korean–Mexican Cookbooks", description: "Explore Tokyo Meets Tuscany and Seoul Meets Mexico City: Japanese–Italian and Korean–Mexican cookbooks by Sebastian Dri, plus free recipes.", card: "summary_large_image", images: ["/images/banner-carousel-1.png"] },
+
+  openGraph: { ...({}), title: "Borderless Kitchen — Japanese–Italian & Korean–Mexican Cookbooks", description: "Explore Tokyo Meets Tuscany and Seoul Meets Mexico City: Japanese–Italian and Korean–Mexican cookbooks by Sebastian Dri, plus free recipes.", url: "/", images: [{ url: "/images/banner-carousel-1.png", width: 2172, height: 724, alt: "Borderless Kitchen — cross-cultural cookbook series" }] },
 };
 
-import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
+import { SMMC_AMAZON } from "@/lib/amazon";
 
 export default function HomePage() {
-  const tmt = allBooks.find((b) => b.slug === "tokyo-meets-tuscany");
   const upcoming = allBooks
     .filter((b) => b.status === "coming")
     .sort((a, b) => (a.ordering ?? 100) - (b.ordering ?? 100))
@@ -35,6 +35,10 @@ export default function HomePage() {
     .filter((s) => new Date(s.date) <= now)
     .sort((a, b) => +new Date(b.date) - +new Date(a.date))
     .slice(0, 3);
+  const notes = [...allFieldNotes]
+    .sort((a, b) => +new Date(b.date) - +new Date(a.date))
+    .slice(0, 3);
+
   // Buying guides, pinned (2026-10-09). The "Stories" grid shows only the
   // newest essays, so the guides that carry product links fall off the
   // homepage within days. Listed by slug; a missing slug is skipped, never a 404.
@@ -98,31 +102,28 @@ export default function HomePage() {
   const giftGuides = GIFT_SLUGS.map((slug) => allStories.find((s) => s.slug === slug)).filter(
     (s): s is (typeof allStories)[number] => Boolean(s),
   );
-  const notes = [...allFieldNotes]
-    .sort((a, b) => +new Date(b.date) - +new Date(a.date))
-    .slice(0, 3);
 
   return (
     <>
-      {/* 1. Hero carousel — rotates through all five editorial banners */}
-      <HeroCarousel
-        eyebrow="Vol. II — Seoul Meets Mexico City — Out now on Amazon"
-        headline="The borders are optional."
-        link={{
-          label: "Get it on Amazon →",
-          href: SMMC_AMAZON,
-        }}
-        images={[
-          { src: "/images/banner-carousel-1.png", alt: "Golden sunset over Mexico City with food — Borderless Kitchen." },
-          { src: "/images/banner-carousel-2.png", alt: "Warm spices and ingredients — Borderless Kitchen." },
-          { src: "/images/banner-carousel-3.png", alt: "Dark Korean spices and ingredients — Borderless Kitchen." },
-          { src: "/images/banner-carousel-4.png", alt: "Editorial spice spread — Borderless Kitchen." },
-          { src: "/images/banner-carousel-5.png", alt: "Cinematic dark plate with book and camera — Borderless Kitchen." },
-        ]}
-      />
-
-      {/* 2. Philosophy strip */}
-      <PhilosophyStrip />
+      <section className="bg-paper py-10 md:py-16" aria-labelledby="latest-book-title">
+        <Container className="grid md:grid-cols-[1.2fr_0.8fr] items-center gap-8 md:gap-16">
+          <div className="order-2 md:order-1">
+            <p className="font-ui text-eyebrow uppercase text-vermillion mb-4">The latest cookbook · Volume II · Available now</p>
+            <h1 id="latest-book-title" className="font-display text-[2.75rem] sm:text-[3.5rem] lg:text-[5rem] leading-[1.05] text-ink">Seoul Meets<br />Mexico City</h1>
+            <p className="font-body text-lg md:text-xl text-ink/75 leading-relaxed mt-6 max-w-lg">Korean depth. Mexican heat. Thirty recipes and six master sauces that bring two bold cooking traditions to your table.</p>
+            <p className="font-ui text-sm text-ink/65 mt-4">Available in paperback and on Kindle.</p>
+            <div className="flex flex-wrap items-center gap-5 mt-7">
+              <a href={SMMC_AMAZON} target="_blank" rel="sponsored noopener noreferrer" className="bg-ink text-paper font-ui text-sm px-6 py-4 hover:bg-vermillion transition-colors">Buy on Amazon →</a>
+              <Link href="/seoul-meets-mexico-city" className="font-ui text-sm border-b border-ink/40 pb-1">Explore the book →</Link>
+            </div>
+            <p className="font-ui text-xs leading-relaxed text-ink/60 mt-5 max-w-md">As an Amazon Associate we earn from qualifying purchases, at no extra cost to you.</p>
+          </div>
+          <Link href="/seoul-meets-mexico-city" aria-label="Explore Seoul Meets Mexico City" className="order-1 md:order-2 block w-[190px] sm:w-[240px] md:w-full max-w-[340px] mx-auto">
+            <Image src="/images/smmc-cover-current.png" alt="Seoul Meets Mexico City cookbook — black-and-gold cover with Korean–Mexican tacos" width={602} height={785} sizes="(min-width: 768px) 340px, (min-width: 640px) 240px, 190px" priority className="w-full h-auto shadow-xl" />
+          </Link>
+        </Container>
+      </section>
+      <AvailableBooks />
 
       {/* 2b. Seasonal: holiday gift guides */}
       {giftSeason && giftGuides.length > 0 ? (
@@ -181,95 +182,8 @@ export default function HomePage() {
         </section>
       ) : null}
 
-      {/* 3. Featured book — TMT */}
-      {tmt ? (
-        <section className="py-24 md:py-32 bg-paper border-t border-hairline">
-          <Container>
-            <FadeRise>
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-                <div className="lg:col-span-5">
-                  {tmt.coverImageSrc ? (
-                    <div
-                      className="relative overflow-hidden"
-                      style={{ aspectRatio: "3 / 4" }}
-                    >
-                      <Image
-                        src={tmt.coverImageSrc}
-                        alt={tmt.coverImageAlt}
-                        fill
-                        sizes="(min-width: 1024px) 40vw, 90vw"
-                        className="object-cover"
-                        priority
-                      />
-                    </div>
-                  ) : (
-                    <EditorialImage
-                      alt={tmt.coverImageAlt}
-                      aspect="hero-portrait"
-                      slot="featured-book-cover"
-                    />
-                  )}
-                </div>
-                <div className="lg:col-span-7 lg:pt-8">
-                  <p className="font-ui text-eyebrow uppercase text-vermillion mb-6">
-                    The first volume — available now
-                  </p>
-                  <h2 className="font-display text-display-2 text-ink leading-tight">
-                    Italian soul. Japanese precision.
-                  </h2>
-                  <p className="font-body text-lg text-ink/80 mt-8 max-w-prose leading-relaxed">
-                    Two kitchens that already share more than they admit — both
-                    built on restraint, both reverent of one good ingredient,
-                    both suspicious of decoration. Thirty recipes, half born in
-                    Tuscan farmhouses, half in Tokyo apartments, all learned to
-                    belong to one another at the same counter.
-                  </p>
-                  <p className="font-ui text-eyebrow uppercase text-ink/50 mt-4">
-                    Paperback $19.99 · Kindle $9.99
-                  </p>
-                  <div className="mt-10 flex flex-wrap items-center gap-8">
-                    <AmazonCTA href={TMT_AMAZON} />
-                    <Link
-                      href={`/books/${tmt.slug}`}
-                      className="link-quiet text-ink text-base"
-                    >
-                      Inside the book
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </FadeRise>
-          </Container>
-        </section>
-      ) : null}
-
-      {/* 3b. Vol II tease — Seoul Meets Mexico City */}
-      <section className="py-16 md:py-20 border-t border-hairline bg-charcoal-deep text-paper">
-        <Container>
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div>
-              <p className="font-ui text-eyebrow uppercase text-vermillion mb-2">
-                Vol. II — Out now
-              </p>
-              <p className="font-display text-display-3 text-paper leading-tight">
-                Seoul Meets Mexico City
-              </p>
-              <p className="font-body text-base text-paper/60 mt-2">
-                Fermented depth meets layered heat. Paperback and Kindle, out now.
-              </p>
-            </div>
-            <Link
-              href={SMMC_AMAZON}
-              className="font-ui text-eyebrow uppercase text-paper/80 border-b border-paper/30 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300 shrink-0"
-            >
-              Buy Seoul Meets Mexico City on Amazon →
-            </Link>
-          </div>
-        </Container>
-      </section>
-
       {/* 3c. Free recipes CTA strip */}
-      <section className="py-16 md:py-20 border-t border-hairline bg-paper">
+      <section className="py-10 md:py-12 border-t border-hairline bg-paper">
         <Container>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
@@ -280,7 +194,7 @@ export default function HomePage() {
                 85 free recipes + the Flavor Pairing Matrix.
               </p>
               <p className="font-body text-base text-ink/60 mt-2">
-                The full logic behind every Japanese-Italian swap, condensed.
+                Browse the recipes, then use the pairing guide to make your own Japanese–Italian swaps.
               </p>
             </div>
             <Link
@@ -299,10 +213,10 @@ export default function HomePage() {
           <div className="flex items-end justify-between mb-12 md:mb-16 flex-wrap gap-6">
             <div>
               <p className="font-ui text-eyebrow uppercase text-ink/50 mb-3">
-                The series
+                Coming next
               </p>
               <h2 className="font-display text-display-3 text-ink max-w-xl leading-tight">
-                Four kitchens. One conversation.
+                More journeys in development.
               </h2>
             </div>
             <Link href="/books" className="link-quiet text-ink text-base">

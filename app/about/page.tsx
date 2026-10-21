@@ -11,6 +11,10 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Sebastian Dri is the author of the Borderless Kitchen cookbook series. Cross-cultural cooking grounded in technique, restraint, and the conversation between cuisines.",
+
+  twitter: { ...({}), title: "About", description: "Sebastian Dri is the author of the Borderless Kitchen cookbook series. Cross-cultural cooking grounded in technique, restraint, and the conversation between cuisines.", card: "summary_large_image" },
+
+  openGraph: { ...({}), title: "About", description: "Sebastian Dri is the author of the Borderless Kitchen cookbook series. Cross-cultural cooking grounded in technique, restraint, and the conversation between cuisines.", url: "/about" },
 };
 
 import { TMT_AMAZON } from "@/lib/amazon";
@@ -113,8 +117,8 @@ export default function AboutPage() {
                     <p className="font-body text-sm text-ink/70 leading-relaxed">
                       Four volumes. Four pairings of cuisines that already share
                       more than they admit. Vol.&nbsp;I — Tokyo Meets Tuscany —
-                      is out. Vol.&nbsp;II — Seoul Meets Mexico City — is in
-                      progress.
+                      is out. Vol.&nbsp;II — Seoul Meets Mexico City — is also
+                      available in paperback and on Kindle.
                     </p>
                   </div>
                   <div>
@@ -167,7 +171,7 @@ export default function AboutPage() {
       <EmailCaptureCTA
         heading="Stay close to the kitchen."
         body="New volumes, stories from the counter, and the occasional thing that didn't make it into the book."
-        cta="Join the list →"
+        cta="Get the free Flavor Pairing Matrix →"
       />
     </>
   );

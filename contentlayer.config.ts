@@ -77,6 +77,9 @@ export const Story = defineDocumentType(() => ({
   filePathPattern: "stories/*.mdx",
   contentType: "mdx",
   fields: {
+    targetKeyword: { type: "string" },
+    metaTitle: { type: "string" },
+    metaDescription: { type: "string" },
     title: { type: "string", required: true },
     dek: { type: "string", required: true },
     date: { type: "date", required: true },
@@ -85,10 +88,6 @@ export const Story = defineDocumentType(() => ({
     pantryRefs: { type: "list", of: { type: "string" } },
     heroImageAlt: { type: "string", required: true },
     heroImageSrc: { type: "string" },
-    // SEO overrides written into 243 stories but never declared, so they were dropped (2026-10-16).
-    targetKeyword: { type: "string" },
-    metaTitle: { type: "string" },
-    metaDescription: { type: "string" },
   },
   computedFields: {
     slug: {

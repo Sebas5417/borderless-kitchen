@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "A modern Japanese–Italian fusion cookbook for weeknight dinners that feel restaurant-level without restaurant prices. Download the free 5-Sauce Pack and get the book on Amazon.",
   alternates: { canonical: "/tokyo-meets-tuscany" },
-  openGraph: {
+  openGraph: { ...({
     title: "Tokyo Meets Tuscany | Borderless Kitchen",
     description:
       "Japanese precision meets Italian comfort. Thirty tested fusion recipes — miso butter pasta, chili oil lasagna, soy-balsamic glaze. Free Sauce Pack download + book on Amazon.",
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     url: "/tokyo-meets-tuscany",
     images: [
       {
-        url: "/images/tmt-cover-new.png",
-        width: 1200,
-        height: 630,
+        url: "/images/tmt-cover.jpg",
+        width: 1000,
+        height: 1293,
         alt: "Tokyo Meets Tuscany cookbook cover",
       },
     ],
-  },
-  twitter: { card: "summary_large_image", images: ["/images/tmt-cover-new.png"] },
+  }), title: "Tokyo Meets Tuscany — Japanese Precision. Italian Comfort.", description: "A modern Japanese–Italian fusion cookbook for weeknight dinners that feel restaurant-level without restaurant prices. Download the free 5-Sauce Pack and get the book on Amazon.", url: "/tokyo-meets-tuscany" },
+  twitter: { ...({ card: "summary_large_image", images: ["/images/tmt-cover.jpg"] }), title: "Tokyo Meets Tuscany — Japanese Precision. Italian Comfort.", description: "A modern Japanese–Italian fusion cookbook for weeknight dinners that feel restaurant-level without restaurant prices. Download the free 5-Sauce Pack and get the book on Amazon.", card: "summary_large_image" },
 };
 
 const AMAZON_URL = TMT_AMAZON;
@@ -54,7 +54,7 @@ const tmtBookSchema = {
   genre: ["Cookbook", "Fusion Cuisine", "Cross-cultural cooking"],
   description:
     "A modern Japanese–Italian fusion cookbook — 30 recipes and 6 master sauces at the intersection of Japanese precision and Italian comfort, built on the Flavor Pairing Matrix.",
-  image: "https://borderlesskitchenseries.com/images/tmt-cover-new.png",
+  image: "https://borderlesskitchenseries.com/images/tmt-cover.jpg",
   url: "https://borderlesskitchenseries.com/tokyo-meets-tuscany",
   sameAs: "https://www.amazon.com/dp/B0GY8H2TCQ",
   isPartOf: {
@@ -130,7 +130,7 @@ export default function TokyoMeetsTuscanyPage() {
               <a
                 href={AMAZON_URL}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer sponsored"
                 className="inline-block font-ui text-eyebrow uppercase text-paper bg-vermillion px-10 py-5 hover:bg-vermillion/90 transition-colors duration-300 text-center"
               >
                 Get it on Amazon →
@@ -190,7 +190,6 @@ export default function TokyoMeetsTuscanyPage() {
                     </li>
                   ))}
                 </ul>
-                {/* TODO: replace public/sauce-pack.pdf placeholder with the real Sauce Pack PDF */}
                 <SubscribeForm
                   list="tmt"
                   placeholder="your@email.com"
@@ -279,7 +278,7 @@ export default function TokyoMeetsTuscanyPage() {
               <div className="lg:col-span-4">
                 <div className="relative aspect-square overflow-hidden">
                   <Image
-                    src="/images/tmt-cover-new.png"
+                    src="/images/tmt-cover.jpg"
                     alt="Tokyo Meets Tuscany cookbook"
                     fill
                     sizes="(max-width: 1024px) 100vw, 33vw"
@@ -311,7 +310,7 @@ export default function TokyoMeetsTuscanyPage() {
                 <a
                   href={AMAZON_URL}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer sponsored"
                   className="inline-block font-ui text-eyebrow uppercase text-paper bg-ink px-10 py-5 hover:bg-vermillion transition-colors duration-300"
                 >
                   Tokyo Meets Tuscany on Amazon →
@@ -360,7 +359,7 @@ export default function TokyoMeetsTuscanyPage() {
               <a
                 href={AMAZON_URL}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer sponsored"
                 className="inline-block font-ui text-eyebrow uppercase text-paper bg-vermillion px-12 py-6 hover:bg-vermillion/90 transition-colors duration-300 text-lg"
               >
                 Get it on Amazon →

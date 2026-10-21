@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   title: "Mini-Course Day 3: The Umami Pairing System",
   description:
     "Work through the Flavor Pairing Matrix. Learn the Italian-Japanese swaps and why the synergy pairs multiply umami. Cook Ramen alla Carbonara.",
+  openGraph: { title: "Mini-Course Day 3: The Umami Pairing System", description: "Work through the Flavor Pairing Matrix. Learn the Italian-Japanese swaps and why the synergy pairs multiply umami. Cook Ramen alla Carbonara." },
+  twitter: { title: "Mini-Course Day 3: The Umami Pairing System", description: "Work through the Flavor Pairing Matrix. Learn the Italian-Japanese swaps and why the synergy pairs multiply umami. Cook Ramen alla Carbonara." },
 };
 
 const PAIRINGS = [
@@ -208,13 +210,15 @@ export default function Day3Page() {
                   All 16 pairs. One page.
                 </p>
                 <p className="font-body text-sm text-ink/60 leading-relaxed">
-                  Sign up to receive the full Flavor Pairing Matrix as a downloadable PDF — with all 16 functional pairs.
+                  Get the printable Flavor Pairing Matrix and all five course lessons by email, starting with Day 1.
                 </p>
               </div>
               <NewsletterForm
+                audience="course"
+                  successLink={{ href: "/flavor-pairing-matrix.pdf", label: "Download the Pairing Matrix →" }}
                 label="Your email"
                 placeholder="you@somewhere.com"
-                buttonLabel="Send me the chart"
+                buttonLabel="Send the course + chart"
               />
             </div>
           </FadeRise>

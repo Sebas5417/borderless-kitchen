@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
@@ -10,12 +9,14 @@ export const metadata: Metadata = {
   title: "30-Day Japanese Kitchen Challenge: Build a Pantry",
   description:
     "A free 30-day challenge to build your Japanese pantry from scratch, cook one Japanese technique per day, and permanently change how you think about umami, dashi, and fermented flavor.",
-  openGraph: {
+  openGraph: { ...({
     title: "30-Day Japanese Kitchen Challenge",
     description:
       "Thirty days. Thirty techniques. One permanent foundation in Japanese cooking — dashi, miso, rice, fermented pantry, and the fusion possibilities they open up.",
     type: "website",
-  },
+  }), title: "30-Day Japanese Kitchen Challenge — Build a Japanese Pantry From Scratch", description: "A free 30-day challenge to build your Japanese pantry from scratch, cook one Japanese technique per day, and permanently change how you think about umami, dashi, and fermented flavor.", url: "/30-day-challenge" },
+
+  twitter: { ...({}), title: "30-Day Japanese Kitchen Challenge — Build a Japanese Pantry From Scratch", description: "A free 30-day challenge to build your Japanese pantry from scratch, cook one Japanese technique per day, and permanently change how you think about umami, dashi, and fermented flavor.", card: "summary_large_image" },
 };
 
 const WEEKS = [
@@ -76,12 +77,11 @@ const WEEKS = [
 ];
 
 const WHAT_YOU_GET = [
-  "The 30-Day Challenge guide (PDF) — all 30 days with technique notes, recipes, and shopping lists",
-  "Week 1 shopping list — the 12 ingredients that unlock the entire challenge",
-  "The Japanese Pantry Cheat Sheet — what to buy, why, and what it does",
-  "The Umami Flavor Matrix — how Japanese ingredients pair with Italian and Western cooking",
-  "Daily email prompts — one technique per day, delivered to your inbox",
-  "Access to the full Borderless Kitchen recipe archive — 200+ articles",
+  "A self-guided 30-day cooking plan, available on this page without signing up",
+  "Four weekly themes to build your pantry and practice Japanese techniques",
+  "The printable Flavor Pairing Matrix — a free PDF for your kitchen",
+  "Optional five-day Japanese–Italian course by email, starting with dashi",
+  "Access to the Borderless Kitchen recipe collection and journal",
 ];
 
 const FAQS = [
@@ -91,11 +91,11 @@ const FAQS = [
   },
   {
     q: "Where do I get the ingredients?",
-    a: "Most ingredients for Week 1 can be found at any well-stocked grocery store. For fermented items (miso, mirin, sake, soy sauce varieties) and specialty items (dashi components, natto, furikake), you'll need an Asian grocery store or Amazon. The Week 1 shopping list keeps the initial investment under $50.",
+    a: "Start with the ingredients for the day's recipe. Many are available at a well-stocked grocery store; an Asian grocery store can help with kombu, katsuobushi, miso, mirin, and other specialty ingredients. Buy gradually as you work through the plan.",
   },
   {
     q: "Is this free?",
-    a: "Yes, completely free. You get the PDF challenge guide, the cheat sheets, and the daily emails at no cost. We also offer a free 5-Day Mini-Course for cooks who want to go deeper into Japanese-Italian fusion specifically — but the 30-Day Challenge is a standalone, complete resource.",
+    a: "Yes. The 30-day plan is self-guided and available on this page. If you want email lessons, sign up for the separate free five-day Japanese–Italian mini-course below. It includes the printable Flavor Pairing Matrix and one lesson per day for five days.",
   },
   {
     q: "What level of cooking experience do I need?",
@@ -116,7 +116,7 @@ export default function ThirtyDayChallengePage() {
           <FadeRise>
             <div className="max-w-3xl">
               <p className="font-ui text-eyebrow uppercase text-vermillion mb-4 tracking-widest">
-                Free Challenge
+                Free Self-Guided Challenge
               </p>
               <h1 className="font-display text-display-1 text-paper leading-none mb-6">
                 30 Days. One Japanese Kitchen.
@@ -128,13 +128,13 @@ export default function ThirtyDayChallengePage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-start">
                 <a
-                  href="#signup"
+                  href="#challenge-plan"
                   className="inline-block font-ui text-eyebrow uppercase text-ink bg-paper px-8 py-4 hover:bg-vermillion hover:text-paper transition-colors duration-300"
                 >
-                  Get the free challenge →
+                  View the 30-day plan →
                 </a>
                 <p className="font-ui text-eyebrow uppercase text-paper/40 self-center">
-                  No credit card. No catch.
+                  Start here. No signup needed.
                 </p>
               </div>
             </div>
@@ -184,7 +184,7 @@ export default function ThirtyDayChallengePage() {
       </section>
 
       {/* The 30 days */}
-      <section className="py-16 md:py-24 border-b border-hairline bg-paper">
+      <section id="challenge-plan" className="py-16 md:py-24 border-b border-hairline bg-paper">
         <Container>
           <FadeRise>
             <h2 className="font-display text-display-2 text-ink mb-12">
@@ -236,18 +236,20 @@ export default function ThirtyDayChallengePage() {
                 </ul>
               </div>
               <div id="signup" className="border border-hairline p-10">
-                <p className="font-ui text-eyebrow uppercase text-ink/40 mb-2">Get started</p>
+                <p className="font-ui text-eyebrow uppercase text-ink/40 mb-2">Prefer lessons by email?</p>
                 <p className="font-display text-display-2 text-ink mb-1">Free</p>
                 <p className="font-body text-sm text-ink/50 mb-8">
-                  No credit card. No catch. Just the challenge.
+                  Join the separate five-day Japanese–Italian course. Day 1 arrives immediately, followed by one lesson per day.
                 </p>
                 <NewsletterForm
-                  label="Enter your email to start Day 1"
+                  audience="course"
+                  successLink={{ href: "/mini-course/day-1", label: "Start the five-day course now →" }}
+                  label="Your email for the five-day course"
                   placeholder="you@somewhere.com"
-                  buttonLabel="Start the challenge →"
+                  buttonLabel="Send the five-day course →"
                 />
                 <p className="font-ui text-eyebrow uppercase text-ink/30 text-center mt-4 text-xs">
-                  Unsubscribe anytime. We email once per day during the challenge.
+                  Five course emails. Unsubscribe anytime.
                 </p>
               </div>
             </div>

@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   title: "Mini-Course Day 5: Build Your Own Fusion Dish",
   description:
     "The five-day course culminates in a dish you invented. Using the framework: identify structure, find the equivalent components, build something original.",
+
+  twitter: { ...({}), title: "Day 5: Build Your Own Fusion Dish | Fusion Kitchen Mini-Course", description: "The five-day course culminates in a dish you invented. Using the framework: identify structure, find the equivalent components, build something original.", card: "summary_large_image" },
+
+  openGraph: { ...({}), title: "Day 5: Build Your Own Fusion Dish | Fusion Kitchen Mini-Course", description: "The five-day course culminates in a dish you invented. Using the framework: identify structure, find the equivalent components, build something original.", url: "/mini-course/day-5" },
 };
 
 const FRAMEWORK = [
@@ -291,7 +295,7 @@ export default function Day5Page() {
               <Link
                 href={TMT_AMAZON}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer sponsored"
                 className="inline-block font-ui text-eyebrow uppercase text-ink bg-paper px-10 py-5 hover:bg-vermillion hover:text-paper transition-colors duration-300 shrink-0"
               >
                 Tokyo Meets Tuscany on Amazon →

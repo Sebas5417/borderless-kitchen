@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Container } from "./Container";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 
-import { TMT_AMAZON } from "@/lib/amazon";
+import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -13,12 +13,16 @@ export function SiteFooter() {
         <div className="md:col-span-1">
           <p className="font-display text-xl text-ink">Borderless Kitchen</p>
           <p className="font-body text-sm text-ink/60 mt-3 max-w-xs leading-relaxed">
-            A cookbook series by Sebastian Dri. Italian soul. Japanese
-            precision.
+            A cookbook series by Sebastian Dri. Japanese–Italian and
+            Korean–Mexican flavors, built with intention.
           </p>
-          <div className="mt-5">
-            <AmazonCTA href={TMT_AMAZON} label="Get Vol. I" />
+          <div className="mt-5 flex flex-col items-start gap-3">
+            <AmazonCTA href={SMMC_AMAZON} label="Get Vol. II" hideDisclosure />
+            <AmazonCTA href={TMT_AMAZON} label="Get Vol. I" hideDisclosure />
           </div>
+          <p className="font-ui text-xs leading-relaxed text-ink/45 mt-4 max-w-prose">
+            As an Amazon Associate we earn from qualifying purchases. These are affiliate links &mdash; they cost you nothing extra.
+          </p>
         </div>
 
         {/* Series */}
@@ -30,7 +34,7 @@ export function SiteFooter() {
             {[
               { href: "/books", label: "All volumes" },
               { href: "/books/tokyo-meets-tuscany", label: "Tokyo Meets Tuscany" },
-              { href: "/preorder", label: "Seoul Meets Mexico City ↗" },
+              { href: "/seoul-meets-mexico-city", label: "Seoul Meets Mexico City ↗" },
             ].map((item) => (
               <li key={item.href}>
                 <Link
@@ -52,10 +56,12 @@ export function SiteFooter() {
           <ul className="space-y-2 font-body text-sm text-ink">
             {[
               { href: "/free", label: "Free Recipes" },
+              { href: "/shop", label: "Pantry & Equipment" },
+              { href: "/tools", label: "Free Kitchen Planning Tools" },
               { href: "/printables", label: "Printables" },
               { href: "/30-day-challenge", label: "30-Day Challenge" },
               { href: "/mini-course", label: "5-Day Mini-Course" },
-              { href: "/preorder", label: "Vol. II — Out Now" },
+              { href: "/seoul-meets-mexico-city", label: "Vol. II — Out Now" },
               { href: "/journal", label: "Journal" },
               { href: "/guides", label: "Buying Guides" },
               { href: "/culture", label: "Culture" },
@@ -85,12 +91,12 @@ export function SiteFooter() {
           >
             85 free fusion recipes →
           </Link>
-          <a
+          <Link
             href="/free"
             className="font-body text-xs text-ink/50 hover:text-vermillion transition-colors duration-300"
           >
             Email list + Flavor Pairing Matrix →
-          </a>
+          </Link>
           <div className="mt-8 pt-6 border-t border-hairline">
             <p className="font-body text-xs text-ink/40">
               © {year} Sebastian Dri. All rights reserved.

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
@@ -10,6 +11,10 @@ export const metadata: Metadata = {
   title: "Connect",
   description:
     "Notes from the kitchen — the free starter guide, news on new Borderless Kitchen volumes, and the occasional recipe note that didn't make the book.",
+
+  twitter: { ...({}), title: "Connect", description: "Notes from the kitchen — the free starter guide, news on new Borderless Kitchen volumes, and the occasional recipe note that didn't make the book.", card: "summary_large_image" },
+
+  openGraph: { ...({}), title: "Connect", description: "Notes from the kitchen — the free starter guide, news on new Borderless Kitchen volumes, and the occasional recipe note that didn't make the book.", url: "/connect" },
 };
 
 import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
@@ -46,12 +51,12 @@ export default function ConnectPage() {
                 <p className="font-ui text-eyebrow uppercase text-ink/50 mb-4">
                   Free starter guide
                 </p>
-                <a
+                <Link
                   href="/free"
                   className="font-display italic text-xl text-ink hover:text-vermillion transition-colors duration-300"
                 >
-                  Free recipes + Flavor Pairing Matrix →
-                </a>
+                  Get the free Flavor Pairing Matrix →
+                </Link>
               </div>
 
               {/* Book */}

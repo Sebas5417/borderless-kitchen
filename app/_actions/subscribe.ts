@@ -16,14 +16,16 @@ export type SubscribeResult =
  */
 type MailerLiteOutcome = "added" | "not-configured" | "failed";
 
-async function addToMailerLite(email: string): Promise<MailerLiteOutcome> {
+async function addToMailerLite(email: string, audience: "newsletter" | "course"): Promise<MailerLiteOutcome> {
   const apiKey = process.env.MAILERLITE_API_KEY;
   const groupId = process.env.MAILERLITE_GROUP_ID;
 
-  if (!apiKey) return "not-configured";
+  if (!apiKey || !groupId) return "not-configured";
 
   const body: Record<string, unknown> = { email };
-  if (groupId) body.groups = [groupId];
+  // Public MailerLite group identifier; only course forms enroll in daily lessons.
+  const courseGroupId = process.env.MAILERLITE_COURSE_GROUP_ID || "201879884507645848";
+  body.groups = audience === "course" ? [groupId, courseGroupId] : [groupId];
 
   const res = await fetch("https://connect.mailerlite.com/api/subscribers", {
     method: "POST",
@@ -44,6 +46,11 @@ async function addToMailerLite(email: string): Promise<MailerLiteOutcome> {
 export async function subscribe(formData: FormData): Promise<SubscribeResult> {
   const raw = formData.get("email");
   const email = typeof raw === "string" ? raw.trim().toLowerCase() : "";
+  const rawAudience = formData.get("audience");
+  if (rawAudience !== null && rawAudience !== "newsletter" && rawAudience !== "course") {
+    return { ok: false, error: "unknown" };
+  }
+  const audience = rawAudience === "course" ? "course" : "newsletter";
 
   if (!email || !EMAIL_RE.test(email)) {
     return { ok: false, error: "invalid-email" };
@@ -73,15 +80,12 @@ export async function subscribe(formData: FormData): Promise<SubscribeResult> {
   }
 
   try {
-    const outcome = await addToMailerLite(email);
+    const outcome = await addToMailerLite(email, audience);
 
-    // Deliberate pass-through: with no API key there is nowhere to put the
-    // lead, so still show success and let the funnel deliver the lead magnet.
-    // Leads ARE lost here — set MAILERLITE_API_KEY (+ MAILERLITE_GROUP_ID) in
-    // the Vercel project to start capturing for real.
+    // A subscriber is only confirmed once the email service has accepted it.
     if (outcome === "not-configured") {
-      console.error(`[subscribe] MailerLite not configured — lead dropped: ${email}`);
-      return { ok: true };
+      console.error("[subscribe] MailerLite not configured");
+      return { ok: false, error: "unknown" };
     }
 
     // A real failure. Previously this returned success and the lead was gone

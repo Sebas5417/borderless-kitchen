@@ -13,7 +13,7 @@ import { GuideCallout } from "@/components/cta/GuideCallout";
 import { guidesFor } from "@/lib/storyGuides";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { EditorialImage } from "@/components/media/EditorialImage";
-import { parseRecipeIngredients, parseRecipeInstructions } from "@/lib/recipeSchema";
+import { parseRecipeIngredients, parseRecipeInstructions, parseRecipeVariants } from "@/lib/recipeSchema";
 import { breadcrumbJson } from "@/lib/breadcrumbSchema";
 import { hubFor } from "@/lib/cuisines";
 import { fitTitle, fitDescription } from "@/lib/seoMeta";
@@ -60,7 +60,7 @@ export async function generateMetadata({
       images: recipe.heroImageSrc ? [{ url: recipe.heroImageSrc }] : [],
     },
     twitter: recipe.heroImageSrc
-      ? { card: "summary_large_image", images: [recipe.heroImageSrc] }
+      ? { card: "summary_large_image", title, description, images: [recipe.heroImageSrc] }
       : undefined,
   };
 }
@@ -118,7 +118,7 @@ export default async function RecipePage({
       ? { keywords: [recipe.targetKeyword, ...(recipe.tags ?? [])].filter(Boolean).join(", ") }
       : {}),
     ...(recipe.heroImageSrc
-      ? { image: [`https://borderlesskitchenseries.com${recipe.heroImageSrc}`] }
+      ? { image: [new URL(recipe.heroImageSrc, "https://borderlesskitchenseries.com").href] }
       : {}),
     publisher: {
       "@type": "Organization",
@@ -126,6 +126,12 @@ export default async function RecipePage({
       url: "https://borderlesskitchenseries.com",
     },
   };
+
+  const variants = parseRecipeVariants(recipe.body.raw);
+  const structuredRecipe = variants.length ? {
+    "@context": "https://schema.org",
+    "@graph": variants.map((variant) => ({ ...recipeSchema, ...variant, name: "Miso Soup — " + variant.name })),
+  } : recipeSchema;
 
   const cuisineHub = hubFor(recipe, allFreeRecipes);
   const breadcrumbLd = breadcrumbJson([
@@ -135,7 +141,7 @@ export default async function RecipePage({
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(recipeSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredRecipe) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbLd }} />
 
       {/* Hero */}

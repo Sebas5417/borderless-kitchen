@@ -27,7 +27,8 @@ export function FadeRise({
     return <div className={className}>{children}</div>;
   }
 
-  const initial = { opacity: 0, y: 12 };
+  // Keep server-rendered content readable before JavaScript or if it fails.
+  const initial = { opacity: 1, y: 12 };
   const animate = { opacity: 1, y: 0 };
   const transition = {
     duration: 0.7,

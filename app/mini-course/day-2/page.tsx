@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   title: "Mini-Course Day 2: Miso and Italian Technique",
   description:
     "Dissolve miso into pasta water. Make miso butter. Understand why white miso and Parmigiano are structurally equivalent — and when to use each.",
+
+  twitter: { ...({}), title: "Day 2: Miso — Where Fermented Depth Meets Italian Technique | Fusion Kitchen Mini-Course", description: "Dissolve miso into pasta water. Make miso butter. Understand why white miso and Parmigiano are structurally equivalent — and when to use each.", card: "summary_large_image" },
+
+  openGraph: { ...({}), title: "Day 2: Miso — Where Fermented Depth Meets Italian Technique | Fusion Kitchen Mini-Course", description: "Dissolve miso into pasta water. Make miso butter. Understand why white miso and Parmigiano are structurally equivalent — and when to use each.", url: "/mini-course/day-2" },
 };
 
 export default function Day2Page() {
@@ -236,6 +240,8 @@ export default function Day2Page() {
                 </p>
               </div>
               <NewsletterForm
+                audience="course"
+                  successLink={{ href: "/mini-course/day-1", label: "Start the course now →" }}
                 label="Your email"
                 placeholder="you@somewhere.com"
                 buttonLabel="Send me the course"

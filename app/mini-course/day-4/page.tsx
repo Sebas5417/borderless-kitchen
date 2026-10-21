@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   title: "Mini-Course Day 4: Mirin, Sake and Sweetness",
   description:
     "Cook teriyaki from scratch. Understand why mirin is not the same as sugar and what fermented sweetness adds to a dish that refined sugar doesn't.",
+
+  twitter: { ...({}), title: "Day 4: Mirin, Sake & Fermented Sweetness | Fusion Kitchen Mini-Course", description: "Cook teriyaki from scratch. Understand why mirin is not the same as sugar and what fermented sweetness adds to a dish that refined sugar doesn't.", card: "summary_large_image" },
+
+  openGraph: { ...({}), title: "Day 4: Mirin, Sake & Fermented Sweetness | Fusion Kitchen Mini-Course", description: "Cook teriyaki from scratch. Understand why mirin is not the same as sugar and what fermented sweetness adds to a dish that refined sugar doesn't.", url: "/mini-course/day-4" },
 };
 
 export default function Day4Page() {
@@ -252,13 +256,15 @@ export default function Day4Page() {
                   Tomorrow: build your own fusion dish.
                 </p>
                 <p className="font-body text-sm text-ink/60 leading-relaxed">
-                  Get Day 5 — and the full reference pack — by email. Or come back here tomorrow.
+                  Get all five lessons and the reference pack by email, starting with Day 1.
                 </p>
               </div>
               <NewsletterForm
+                audience="course"
+                  successLink={{ href: "/mini-course/day-1", label: "Start the course now →" }}
                 label="Your email"
                 placeholder="you@somewhere.com"
-                buttonLabel="Send me Day 5"
+                buttonLabel="Email me the course"
               />
             </div>
           </FadeRise>

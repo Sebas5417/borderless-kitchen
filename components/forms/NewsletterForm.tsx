@@ -4,6 +4,7 @@ import { useId, useState, useTransition } from "react";
 import { subscribe } from "@/app/_actions/subscribe";
 
 type Props = {
+  audience?: "newsletter" | "course";
   /** Eyebrow / label copy. Defaults to a quiet editorial line. */
   label?: string;
   placeholder?: string;
@@ -23,11 +24,12 @@ type WindowWithGtag = Window & {
 };
 
 export function NewsletterForm({
+  audience = "newsletter",
   label = "Letters from the kitchen",
   placeholder = "Your email",
   buttonLabel = "Subscribe",
   variant = "default",
-  successLink,
+  successLink = { href: "/flavor-pairing-matrix.pdf", label: "Download the Flavor Pairing Matrix →" },
 }: Props) {
   const [pending, startTransition] = useTransition();
   const [state, setState] = useState<
@@ -41,28 +43,34 @@ export function NewsletterForm({
       className="w-full max-w-md"
       onSubmit={(e) => {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget);
+        const form = e.currentTarget;
+        const formData = new FormData(form);
         startTransition(async () => {
-          const result = await subscribe(formData);
-          if (result.ok) {
-            setState({ kind: "ok" });
-            (e.target as HTMLFormElement).reset();
-            (window as WindowWithGtag).gtag?.("event", "newsletter_signup", {
-              form_label: label,
-              page_path: window.location.pathname,
-            });
-          } else {
-            setState({
-              kind: "error",
-              message:
-                result.error === "invalid-email"
-                  ? "That doesn't look like an email address."
-                  : "Something went wrong. Please try again.",
-            });
+          try {
+            const result = await subscribe(formData);
+            if (result.ok) {
+              setState({ kind: "ok" });
+              form.reset();
+              (window as WindowWithGtag).gtag?.("event", "newsletter_signup", {
+                form_label: label,
+                page_path: window.location.pathname,
+              });
+            } else {
+              setState({
+                kind: "error",
+                message:
+                  result.error === "invalid-email"
+                    ? "That doesn't look like an email address."
+                    : "Something went wrong. Please try again.",
+              });
+            }
+          } catch {
+            setState({ kind: "error", message: "We could not complete your signup. Please try again." });
           }
         });
       }}
     >
+      <input type="hidden" name="audience" value={audience} />
       <label
         htmlFor={emailInputId}
         className={["font-ui text-eyebrow uppercase block mb-3", inverted ? "text-paper/70" : "text-ink/70"].join(" ")}
@@ -80,7 +88,7 @@ export function NewsletterForm({
           placeholder={placeholder}
           autoComplete="email"
           disabled={pending || state.kind === "ok"}
-          className={["flex-1 bg-transparent font-body text-base focus:outline-none disabled:opacity-50", inverted ? "text-paper placeholder:text-paper/50" : "text-ink placeholder:text-ink/40"].join(" ")}
+          className={["min-w-0 flex-1 bg-transparent font-body text-base focus:outline-none disabled:opacity-50", inverted ? "text-paper placeholder:text-paper/50" : "text-ink placeholder:text-ink/40"].join(" ")}
         />
         <button
           type="submit"
@@ -91,11 +99,11 @@ export function NewsletterForm({
         </button>
       </div>
       {state.kind === "error" ? (
-        <p className="mt-3 font-ui text-xs text-vermillion">{state.message}</p>
+        <p role="alert" className="mt-3 font-ui text-xs text-vermillion">{state.message}</p>
       ) : state.kind === "ok" ? (
-        <div className="mt-3">
-          <p className="font-ui text-xs text-ink/60">
-            You'll hear from the kitchen soon.
+        <div className="mt-3" role="status">
+          <p className={`font-ui text-xs ${inverted ? "text-paper/70" : "text-ink/60"}`}>
+            You're subscribed. Your free resource is ready below.
           </p>
           {successLink ? (
             <a

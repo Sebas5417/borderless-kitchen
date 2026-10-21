@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { allBooks, allRecipeTeasers } from "contentlayer/generated";
@@ -202,12 +203,12 @@ export default async function BookPage({
               </div>
             ) : (
               <div className="mt-10">
-                <a
+                <Link
                   href="/free"
                   className="font-ui text-eyebrow uppercase text-ink border-b border-ink/40 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
                 >
-                  Join the list for launch news →
-                </a>
+                  Explore free recipes while you wait →
+                </Link>
               </div>
             )}
           </div>

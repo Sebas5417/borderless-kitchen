@@ -35,10 +35,12 @@ export async function generateMetadata({
     // 2026-09-13: this page never set an og:image, even when heroImageSrc
     // is present — every /culture/* share card was blank. All 38 pantry
     // entries now carry heroImageSrc, so wire it through like journal/recipes.
+    twitter: { card: "summary_large_image", title: entry.term, description, images: entry.heroImageSrc ? [entry.heroImageSrc] : [] },
     openGraph: {
       title: entry.term,
       description,
       type: "article",
+      url: `/culture/${entry.slug}`,
       images: entry.heroImageSrc ? [{ url: entry.heroImageSrc }] : [],
     },
   };
@@ -70,6 +72,7 @@ export default async function CultureEntryPage({
     .filter((g): g is (typeof allStories)[number] => Boolean(g))
     .map((g) => ({ slug: g.slug, title: g.title }));
   const book = bookFor(entry.origin, entry.slug, entry.term);
+  const shoppingUrl = isShoppable(entry) ? pantryShopUrl(entry.term) : undefined;
 
   const sorted = [...allPantryEntries].sort((a, b) =>
     a.term.localeCompare(b.term),
@@ -198,7 +201,7 @@ export default async function CultureEntryPage({
                 not an ASIN, built from the entry's own term; ingredients only, so
                 "al dente" and "umami" never get a buy link. The disclosure is
                 suppressed here because the book CTA immediately below carries it. */}
-            {isShoppable(entry) ? (
+            {shoppingUrl ? (
               <div className="mt-14 pt-10 border-t border-hairline">
                 <p className="font-ui text-eyebrow uppercase text-ink/50 mb-4">
                   Where to buy
@@ -208,7 +211,7 @@ export default async function CultureEntryPage({
                   local Asian or Italian grocer is not an option, it ships.
                 </p>
                 <AmazonCTA
-                  href={pantryShopUrl(entry.term)}
+                  href={shoppingUrl}
                   label={`Shop ${entry.term.replace(/\s*\([^)]*\)/, "")} on Amazon`}
                   hideDisclosure
                 />

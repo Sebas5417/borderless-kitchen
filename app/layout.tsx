@@ -39,31 +39,31 @@ export const metadata: Metadata = {
     template: "%s — Borderless Kitchen",
   },
   description:
-    "A cookbook series by Sebastian Dri on cross-cultural cooking. Vol. I: Tokyo Meets Tuscany — Italian soul, Japanese precision. Thirty fusion recipes where both traditions belong on the same plate.",
+    "Japanese–Italian and Korean–Mexican cookbooks by Sebastian Dri, with free recipes, ingredient guides, and cooking techniques.",
   openGraph: {
-    title: "Borderless Kitchen — Italian soul. Japanese precision.",
+    title: "Borderless Kitchen — Cookbooks Across Cultures",
     description:
-      "A cookbook series by Sebastian Dri. Vol. I: Tokyo Meets Tuscany — thirty fusion recipes between Italian and Japanese kitchens.",
+      "Japanese–Italian and Korean–Mexican cookbooks by Sebastian Dri. Explore Tokyo Meets Tuscany, Seoul Meets Mexico City, and free recipes.",
     url: siteUrl,
     siteName: "Borderless Kitchen",
     type: "website",
     images: [
       {
         url: `${siteUrl}/images/banner-carousel-1.png`,
-        width: 1200,
-        height: 630,
+        width: 2172,
+        height: 724,
         alt: "Borderless Kitchen — cross-cultural cookbook series",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Borderless Kitchen — Italian soul. Japanese precision.",
+    title: "Borderless Kitchen — Cookbooks Across Cultures",
     description:
-      "A cookbook series by Sebastian Dri. Vol. I: Tokyo Meets Tuscany — thirty fusion recipes between Italian and Japanese kitchens.",
+      "Explore Tokyo Meets Tuscany and Seoul Meets Mexico City: Japanese–Italian and Korean–Mexican cookbooks by Sebastian Dri.",
     images: [`${siteUrl}/images/banner-carousel-1.png`],
   },
-  robots: { index: true, follow: true },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
   alternates: {
     types: {
       "application/rss+xml": `${siteUrl}/feed.xml`,
@@ -82,14 +82,7 @@ const websiteSchema = {
   url: siteUrl,
   description:
     "A cookbook series exploring cross-cultural cuisine. Each volume pairs two culinary traditions and finds what they share.",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${siteUrl}/recipes?q={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
-  },
+
 };
 
 const organizationSchema = {
@@ -143,8 +136,9 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-0CL174TRRL');`}
         </Script>
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-paper focus:px-4 focus:py-3">Skip to main content</a>
         <SiteHeader />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" tabIndex={-1} className="flex-1">{children}</main>
         <SiteFooter />
         <Analytics />
         <AffiliateClickTracker />

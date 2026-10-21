@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/free" },
   description:
     "Free fusion recipes and the Flavor Pairing Matrix — the Italian × Japanese ingredient chart that maps every component of Tokyo Meets Tuscany. No signup required for the recipes.",
-  openGraph: {
+  openGraph: { ...({
     title: "Free Recipes + Flavor Pairing Chart",
     description:
       "The Borderless Kitchen free collection: a full library of cross-cultural recipes and the Flavor Pairing Matrix that explains why they work.",
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
         alt: "Borderless Kitchen free recipes and Flavor Pairing Matrix",
       },
     ],
-  },
-  twitter: { card: "summary_large_image", images: ["/images/banner-carousel-1.png"] },
+  }), title: "Free Recipes + Flavor Pairing Chart", description: "Free fusion recipes and the Flavor Pairing Matrix — the Italian × Japanese ingredient chart that maps every component of Tokyo Meets Tuscany. No signup required for the recipes.", url: "/free" },
+  twitter: { ...({ card: "summary_large_image", images: ["/images/banner-carousel-1.png"] }), title: "Free Recipes + Flavor Pairing Chart", description: "Free fusion recipes and the Flavor Pairing Matrix — the Italian × Japanese ingredient chart that maps every component of Tokyo Meets Tuscany. No signup required for the recipes.", card: "summary_large_image" },
 
 };
 
@@ -64,7 +64,7 @@ export default function FreePage() {
               Flavor Pairing Matrix: the Italian{" "}
               <span className="text-vermillion">×</span> Japanese ingredient
               chart that explains why every swap in{" "}
-              <em>Tokyo Meets Tuscany</em> works.{" "}<Link href="https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20" target="_blank" rel="noopener noreferrer" className="block w-fit mt-6 font-ui text-eyebrow uppercase text-paper bg-vermillion px-8 py-4 hover:bg-paper hover:text-ink transition-colors duration-300">Get Tokyo Meets Tuscany on Amazon →</Link>
+              <em>Tokyo Meets Tuscany</em> works.{" "}<Link href="https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20" target="_blank" rel="noopener noreferrer sponsored" className="block w-fit mt-6 font-ui text-eyebrow uppercase text-paper bg-vermillion px-8 py-4 hover:bg-paper hover:text-ink transition-colors duration-300">Get Tokyo Meets Tuscany on Amazon →</Link>
             </p>
           </FadeRise>
         </Container>
@@ -254,7 +254,7 @@ export default function FreePage() {
                 <Link
                   href={TMT_AMAZON}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer sponsored"
                   className="inline-block font-ui text-eyebrow uppercase text-paper bg-ink px-10 py-5 hover:bg-vermillion transition-colors duration-300"
                 >
                   Tokyo Meets Tuscany on Amazon →

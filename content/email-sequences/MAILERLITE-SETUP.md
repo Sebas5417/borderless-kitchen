@@ -4,6 +4,16 @@
 These 5 emails form an automation sequence that delivers the free mini-course.
 Each subscriber who signs up on /mini-course gets all 5 emails automatically.
 
+## Live configuration — October 20, 2026
+- Course group: `Mini-Course Subscribers` (`201879884507645848`).
+- Course workflow: `201879905774863973`; Day 1 immediately, then four one-day delays.
+- Sender: `Sebastian | Borderless Kitchen <info@borderlesskitchenseries.com>`.
+- Course forms submit `audience=course`; the server adds both the main newsletter group and the course group. Ordinary newsletter forms do not enroll in lessons.
+- `MAILERLITE_COURSE_GROUP_ID` optionally overrides the verified group ID in the server action.
+- Welcome workflow: `192575488165676526`, covering Borderless Kitchen Subscribers, TMT Subscribers, TMT Free recipes, and SMMC Waitlist. It delivers the three direct PDF downloads.
+- The older TMT nurture and PDF-delivery drafts are separate legacy workflows; do not activate them alongside the repaired welcome flow without reviewing duplication and sender settings.
+- The setup instructions below describe the original draft. Live subjects and sender settings above supersede the original Gmail sender and subject suggestions.
+
 ## Setup Steps in MailerLite
 
 ### 1. Create a Group

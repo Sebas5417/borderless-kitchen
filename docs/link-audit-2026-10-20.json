@@ -1,0 +1,636 @@
+{
+  "checked": "2026-10-20",
+  "verifiedProducts": [
+    {
+      "asin": "B00IBNZAEE",
+      "product": "Hikari Organic White Miso",
+      "queries": [
+        "hikari organic white miso",
+        "hikari white miso shiro",
+        "hikari organic white miso paste 176oz",
+        "miso"
+      ],
+      "source": "https://www.amazon.com/dp/B00IBNZAEE"
+    },
+    {
+      "asin": "B0006B4IHE",
+      "product": "Marutomo bonito flakes",
+      "queries": [
+        "marutomo katsuobushi",
+        "katsuobushi",
+        "bonito katsuobushi",
+        "katsuobushi bonito flakes"
+      ],
+      "source": "https://www.amazon.com/dp/B0006B4IHE"
+    },
+    {
+      "asin": "B00ZB13JHO",
+      "product": "Wel-Pac Dashi Kombu",
+      "queries": [
+        "wel-pac kombu",
+        "welpac dashi kombu dried seaweed 4oz",
+        "kombu",
+        "kombu dried kelp"
+      ],
+      "source": "https://www.amazon.com/dp/B00ZB13JHO"
+    },
+    {
+      "asin": "B002HMN6SC",
+      "product": "Kadoya Roasted Sesame Oil 11 fl oz",
+      "queries": [
+        "kadoya toasted sesame oil",
+        "toasted sesame oil"
+      ],
+      "source": "https://www.amazon.com/dp/B002HMN6SC"
+    },
+    {
+      "asin": "B005G8IDTQ",
+      "product": "Taekyung gochugaru flakes 1 lb",
+      "queries": [
+        "taekyung gochugaru",
+        "gochugaru",
+        "gochugaru korean red pepper flakes",
+        "korean gochugaru coarse red pepper flakes"
+      ],
+      "source": "https://www.amazon.com/dp/B005G8IDTQ"
+    },
+    {
+      "asin": "B00EZX6X04",
+      "product": "Haechandle Doenjang 500 g",
+      "queries": [
+        "haechandle doenjang",
+        "doenjang"
+      ],
+      "source": "https://www.amazon.com/dp/B00EZX6X04"
+    },
+    {
+      "asin": "B07BDRMFDZ",
+      "product": "Haechandle Hot Pepper Paste 500 g",
+      "queries": [
+        "haechandle gochujang",
+        "cj haechandle gochujang",
+        "gochujang"
+      ],
+      "source": "https://www.amazon.com/dp/B07BDRMFDZ"
+    },
+    {
+      "asin": "B00B617XK2",
+      "product": "Red Boat Fish Sauce 17 fl oz",
+      "queries": [
+        "red boat fish sauce"
+      ],
+      "source": "https://www.amazon.com/dp/B00B617XK2"
+    },
+    {
+      "asin": "B078F7M6GJ",
+      "product": "Fulvi Pecorino Romano",
+      "queries": [
+        "fulvi pecorino romano"
+      ],
+      "source": "https://www.amazon.com/dp/B078F7M6GJ"
+    },
+    {
+      "asin": "B004ROGVCG",
+      "product": "Tutto Calabria Crushed Calabrian Chili Peppers 10 oz",
+      "queries": [
+        "tutto calabria calabrian chili in oil"
+      ],
+      "source": "https://www.amazon.com/dp/B004ROGVCG"
+    },
+    {
+      "asin": "B0014CRZWE",
+      "product": "De Cecco Spaghetti No.12 16 oz",
+      "queries": [
+        "de cecco imported italian pasta"
+      ],
+      "source": "https://www.amazon.com/dp/B0014CRZWE"
+    },
+    {
+      "asin": "B00N205G22",
+      "product": "Original Baking Steel 14x16",
+      "queries": [
+        "baking steel original baking steel"
+      ],
+      "source": "https://www.amazon.com/dp/B00N205G22"
+    },
+    {
+      "asin": "B007TUQF9O",
+      "product": "Cuisinart Mesh Strainers 3 count",
+      "queries": [
+        "cuisinart fine mesh sieve"
+      ],
+      "source": "https://www.amazon.com/dp/B007TUQF9O"
+    },
+    {
+      "asin": "B000UAPQGS",
+      "product": "Tojiro 210 mm chef knife",
+      "queries": [
+        "tojiro dp gyuto 210mm"
+      ],
+      "source": "https://www.amazon.com/dp/B000UAPQGS"
+    },
+    {
+      "asin": "B001DT1X9O",
+      "product": "King KW65 1000/6000 whetstone",
+      "queries": [
+        "king 1000 6000 combination whetstone"
+      ],
+      "source": "https://www.amazon.com/dp/B001DT1X9O"
+    },
+    {
+      "asin": "B000638D32",
+      "product": "Victorinox Fibrox Pro 8 inch chef knife",
+      "queries": [
+        "victorinox fibrox pro 8 inch chef knife"
+      ],
+      "source": "https://www.amazon.com/dp/B000638D32"
+    },
+    {
+      "asin": "B00005OL44",
+      "product": "Global G-2 8 inch chef knife",
+      "queries": [
+        "global g-2 8 inch chef knife"
+      ],
+      "source": "https://www.amazon.com/dp/B00005OL44"
+    },
+    {
+      "asin": "B000XSX8IA",
+      "product": "Misono UX10 No.712 21 cm",
+      "queries": [
+        "misono ux10 gyuto 210mm"
+      ],
+      "source": "https://www.amazon.com/dp/B000XSX8IA"
+    },
+    {
+      "asin": "B0000Y7KNQ",
+      "product": "Shun Classic 8 inch chef knife",
+      "queries": [
+        "shun classic 8 inch chef knife"
+      ],
+      "source": "https://www.amazon.com/dp/B0000Y7KNQ"
+    },
+    {
+      "asin": "B072JX5SG8",
+      "product": "Miyabi Evolution 8 inch chef knife",
+      "queries": [
+        "miyabi evolution 8 inch chef knife"
+      ],
+      "source": "https://www.amazon.com/dp/B072JX5SG8"
+    },
+    {
+      "asin": "B00FLYWNYQ",
+      "product": "Instant Pot Duo 6 quart",
+      "queries": [
+        "instant pot duo 7in1"
+      ],
+      "source": "https://www.amazon.com/dp/B00FLYWNYQ"
+    },
+    {
+      "asin": "B00004S575",
+      "product": "Zojirushi NHS06 3 cup",
+      "queries": [
+        "zojirushi nhs06 3cup rice cooker",
+        "zojirushi rice cooker 3-cup"
+      ],
+      "source": "https://www.amazon.com/dp/B00004S575"
+    },
+    {
+      "asin": "B09N9Z183T",
+      "product": "Zojirushi NW-JEC10BA 5.5 cup",
+      "queries": [
+        "zojirushi nwjec10 55cup induction rice cooker"
+      ],
+      "source": "https://www.amazon.com/dp/B09N9Z183T"
+    },
+    {
+      "asin": "B009ZML3SW",
+      "product": "Le Creuset square grill pan 10.25 inch",
+      "queries": [
+        "le creuset enameled cast iron square grill pan"
+      ],
+      "source": "https://www.amazon.com/dp/B009ZML3SW"
+    },
+    {
+      "asin": "B002AQSWMU",
+      "product": "Joyce Chen 14 inch carbon steel wok",
+      "queries": [
+        "joyce chen 14 inch carbon steel wok"
+      ],
+      "source": "https://www.amazon.com/dp/B002AQSWMU"
+    },
+    {
+      "asin": "B00PUZT9MU",
+      "product": "Craft Wok 14 inch round bottom",
+      "queries": [
+        "craft wok 14 inch carbon steel"
+      ],
+      "source": "https://www.amazon.com/dp/B00PUZT9MU"
+    },
+    {
+      "asin": "B0CXJB22CC",
+      "product": "Souped Up Recipes 12.5 inch carbon steel wok",
+      "queries": [
+        "souped up recipes flat bottom carbon steel wok"
+      ],
+      "source": "https://www.amazon.com/dp/B0CXJB22CC"
+    },
+    {
+      "asin": "B08L8PQ3J3",
+      "product": "Wooden Otoshibuta 18 cm",
+      "queries": [
+        "otoshibuta wooden drop lid"
+      ],
+      "source": "https://www.amazon.com/dp/B08L8PQ3J3"
+    },
+    {
+      "asin": "B0001VQIYU",
+      "product": "Joyce Chen 10 inch 2 tier bamboo steamer",
+      "queries": [
+        "bamboo steamer set 2-tier"
+      ],
+      "source": "https://www.amazon.com/dp/B0001VQIYU"
+    }
+  ],
+  "replacedContentLinks": [
+    {
+      "file": "content\\stories\\best-japanese-cooking-gifts-for-home-cooks.mdx",
+      "query": "Katsuobushi Bonito Flakes",
+      "asin": "B0006B4IHE"
+    },
+    {
+      "file": "content\\stories\\best-japanese-cooking-gifts-for-home-cooks.mdx",
+      "query": "Gochugaru Korean Red Pepper Flakes",
+      "asin": "B005G8IDTQ"
+    },
+    {
+      "file": "content\\stories\\best-japanese-cooking-gifts-for-home-cooks.mdx",
+      "query": "Toasted Sesame Oil",
+      "asin": "B002HMN6SC"
+    },
+    {
+      "file": "content\\stories\\best-japanese-cooking-gifts-for-home-cooks.mdx",
+      "query": "Kombu Dried Kelp",
+      "asin": "B00ZB13JHO"
+    },
+    {
+      "file": "content\\stories\\best-japanese-cooking-gifts-for-home-cooks.mdx",
+      "query": "Zojirushi Rice Cooker 3-cup",
+      "asin": "B00004S575"
+    },
+    {
+      "file": "content\\stories\\best-japanese-cooking-gifts-for-home-cooks.mdx",
+      "query": "Otoshibuta Wooden Drop Lid",
+      "asin": "B08L8PQ3J3"
+    },
+    {
+      "file": "content\\stories\\best-japanese-cooking-gifts-for-home-cooks.mdx",
+      "query": "Bamboo Steamer Set 2-tier",
+      "asin": "B0001VQIYU"
+    },
+    {
+      "file": "content\\stories\\best-japanese-knives-for-home-cooks.mdx",
+      "query": "tojiro dp gyuto 210mm",
+      "asin": "B000UAPQGS"
+    },
+    {
+      "file": "content\\stories\\best-japanese-knives-for-home-cooks.mdx",
+      "query": "king 1000 6000 combination whetstone",
+      "asin": "B001DT1X9O"
+    },
+    {
+      "file": "content\\stories\\best-japanese-knives-for-home-cooks.mdx",
+      "query": "victorinox fibrox pro 8 inch chef knife",
+      "asin": "B000638D32"
+    },
+    {
+      "file": "content\\stories\\best-japanese-knives-for-home-cooks.mdx",
+      "query": "tojiro dp gyuto 210mm",
+      "asin": "B000UAPQGS"
+    },
+    {
+      "file": "content\\stories\\best-japanese-knives-for-home-cooks.mdx",
+      "query": "global g-2 8 inch chef knife",
+      "asin": "B00005OL44"
+    },
+    {
+      "file": "content\\stories\\best-japanese-knives-for-home-cooks.mdx",
+      "query": "misono ux10 gyuto 210mm",
+      "asin": "B000XSX8IA"
+    },
+    {
+      "file": "content\\stories\\best-japanese-knives-for-home-cooks.mdx",
+      "query": "shun classic 8 inch chef knife",
+      "asin": "B0000Y7KNQ"
+    },
+    {
+      "file": "content\\stories\\best-japanese-knives-for-home-cooks.mdx",
+      "query": "miyabi evolution 8 inch chef knife",
+      "asin": "B072JX5SG8"
+    },
+    {
+      "file": "content\\stories\\best-japanese-knives-for-home-cooks.mdx",
+      "query": "king 1000 6000 combination whetstone",
+      "asin": "B001DT1X9O"
+    },
+    {
+      "file": "content\\stories\\best-japanese-pantry-starter-kit-ingredients.mdx",
+      "query": "hikari organic white miso paste 176oz",
+      "asin": "B00IBNZAEE"
+    },
+    {
+      "file": "content\\stories\\best-japanese-pantry-starter-kit-ingredients.mdx",
+      "query": "welpac dashi kombu dried seaweed 4oz",
+      "asin": "B00ZB13JHO"
+    },
+    {
+      "file": "content\\stories\\best-japanese-rice-cooker-for-home-cooks.mdx",
+      "query": "instant pot duo 7in1",
+      "asin": "B00FLYWNYQ"
+    },
+    {
+      "file": "content\\stories\\best-japanese-rice-cooker-for-home-cooks.mdx",
+      "query": "zojirushi nhs06 3cup rice cooker",
+      "asin": "B00004S575"
+    },
+    {
+      "file": "content\\stories\\best-japanese-rice-cooker-for-home-cooks.mdx",
+      "query": "zojirushi nwjec10 55cup induction rice cooker",
+      "asin": "B09N9Z183T"
+    },
+    {
+      "file": "content\\stories\\best-korean-bbq-grill-pan-for-home.mdx",
+      "query": "le creuset enameled cast iron square grill pan",
+      "asin": "B009ZML3SW"
+    },
+    {
+      "file": "content\\stories\\best-wok-for-home-cooking-buying-guide.mdx",
+      "query": "joyce chen 14 inch carbon steel wok",
+      "asin": "B002AQSWMU"
+    },
+    {
+      "file": "content\\stories\\best-wok-for-home-cooking-buying-guide.mdx",
+      "query": "craft wok 14 inch carbon steel",
+      "asin": "B00PUZT9MU"
+    },
+    {
+      "file": "content\\stories\\best-wok-for-home-cooking-buying-guide.mdx",
+      "query": "souped up recipes flat bottom carbon steel wok",
+      "asin": "B0CXJB22CC"
+    },
+    {
+      "file": "content\\stories\\japanese-knife-buying-guide-beginners.mdx",
+      "query": "victorinox fibrox pro 8 inch chef knife",
+      "asin": "B000638D32"
+    },
+    {
+      "file": "content\\stories\\japanese-knife-buying-guide-beginners.mdx",
+      "query": "tojiro dp gyuto 210mm",
+      "asin": "B000UAPQGS"
+    },
+    {
+      "file": "content\\stories\\japanese-knife-buying-guide-beginners.mdx",
+      "query": "shun classic 8 inch chef knife",
+      "asin": "B0000Y7KNQ"
+    },
+    {
+      "file": "content\\stories\\japanese-knife-buying-guide-beginners.mdx",
+      "query": "king 1000 6000 combination whetstone",
+      "asin": "B001DT1X9O"
+    },
+    {
+      "file": "content\\stories\\japanese-pantry-essentials-for-italian-home-cooks.mdx",
+      "query": "hikari organic white miso paste 176oz",
+      "asin": "B00IBNZAEE"
+    },
+    {
+      "file": "content\\stories\\japanese-pantry-essentials-for-italian-home-cooks.mdx",
+      "query": "welpac dashi kombu dried seaweed 4oz",
+      "asin": "B00ZB13JHO"
+    },
+    {
+      "file": "content\\stories\\japanese-pantry-starter-kit-what-to-buy-first.mdx",
+      "query": "hikari white miso shiro",
+      "asin": "B00IBNZAEE"
+    },
+    {
+      "file": "content\\stories\\japanese-pantry-starter-kit-what-to-buy-first.mdx",
+      "query": "kombu",
+      "asin": "B00ZB13JHO"
+    },
+    {
+      "file": "content\\stories\\japanese-pantry-starter-kit-what-to-buy-first.mdx",
+      "query": "katsuobushi",
+      "asin": "B0006B4IHE"
+    },
+    {
+      "file": "content\\stories\\japanese-pantry-starter-kit-what-to-buy-first.mdx",
+      "query": "toasted sesame oil",
+      "asin": "B002HMN6SC"
+    },
+    {
+      "file": "content\\stories\\korean-grocery-store-guide-what-to-buy.mdx",
+      "query": "cj haechandle gochujang",
+      "asin": "B07BDRMFDZ"
+    },
+    {
+      "file": "content\\stories\\korean-grocery-store-guide-what-to-buy.mdx",
+      "query": "korean gochugaru coarse red pepper flakes",
+      "asin": "B005G8IDTQ"
+    }
+  ],
+  "removedUnverifiedContentLinks": [
+    {
+      "file": "content\\stories\\best-japanese-cooking-gifts-for-home-cooks.mdx",
+      "query": "Mirin Hon Mirin",
+      "url": "https://www.amazon.com/s?k=Mirin+Hon+Mirin&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-japanese-cooking-gifts-for-home-cooks.mdx",
+      "query": "Japanese Ceramic Grater Oroshigane",
+      "url": "https://www.amazon.com/s?k=Japanese+Ceramic+Grater+Oroshigane&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-japanese-cooking-gifts-for-home-cooks.mdx",
+      "query": "Zojirushi IH Rice Cooker",
+      "url": "https://www.amazon.com/s?k=Zojirushi+IH+Rice+Cooker&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-japanese-cooking-gifts-for-home-cooks.mdx",
+      "query": "Donabe Japanese Clay Pot",
+      "url": "https://www.amazon.com/s?k=Donabe+Japanese+Clay+Pot&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-japanese-knives-for-home-cooks.mdx",
+      "query": "mac professional hollow edge gyuto 8 inch",
+      "url": "https://www.amazon.com/s?k=mac+professional+hollow+edge+gyuto+8+inch&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-japanese-knives-for-home-cooks.mdx",
+      "query": "mac professional hollow edge gyuto 8 inch",
+      "url": "https://www.amazon.com/s?k=mac+professional+hollow+edge+gyuto+8+inch&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-japanese-pantry-starter-kit-ingredients.mdx",
+      "query": "kikkoman less sodium soy sauce 64oz",
+      "url": "https://www.amazon.com/s?k=kikkoman+less+sodium+soy+sauce+64oz&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-japanese-pantry-starter-kit-ingredients.mdx",
+      "query": "kikkoman ajimirin sweet cooking rice seasoning 338oz",
+      "url": "https://www.amazon.com/s?k=kikkoman+ajimirin+sweet+cooking+rice+seasoning+338oz&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-japanese-pantry-starter-kit-ingredients.mdx",
+      "query": "takara sake sho chiku bai classic junmai 15l",
+      "url": "https://www.amazon.com/s?k=takara+sake+sho+chiku+bai+classic+junmai+15l&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-japanese-pantry-starter-kit-ingredients.mdx",
+      "query": "ajinomoto hondashi bonito soup stock 21oz",
+      "url": "https://www.amazon.com/s?k=ajinomoto+hondashi+bonito+soup+stock+21oz&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-japanese-pantry-starter-kit-ingredients.mdx",
+      "query": "mizkan seasoned rice vinegar 12oz",
+      "url": "https://www.amazon.com/s?k=mizkan+seasoned+rice+vinegar+12oz&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-japanese-pantry-starter-kit-ingredients.mdx",
+      "query": "kikkoman panko bread crumbs 8oz",
+      "url": "https://www.amazon.com/s?k=kikkoman+panko+bread+crumbs+8oz&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-japanese-pantry-starter-kit-ingredients.mdx",
+      "query": "nishiki premium sushi rice 10lb",
+      "url": "https://www.amazon.com/s?k=nishiki+premium+sushi+rice+10lb&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-japanese-pantry-starter-kit-ingredients.mdx",
+      "query": "kikkoman sesame oil 51oz",
+      "url": "https://www.amazon.com/s?k=kikkoman+sesame+oil+51oz&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-japanese-rice-cooker-for-home-cooks.mdx",
+      "query": "tiger jbva 55cup rice cooker",
+      "url": "https://www.amazon.com/s?k=tiger+jbva+55cup+rice+cooker&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-japanese-rice-cooker-for-home-cooks.mdx",
+      "query": "zojirushi nphcc10 55cup fuzzy logic rice cooker",
+      "url": "https://www.amazon.com/s?k=zojirushi+nphcc10+55cup+fuzzy+logic+rice+cooker&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-korean-bbq-grill-pan-for-home.mdx",
+      "query": "lodge 12inch cast iron grill pan",
+      "url": "https://www.amazon.com/s?k=lodge+12inch+cast+iron+grill+pan&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-korean-bbq-grill-pan-for-home.mdx",
+      "query": "cuckoo portable korean bbq grill with propane",
+      "url": "https://www.amazon.com/s?k=cuckoo+portable+korean+bbq+grill+with+propane&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-korean-bbq-grill-pan-for-home.mdx",
+      "query": "korean bbq stovetop round grill grate",
+      "url": "https://www.amazon.com/s?k=korean+bbq+stovetop+round+grill+grate&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-ramen-bowls-and-japanese-serving-equipment.mdx",
+      "query": "japanese ramen bowl set 40oz ceramic 4pack",
+      "url": "https://www.amazon.com/s?k=japanese+ramen+bowl+set+40oz+ceramic+4pack&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-ramen-bowls-and-japanese-serving-equipment.mdx",
+      "query": "japanese donburi bowl set wide ceramic 2832oz",
+      "url": "https://www.amazon.com/s?k=japanese+donburi+bowl+set+wide+ceramic+2832oz&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-ramen-bowls-and-japanese-serving-equipment.mdx",
+      "query": "black ceramic ramen bowl set 40oz japanese style",
+      "url": "https://www.amazon.com/s?k=black+ceramic+ramen+bowl+set+40oz+japanese+style&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-ramen-bowls-and-japanese-serving-equipment.mdx",
+      "query": "restaurant style ramen bowl with interior noodle rest",
+      "url": "https://www.amazon.com/s?k=restaurant+style+ramen+bowl+with+interior+noodle+rest&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-ramen-bowls-and-japanese-serving-equipment.mdx",
+      "query": "japanese ramen soup spoon flat bottom ceramic",
+      "url": "https://www.amazon.com/s?k=japanese+ramen+soup+spoon+flat+bottom+ceramic&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-ramen-bowls-and-japanese-serving-equipment.mdx",
+      "query": "japanese wooden chopsticks set of 5 pairs",
+      "url": "https://www.amazon.com/s?k=japanese+wooden+chopsticks+set+of+5+pairs&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-wok-for-home-cooking-buying-guide.mdx",
+      "query": "yosukata 14 inch hammered carbon steel wok",
+      "url": "https://www.amazon.com/s?k=yosukata+14+inch+hammered+carbon+steel+wok&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\best-wok-for-home-cooking-buying-guide.mdx",
+      "query": "bamboo wok brush chan spatula",
+      "url": "https://www.amazon.com/s?k=bamboo+wok+brush+chan+spatula&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\japanese-pantry-essentials-for-italian-home-cooks.mdx",
+      "query": "kikkoman less sodium soy sauce 64oz",
+      "url": "https://www.amazon.com/s?k=kikkoman+less+sodium+soy+sauce+64oz&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\japanese-pantry-essentials-for-italian-home-cooks.mdx",
+      "query": "takara sake sho chiku bai classic junmai 15l",
+      "url": "https://www.amazon.com/s?k=takara+sake+sho+chiku+bai+classic+junmai+15l&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\japanese-pantry-essentials-for-italian-home-cooks.mdx",
+      "query": "kikkoman ajimirin sweet cooking rice seasoning 338oz",
+      "url": "https://www.amazon.com/s?k=kikkoman+ajimirin+sweet+cooking+rice+seasoning+338oz&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\japanese-pantry-essentials-for-italian-home-cooks.mdx",
+      "query": "ajinomoto hondashi bonito soup stock 21oz",
+      "url": "https://www.amazon.com/s?k=ajinomoto+hondashi+bonito+soup+stock+21oz&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\japanese-pantry-essentials-for-italian-home-cooks.mdx",
+      "query": "kikkoman sesame oil 51oz",
+      "url": "https://www.amazon.com/s?k=kikkoman+sesame+oil+51oz&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\japanese-pantry-starter-kit-what-to-buy-first.mdx",
+      "query": "kikkoman soy sauce shoyu",
+      "url": "https://www.amazon.com/s?k=kikkoman+soy+sauce+shoyu&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\japanese-pantry-starter-kit-what-to-buy-first.mdx",
+      "query": "hon mirin",
+      "url": "https://www.amazon.com/s?k=hon+mirin&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\korean-grocery-store-guide-what-to-buy.mdx",
+      "query": "sempio doenjang soybean paste",
+      "url": "https://www.amazon.com/s?k=sempio+doenjang+soybean+paste&tag=borderlesskitchen-20"
+    },
+    {
+      "file": "content\\stories\\korean-grocery-store-guide-what-to-buy.mdx",
+      "query": "korean dangmyeon sweet potato glass noodles",
+      "url": "https://www.amazon.com/s?k=korean+dangmyeon+sweet+potato+glass+noodles&tag=borderlesskitchen-20"
+    }
+  ],
+  "policy": "No search-result fallback; only verified direct products. User requested removal of unverified shopping links.",
+  "additionalRemoved": {
+    "B00004S7V2": "Champagne tool, not recommended mandoline",
+    "B00006HUMI": "Electrical equipment, not Japanese knife",
+    "0714873438": "Gallery management book, not Japan cookbook",
+    "B000LEXR0K": "5qt unenameled pot does not match 5.5qt enameled recommendation",
+    "bokksu": "Referral and product destination not verified"
+  },
+  "validation": {
+    "build": "442 generated routes; successful production build",
+    "html": "435 HTML files; 425 internal targets all resolve; 33 direct Amazon destinations with affiliate and sponsored tags",
+    "note": "Two book URLs are server redirects; do not require page headings or metadata. All 6 Etsy listings checked. Email delivery and commission attribution not transaction-tested."
+  }
+}

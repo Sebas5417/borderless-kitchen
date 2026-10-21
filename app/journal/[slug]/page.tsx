@@ -35,10 +35,12 @@ export async function generateMetadata({
     title: fitTitle(snippetTitle(story.title, story.metaTitle)),
     description: fitDescription(story.metaDescription || story.dek),
     alternates: { canonical: `/journal/${story.slug}` },
+    twitter: { card: "summary_large_image", title: story.title, description: fitDescription(story.metaDescription ?? story.dek), images: story.heroImageSrc ? [story.heroImageSrc] : [] },
     openGraph: {
       title: story.title,
-      description: fitDescription(story.dek),
+      description: fitDescription(story.metaDescription ?? story.dek),
       type: "article",
+      url: `/journal/${story.slug}`,
       publishedTime: story.date,
       images: story.heroImageSrc ? [{ url: story.heroImageSrc }] : [],
     },

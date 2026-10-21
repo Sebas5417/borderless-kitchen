@@ -11,6 +11,10 @@ export const metadata: Metadata = {
   title: "Culture",
   description:
     "A knowledge library of ingredients, techniques, and traditions from the Borderless Kitchen series.",
+
+  twitter: { ...({}), title: "Culture", description: "A knowledge library of ingredients, techniques, and traditions from the Borderless Kitchen series.", card: "summary_large_image" },
+
+  openGraph: { ...({}), title: "Culture", description: "A knowledge library of ingredients, techniques, and traditions from the Borderless Kitchen series.", url: "/culture" },
 };
 
 const CLASSIFICATIONS = ["ingredient", "technique", "tradition", "term"] as const;
@@ -66,9 +70,9 @@ export default function CulturePage() {
       })}
 
       <EmailCaptureCTA
-        heading="Get the free Flavor Pairing Matrix."
-        body="The one-page chart behind every Japanese-Italian swap, plus 85 free recipes. Enter your email and it's yours."
-        cta="Get it free →"
+        heading="Get the free starter guide."
+        body="Get the Flavor Pairing Matrix and discover practical ingredient swaps across Japanese and Italian cooking."
+        cta="Get the free Flavor Pairing Matrix →"
       />
     </>
   );

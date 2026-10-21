@@ -100,13 +100,14 @@ export function SubscribeForm({
       >
         <input
           id={inputId}
+          aria-label={label ?? "Email address"}
           name="email"
           type="email"
           required
           placeholder={placeholder}
           autoComplete="email"
           disabled={pending}
-          className={`flex-1 bg-transparent font-body text-base focus:outline-none disabled:opacity-50 ${inkOrPaper} ${dark ? "placeholder:text-paper/40" : "placeholder:text-ink/40"}`}
+          className={`min-w-0 flex-1 bg-transparent font-body text-base focus:outline-none disabled:opacity-50 ${inkOrPaper} ${dark ? "placeholder:text-paper/40" : "placeholder:text-ink/40"}`}
         />
         <button
           type="submit"
@@ -117,7 +118,7 @@ export function SubscribeForm({
         </button>
       </div>
       {state.kind === "error" ? (
-        <p className="mt-3 font-ui text-xs text-vermillion">{state.message}</p>
+        <p role="alert" className="mt-3 font-ui text-xs text-vermillion">{state.message}</p>
       ) : null}
     </form>
   );
