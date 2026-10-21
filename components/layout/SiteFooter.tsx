@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Container } from "./Container";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 
-import { TMT_AMAZON } from "@/lib/amazon";
+import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -13,12 +13,16 @@ export function SiteFooter() {
         <div className="md:col-span-1">
           <p className="font-display text-xl text-ink">Borderless Kitchen</p>
           <p className="font-body text-sm text-ink/60 mt-3 max-w-xs leading-relaxed">
-            A cookbook series by Sebastian Dri. Italian soul. Japanese
-            precision.
+            A cookbook series by Sebastian Dri. Japanese–Italian and
+            Korean–Mexican flavors, built with intention.
           </p>
-          <div className="mt-5">
-            <AmazonCTA href={TMT_AMAZON} label="Get Vol. I" />
+          <div className="mt-5 flex flex-col items-start gap-3">
+            <AmazonCTA href={SMMC_AMAZON} label="Get Vol. II" hideDisclosure />
+            <AmazonCTA href={TMT_AMAZON} label="Get Vol. I" hideDisclosure />
           </div>
+          <p className="font-ui text-xs leading-relaxed text-ink/45 mt-4 max-w-prose">
+            As an Amazon Associate we earn from qualifying purchases. These are affiliate links &mdash; they cost you nothing extra.
+          </p>
         </div>
 
         {/* Series */}
