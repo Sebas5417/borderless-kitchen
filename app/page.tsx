@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   description:
     "Explore Tokyo Meets Tuscany and Seoul Meets Mexico City: Japanese–Italian and Korean–Mexican cookbooks by Sebastian Dri, plus free recipes.",
 
-  twitter: { ...({}), title: "Borderless Kitchen — Japanese–Italian & Korean–Mexican Cookbooks", description: "Explore Tokyo Meets Tuscany and Seoul Meets Mexico City: Japanese–Italian and Korean–Mexican cookbooks by Sebastian Dri, plus free recipes.", card: "summary_large_image" },
+  twitter: { ...({}), title: "Borderless Kitchen — Japanese–Italian & Korean–Mexican Cookbooks", description: "Explore Tokyo Meets Tuscany and Seoul Meets Mexico City: Japanese–Italian and Korean–Mexican cookbooks by Sebastian Dri, plus free recipes.", card: "summary_large_image", images: ["/images/banner-carousel-1.png"] },
 
-  openGraph: { ...({}), title: "Borderless Kitchen — Japanese–Italian & Korean–Mexican Cookbooks", description: "Explore Tokyo Meets Tuscany and Seoul Meets Mexico City: Japanese–Italian and Korean–Mexican cookbooks by Sebastian Dri, plus free recipes.", url: "/" },
+  openGraph: { ...({}), title: "Borderless Kitchen — Japanese–Italian & Korean–Mexican Cookbooks", description: "Explore Tokyo Meets Tuscany and Seoul Meets Mexico City: Japanese–Italian and Korean–Mexican cookbooks by Sebastian Dri, plus free recipes.", url: "/", images: [{ url: "/images/banner-carousel-1.png", width: 2172, height: 724, alt: "Borderless Kitchen — cross-cultural cookbook series" }] },
 };
 
 import { SMMC_AMAZON } from "@/lib/amazon";
