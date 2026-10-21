@@ -10,7 +10,7 @@ const books = [
 
 export function AvailableBooks() {
   return (
-    <section id="available-books" className="py-12 md:py-20 border-t border-hairline bg-paper" aria-labelledby="available-books-heading">
+    <section id="available-books" className="py-12 md:py-14 border-t border-hairline bg-paper" aria-labelledby="available-books-heading">
       <Container>
         <p className="font-ui text-eyebrow uppercase text-vermillion mb-3">Available now · Paperback & Kindle</p>
         <h2 id="available-books-heading" className="font-display text-display-3 mb-10">Choose your next kitchen adventure.</h2>
@@ -31,7 +31,7 @@ export function AvailableBooks() {
             </article>
           ))}
         </div>
-        <p className="font-ui text-xs text-ink/60 mt-8">As an Amazon Associate we earn from qualifying purchases, at no extra cost to you.</p>
+        <p className="font-ui text-xs text-ink/60 mt-6">As an Amazon Associate we earn from qualifying purchases, at no extra cost to you.</p>
       </Container>
     </section>
   );

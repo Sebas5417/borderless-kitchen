@@ -4,7 +4,6 @@ import Image from "next/image";
 import { allBooks, allStories, allFieldNotes } from "contentlayer/generated";
 import { Container } from "@/components/layout/Container";
 import { AvailableBooks } from "@/components/editorial/AvailableBooks";
-import { PhilosophyStrip } from "@/components/editorial/PhilosophyStrip";
 import { BookCard } from "@/components/cards/BookCard";
 import { StoryCard } from "@/components/cards/StoryCard";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
@@ -61,10 +60,9 @@ export default function HomePage() {
         </Container>
       </section>
       <AvailableBooks />
-      <PhilosophyStrip />
 
       {/* 3c. Free recipes CTA strip */}
-      <section className="py-16 md:py-20 border-t border-hairline bg-paper">
+      <section className="py-10 md:py-12 border-t border-hairline bg-paper">
         <Container>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
@@ -75,7 +73,7 @@ export default function HomePage() {
                 85 free recipes + the Flavor Pairing Matrix.
               </p>
               <p className="font-body text-base text-ink/60 mt-2">
-                The full logic behind every Japanese-Italian swap, condensed.
+                Browse the recipes, then use the pairing guide to make your own Japanese–Italian swaps.
               </p>
             </div>
             <Link
