@@ -1,3 +1,4 @@
+import { PdfCookbooks } from "@/components/cta/PdfCookbooks";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -186,6 +187,8 @@ export default async function JournalEntryPage({
               </p>
             </div>
           ) : null}
+
+          <PdfCookbooks placement={`journal-${story.slug}`} topic={story.slug} />
 
           {/* Pantry cross-links */}
           {pantryRefs.length > 0 ? (

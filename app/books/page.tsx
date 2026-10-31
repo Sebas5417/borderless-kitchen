@@ -1,3 +1,4 @@
+import { PdfCookbooks } from "@/components/cta/PdfCookbooks";
 import { AvailableBooks } from "@/components/editorial/AvailableBooks";
 import type { Metadata } from "next";
 import { allBooks } from "contentlayer/generated";
@@ -30,6 +31,7 @@ export default function BooksPage() {
         <p className="font-body text-lg text-ink/70 mt-5 max-w-prose">Start with Japanese–Italian cooking in Tokyo Meets Tuscany, or explore Korean–Mexican flavors in Seoul Meets Mexico City. Both are available now.</p>
       </Container></section>
       <AvailableBooks />
+      <PdfCookbooks placement="books" />
 
       {/* Future volumes */}
       {future.length > 0 ? (

@@ -1,3 +1,4 @@
+import { PdfCookbooks } from "@/components/cta/PdfCookbooks";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -60,6 +61,7 @@ export default function HomePage() {
         </Container>
       </section>
       <AvailableBooks />
+      <PdfCookbooks placement="home" />
 
       {/* 3c. Free recipes CTA strip */}
       <section className="py-10 md:py-12 border-t border-hairline bg-paper">
