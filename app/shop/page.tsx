@@ -1,3 +1,4 @@
+import { PdfCookbooks } from "@/components/cta/PdfCookbooks";
 import type { Metadata } from "next";
 import { directProductUrl } from "@/lib/affiliateProducts";
 import Link from "next/link";
@@ -237,6 +238,7 @@ export default function ShopPage() {
         alt="The Borderless Kitchen pantry — key ingredients from Japanese and Italian cooking traditions."
       />
 
+      <PdfCookbooks placement="shop" />
       <section className="py-16 md:py-24">
         <Container>
           <FadeRise>

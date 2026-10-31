@@ -1,3 +1,4 @@
+import { PdfCookbooks } from "@/components/cta/PdfCookbooks";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
@@ -127,6 +128,7 @@ export default function InstagramPage() {
       </section>
 
       {/* ── The books ────────────────────────────────────────────────── */}
+      <PdfCookbooks placement="instagram" />
       <section className="bg-ink text-paper py-16 md:py-24">
         <Container>
           <FadeRise>
