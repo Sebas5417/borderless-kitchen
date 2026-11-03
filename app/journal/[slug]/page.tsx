@@ -1,3 +1,4 @@
+import { storyModifiedAt } from "@/lib/contentDates";
 import { PdfCookbooks } from "@/components/cta/PdfCookbooks";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -7,7 +8,7 @@ import { allStories, allPantryEntries, allFreeRecipes } from "contentlayer/gener
 import { relatedRecipesFor } from "@/lib/relatedRecipes";
 import { relatedStoriesFor } from "@/lib/relatedStories";
 import { breadcrumbJson } from "@/lib/breadcrumbSchema";
-import { fitTitle, fitDescription } from "@/lib/seoMeta";
+import { snippetTitle, fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { ProseLayout } from "@/components/editorial/ProseLayout";
 import { MDXContent } from "@/components/MDXContent";
@@ -29,7 +30,7 @@ export async function generateMetadata({
   const story = allStories.find((s) => s.slug === slug);
   if (!story) return {};
   return {
-    title: fitTitle((story.metaTitle ?? story.title).replace(/\s*\|\s*Borderless Kitchen\s*$/i, "")),
+    title: fitTitle(snippetTitle(story.title, story.metaTitle)),
     description: fitDescription(story.metaDescription ?? story.dek),
     alternates: { canonical: `/journal/${story.slug}` },
     twitter: { card: "summary_large_image", title: story.title, description: fitDescription(story.metaDescription ?? story.dek), images: story.heroImageSrc ? [story.heroImageSrc] : [] },
@@ -39,6 +40,7 @@ export async function generateMetadata({
       type: "article",
       url: `/journal/${story.slug}`,
       publishedTime: story.date,
+      modifiedTime: storyModifiedAt(story),
       images: story.heroImageSrc ? [{ url: story.heroImageSrc }] : [],
     },
   };
@@ -94,10 +96,10 @@ export default async function JournalEntryPage({
       url: "https://borderlesskitchenseries.com",
     },
     datePublished: story.date,
-    dateModified: story.date,
+    dateModified: storyModifiedAt(story),
     mainEntityOfPage: `https://borderlesskitchenseries.com/journal/${story.slug}`,
     ...(story.heroImageSrc
-      ? { image: `https://borderlesskitchenseries.com${story.heroImageSrc}` }
+      ? { image: new URL(story.heroImageSrc, "https://borderlesskitchenseries.com").href }
       : {}),
   };
 

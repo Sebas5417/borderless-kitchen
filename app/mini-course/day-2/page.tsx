@@ -6,13 +6,13 @@ import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/mini-course/day-2" },
-  title: "Day 2: Miso — Where Fermented Depth Meets Italian Technique | Fusion Kitchen Mini-Course",
+  title: { absolute: "Day 2: Cook with Miso | Free Fusion Cooking Course" },
   description:
     "Dissolve miso into pasta water. Make miso butter. Understand why white miso and Parmigiano are structurally equivalent — and when to use each.",
 
-  twitter: { ...({}), title: "Day 2: Miso — Where Fermented Depth Meets Italian Technique | Fusion Kitchen Mini-Course", description: "Dissolve miso into pasta water. Make miso butter. Understand why white miso and Parmigiano are structurally equivalent — and when to use each.", card: "summary_large_image" },
+  twitter: { ...({}), title: "Day 2: Cook with Miso | Free Fusion Cooking Course", description: "Dissolve miso into pasta water. Make miso butter. Understand why white miso and Parmigiano are structurally equivalent — and when to use each.", card: "summary_large_image" },
 
-  openGraph: { ...({}), title: "Day 2: Miso — Where Fermented Depth Meets Italian Technique | Fusion Kitchen Mini-Course", description: "Dissolve miso into pasta water. Make miso butter. Understand why white miso and Parmigiano are structurally equivalent — and when to use each.", url: "/mini-course/day-2" },
+  openGraph: { ...({}), title: "Day 2: Cook with Miso | Free Fusion Cooking Course", description: "Dissolve miso into pasta water. Make miso butter. Understand why white miso and Parmigiano are structurally equivalent — and when to use each.", url: "/mini-course/day-2" },
 };
 
 export default function Day2Page() {

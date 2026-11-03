@@ -1,3 +1,4 @@
+import { BookBuyingPanel } from "@/components/cta/BookBuyingPanel";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,9 +9,9 @@ import { SmmcWaitlist } from "@/components/cta/SmmcWaitlist";
 import { FadeRise } from "@/components/motion/FadeRise";
 
 export const metadata: Metadata = {
-  title: "Tokyo Meets Tuscany — Japanese Precision. Italian Comfort.",
+  title: { absolute: "Tokyo Meets Tuscany: Japanese-Italian Cookbook" },
   description:
-    "A modern Japanese–Italian fusion cookbook for weeknight dinners that feel restaurant-level without restaurant prices. Download the free 5-Sauce Pack and get the book on Amazon.",
+    "Explore thirty Japanese-Italian fusion recipes and six master sauces in Tokyo Meets Tuscany by Sebastian Dri. Available in paperback and on Kindle.",
   alternates: { canonical: "/tokyo-meets-tuscany" },
   openGraph: { ...({
     title: "Tokyo Meets Tuscany | Borderless Kitchen",
@@ -26,8 +27,8 @@ export const metadata: Metadata = {
         alt: "Tokyo Meets Tuscany cookbook cover",
       },
     ],
-  }), title: "Tokyo Meets Tuscany — Japanese Precision. Italian Comfort.", description: "A modern Japanese–Italian fusion cookbook for weeknight dinners that feel restaurant-level without restaurant prices. Download the free 5-Sauce Pack and get the book on Amazon.", url: "/tokyo-meets-tuscany" },
-  twitter: { ...({ card: "summary_large_image", images: ["/images/tmt-cover.jpg"] }), title: "Tokyo Meets Tuscany — Japanese Precision. Italian Comfort.", description: "A modern Japanese–Italian fusion cookbook for weeknight dinners that feel restaurant-level without restaurant prices. Download the free 5-Sauce Pack and get the book on Amazon.", card: "summary_large_image" },
+  }), title: "Tokyo Meets Tuscany: Japanese-Italian Cookbook", description: "Explore thirty Japanese-Italian fusion recipes and six master sauces in Tokyo Meets Tuscany by Sebastian Dri. Available in paperback and on Kindle.", url: "/tokyo-meets-tuscany" },
+  twitter: { ...({ card: "summary_large_image", images: ["/images/tmt-cover.jpg"] }), title: "Tokyo Meets Tuscany: Japanese-Italian Cookbook", description: "Explore thirty Japanese-Italian fusion recipes and six master sauces in Tokyo Meets Tuscany by Sebastian Dri. Available in paperback and on Kindle.", card: "summary_large_image" },
 };
 
 const AMAZON_URL = TMT_AMAZON;
@@ -120,7 +121,7 @@ export default function TokyoMeetsTuscanyPage() {
               Borderless Kitchen — Vol. I
             </p>
             <h1 className="font-display text-display-1 text-paper leading-tight max-w-3xl mb-6">
-              Japanese precision meets Italian comfort.
+              Tokyo Meets Tuscany
             </h1>
             <p className="font-body text-xl text-paper/75 max-w-2xl leading-relaxed mb-10">
               A Japanese–Italian fusion cookbook for weeknight dinners that
@@ -148,6 +149,8 @@ export default function TokyoMeetsTuscanyPage() {
           </FadeRise>
         </Container>
       </section>
+
+      <BookBuyingPanel bookId="tmt" />
 
       {/* Philosophy strip */}
       <section className="bg-vermillion py-5">

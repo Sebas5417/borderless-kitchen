@@ -6,13 +6,13 @@ import { FadeRise } from "@/components/motion/FadeRise";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/mini-course/day-5" },
-  title: "Day 5: Build Your Own Fusion Dish | Fusion Kitchen Mini-Course",
+  title: { absolute: "Day 5: Build a Fusion Dish | Free Cooking Course" },
   description:
     "The five-day course culminates in a dish you invented. Using the framework: identify structure, find the equivalent components, build something original.",
 
-  twitter: { ...({}), title: "Day 5: Build Your Own Fusion Dish | Fusion Kitchen Mini-Course", description: "The five-day course culminates in a dish you invented. Using the framework: identify structure, find the equivalent components, build something original.", card: "summary_large_image" },
+  twitter: { ...({}), title: "Day 5: Build a Fusion Dish | Free Cooking Course", description: "The five-day course culminates in a dish you invented. Using the framework: identify structure, find the equivalent components, build something original.", card: "summary_large_image" },
 
-  openGraph: { ...({}), title: "Day 5: Build Your Own Fusion Dish | Fusion Kitchen Mini-Course", description: "The five-day course culminates in a dish you invented. Using the framework: identify structure, find the equivalent components, build something original.", url: "/mini-course/day-5" },
+  openGraph: { ...({}), title: "Day 5: Build a Fusion Dish | Free Cooking Course", description: "The five-day course culminates in a dish you invented. Using the framework: identify structure, find the equivalent components, build something original.", url: "/mini-course/day-5" },
 };
 
 const FRAMEWORK = [
