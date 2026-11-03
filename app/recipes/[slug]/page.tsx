@@ -1,3 +1,5 @@
+import { BookBuyingPanel } from "@/components/cta/BookBuyingPanel";
+import { cookbookForCuisine, FEATURED_RECIPE_OFFERS } from "@/lib/cookbookOffers";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -61,7 +63,6 @@ export async function generateMetadata({
   };
 }
 
-import { TMT_AMAZON } from "@/lib/amazon";
 
 export default async function RecipePage({
   params,
@@ -71,6 +72,7 @@ export default async function RecipePage({
   const { slug } = await params;
   const recipe = allFreeRecipes.find((r) => r.slug === slug);
   if (!recipe) notFound();
+  const matchedBook = cookbookForCuisine(recipe.cuisine);
 
   const recipeSchema = {
     "@context": "https://schema.org",
@@ -202,16 +204,14 @@ export default async function RecipePage({
             <MDXContent code={recipe.body.code} />
           </ProseLayout>
 
-          {/* Book CTA */}
-          <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">
-            <p className="font-display italic text-display-3 text-ink/60 mb-6 leading-tight">
-              30 recipes and 6 master sauces in the book.
-            </p>
-            <AmazonCTA href={TMT_AMAZON} label="Get Tokyo Meets Tuscany on Amazon" />
-            <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
-              Paperback · Kindle
-            </p>
-          </div>
+          {/* A complete offer on ten selected recipes; a cuisine-matched link elsewhere. */}
+          {FEATURED_RECIPE_OFFERS.has(recipe.slug) ? <div className="mt-12"><BookBuyingPanel bookId={matchedBook.id} recipeContext /></div> : (
+            <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">
+              <p className="font-display italic text-display-3 text-ink/70 mb-6 leading-tight">Explore {matchedBook.cuisine} cooking in {matchedBook.title}.</p>
+              <AmazonCTA href={matchedBook.amazon} label={`View ${matchedBook.title} on Amazon`} placement="recipe-footer" />
+              <p className="font-body text-sm text-ink/65 mt-3">Thirty recipes and six master sauces. Paperback and Kindle editions.</p>
+            </div>
+          )}
 
           {/* Related recipes */}
           {recipe.relatedSlugs && recipe.relatedSlugs.length > 0 && (

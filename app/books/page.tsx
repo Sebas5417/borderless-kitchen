@@ -1,3 +1,4 @@
+import { CookbookGuideLinks } from "@/components/editorial/CookbookGuideLinks";
 import { PdfCookbooks } from "@/components/cta/PdfCookbooks";
 import { AvailableBooks } from "@/components/editorial/AvailableBooks";
 import type { Metadata } from "next";
@@ -8,13 +9,13 @@ import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/books" },
-  title: "The Series",
+  title: { absolute: "Fusion Cookbooks: Japanese-Italian & Korean-Mexican" },
   description:
-    "Explore the Borderless Kitchen cookbooks: Tokyo Meets Tuscany and Seoul Meets Mexico City. Both available in paperback and on Kindle, with more volumes in development.",
+    "Explore Tokyo Meets Tuscany and Seoul Meets Mexico City: Japanese-Italian and Korean-Mexican fusion cookbooks, with recipe previews and gift ideas.",
 
-  twitter: { ...({}), title: "The Series", description: "Explore the Borderless Kitchen cookbooks: Tokyo Meets Tuscany and Seoul Meets Mexico City. Both available in paperback and on Kindle, with more volumes in development.", card: "summary_large_image" },
+  twitter: { ...({}), title: "Fusion Cookbooks: Japanese-Italian & Korean-Mexican", description: "Explore Tokyo Meets Tuscany and Seoul Meets Mexico City: Japanese-Italian and Korean-Mexican fusion cookbooks, with recipe previews and gift ideas.", card: "summary_large_image" },
 
-  openGraph: { ...({}), title: "The Series", description: "Explore the Borderless Kitchen cookbooks: Tokyo Meets Tuscany and Seoul Meets Mexico City. Both available in paperback and on Kindle, with more volumes in development.", url: "/books" },
+  openGraph: { ...({}), title: "Fusion Cookbooks: Japanese-Italian & Korean-Mexican", description: "Explore Tokyo Meets Tuscany and Seoul Meets Mexico City: Japanese-Italian and Korean-Mexican fusion cookbooks, with recipe previews and gift ideas.", url: "/books" },
 };
 
 
@@ -27,10 +28,11 @@ export default function BooksPage() {
     <>
       <section className="py-12 md:py-16"><Container>
         <p className="font-ui text-eyebrow uppercase text-vermillion mb-4">The Borderless Kitchen series</p>
-        <h1 className="font-display text-display-2">Two cookbooks. Four kitchens.</h1>
+        <h1 className="font-display text-display-2">Fusion cookbooks. Four kitchens.</h1>
         <p className="font-body text-lg text-ink/70 mt-5 max-w-prose">Start with Japanese–Italian cooking in Tokyo Meets Tuscany, or explore Korean–Mexican flavors in Seoul Meets Mexico City. Both are available now.</p>
       </Container></section>
       <AvailableBooks />
+      <CookbookGuideLinks />
       <PdfCookbooks placement="books" />
 
       {/* Future volumes */}

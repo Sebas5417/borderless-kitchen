@@ -6,13 +6,13 @@ import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/mini-course/day-1" },
-  title: "Day 1: Dashi — The Invisible Foundation | Fusion Kitchen Mini-Course",
+  title: { absolute: "Day 1: Make Dashi | Free Fusion Cooking Course" },
   description:
     "Make ichiban dashi from scratch. Understand why kombu and katsuobushi together produce more umami than any other combination. The foundation of everything in this course.",
 
-  twitter: { ...({}), title: "Day 1: Dashi — The Invisible Foundation | Fusion Kitchen Mini-Course", description: "Make ichiban dashi from scratch. Understand why kombu and katsuobushi together produce more umami than any other combination. The foundation of everything in this course.", card: "summary_large_image" },
+  twitter: { ...({}), title: "Day 1: Make Dashi | Free Fusion Cooking Course", description: "Make ichiban dashi from scratch. Understand why kombu and katsuobushi together produce more umami than any other combination. The foundation of everything in this course.", card: "summary_large_image" },
 
-  openGraph: { ...({}), title: "Day 1: Dashi — The Invisible Foundation | Fusion Kitchen Mini-Course", description: "Make ichiban dashi from scratch. Understand why kombu and katsuobushi together produce more umami than any other combination. The foundation of everything in this course.", url: "/mini-course/day-1" },
+  openGraph: { ...({}), title: "Day 1: Make Dashi | Free Fusion Cooking Course", description: "Make ichiban dashi from scratch. Understand why kombu and katsuobushi together produce more umami than any other combination. The foundation of everything in this course.", url: "/mini-course/day-1" },
 };
 
 export default function Day1Page() {

@@ -1,3 +1,4 @@
+import { storyModifiedAt } from "@/lib/contentDates";
 import { MetadataRoute } from "next";
 import {
   allStories,
@@ -33,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((story) => new Date(story.date) <= now && story.slug !== "the-salt-of-two-seas")
     .map((story) => ({
       url: `${siteUrl}/journal/${story.slug}`,
-      lastModified: new Date(story.date),
+      lastModified: new Date(storyModifiedAt(story)),
       changeFrequency: "yearly" as const,
       priority: 0.7,
     }));
@@ -88,6 +89,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/notes`, lastModified: newestNote, changeFrequency: "weekly", priority: 0.5 },
     { url: `${siteUrl}/recipes`, lastModified: newestRecipe, changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/shop`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${siteUrl}/tools`, changeFrequency: "monthly", priority: 0.6 },
     // No lastModified: the page is a hand-written list of products, so nothing in the
     // content implies a date and stamping today's would be the fake-lastmod problem again.
     { url: `${siteUrl}/printables`, changeFrequency: "monthly", priority: 0.7 },

@@ -1,3 +1,4 @@
+import { PdfOfferLink } from "@/components/cta/PdfOfferLink";
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { PDF_COOKBOOKS, cookbookUrl } from "@/lib/pdfCookbooks";
@@ -21,15 +22,21 @@ export function PdfCookbooks({ placement, topic }: { placement: string; topic?: 
         <p className="font-body text-lg text-ink/70 mb-8 max-w-prose">Focused recipe collections and a Japanese pantry reference, available as PDF downloads on Gumroad.</p>
         <div className={topic ? "max-w-3xl" : "grid md:grid-cols-2 gap-8"}>
           {books.map((book) => (
-            <article key={book.id} className="flex gap-5 border border-hairline p-5 items-start">
-              <a href={cookbookUrl(book.href, placement, book.id)} target="_blank" rel="noopener noreferrer" aria-label={`View ${book.title} on Gumroad`} className="shrink-0 w-24 sm:w-32">
+            <article id={`pdf-${book.id}`} key={book.id} className="flex gap-5 border border-hairline p-5 items-start">
+              <PdfOfferLink href={cookbookUrl(book.href, placement, book.id)} productId={book.id} placement={`${placement}-cover`} target="_blank" rel="noopener noreferrer" aria-label={`View ${book.title} on Gumroad`} className="shrink-0 w-24 sm:w-32">
                 <Image src={book.cover} alt={`${book.title} cover`} width={256} height={384} sizes="(min-width: 640px) 128px, 96px" className="w-full h-auto shadow-md" />
-              </a>
+              </PdfOfferLink>
               <div>
                 <h3 className="font-display text-xl sm:text-2xl leading-tight">{book.title}</h3>
                 <p className="font-ui text-sm text-vermillion mt-3">{book.price} · {book.pages} pages · PDF</p>
                 <p className="font-body text-base text-ink/70 mt-3">{book.summary}</p>
-                <a href={cookbookUrl(book.href, placement, book.id)} target="_blank" rel="noopener noreferrer" className="inline-block mt-5 bg-ink text-paper px-4 py-3 font-ui text-xs hover:bg-vermillion transition-colors">Get the PDF on Gumroad →</a>
+                <p className="font-body text-sm text-ink/65 mt-3">Digital PDF download. Choose a printed book above if you prefer a physical gift.</p>
+                <details className="mt-4 font-body text-sm text-ink/80">
+                  <summary className="cursor-pointer underline underline-offset-4">See a contents-page preview</summary>
+                  <div className="mt-3 max-w-sm"><Image src={book.contentsImage} alt={`${book.title}: contents-page preview from the PDF`} width={640} height={830} sizes="(max-width: 640px) 80vw, 384px" className="w-full h-auto border border-hairline" /></div>
+                </details>
+                <PdfOfferLink href={book.preview} productId={book.id} placement={placement} preview target="_blank" rel="noopener noreferrer" className="inline-block mt-4 underline underline-offset-4">Open the free PDF preview</PdfOfferLink>
+                <PdfOfferLink href={cookbookUrl(book.href, placement, book.id)} productId={book.id} placement={placement} target="_blank" rel="noopener noreferrer" className="block w-fit mt-5 bg-ink text-paper px-4 py-3 font-ui text-xs hover:bg-vermillion transition-colors">View price and get the PDF on Gumroad →</PdfOfferLink>
               </div>
             </article>
           ))}

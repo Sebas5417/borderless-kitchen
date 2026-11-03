@@ -27,3 +27,14 @@ export function fitDescription(text: string, max = DESC_MAX): string {
   const wordEnd = head.lastIndexOf(" ");
   return (wordEnd > 0 ? head.slice(0, wordEnd) : head).replace(/[,;:\u2014-]+$/, "") + "\u2026";
 }
+
+/** Keep the primary subject in long editorial search titles. Full headings stay intact. */
+export function snippetTitle(title: string, metaTitle?: string): string {
+  const source = (metaTitle || title).replace(/\s*[|\u2014-]\s*Borderless Kitchen\s*$/i, "").replace(/\s+/g, " ").trim();
+  if (source.length <= 68) return source;
+  const breaks = [...source.matchAll(/ — |: |; /g)].map((m) => m.index!).filter((i) => i >= 25 && i <= 68);
+  if (breaks.length) return source.slice(0, breaks[breaks.length - 1]);
+  let compact = source.slice(0, source.lastIndexOf(" ", 68));
+  for (let i = 0; i < 3; i++) compact = compact.replace(/\s+(?:and|or|with|the|of|for|in|to|a|an|vs|why|how)$/i, "").replace(/[,;:\u2014-]+$/, "").trim();
+  return compact;
+}

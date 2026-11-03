@@ -1,3 +1,4 @@
+import { BookBuyingPanel } from "@/components/cta/BookBuyingPanel";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,9 +9,9 @@ import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 
 export const metadata: Metadata = {
-  title: "Seoul Meets Mexico City — Vol. II, Out Now on Amazon",
+  title: { absolute: "Seoul Meets Mexico City: Korean-Mexican Cookbook" },
   description:
-    "The second Borderless Kitchen book — 30 recipes and 6 master sauces at the intersection of Korean and Mexican cooking. Out now in paperback and on Kindle. Explore free Korean–Mexican recipes.",
+    "Explore thirty Korean-Mexican fusion recipes and six master sauces in Seoul Meets Mexico City by Sebastian Dri. Available in paperback and on Kindle.",
   alternates: { canonical: "/seoul-meets-mexico-city" },
   openGraph: { ...({
     title: "Seoul Meets Mexico City — Borderless Kitchen Vol. II",
@@ -26,8 +27,8 @@ export const metadata: Metadata = {
         alt: "Seoul Meets Mexico City — Borderless Kitchen Vol. II cover",
       },
     ],
-  }), title: "Seoul Meets Mexico City — Vol. II, Out Now on Amazon", description: "The second Borderless Kitchen book — 30 recipes and 6 master sauces at the intersection of Korean and Mexican cooking. Out now in paperback and on Kindle. Explore free Korean–Mexican recipes.", url: "/seoul-meets-mexico-city" },
-  twitter: { ...({ card: "summary_large_image", images: ["/images/smmc-cover-current.png"] }), title: "Seoul Meets Mexico City — Vol. II, Out Now on Amazon", description: "The second Borderless Kitchen book — 30 recipes and 6 master sauces at the intersection of Korean and Mexican cooking. Out now in paperback and on Kindle. Explore free Korean–Mexican recipes.", card: "summary_large_image" },
+  }), title: "Seoul Meets Mexico City: Korean-Mexican Cookbook", description: "Explore thirty Korean-Mexican fusion recipes and six master sauces in Seoul Meets Mexico City by Sebastian Dri. Available in paperback and on Kindle.", url: "/seoul-meets-mexico-city" },
+  twitter: { ...({ card: "summary_large_image", images: ["/images/smmc-cover-current.png"] }), title: "Seoul Meets Mexico City: Korean-Mexican Cookbook", description: "Explore thirty Korean-Mexican fusion recipes and six master sauces in Seoul Meets Mexico City by Sebastian Dri. Available in paperback and on Kindle.", card: "summary_large_image" },
 };
 
 const PREVIEW_RECIPES = [
@@ -177,6 +178,8 @@ export default function SeoulMeetsMexicoCityPage() {
           </FadeRise>
         </Container>
       </section>
+
+      <BookBuyingPanel bookId="smmc" />
 
       {/* Preview recipes */}
       <section className="py-16 md:py-24 bg-paper border-b border-hairline">

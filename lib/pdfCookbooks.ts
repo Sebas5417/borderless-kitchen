@@ -1,6 +1,8 @@
 export const PDF_COOKBOOKS = [
   {
     "id": "korean-home-cooking",
+    "preview": "/samples/korean-home-cooking-preview-2026-11-03-v1.pdf",
+    "contentsImage": "/images/samples/korean-home-cooking-contents-2026-11-03-v1.webp",
     "title": "Korean Home Cooking: 20 Essential Dishes",
     "price": "$7.99",
     "pages": 45,
@@ -10,6 +12,8 @@ export const PDF_COOKBOOKS = [
   },
   {
     "id": "korean-mexican-fusion",
+    "preview": "/samples/korean-mexican-fusion-preview-2026-11-03-v1.pdf",
+    "contentsImage": "/images/samples/korean-mexican-fusion-contents-2026-11-03-v1.webp",
     "title": "Korean-Mexican Fusion: 20 Weeknight Recipes",
     "price": "$6.99",
     "pages": 39,
@@ -19,6 +23,8 @@ export const PDF_COOKBOOKS = [
   },
   {
     "id": "the-japanese-pantry",
+    "preview": "/samples/the-japanese-pantry-preview-2026-11-03-v1.pdf",
+    "contentsImage": "/images/samples/the-japanese-pantry-contents-2026-11-03-v1.webp",
     "title": "The Japanese Pantry: 25 Essential Ingredients",
     "price": "$5.99",
     "pages": 36,
@@ -28,6 +34,8 @@ export const PDF_COOKBOOKS = [
   },
   {
     "id": "japanese-breakfast",
+    "preview": "/samples/japanese-breakfast-preview-2026-11-03-v1.pdf",
+    "contentsImage": "/images/samples/japanese-breakfast-contents-2026-11-03-v1.webp",
     "title": "Japanese Breakfast: 20 Morning Recipes",
     "price": "$4.99",
     "pages": 34,

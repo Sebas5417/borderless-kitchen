@@ -6,7 +6,7 @@ import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 
 export const metadata: Metadata = {
-  title: "The Japanese-Italian Fusion Kitchen: A Free 5-Day Mini-Course",
+  title: { absolute: "Free Japanese-Italian Cooking Course: 5 Days" },
   alternates: { canonical: "/mini-course" },
   description:
     "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and practical fusion recipes and your own final dish. Delivered free to your inbox.",
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
         alt: "The Japanese-Italian Fusion Kitchen mini-course",
       },
     ],
-  }), title: "The Japanese-Italian Fusion Kitchen: A Free 5-Day Mini-Course", description: "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and practical fusion recipes and your own final dish. Delivered free to your inbox.", url: "/mini-course" },
-  twitter: { ...({ card: "summary_large_image", images: ["/images/banner-carousel-2.png"] }), title: "The Japanese-Italian Fusion Kitchen: A Free 5-Day Mini-Course", description: "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and practical fusion recipes and your own final dish. Delivered free to your inbox.", card: "summary_large_image" },
+  }), title: "Free Japanese-Italian Cooking Course: 5 Days", description: "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and practical fusion recipes and your own final dish. Delivered free to your inbox.", url: "/mini-course" },
+  twitter: { ...({ card: "summary_large_image", images: ["/images/banner-carousel-2.png"] }), title: "Free Japanese-Italian Cooking Course: 5 Days", description: "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and practical fusion recipes and your own final dish. Delivered free to your inbox.", card: "summary_large_image" },
 
 };
 

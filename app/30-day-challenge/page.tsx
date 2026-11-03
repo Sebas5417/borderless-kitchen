@@ -6,7 +6,7 @@ import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/30-day-challenge" },
-  title: "30-Day Japanese Kitchen Challenge — Build a Japanese Pantry From Scratch",
+  title: { absolute: "30-Day Japanese Cooking and Pantry Challenge" },
   description:
     "A free 30-day challenge to build your Japanese pantry from scratch, cook one Japanese technique per day, and permanently change how you think about umami, dashi, and fermented flavor.",
   openGraph: { ...({
@@ -14,9 +14,9 @@ export const metadata: Metadata = {
     description:
       "Thirty days. Thirty techniques. One permanent foundation in Japanese cooking — dashi, miso, rice, fermented pantry, and the fusion possibilities they open up.",
     type: "website",
-  }), title: "30-Day Japanese Kitchen Challenge — Build a Japanese Pantry From Scratch", description: "A free 30-day challenge to build your Japanese pantry from scratch, cook one Japanese technique per day, and permanently change how you think about umami, dashi, and fermented flavor.", url: "/30-day-challenge" },
+  }), title: "30-Day Japanese Cooking and Pantry Challenge", description: "A free 30-day challenge to build your Japanese pantry from scratch, cook one Japanese technique per day, and permanently change how you think about umami, dashi, and fermented flavor.", url: "/30-day-challenge" },
 
-  twitter: { ...({}), title: "30-Day Japanese Kitchen Challenge — Build a Japanese Pantry From Scratch", description: "A free 30-day challenge to build your Japanese pantry from scratch, cook one Japanese technique per day, and permanently change how you think about umami, dashi, and fermented flavor.", card: "summary_large_image" },
+  twitter: { ...({}), title: "30-Day Japanese Cooking and Pantry Challenge", description: "A free 30-day challenge to build your Japanese pantry from scratch, cook one Japanese technique per day, and permanently change how you think about umami, dashi, and fermented flavor.", card: "summary_large_image" },
 };
 
 const WEEKS = [
