@@ -18,6 +18,7 @@ export function CookbookGuideLinks({ cuisines }: { cuisines?: string[] }) {
         <ul className="font-body text-lg mt-6 grid gap-4 sm:grid-cols-2">
           {selected.map((guide) => <li key={guide.slug}><Link className="underline underline-offset-4 hover:text-vermillion" href={`/journal/${guide.slug}`}>{guide.title}</Link></li>)}
           <li><Link className="underline underline-offset-4 hover:text-vermillion" href="/journal/cookbook-christmas-gift-ideas">Cookbook Christmas gift ideas</Link></li>
+          <li><Link className="underline underline-offset-4 hover:text-vermillion" href="/books/compare">Compare cookbooks, formats and PDF guides</Link></li>
           <li><Link className="underline underline-offset-4 hover:text-vermillion" href="/books">Japanese-Italian and Korean-Mexican fusion cookbooks</Link></li>
         </ul>
       </Container>

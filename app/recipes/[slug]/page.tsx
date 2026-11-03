@@ -213,6 +213,8 @@ export default async function RecipePage({
             </div>
           )}
 
+          <p className="max-w-prose mx-auto mt-8 font-body text-base text-ink/70">Looking for a cookbook? <Link className="underline underline-offset-4 hover:text-vermillion" href="/books/compare">Compare the cuisines, formats and free previews.</Link></p>
+
           {/* Related recipes */}
           {recipe.relatedSlugs && recipe.relatedSlugs.length > 0 && (
             <div className="max-w-prose mx-auto mt-12 pt-10 border-t border-hairline">
