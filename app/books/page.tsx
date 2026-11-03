@@ -1,5 +1,6 @@
 import { CookbookGuideLinks } from "@/components/editorial/CookbookGuideLinks";
 import { PdfCookbooks } from "@/components/cta/PdfCookbooks";
+import { PdfBundles } from "@/components/cta/PdfBundles";
 import { AvailableBooks } from "@/components/editorial/AvailableBooks";
 import type { Metadata } from "next";
 import { allBooks } from "contentlayer/generated";
@@ -34,6 +35,7 @@ export default function BooksPage() {
       <AvailableBooks />
       <CookbookGuideLinks />
       <PdfCookbooks placement="books" />
+      <PdfBundles placement="books" />
 
       {/* Future volumes */}
       {future.length > 0 ? (
