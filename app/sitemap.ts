@@ -1,3 +1,4 @@
+import { PDF_COOKBOOKS } from "@/lib/pdfCookbooks";
 import { storyModifiedAt } from "@/lib/contentDates";
 import { MetadataRoute } from "next";
 import {
@@ -80,6 +81,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: siteUrl, lastModified: newestAnywhere, changeFrequency: "weekly", priority: 1 },
     { url: `${siteUrl}/books`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${siteUrl}/books/compare`, changeFrequency: "monthly", priority: 0.8 },
+    ...PDF_COOKBOOKS.map(book => ({ url: `${siteUrl}/books/${book.id}`, changeFrequency: "monthly" as const, priority: 0.8 })),
     { url: `${siteUrl}/tokyo-meets-tuscany`, changeFrequency: "monthly", priority: 1 },
     { url: `${siteUrl}/seoul-meets-mexico-city`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/journal`, lastModified: newestStory, changeFrequency: "weekly", priority: 0.8 },

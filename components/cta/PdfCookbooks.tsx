@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { PdfOfferLink } from "@/components/cta/PdfOfferLink";
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
@@ -27,10 +28,10 @@ export function PdfCookbooks({ placement, topic }: { placement: string; topic?: 
                 <Image src={book.cover} alt={`${book.title} cover`} width={256} height={384} sizes="(min-width: 640px) 128px, 96px" className="w-full h-auto shadow-md" />
               </PdfOfferLink>
               <div>
-                <h3 className="font-display text-xl sm:text-2xl leading-tight">{book.title}</h3>
+                <h3 className="font-display text-xl sm:text-2xl leading-tight"><Link href={`/books/${book.id}`} className="hover:text-vermillion">{book.title}</Link></h3>
                 <p className="font-ui text-sm text-vermillion mt-3">{book.price} · {book.pages} pages · PDF</p>
                 <p className="font-body text-base text-ink/70 mt-3">{book.summary}</p>
-                <p className="font-body text-sm text-ink/65 mt-3">Digital PDF download. Choose a printed book above if you prefer a physical gift.</p>
+                <p className="font-body text-sm text-ink/65 mt-3">Digital PDF download. No physical book is shipped.</p><Link href={`/books/${book.id}`} className="inline-block mt-3 font-body text-sm underline underline-offset-4">See what is inside this guide</Link>
                 <details className="mt-4 font-body text-sm text-ink/80">
                   <summary className="cursor-pointer underline underline-offset-4">See a contents-page preview</summary>
                   <div className="mt-3 max-w-sm"><Image src={book.contentsImage} alt={`${book.title}: contents-page preview from the PDF`} width={640} height={830} sizes="(max-width: 640px) 80vw, 384px" className="w-full h-auto border border-hairline" /></div>
