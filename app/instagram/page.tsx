@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TMT_AMAZON } from "@/lib/amazon";
-import { GUMROAD_SMMC_URL, GUMROAD_SMMC_PRICE } from "@/lib/gumroad";
+import {
+  GUMROAD_FUSION_PLAYBOOK_PRICE,
+  GUMROAD_FUSION_PLAYBOOK_URL,
+  GUMROAD_SMMC_PRICE,
+  GUMROAD_SMMC_URL,
+} from "@/lib/gumroad";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { SubscribeForm } from "@/components/forms/SubscribeForm";
@@ -24,8 +29,6 @@ export const metadata: Metadata = {
     "The three fusion recipes we promised, plus both Borderless Kitchen cookbooks — Tokyo Meets Tuscany and Seoul Meets Mexico City.",
   robots: { index: false, follow: true },
 };
-
-const GUMROAD_PLAYBOOK = "https://facelesschannel.gumroad.com/l/uycpjs";
 
 const STARTER_RECIPES = [
   {
@@ -212,16 +215,16 @@ export default function InstagramPage() {
                 </h3>
                 <p className="font-body text-base text-paper/70 mt-3 max-w-prose leading-relaxed">
                   The pairing logic on its own — which ingredients swap for which
-                  across cuisines, and why it works. Thirty pages, no filler.
+                  across cuisines, and why it works.
                 </p>
               </div>
               <a
-                href={GUMROAD_PLAYBOOK}
+                href={GUMROAD_FUSION_PLAYBOOK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 md:mt-0 inline-flex shrink-0 items-center font-ui text-eyebrow uppercase text-paper border-b border-paper pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
               >
-                Get it — $12
+                Get it — {GUMROAD_FUSION_PLAYBOOK_PRICE}
               </a>
             </div>
           </FadeRise>

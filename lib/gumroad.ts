@@ -28,3 +28,26 @@ export const GUMROAD_SMMC_URL: string =
 
 /** Price shown next to every SMMC purchase link. Keep in sync with Gumroad. */
 export const GUMROAD_SMMC_PRICE = "$9.99";
+
+/**
+ * Complementary cooking products from the same store, shown as related items
+ * beside the SMMC funnel. These are the only two of the 31 published products
+ * whose subject matter is cooking; everything else in the store is health, AI,
+ * scam-protection or trading, and cross-selling it to a cookbook audience
+ * would be a claim the reader can see through.
+ *
+ * Prices verified against the live product pages on 2026-11-06
+ * (`product:price:amount` in each page's Open Graph metadata):
+ *   /l/uycpjs — 7.00
+ *   /l/tyugoo — 8.00
+ * The 2026-09-15 A12 audit lists $12 and $14 for these two. Those figures are
+ * stale; do not copy prices out of that document.
+ *
+ * Keep in sync with Gumroad. When a price moves, the fix belongs here.
+ */
+export const GUMROAD_FUSION_PLAYBOOK_URL =
+  "https://facelesschannel.gumroad.com/l/uycpjs";
+export const GUMROAD_FUSION_PLAYBOOK_PRICE = "$7";
+
+export const GUMROAD_UMAMI_URL = "https://facelesschannel.gumroad.com/l/tyugoo";
+export const GUMROAD_UMAMI_PRICE = "$8";

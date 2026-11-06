@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
 import { SmmcSamplerOptIn } from "@/components/cta/SmmcSamplerOptIn";
-import { GUMROAD_SMMC_URL, GUMROAD_SMMC_PRICE } from "@/lib/gumroad";
+import {
+  GUMROAD_FUSION_PLAYBOOK_PRICE,
+  GUMROAD_FUSION_PLAYBOOK_URL,
+  GUMROAD_SMMC_PRICE,
+  GUMROAD_SMMC_URL,
+  GUMROAD_UMAMI_PRICE,
+  GUMROAD_UMAMI_URL,
+} from "@/lib/gumroad";
 
 /**
  * The free three-recipe sampler for Seoul Meets Mexico City.
@@ -157,6 +164,51 @@ export default function SmmcSamplerPage() {
                 className="inline-flex items-center font-ui text-eyebrow uppercase text-ink border-b border-ink pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
               >
                 Get the illustrated edition — {GUMROAD_SMMC_PRICE}
+              </a>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Also from the kitchen */}
+      <section className="border-t border-hairline py-20 md:py-28">
+        <Container>
+          <p className="font-ui text-eyebrow uppercase text-ink/40 mb-10">
+            Also from the kitchen
+          </p>
+          <div className="grid gap-x-12 gap-y-12 md:grid-cols-2 max-w-4xl">
+            <div>
+              <h2 className="font-display text-display-3 text-ink leading-tight mb-4">
+                The Umami Handbook
+              </h2>
+              <p className="font-body text-base text-ink/60 leading-relaxed mb-6">
+                A 22-page guide to the science of umami — the savoury fifth
+                taste — and how to build it into everyday cooking.
+              </p>
+              <a
+                href={GUMROAD_UMAMI_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center font-ui text-eyebrow uppercase text-ink border-b border-ink pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
+              >
+                Read the Umami Handbook — {GUMROAD_UMAMI_PRICE}
+              </a>
+            </div>
+            <div>
+              <h2 className="font-display text-display-3 text-ink leading-tight mb-4">
+                The Fusion Flavor Playbook
+              </h2>
+              <p className="font-body text-base text-ink/60 leading-relaxed mb-6">
+                The pairing logic on its own — which ingredients swap for which
+                across cuisines, and why it works.
+              </p>
+              <a
+                href={GUMROAD_FUSION_PLAYBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center font-ui text-eyebrow uppercase text-ink border-b border-ink pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
+              >
+                Get the Fusion Flavor Playbook — {GUMROAD_FUSION_PLAYBOOK_PRICE}
               </a>
             </div>
           </div>
