@@ -7,6 +7,7 @@ import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { RecipeListItem } from "@/components/cards/RecipeListItem";
 import { cuisineHubs } from "@/lib/cuisines";
+import { GUMROAD_SMMC_PRICE, GUMROAD_SMMC_URL } from "@/lib/gumroad";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/recipes" },
@@ -86,6 +87,22 @@ export default function RecipesPage() {
                 Tokyo Meets Tuscany
               </Link>
               .
+            </p>
+            <p className="font-ui text-eyebrow uppercase text-ink/40 mt-8 mb-3">
+              Vol. II — Available now
+            </p>
+            <p className="font-body text-lg text-ink/70 leading-relaxed">
+              <em>Seoul Meets Mexico City</em> takes the same logic into Korean ×
+              Mexican cooking — gochujang against chile, doenjang against masa.
+              Illustrated PDF, instant download, {GUMROAD_SMMC_PRICE}.{" "}
+              <a
+                href={GUMROAD_SMMC_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ink underline decoration-hairline underline-offset-4 hover:text-vermillion hover:decoration-vermillion transition-colors duration-300"
+              >
+                Get Volume II →
+              </a>
             </p>
           </div>
         </Container>

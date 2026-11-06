@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { allFreeRecipes } from "contentlayer/generated";
 import { TMT_AMAZON } from "@/lib/amazon";
-import { GUMROAD_MATRIX_URL } from "@/lib/gumroad";
+import { GUMROAD_MATRIX_URL, GUMROAD_SMMC_PRICE, GUMROAD_SMMC_URL } from "@/lib/gumroad";
 import { Container } from "@/components/layout/Container";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { FadeRise } from "@/components/motion/FadeRise";
@@ -262,6 +262,44 @@ export default function FreePage() {
                 </Link>
                 <p className="font-ui text-eyebrow uppercase text-ink/30 mt-3 text-xs">
                   Paperback $19.99 · Kindle $9.99
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-16 pt-12 border-t border-hairline flex flex-col md:flex-row md:items-end gap-8 md:gap-16">
+              <div className="flex-1">
+                <p className="font-ui text-eyebrow uppercase text-ink/40 mb-4">
+                  Vol. II — Available now
+                </p>
+                <h2 className="font-display text-display-2 text-ink leading-tight max-w-xl">
+                  Korean meets Mexican, one ingredient at a time.
+                </h2>
+                <p className="font-body text-lg text-ink/60 mt-4 max-w-prose leading-relaxed">
+                  Seoul Meets Mexico City is the second Borderless Kitchen
+                  volume — the same functional pairing logic, applied to gochujang,
+                  doenjang and gochugaru against chile, masa and cotija.
+                  Illustrated PDF, instant download, no account needed.
+                </p>
+              </div>
+              <div className="shrink-0">
+                <a
+                  href={GUMROAD_SMMC_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block font-ui text-eyebrow uppercase text-paper bg-vermillion px-10 py-5 hover:bg-ink transition-colors duration-300"
+                >
+                  Get Seoul Meets Mexico City — {GUMROAD_SMMC_PRICE} →
+                </a>
+                <p className="font-ui text-eyebrow uppercase text-ink/30 mt-3 text-xs">
+                  Illustrated PDF · Instant download
+                </p>
+                <p className="font-ui text-eyebrow uppercase text-ink/40 mt-4 text-xs">
+                  <Link
+                    href="/free/seoul-meets-mexico-city"
+                    className="underline decoration-ink/20 hover:text-vermillion transition-colors"
+                  >
+                    Not ready to buy? Get three more recipes free →
+                  </Link>
                 </p>
               </div>
             </div>

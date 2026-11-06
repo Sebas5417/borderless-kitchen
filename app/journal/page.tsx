@@ -6,6 +6,7 @@ import { StoryCard } from "@/components/cards/StoryCard";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { PageHero } from "@/components/editorial/PageHero";
+import { GUMROAD_SMMC_PRICE, GUMROAD_SMMC_URL } from "@/lib/gumroad";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/journal" },
@@ -84,6 +85,22 @@ export default function JournalPage() {
                 field notes
               </Link>
               .
+            </p>
+            <p className="font-ui text-eyebrow uppercase text-ink/40 mt-8 mb-3">
+              Vol. II — Available now
+            </p>
+            <p className="font-body text-lg text-ink/70 leading-relaxed">
+              The series has a second volume. <em>Seoul Meets Mexico City</em>{" "}
+              — Korean × Mexican — is out now as an illustrated PDF,{" "}
+              {GUMROAD_SMMC_PRICE}, instant download.{" "}
+              <a
+                href={GUMROAD_SMMC_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ink underline decoration-hairline underline-offset-4 hover:text-vermillion hover:decoration-vermillion transition-colors duration-300"
+              >
+                Get Volume II →
+              </a>
             </p>
           </div>
         </Container>
