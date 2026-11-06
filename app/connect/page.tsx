@@ -12,7 +12,8 @@ export const metadata: Metadata = {
     "Notes from the kitchen — the free starter guide, news on new Borderless Kitchen volumes, and the occasional recipe note that didn't make the book.",
 };
 
-import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
+import { TMT_AMAZON } from "@/lib/amazon";
+import { GUMROAD_SMMC_URL, GUMROAD_SMMC_PRICE } from "@/lib/gumroad";
 
 export default function ConnectPage() {
   return (
@@ -73,9 +74,14 @@ export default function ConnectPage() {
                 <p className="font-body text-base text-ink/70">
                   Seoul Meets Mexico City. Fermented depth meets layered heat.
                 </p>
-                <AmazonCTA href={SMMC_AMAZON} label="Get Seoul Meets Mexico City" className="mt-3" />
+                <a
+                  href={GUMROAD_SMMC_URL}
+                  className="mt-3 inline-block font-ui text-eyebrow uppercase text-ink border border-ink/40 px-5 py-3 hover:bg-ink hover:text-paper transition-colors duration-300"
+                >
+                  Get Seoul Meets Mexico City — {GUMROAD_SMMC_PRICE} →
+                </a>
                 <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
-                  Paperback and Kindle, out now
+                  Illustrated edition · instant PDF download
                 </p>
               </div>
             </div>

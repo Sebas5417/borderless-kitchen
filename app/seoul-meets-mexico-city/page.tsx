@@ -3,17 +3,17 @@ import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { SmmcWaitlist } from "@/components/cta/SmmcWaitlist";
 import { FadeRise } from "@/components/motion/FadeRise";
-import { SMMC_AMAZON } from "@/lib/amazon";
+import { GUMROAD_SMMC_URL, GUMROAD_SMMC_PRICE } from "@/lib/gumroad";
 
 export const metadata: Metadata = {
-  title: "Seoul Meets Mexico City — Out Now on Amazon",
+  title: "Seoul Meets Mexico City — Out Now",
   alternates: { canonical: "/seoul-meets-mexico-city" },
   description:
-    "Seoul Meets Mexico City — the Korean–Mexican collision. Volume II of the Borderless Kitchen series. Out now in paperback and on Kindle.",
+    "Seoul Meets Mexico City — the Korean–Mexican collision. Volume II of the Borderless Kitchen series. Illustrated edition, out now.",
   openGraph: {
     title: "Seoul Meets Mexico City | Borderless Kitchen — Vol. II",
     description:
-      "The Korean–Mexican collision. Available now on Kindle.",
+      "The Korean–Mexican collision. Illustrated edition — available now.",
     type: "website",
     url: "/seoul-meets-mexico-city",
     images: [
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", images: ["/images/smmc-cover.png"] },
 };
 
-// SMMC eBook live on Amazon (ASIN B0H6VD21M2, Kindle $9.99) — mirrors the
-// schema on /books/seoul-meets-mexico-city.
+// SMMC is sold through Gumroad ($9.99 illustrated edition) — the Amazon
+// listings this schema used to point at are no longer the purchase path.
 const smmcBookSchema = {
   "@context": "https://schema.org",
   "@type": "Book",
@@ -46,7 +46,7 @@ const smmcBookSchema = {
     "The second Borderless Kitchen volume — 30 recipes and 6 master sauces where Korean and Mexican cooking traditions meet.",
   image: "https://borderlesskitchenseries.com/images/smmc-cover.png",
   url: "https://borderlesskitchenseries.com/seoul-meets-mexico-city",
-  sameAs: "https://www.amazon.com/dp/B0H6VD21M2",
+  sameAs: GUMROAD_SMMC_URL,
   isPartOf: {
     "@type": "BookSeries",
     name: "Borderless Kitchen",
@@ -54,11 +54,11 @@ const smmcBookSchema = {
   },
   offers: {
     "@type": "Offer",
-    url: SMMC_AMAZON,
+    url: GUMROAD_SMMC_URL,
     priceCurrency: "USD",
-    price: "9.99",
+    price: GUMROAD_SMMC_PRICE.replace("$", ""),
     availability: "https://schema.org/InStock",
-    seller: { "@type": "Organization", name: "Amazon" },
+    seller: { "@type": "Organization", name: "Borderless Kitchen" },
   },
 };
 

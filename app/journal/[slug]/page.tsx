@@ -41,7 +41,8 @@ export async function generateMetadata({
   };
 }
 
-import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
+import { TMT_AMAZON } from "@/lib/amazon";
+import { GUMROAD_SMMC_URL, GUMROAD_SMMC_PRICE } from "@/lib/gumroad";
 
 export default async function JournalEntryPage({
   params,
@@ -69,9 +70,16 @@ export default async function JournalEntryPage({
   const relatedStories = relatedStoriesFor(story, allStories, 3);
 
   const isKoreanThemed = story.themes?.includes("korean-cooking") ?? false;
+  // SMMC sells through Gumroad, not Amazon — it therefore renders a plain anchor
+  // rather than AmazonCTA, whose Associates disclosure must never sit over a link
+  // that is not part of the Amazon programme.
   const bookCta = isKoreanThemed
-    ? { href: SMMC_AMAZON, label: "Get Seoul Meets Mexico City on Amazon" }
-    : { href: TMT_AMAZON, label: "Get Tokyo Meets Tuscany on Amazon" };
+    ? {
+        href: GUMROAD_SMMC_URL,
+        label: `Get Seoul Meets Mexico City — ${GUMROAD_SMMC_PRICE}`,
+        isSmmc: true,
+      }
+    : { href: TMT_AMAZON, label: "Get Tokyo Meets Tuscany on Amazon", isSmmc: false };
 
   const formattedDate = new Date(story.date).toLocaleDateString("en-US", {
     month: "long",
@@ -263,9 +271,22 @@ export default async function JournalEntryPage({
             <p className="font-display italic text-display-3 text-ink/60 mb-6 leading-tight">
               The full recipes live in the book.
             </p>
-            <AmazonCTA href={bookCta.href} label={bookCta.label} />
+            {bookCta.isSmmc ? (
+              <a
+                href={bookCta.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center font-ui text-eyebrow uppercase text-ink border-b border-ink pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
+              >
+                {bookCta.label}
+              </a>
+            ) : (
+              <AmazonCTA href={bookCta.href} label={bookCta.label} />
+            )}
             <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
-              Paperback $19.99 · Kindle $9.99
+              {bookCta.isSmmc
+                ? "Illustrated edition · instant PDF download"
+                : "Paperback $19.99 · Kindle $9.99"}
             </p>
           </div>
 

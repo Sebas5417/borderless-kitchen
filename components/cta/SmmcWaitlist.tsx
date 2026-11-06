@@ -1,6 +1,5 @@
 import { SubscribeForm } from "@/components/forms/SubscribeForm";
-import { AmazonCTA } from "@/components/cta/AmazonCTA";
-import { SMMC_AMAZON } from "@/lib/amazon";
+import { GUMROAD_SMMC_URL, GUMROAD_SMMC_PRICE } from "@/lib/gumroad";
 
 type Props = {
   /** Paper-on-ink styling for dark sections. Defaults to dark. */
@@ -27,16 +26,27 @@ export function SmmcWaitlist({ dark = true }: Props) {
       <h2
         className={`font-display text-display-2 leading-tight mb-6 ${dark ? "text-paper" : "text-ink"}`}
       >
-        Seoul Meets Mexico City — the Korean–Mexican collision. Out now on Amazon.
+        Seoul Meets Mexico City — the Korean–Mexican collision. Out now.
       </h2>
       <p
         className={`font-body text-lg leading-relaxed mb-6 max-w-prose ${dark ? "text-paper/60" : "text-ink/60"}`}
       >
         Gochujang and adobo. Kimchi and tacos. Doenjang and mole. Thirty recipes
-        and six master sauces, in paperback and on Kindle.
+        and six master sauces, in the illustrated edition.
       </p>
       <div className="mb-8">
-        <AmazonCTA href={SMMC_AMAZON} label="Buy Seoul Meets Mexico City on Amazon →" className={dark ? "text-paper border-paper" : undefined} />
+        {/* Plain anchor, not AmazonCTA: the Gumroad listing is not an Amazon
+            product and the Associates disclosure would print over it. */}
+        <a
+          href={GUMROAD_SMMC_URL}
+          className={`inline-block font-ui text-eyebrow uppercase border px-5 py-3 transition-colors duration-300 ${
+            dark
+              ? "text-paper border-paper/40 hover:bg-paper hover:text-ink"
+              : "text-ink border-ink/40 hover:bg-ink hover:text-paper"
+          }`}
+        >
+          Get Seoul Meets Mexico City — {GUMROAD_SMMC_PRICE} →
+        </a>
       </div>
       <SubscribeForm
         list="smmc"

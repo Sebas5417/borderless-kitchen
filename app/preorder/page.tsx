@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
+import { TMT_AMAZON } from "@/lib/amazon";
+import { GUMROAD_SMMC_URL, GUMROAD_SMMC_PRICE } from "@/lib/gumroad";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
-import { AmazonCTA } from "@/components/cta/AmazonCTA";
 
 export const metadata: Metadata = {
-  title: "Seoul Meets Mexico City — Vol. II, Out Now on Amazon",
+  title: "Seoul Meets Mexico City — Vol. II, Out Now",
   description:
-    "The second Borderless Kitchen book — 30 recipes and 6 master sauces at the intersection of Korean and Mexican cooking. Out now in paperback and on Kindle. Preview recipes free.",
+    "The second Borderless Kitchen book — 30 recipes and 6 master sauces at the intersection of Korean and Mexican cooking. Illustrated edition, out now. Preview recipes free.",
   alternates: { canonical: "/preorder" },
   openGraph: {
     title: "Seoul Meets Mexico City — Borderless Kitchen Vol. II",
     description:
-      "30 recipes and 6 master sauces where Korean and Mexican cooking traditions meet. Available now on Kindle.",
+      "30 recipes and 6 master sauces where Korean and Mexican cooking traditions meet. Illustrated edition, available now.",
     type: "website",
     url: "/preorder",
     images: [
@@ -99,7 +99,7 @@ export default function PreorderPage() {
               <div className="flex flex-col sm:flex-row gap-4 items-start">
                 <div className="inline-block bg-ink/5 border border-hairline px-5 py-3">
                   <p className="font-ui text-eyebrow uppercase text-ink/60">Status</p>
-                  <p className="font-display text-lg text-ink mt-1">Available Now — Kindle</p>
+                  <p className="font-display text-lg text-ink mt-1">Available Now — Illustrated Edition</p>
                 </div>
                 <div className="inline-block bg-ink/5 border border-hairline px-5 py-3">
                   <p className="font-ui text-eyebrow uppercase text-ink/60">Preview Recipes</p>
@@ -107,8 +107,15 @@ export default function PreorderPage() {
                 </div>
               </div>
               <div className="mt-8">
-                <AmazonCTA href={SMMC_AMAZON} label="Buy Seoul Meets Mexico City on Amazon →" />
-                <p className="font-body text-sm text-ink/50 mt-2">Paperback and Kindle, both available now.</p>
+                {/* Plain anchor, not AmazonCTA: SMMC sells through Gumroad and the
+                    Amazon Associates disclosure must never print over it. */}
+                <a
+                  href={GUMROAD_SMMC_URL}
+                  className="inline-block font-ui text-eyebrow uppercase text-paper bg-ink px-8 py-4 hover:bg-vermillion transition-colors duration-300"
+                >
+                  Get Seoul Meets Mexico City — {GUMROAD_SMMC_PRICE} →
+                </a>
+                <p className="font-body text-sm text-ink/50 mt-2">Illustrated edition · instant PDF download.</p>
               </div>
             </div>
           </FadeRise>
@@ -228,7 +235,7 @@ export default function PreorderPage() {
 
       <EmailCaptureCTA
         heading="Start with six recipes, free."
-        body="Seoul Meets Mexico City is out now in paperback and on Kindle. Join the list for free Korean-Mexican recipes and the complete Flavor Pairing Matrix."
+        body="Seoul Meets Mexico City is out now as an illustrated edition. Join the list for free Korean-Mexican recipes and the complete Flavor Pairing Matrix."
         cta="Send them to me →"
       />
     </>

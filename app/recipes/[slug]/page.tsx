@@ -8,7 +8,10 @@ import { ProseLayout } from "@/components/editorial/ProseLayout";
 import { MDXContent } from "@/components/MDXContent";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
+import { SmmcSamplerOptIn } from "@/components/cta/SmmcSamplerOptIn";
 import { EditorialImage } from "@/components/media/EditorialImage";
+import { TMT_AMAZON } from "@/lib/amazon";
+import { GUMROAD_SMMC_URL, GUMROAD_SMMC_PRICE } from "@/lib/gumroad";
 import { parseRecipeIngredients, parseRecipeInstructions } from "@/lib/recipeSchema";
 import { breadcrumbJson } from "@/lib/breadcrumbSchema";
 import { hubFor } from "@/lib/cuisines";
@@ -61,7 +64,8 @@ export async function generateMetadata({
   };
 }
 
-import { TMT_AMAZON } from "@/lib/amazon";
+/** Which book's funnel this page feeds. SMMC sells a Gumroad PDF; TMT sells on Amazon. */
+const SMMC_BOOK_SLUG = "seoul-meets-mexico-city";
 
 export default async function RecipePage({
   params,
@@ -71,6 +75,11 @@ export default async function RecipePage({
   const { slug } = await params;
   const recipe = allFreeRecipes.find((r) => r.slug === slug);
   if (!recipe) notFound();
+
+  // Seoul Meets Mexico City recipes must not dead-end into the Tokyo Meets
+  // Tuscany Amazon listing or its Flavor Pairing Matrix lead magnet. SMMC sells
+  // through Gumroad, which also keeps its funnel alive while KDP is suspended.
+  const isSmmc = recipe.bookSlug === SMMC_BOOK_SLUG;
 
   const recipeSchema = {
     "@context": "https://schema.org",
@@ -198,13 +207,49 @@ export default async function RecipePage({
 
           {/* Book CTA */}
           <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">
-            <p className="font-display italic text-display-3 text-ink/60 mb-6 leading-tight">
-              30 recipes and 6 master sauces in the book.
-            </p>
-            <AmazonCTA href={TMT_AMAZON} label="Get Tokyo Meets Tuscany on Amazon" />
-            <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
-              Paperback · Kindle
-            </p>
+            {isSmmc ? (
+              <>
+                <p className="font-display italic text-display-3 text-ink/60 mb-6 leading-tight">
+                  The full illustrated edition — every recipe, Korean technique,
+                  Mexican pantry.
+                </p>
+                {/*
+                  Plain anchor, not AmazonCTA: that component prints an Amazon
+                  Associates disclosure, which would be false for a Gumroad link.
+                */}
+                <a
+                  href={GUMROAD_SMMC_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center font-ui text-eyebrow uppercase text-ink border-b border-ink pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
+                >
+                  Get Seoul Meets Mexico City — {GUMROAD_SMMC_PRICE}
+                </a>
+                <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
+                  Illustrated PDF · Instant download
+                </p>
+                <p className="font-body text-base text-ink/60 mt-6">
+                  Not ready to buy?{" "}
+                  <Link
+                    href="/free/seoul-meets-mexico-city"
+                    className="underline hover:text-vermillion transition-colors"
+                  >
+                    Get three more recipes free
+                  </Link>
+                  .
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="font-display italic text-display-3 text-ink/60 mb-6 leading-tight">
+                  30 recipes and 6 master sauces in the book.
+                </p>
+                <AmazonCTA href={TMT_AMAZON} label="Get Tokyo Meets Tuscany on Amazon" />
+                <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
+                  Paperback · Kindle
+                </p>
+              </>
+            )}
           </div>
 
           {/* Related recipes */}
@@ -234,11 +279,19 @@ export default async function RecipePage({
         </Container>
       </article>
 
-      <EmailCaptureCTA
-        heading="Get the Flavor Pairing Matrix free."
-        body="The Italian × Japanese ingredient chart behind every recipe in the book. Printable, one page."
-        cta="Get the free chart →"
-      />
+      {isSmmc ? (
+        <section className="bg-ink text-paper py-16 md:py-24">
+          <Container>
+            <SmmcSamplerOptIn />
+          </Container>
+        </section>
+      ) : (
+        <EmailCaptureCTA
+          heading="Get the Flavor Pairing Matrix free."
+          body="The Italian × Japanese ingredient chart behind every recipe in the book. Printable, one page."
+          cta="Get the free chart →"
+        />
+      )}
     </>
   );
 }

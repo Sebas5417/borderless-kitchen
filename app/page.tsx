@@ -22,7 +22,8 @@ export const metadata: Metadata = {
     "Borderless Kitchen — Italian soul meets Japanese precision. Shop Tokyo Meets Tuscany and explore bold, cross-cultural cookbooks and recipes by Sebastian.",
 };
 
-import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
+import { TMT_AMAZON } from "@/lib/amazon";
+import { GUMROAD_SMMC_URL, GUMROAD_SMMC_PRICE } from "@/lib/gumroad";
 
 export default function HomePage() {
   const tmt = allBooks.find((b) => b.slug === "tokyo-meets-tuscany");
@@ -43,11 +44,11 @@ export default function HomePage() {
     <>
       {/* 1. Hero carousel — rotates through all five editorial banners */}
       <HeroCarousel
-        eyebrow="Vol. II — Seoul Meets Mexico City — Out now on Amazon"
+        eyebrow="Vol. II — Seoul Meets Mexico City — Out now"
         headline="The borders are optional."
         link={{
-          label: "Get it on Amazon →",
-          href: SMMC_AMAZON,
+          label: `Get it — ${GUMROAD_SMMC_PRICE} →`,
+          href: GUMROAD_SMMC_URL,
         }}
         images={[
           { src: "/images/banner-carousel-1.png", alt: "Golden sunset over Mexico City with food — Borderless Kitchen." },
@@ -135,15 +136,15 @@ export default function HomePage() {
                 Seoul Meets Mexico City
               </p>
               <p className="font-body text-base text-paper/60 mt-2">
-                Fermented depth meets layered heat. Paperback and Kindle, out now.
+                Fermented depth meets layered heat. Illustrated edition, instant PDF download.
               </p>
             </div>
-            <Link
-              href={SMMC_AMAZON}
+            <a
+              href={GUMROAD_SMMC_URL}
               className="font-ui text-eyebrow uppercase text-paper/80 border-b border-paper/30 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300 shrink-0"
             >
-              Buy Seoul Meets Mexico City on Amazon →
-            </Link>
+              Get Seoul Meets Mexico City — {GUMROAD_SMMC_PRICE} →
+            </a>
           </div>
         </Container>
       </section>

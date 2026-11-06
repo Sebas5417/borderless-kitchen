@@ -11,7 +11,8 @@ import { EditorialImage } from "@/components/media/EditorialImage";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 
-import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
+import { TMT_AMAZON } from "@/lib/amazon";
+import { GUMROAD_SMMC_URL, GUMROAD_SMMC_PRICE } from "@/lib/gumroad";
 import { breadcrumbJson } from "@/lib/breadcrumbSchema";
 
 export async function generateStaticParams() {
@@ -67,12 +68,18 @@ export default async function BookPage({
   const isTmt = book.slug === "tokyo-meets-tuscany";
   const isSmmc = book.slug === "seoul-meets-mexico-city";
 
-  // SMMC paperback went live 2026-08-11 (ASIN B0HDRBMLPT) — both formats
-  // available now, same pricing as TMT.
-  const amazonUrl =
-    book.status === "available" ? (isSmmc ? SMMC_AMAZON : TMT_AMAZON) : null;
-  const priceLine = "Paperback $19.99 · Kindle $9.99";
-  const schemaPrice = "19.99";
+  // SMMC is sold through Gumroad, not Amazon. The paperback listing was
+  // retired with the KDP suspension, so the Amazon URL is obsolete and must
+  // not be rendered — and an AmazonCTA would print an Amazon Associates
+  // disclosure over a Gumroad link, which is a compliance problem, not just a
+  // copy problem. SMMC therefore renders a plain anchor below; only TMT keeps
+  // the AmazonCTA path.
+  const purchaseUrl =
+    book.status === "available" ? (isSmmc ? GUMROAD_SMMC_URL : TMT_AMAZON) : null;
+  const priceLine = isSmmc
+    ? `Illustrated edition ${GUMROAD_SMMC_PRICE} · instant PDF download`
+    : "Paperback $19.99 · Kindle $9.99";
+  const schemaPrice = isSmmc ? GUMROAD_SMMC_PRICE.replace("$", "") : "19.99";
 
   const allTeasers = allRecipeTeasers.filter((r) => r.bookSlug === book.slug);
   const bookSchema = {
@@ -103,16 +110,19 @@ export default async function BookPage({
         }
       : {}),
     ...(book.year && !isTmt ? { datePublished: String(book.year) } : {}),
-    ...(amazonUrl
+    ...(purchaseUrl
       ? {
           url: `https://borderlesskitchenseries.com${CANONICAL_OVERRIDES[book.slug] ?? `/books/${book.slug}`}`,
           offers: {
             "@type": "Offer",
-            url: amazonUrl,
+            url: purchaseUrl,
             priceCurrency: "USD",
             price: schemaPrice,
             availability: "https://schema.org/InStock",
-            seller: { "@type": "Organization", name: "Amazon" },
+            seller: {
+              "@type": "Organization",
+              name: isSmmc ? "Borderless Kitchen" : "Amazon",
+            },
           },
         }
       : {}),
@@ -193,9 +203,18 @@ export default async function BookPage({
             <div className="font-body text-lg text-ink/90 leading-relaxed [&_p]:mb-6 [&_em]:italic">
               <MDXContent code={book.body.code} />
             </div>
-            {amazonUrl ? (
+            {purchaseUrl ? (
               <div className="mt-10">
-                <AmazonCTA href={amazonUrl} label={`Buy ${book.title} on Amazon`} />
+                {isSmmc ? (
+                  <a
+                    href={purchaseUrl}
+                    className="inline-block font-ui text-eyebrow uppercase text-ink border border-ink px-6 py-3 hover:bg-ink hover:text-paper transition-colors duration-300"
+                  >
+                    Get {book.title} — {GUMROAD_SMMC_PRICE} →
+                  </a>
+                ) : (
+                  <AmazonCTA href={purchaseUrl} label={`Buy ${book.title} on Amazon`} />
+                )}
                 <p className="font-ui text-eyebrow uppercase text-ink/40 mt-3">
                   {priceLine}
                 </p>
@@ -271,12 +290,21 @@ export default async function BookPage({
           ) : null}
 
           {/* Closing CTA */}
-          {amazonUrl ? (
+          {purchaseUrl ? (
             <div className="mt-20 md:mt-28 pt-16 border-t border-hairline text-center">
               <p className="font-display italic text-display-3 text-ink/60 mb-8 max-w-xl mx-auto">
                 The full recipes live inside the book.
               </p>
-              <AmazonCTA href={amazonUrl} label={`Buy ${book.title} on Amazon`} />
+              {isSmmc ? (
+                <a
+                  href={purchaseUrl}
+                  className="inline-block font-ui text-eyebrow uppercase text-ink border border-ink px-6 py-3 hover:bg-ink hover:text-paper transition-colors duration-300"
+                >
+                  Get {book.title} — {GUMROAD_SMMC_PRICE} →
+                </a>
+              ) : (
+                <AmazonCTA href={purchaseUrl} label={`Buy ${book.title} on Amazon`} />
+              )}
               <p className="font-ui text-eyebrow uppercase text-ink/40 mt-4">
                 {priceLine}
               </p>

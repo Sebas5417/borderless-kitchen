@@ -16,7 +16,8 @@ export const metadata: Metadata = {
     "Four cookbooks in the Borderless Kitchen series — each volume pairs two cuisines and looks for what they already share. Tokyo Meets Tuscany. Seoul Meets Mexico City. And two more to come.",
 };
 
-import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
+import { TMT_AMAZON } from "@/lib/amazon";
+import { GUMROAD_SMMC_URL, GUMROAD_SMMC_PRICE } from "@/lib/gumroad";
 
 export default function BooksPage() {
   const tmt = allBooks.find((b) => b.slug === "tokyo-meets-tuscany")!;
@@ -137,13 +138,13 @@ export default function BooksPage() {
                     </div>
                     <div className="mt-10 flex flex-col gap-4 items-start">
                       <a
-                        href={SMMC_AMAZON}
+                        href={GUMROAD_SMMC_URL}
                         className="font-ui text-eyebrow uppercase text-ink border-b border-ink/40 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
                       >
-                        Buy Seoul Meets Mexico City on Amazon →
+                        Get Seoul Meets Mexico City — {GUMROAD_SMMC_PRICE} →
                       </a>
                       <p className="font-ui text-eyebrow uppercase text-ink/40">
-                        Paperback $19.99 · Kindle $9.99
+                        Illustrated edition · instant PDF download
                       </p>
                       <Link
                         href="/books/seoul-meets-mexico-city"

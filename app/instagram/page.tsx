@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
+import { TMT_AMAZON } from "@/lib/amazon";
+import { GUMROAD_SMMC_URL, GUMROAD_SMMC_PRICE } from "@/lib/gumroad";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { SubscribeForm } from "@/components/forms/SubscribeForm";
@@ -24,7 +25,6 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-const GUMROAD_SMMC = "https://facelesschannel.gumroad.com/l/dqnqe";
 const GUMROAD_PLAYBOOK = "https://facelesschannel.gumroad.com/l/uycpjs";
 
 const STARTER_RECIPES = [
@@ -186,18 +186,15 @@ export default function InstagramPage() {
                   albóndigas.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
-                  <AmazonCTA
-                    href={SMMC_AMAZON}
-                    label="Buy the paperback"
-                    className="!text-paper !border-paper hover:!text-vermillion hover:!border-vermillion"
-                  />
+                  {/* SMMC is a Gumroad listing, so a plain anchor — AmazonCTA would
+                      print an Amazon Associates disclosure over it. */}
                   <a
-                    href={GUMROAD_SMMC}
+                    href={GUMROAD_SMMC_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center font-ui text-eyebrow uppercase text-paper/60 border-b border-paper/30 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
+                    className="inline-flex items-center font-ui text-eyebrow uppercase text-paper border-b border-paper pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
                   >
-                    Digital edition — $19
+                    Get the book — {GUMROAD_SMMC_PRICE}
                   </a>
                 </div>
               </article>
