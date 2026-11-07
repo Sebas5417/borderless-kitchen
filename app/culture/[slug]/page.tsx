@@ -45,6 +45,8 @@ export async function generateMetadata({
 }
 
 import { TMT_AMAZON } from "@/lib/amazon";
+import { GUMROAD_SMMC_PRICE, GUMROAD_SMMC_URL } from "@/lib/gumroad";
+import { pantryBookOf } from "@/lib/pantryBook";
 
 export default async function CultureEntryPage({
   params,
@@ -54,6 +56,10 @@ export default async function CultureEntryPage({
   const { slug } = await params;
   const entry = allPantryEntries.find((e) => e.slug === slug);
   if (!entry) notFound();
+
+  // Seoul Meets Mexico City sells a Gumroad PDF; Tokyo Meets Tuscany sells on
+  // Amazon. Korean-only pantry terms belong to the former — see lib/pantryBook.
+  const book = pantryBookOf(entry.origin);
 
   const sorted = [...allPantryEntries].sort((a, b) =>
     a.term.localeCompare(b.term),
@@ -201,10 +207,35 @@ export default async function CultureEntryPage({
 
             {/* Book CTA */}
             <div className="mt-14 pt-10 border-t border-hairline">
-              <p className="font-body text-sm text-ink/60 mb-5">
-                {entry.term} appears in the recipes of Tokyo Meets Tuscany.
-              </p>
-              <AmazonCTA href={TMT_AMAZON} />
+              {book === "smmc" ? (
+                <>
+                  <p className="font-body text-sm text-ink/60 mb-5">
+                    {entry.term} appears in the recipes of Seoul Meets Mexico City.
+                  </p>
+                  {/*
+                    Plain anchor, not AmazonCTA: that component prints an Amazon
+                    Associates disclosure, which would be false for a Gumroad link.
+                  */}
+                  <a
+                    href={GUMROAD_SMMC_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center font-ui text-eyebrow uppercase text-ink border-b border-ink pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
+                  >
+                    Get Seoul Meets Mexico City — {GUMROAD_SMMC_PRICE}
+                  </a>
+                  <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
+                    Illustrated PDF · Instant download
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="font-body text-sm text-ink/60 mb-5">
+                    {entry.term} appears in the recipes of Tokyo Meets Tuscany.
+                  </p>
+                  <AmazonCTA href={TMT_AMAZON} />
+                </>
+              )}
             </div>
 
             {/* Prev/Next */}
