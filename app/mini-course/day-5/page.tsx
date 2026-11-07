@@ -181,7 +181,7 @@ export default function Day5Page() {
                 {[
                   "The ability to make dashi — the base of a cuisine",
                   "An understanding of miso as a functional equivalent to Parmigiano",
-                  "The Flavor Pairing Matrix — 12 (or 24, in the PDF) functional swaps",
+                  "The Flavor Pairing Matrix — 16 functional swaps across 8 categories",
                   "An understanding of umami synergy and why certain combinations work",
                   "Knowledge of mirin and sake as distinct from their Western equivalents",
                   "The framework for inventing original fusion dishes, not just following recipes",

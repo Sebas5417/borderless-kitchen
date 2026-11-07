@@ -1,65 +1,104 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { FadeRise } from "@/components/motion/FadeRise";
+import { GUMROAD_SMMC_PRICE, GUMROAD_SMMC_URL } from "@/lib/gumroad";
+import { TMT_AMAZON } from "@/lib/amazon";
+import { ETSY_SHOP_URL } from "@/lib/etsy";
+
+/**
+ * Every claim on this page is constrained to what public/flavor-pairing-matrix.pdf
+ * actually contains: sixteen pairings across eight categories, one page
+ * (verified 2026-11-07 by text extraction of the shipped PDF — its own header
+ * reads "Eight categories, sixteen pairings, one page").
+ *
+ * Three things were removed on 2026-11-07 because they were not true:
+ *   1. "47 substitution rules" and the imperatives built on it — no such 47-row
+ *      asset has ever existed. The real chart has 16 rows.
+ *   2. The "Umami Depth Chart", "Heat Level Reference" and "Acid Map" cards in
+ *      WHAT_YOU_GET — none of these exist as separate documents.
+ *   3. Three unattributed testimonials ("Newsletter subscriber", "Home cook,
+ *      Austin TX", "Reader via Instagram") and a "690+ articles" counter. No
+ *      evidence trail exists for any of them.
+ *
+ * Both capture forms previously had no successLink, so a subscriber who was
+ * told the PDF "arrives immediately" received nothing at all. Both now link
+ * the existing PDF directly.
+ */
 
 export const metadata: Metadata = {
   alternates: { canonical: "/flavor-guide" },
-  title: "Free: The Asian Flavor Pairing Cheat Sheet — 47 Substitution Rules",
+  title: "Free: The Japanese–Italian Flavor Pairing Matrix",
   description:
-    "Download the free Asian Flavor Pairing Cheat Sheet — 47 ingredient substitution rules covering soy sauce, fish sauce, miso, rice vinegar, coconut milk, and more. Learn the logic behind Asian flavors in one page.",
+    "The free one-page Flavor Pairing Matrix — sixteen Japanese–Italian substitutions across eight categories, each mapped by function rather than by taste. What to use when you are out of Parmigiano, guanciale, yuzu, mirin or katsuobushi.",
   openGraph: {
-    title: "Free: The Asian Flavor Pairing Cheat Sheet",
+    title: "Free: The Japanese–Italian Flavor Pairing Matrix",
     description:
-      "47 ingredient substitution rules. What to use when you're out of fish sauce, how to swap miso, when coconut cream beats coconut milk. One page, free download.",
+      "Sixteen substitutions across eight categories. One page, printable, free. The chart behind every recipe in Tokyo Meets Tuscany.",
     type: "website",
   },
 };
 
-const CHEAT_SHEET_ROWS = [
-  { ingredient: "Fish sauce", swap: "Soy sauce + a drop of rice vinegar", why: "Approximates the salt + umami + acid profile; loses the oceanic depth" },
-  { ingredient: "Kecap manis", swap: "Soy sauce + brown sugar (3:1)", why: "Matches the sweet-salty balance; reduce by 20% since sugar caramelizes faster" },
-  { ingredient: "Doubanjiang", swap: "Gochujang + white miso (1:1)", why: "Fermented chili-bean base; add a pinch of salt since gochujang is sweeter" },
-  { ingredient: "Mirin", swap: "Dry sherry + 1 tsp sugar per tbsp", why: "Matches the sweet rice wine character; sake + sugar is closer if available" },
-  { ingredient: "Tamarind paste", swap: "Lime juice + brown sugar", why: "Replicates sour-sweet profile; 1 tbsp tamarind ≈ 1 tsp lime + ½ tsp sugar" },
-  { ingredient: "Shrimp paste (belacan)", swap: "Fish sauce (halved volume)", why: "Less solid umami punch; increase by 50% if the paste was a primary flavor" },
-  { ingredient: "Galangal", swap: "Ginger + a pinch of black pepper", why: "Ginger is warmer and less piney; not identical but functional in most curries" },
-  { ingredient: "Coconut cream", swap: "Full-fat coconut milk, refrigerated overnight, top layer only", why: "Same product; the fat separates when cold — the top layer is your coconut cream" },
+/** Eight of the sixteen rows on the printed matrix — an honest preview. */
+const MATRIX_PREVIEW = [
+  {
+    italian: "Parmigiano Reggiano",
+    japanese: "White miso",
+    why: "Miso is sweeter; reduce salt elsewhere",
+  },
+  {
+    italian: "Anchovy in oil",
+    japanese: "Katsuobushi flakes",
+    why: "Both dissolve into the fat invisibly",
+  },
+  {
+    italian: "Guanciale",
+    japanese: "Pancetta + katsuobushi",
+    why: "Katsuobushi adds oceanic smokiness",
+  },
+  {
+    italian: "Pecorino Romano",
+    japanese: "Shiro dashi",
+    why: "Lower volume; stronger per gram",
+  },
+  {
+    italian: "Spaghetti",
+    japanese: "Ramen noodle",
+    why: "Alkaline chew; holds sauce differently",
+  },
+  {
+    italian: "White wine",
+    japanese: "Dry sake",
+    why: "Sake is lower in tannins; sweeter finish",
+  },
+  {
+    italian: "Lemon zest + juice",
+    japanese: "Yuzu",
+    why: "More floral; more zest, less juice",
+  },
+  {
+    italian: "Ricotta",
+    japanese: "Silken tofu",
+    why: "Drain tofu well; it wants more seasoning",
+  },
 ];
 
-const WHAT_YOU_GET = [
-  {
-    title: "The Substitution Matrix",
-    detail: "47 ingredient swaps across Southeast Asian, East Asian, and South Asian pantries. Each one includes the ratio, the flavor loss, and how to compensate.",
-  },
-  {
-    title: "The Umami Depth Chart",
-    detail: "A ranked guide to every umami source in Asian cooking — from kombu and katsuobushi to fermented shrimp paste and doubanjiang — organized by intensity and application.",
-  },
-  {
-    title: "Heat Level Reference",
-    detail: "Bird's eye, dried árbol, Kashmiri, gochugaru, Sichuan peppercorn — each one profiled for heat level, flavor character, and when to use it versus when it'll ruin the dish.",
-  },
-  {
-    title: "The Acid Map",
-    detail: "When to use rice vinegar vs black vinegar vs tamarind vs lime vs yuzu. Mapped by cuisine and dish type so you stop guessing.",
-  },
+const CATEGORIES = [
+  "Umami",
+  "Fat & cure",
+  "Finishing salt",
+  "Starch & crumb",
+  "Acid & alcohol",
+  "Citrus & herb",
+  "Heat",
+  "Body",
 ];
 
-const TESTIMONIALS = [
-  {
-    quote: "I've been cooking Thai food for five years. This one page answered questions I never thought to ask.",
-    source: "Newsletter subscriber",
-  },
-  {
-    quote: "Finally understand why I can't just swap soy sauce for fish sauce and call it done.",
-    source: "Home cook, Austin TX",
-  },
-  {
-    quote: "The umami chart alone is worth it. I've started cooking with things I always walked past at the Asian grocery store.",
-    source: "Reader via Instagram",
-  },
-];
+const DOWNLOAD = {
+  href: "/flavor-pairing-matrix.pdf",
+  label: "Download the matrix →",
+};
 
 export default function FlavorGuidePage() {
   return (
@@ -72,37 +111,44 @@ export default function FlavorGuidePage() {
               Free Download — No Credit Card
             </p>
             <h1 className="font-display text-display-1 text-paper leading-tight max-w-4xl mb-8">
-              The Asian Flavor Pairing<br />
-              <span className="text-vermillion italic">Cheat Sheet.</span>
+              The Flavor Pairing<br />
+              <span className="text-vermillion italic">Matrix.</span>
             </h1>
             <p className="font-body text-xl md:text-2xl text-paper/70 max-w-2xl leading-relaxed mb-10">
-              47 substitution rules. Every umami source ranked. The acid map.
-              The heat reference. One page that changes how you cook Asian food at home.
+              Sixteen Japanese–Italian substitutions across eight categories.
+              Every pairing mapped by what the ingredient actually does — not by
+              taste, not by vibe. One page. Printable. Free.
             </p>
 
-            {/* Primary email capture */}
+            {/* Primary email capture — delivers the PDF on submit */}
             <div className="bg-paper/5 border border-paper/10 rounded-sm p-8 max-w-lg">
               <NewsletterForm
                 label="Send it to my inbox — free"
                 placeholder="your@email.com"
-                buttonLabel="Get the Cheat Sheet →"
+                buttonLabel="Get the Matrix →"
+                successLink={DOWNLOAD}
               />
               <p className="mt-4 font-ui text-xs text-paper/30">
-                No spam. Occasional deep dives on technique and flavor. Unsubscribe anytime.
+                No spam. Occasional notes on technique and flavor. Unsubscribe
+                anytime.
               </p>
             </div>
           </FadeRise>
 
-          {/* Proof strip */}
+          {/* Facts strip — counts verified against the shipped PDF */}
           <div className="mt-16 pt-8 border-t border-paper/10 grid grid-cols-3 gap-8 max-w-2xl pb-16">
             {[
-              { num: "47", label: "Substitution rules" },
-              { num: "690+", label: "Articles on technique" },
-              { num: "Free", label: "No payment ever" },
+              { num: "16", label: "Pairings" },
+              { num: "8", label: "Categories" },
+              { num: "1", label: "Page" },
             ].map(({ num, label }) => (
               <div key={label}>
-                <p className="font-display text-4xl md:text-5xl text-paper font-bold mb-1">{num}</p>
-                <p className="font-ui text-eyebrow uppercase text-paper/40">{label}</p>
+                <p className="font-display text-4xl md:text-5xl text-paper font-bold mb-1">
+                  {num}
+                </p>
+                <p className="font-ui text-eyebrow uppercase text-paper/40">
+                  {label}
+                </p>
               </div>
             ))}
           </div>
@@ -114,47 +160,67 @@ export default function FlavorGuidePage() {
         <Container>
           <FadeRise>
             <p className="font-ui text-eyebrow uppercase text-ink/40 mb-4 tracking-widest">
-              Inside the Cheat Sheet
+              Inside the matrix
             </p>
-            <h2 className="font-display text-4xl md:text-5xl text-ink leading-tight mb-16 max-w-2xl">
-              What you actually get
+            <h2 className="font-display text-4xl md:text-5xl text-ink leading-tight mb-8 max-w-2xl">
+              Eight categories, sixteen swaps.
             </h2>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-20">
-              {WHAT_YOU_GET.map(({ title, detail }) => (
-                <div key={title} className="border border-ink/10 p-8">
-                  <h3 className="font-display text-2xl text-ink mb-4">{title}</h3>
-                  <p className="font-body text-base text-ink/70 leading-relaxed">{detail}</p>
-                </div>
+            <p className="font-body text-lg text-ink/70 leading-relaxed mb-8 max-w-prose">
+              Each row names the Italian ingredient, the Japanese ingredient that
+              does the same job, and what changes when you make the swap — the
+              salt, the sweetness, the fat, the finish.
+            </p>
+            <ul className="flex flex-wrap gap-3 mb-16">
+              {CATEGORIES.map((c) => (
+                <li
+                  key={c}
+                  className="font-ui text-eyebrow uppercase text-ink border border-hairline px-4 py-2"
+                >
+                  {c}
+                </li>
               ))}
-            </div>
+            </ul>
 
-            {/* Preview table */}
+            {/* Preview table — 8 of the 16 printed rows */}
             <div className="mb-6">
               <p className="font-ui text-eyebrow uppercase text-ink/40 mb-6 tracking-widest">
-                8 of 47 rows — preview
+                8 of 16 rows — preview
               </p>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b-2 border-ink">
-                      <th className="text-left font-ui text-eyebrow uppercase py-3 pr-6 text-ink/60">Ingredient</th>
-                      <th className="text-left font-ui text-eyebrow uppercase py-3 pr-6 text-ink/60">Best Swap</th>
-                      <th className="text-left font-ui text-eyebrow uppercase py-3 text-ink/60 hidden md:table-cell">Why It Works</th>
+                      <th className="text-left font-ui text-eyebrow uppercase py-3 pr-6 text-ink/60">
+                        Italian
+                      </th>
+                      <th className="text-left font-ui text-eyebrow uppercase py-3 pr-6 text-ink/60">
+                        Japanese
+                      </th>
+                      <th className="text-left font-ui text-eyebrow uppercase py-3 text-ink/60 hidden md:table-cell">
+                        What changes
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
-                    {CHEAT_SHEET_ROWS.map(({ ingredient, swap, why }, i) => (
-                      <tr key={ingredient} className={`border-b border-ink/10 ${i >= 5 ? "opacity-30" : ""}`}>
-                        <td className="py-4 pr-6 font-body font-bold text-ink">{ingredient}</td>
-                        <td className="py-4 pr-6 font-body text-ink/80">{swap}</td>
-                        <td className="py-4 font-body text-ink/60 hidden md:table-cell">{why}</td>
+                    {MATRIX_PREVIEW.map(({ italian, japanese, why }) => (
+                      <tr key={italian} className="border-b border-ink/10">
+                        <td className="py-4 pr-6 font-body font-bold text-ink">
+                          {italian}
+                        </td>
+                        <td className="py-4 pr-6 font-body text-ink/80">
+                          {japanese}
+                        </td>
+                        <td className="py-4 font-body text-ink/60 hidden md:table-cell">
+                          {why}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
                 <p className="mt-4 font-ui text-xs text-ink/40 italic">
-                  Rows 6–47 unlock when you subscribe. Free, always.
+                  The other eight rows — togarashi, sansho, furikake, panko,
+                  gremolata, pine nuts, balsamic and chicken stock — are on the
+                  PDF.
                 </p>
               </div>
             </div>
@@ -162,42 +228,29 @@ export default function FlavorGuidePage() {
         </Container>
       </section>
 
-      {/* SOCIAL PROOF */}
-      <section className="bg-ink py-20">
-        <Container>
-          <FadeRise>
-            <div className="grid md:grid-cols-3 gap-8">
-              {TESTIMONIALS.map(({ quote, source }) => (
-                <div key={source} className="border border-paper/10 p-8">
-                  <p className="font-display text-lg text-paper italic leading-relaxed mb-6">
-                    &ldquo;{quote}&rdquo;
-                  </p>
-                  <p className="font-ui text-eyebrow uppercase text-paper/30">— {source}</p>
-                </div>
-              ))}
-            </div>
-          </FadeRise>
-        </Container>
-      </section>
-
       {/* SECOND CTA */}
-      <section className="bg-paper py-20 md:py-28">
+      <section className="bg-paper py-20 md:py-28 border-t border-hairline">
         <Container>
           <FadeRise>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="font-display text-4xl md:text-5xl text-ink leading-tight mb-6">
-                Get the cheat sheet.<br />
-                <span className="text-vermillion italic">Cook better this week.</span>
+                Get the matrix.
+                <br />
+                <span className="text-vermillion italic">
+                  Swap with a reason.
+                </span>
               </h2>
               <p className="font-body text-lg text-ink/70 leading-relaxed mb-10">
-                Enter your email and it arrives immediately. One PDF, one page, 47 rules.
-                The kind of thing you print out and tape to the inside of a cabinet door.
+                Enter your email and the one-page PDF is right here to download.
+                The kind of thing you print out and tape to the inside of a
+                cabinet door.
               </p>
               <div className="flex justify-center">
                 <NewsletterForm
                   label="Free — no catch"
                   placeholder="your@email.com"
                   buttonLabel="Send it →"
+                  successLink={DOWNLOAD}
                 />
               </div>
             </div>
@@ -205,21 +258,83 @@ export default function FlavorGuidePage() {
         </Container>
       </section>
 
-      {/* ABOUT THE SOURCE */}
-      <section className="bg-ink/5 border-t border-ink/10 py-16">
+      {/* WHAT TO DO NEXT — existing products, existing destinations */}
+      <section className="bg-ink text-paper py-16 md:py-20">
         <Container>
           <FadeRise>
-            <div className="max-w-3xl mx-auto">
-              <p className="font-ui text-eyebrow uppercase text-ink/40 mb-4 tracking-widest">
-                About Borderless Kitchen
-              </p>
-              <p className="font-body text-lg text-ink/80 leading-relaxed">
-                Borderless Kitchen is a series of guides, articles, and cookbooks on cross-cultural cuisine.
-                We have published over 690 articles on the history, technique, and flavor logic of cuisines
-                across Asia, Europe, and the Americas. The Cheat Sheet distills the most practical applied
-                knowledge from that work into one reference document.
-              </p>
+            <p className="font-ui text-eyebrow uppercase text-paper/40 mb-8 tracking-widest">
+              If the matrix is useful
+            </p>
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl">
+              <div className="border border-paper/10 p-8">
+                <p className="font-display text-xl text-paper mb-3 leading-tight">
+                  Tokyo Meets Tuscany
+                </p>
+                <p className="font-body text-sm text-paper/60 leading-relaxed mb-5">
+                  The matrix came out of Vol. I — thirty recipes and six master
+                  sauces built on this same system.
+                </p>
+                <a
+                  href={TMT_AMAZON}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-ui text-eyebrow uppercase text-vermillion text-xs hover:text-paper transition-colors"
+                >
+                  Vol. I on Amazon →
+                </a>
+              </div>
+              <div className="border border-paper/10 p-8">
+                <p className="font-display text-xl text-paper mb-3 leading-tight">
+                  Seoul Meets Mexico City
+                </p>
+                <p className="font-body text-sm text-paper/60 leading-relaxed mb-5">
+                  The same logic across Korean and Mexican cooking — gochujang
+                  against chile, doenjang against masa. Illustrated PDF,{" "}
+                  {GUMROAD_SMMC_PRICE}.
+                </p>
+                <a
+                  href={GUMROAD_SMMC_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-ui text-eyebrow uppercase text-vermillion text-xs hover:text-paper transition-colors"
+                >
+                  Vol. II on Gumroad →
+                </a>
+              </div>
+              <div className="border border-paper/10 p-8">
+                <p className="font-display text-xl text-paper mb-3 leading-tight">
+                  Printable planning kits
+                </p>
+                <p className="font-body text-sm text-paper/60 leading-relaxed mb-5">
+                  Fillable weekly menus, cook-ahead sheets and hosting checklists
+                  — six of them, sold through our Etsy shop.
+                </p>
+                <a
+                  href={ETSY_SHOP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-ui text-eyebrow uppercase text-vermillion text-xs hover:text-paper transition-colors"
+                >
+                  The Etsy shop →
+                </a>
+              </div>
             </div>
+            <p className="font-ui text-eyebrow uppercase text-paper/30 text-xs mt-10">
+              Or keep reading:{" "}
+              <Link
+                href="/free"
+                className="text-paper/60 hover:text-vermillion transition-colors"
+              >
+                free recipes
+              </Link>{" "}
+              ·{" "}
+              <Link
+                href="/mini-course"
+                className="text-paper/60 hover:text-vermillion transition-colors"
+              >
+                the five-day course
+              </Link>
+            </p>
           </FadeRise>
         </Container>
       </section>

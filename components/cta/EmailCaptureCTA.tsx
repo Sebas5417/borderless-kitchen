@@ -11,7 +11,10 @@ export function EmailCaptureCTA({
   heading = "Get the free Flavor Pairing Matrix.",
   body = "The Italian × Japanese ingredient chart behind every recipe in the book. Enter your email — free PDF, one page.",
   cta = "Get it free →",
-  href = "/free",
+  // Defaults to the page that actually delivers the PDF. Pointing this at
+  // "/free" sent readers who clicked "Get the Flavor Pairing Matrix free" to a
+  // recipe index that has no matrix on it (corrected 2026-11-07).
+  href = "/flavor-guide",
 }: Props) {
   return (
     <section className="bg-ink text-paper py-16 md:py-20">
