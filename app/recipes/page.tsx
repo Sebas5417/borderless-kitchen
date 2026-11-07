@@ -75,11 +75,11 @@ export default function RecipesPage() {
         <Container>
           <div className="max-w-prose">
             <p className="font-ui text-eyebrow uppercase text-ink/40 mb-3">
-              36 more recipes
+              Thirty recipes · six master sauces
             </p>
             <p className="font-body text-lg text-ink/70 leading-relaxed">
               The full collection — Chili Oil Lasagna Roll-Ups, Matcha Tiramisu, the Flavor
-              Pairing Matrix, and 33 more — lives in{" "}
+              Pairing Matrix, and more — lives in{" "}
               <Link
                 href="/books/tokyo-meets-tuscany"
                 className="text-ink underline decoration-hairline underline-offset-4 hover:text-vermillion hover:decoration-vermillion transition-colors duration-300"
