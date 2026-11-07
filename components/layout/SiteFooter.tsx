@@ -83,13 +83,17 @@ export function SiteFooter() {
             href="/free"
             className="font-body text-sm text-ink hover:text-vermillion transition-colors duration-300 block mb-2"
           >
-            19 free fusion recipes →
+            85 free fusion recipes →
           </Link>
+          {/* Corrected 2026-11-07. This read "Email list + Flavor Pairing
+              Matrix", but the destination subdomain is a three-recipe lead
+              page and contains no matrix (checked: zero mentions). The matrix
+              is delivered at /flavor-guide; this link is the email list. */}
           <a
             href="https://free.borderlesskitchenseries.com"
             className="font-body text-xs text-ink/50 hover:text-vermillion transition-colors duration-300"
           >
-            Email list + Flavor Pairing Matrix →
+            Three free recipes by email →
           </a>
           <div className="mt-8 pt-6 border-t border-hairline">
             <p className="font-body text-xs text-ink/40">

@@ -106,10 +106,14 @@ export default function JournalPage() {
         </Container>
       </section>
 
+      {/* Re-pointed 2026-11-07. The banner is a link, not a form: it collects no
+          address, so "new essays, volumes, and the occasional thing that didn't
+          make the book" was a newsletter promise with no mechanism behind it.
+          It now describes the free download it actually opens. */}
       <EmailCaptureCTA
         heading="Notes from the kitchen."
-        body="New essays, volumes, and the occasional thing that didn't make the book."
-        cta="free.borderlesskitchenseries.com →"
+        body="The journal is free to read — and the Flavor Pairing Matrix is free to download. Sixteen Japanese–Italian substitutions on one printable page."
+        cta="Get the free matrix →"
       />
     </>
   );

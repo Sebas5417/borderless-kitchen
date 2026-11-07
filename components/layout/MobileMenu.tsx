@@ -102,8 +102,11 @@ export function MobileMenu() {
             }`}
             style={{ transitionDelay: open ? "360ms" : "0ms" }}
           >
+            {/* Corrected 2026-11-07. The destination is a three-recipe
+                Japanese–Italian lead page with an email form — there is no
+                "starter guide" on it. Label now matches what it delivers. */}
             <p className="font-ui text-eyebrow uppercase text-paper/40 mb-3">
-              Get the free starter guide
+              Get three free recipes by email
             </p>
             <a
               href="https://free.borderlesskitchenseries.com"

@@ -233,10 +233,17 @@ export default function PreorderPage() {
         </Container>
       </section>
 
+      {/* This banner is a link, not a form — it collects no email. It used to
+          promise "free Korean-Mexican recipes and the complete Flavor Pairing
+          Matrix" behind a "Send them to me →" button, then send the reader to
+          /flavor-guide, which is the Japanese–Italian matrix and contains no
+          Korean–Mexican recipes. Copy and destination now both point at the SMMC
+          sampler page, which delivers without an email. Corrected 2026-11-07. */}
       <EmailCaptureCTA
-        heading="Start with six recipes, free."
-        body="Seoul Meets Mexico City is out now as an illustrated edition. Join the list for free Korean-Mexican recipes and the complete Flavor Pairing Matrix."
-        cta="Send them to me →"
+        heading="Start with three Korean–Mexican recipes, free."
+        body="Seoul Meets Mexico City is out now as an illustrated edition. Read three complete recipes here, or take the 12-page sampler — no email needed."
+        cta="Read the free recipes →"
+        href="/free/seoul-meets-mexico-city"
       />
     </>
   );

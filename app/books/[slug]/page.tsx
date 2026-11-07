@@ -313,10 +313,14 @@ export default async function BookPage({
         </Container>
       </section>
 
+      {/* Fixed 2026-11-07. `href` was never passed, so "Get the free recipes"
+          opened /flavor-guide — a PDF matrix page with no recipes on it. Now
+          links to /free, which is the free recipe collection. */}
       <EmailCaptureCTA
         heading="Both volumes are out now."
-        body="Tokyo Meets Tuscany and Seoul Meets Mexico City — Japanese technique against Italian tradition, Korean fermentation against Mexican fire. Start with three recipes, free."
+        body="Tokyo Meets Tuscany and Seoul Meets Mexico City — Japanese technique against Italian tradition, Korean fermentation against Mexican fire. Start with the free recipe collection."
         cta="Get the free recipes →"
+        href="/free"
       />
     </>
   );

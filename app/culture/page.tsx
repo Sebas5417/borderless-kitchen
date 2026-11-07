@@ -65,10 +65,15 @@ export default function CulturePage() {
         );
       })}
 
+      {/* Re-pointed 2026-11-07. The banner is a link, not a form, and it used to
+          promise a "starter guide — five pantry ingredients and three
+          techniques" that no page on this site contains, while labelling the
+          button `free.borderlesskitchenseries.com` and landing on
+          /flavor-guide. Copy now describes the matrix it actually opens. */}
       <EmailCaptureCTA
-        heading="Get the free starter guide."
-        body="Get the free starter guide — five pantry ingredients and three techniques that unlock both cuisines."
-        cta="free.borderlesskitchenseries.com →"
+        heading="Get the free matrix."
+        body="The Flavor Pairing Matrix — sixteen substitutions across eight categories, each mapped by what the ingredient actually does. One printable page, free."
+        cta="Get the free matrix →"
       />
     </>
   );

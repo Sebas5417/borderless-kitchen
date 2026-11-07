@@ -265,10 +265,16 @@ export default function MiniCoursePage() {
         </Container>
       </section>
 
+      {/* Fixed 2026-11-07. `href` was never passed, so "Get the free collection"
+          opened /flavor-guide — the matrix page, with no recipe collection on
+          it. The "nineteen fusion recipes" count was also unverifiable against
+          the 85 recipes in /free. Now links to /free, which genuinely carries
+          the recipes and the matrix. */}
       <EmailCaptureCTA
         heading="Not ready for the course? Start with the free collection."
-        body="Nineteen fusion recipes and the Flavor Pairing Matrix — free, no account needed."
+        body="The full free recipe collection and the Flavor Pairing Matrix — free, no account needed."
         cta="Get the free collection →"
+        href="/free"
       />
     </>
   );

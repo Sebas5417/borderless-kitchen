@@ -112,14 +112,16 @@ export default function PrintablesPage() {
               Before you buy anything
             </p>
             <p className="font-body text-base text-ink/80 leading-relaxed mb-6">
-              There are{" "}
+              {/* Corrected 2026-11-07. Said "There are nineteen free recipes";
+                  /free renders 85. Count-free wording so it cannot drift again. */}
+              The{" "}
               <Link
                 href="/free"
                 className="text-ink border-b border-ink hover:text-vermillion hover:border-vermillion transition-colors duration-300"
               >
-                nineteen free recipes and the Flavor Pairing Matrix
+                free recipe collection and the Flavor Pairing Matrix
               </Link>{" "}
-              on this site, no signup required for the recipes. Start there. The
+              are on this site, no signup required for the recipes. Start there. The
               printables above solve a different problem &mdash; planning, not
               cooking &mdash; and they are worth exactly nothing to you if the
               planning is not where your week actually breaks.

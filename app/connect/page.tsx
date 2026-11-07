@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/connect" },
   title: "Connect",
   description:
-    "Notes from the kitchen — the free starter guide, news on new Borderless Kitchen volumes, and the occasional recipe note that didn't make the book.",
+    "Notes from the kitchen — new Borderless Kitchen volumes, essays from the counter, and the occasional recipe note that didn't make the book.",
 };
 
 import { TMT_AMAZON } from "@/lib/amazon";
@@ -36,16 +36,23 @@ export default function ConnectPage() {
                   New volumes, essays from the counter, and the occasional recipe
                   note that didn't make the book. Infrequent. Worth it.
                 </p>
+                {/* Corrected 2026-11-07. This promised a "starter guide — five
+                    pantry ingredients and three techniques". The destination
+                    (free.borderlesskitchenseries.com) is a three-recipe
+                    Japanese–Italian lead page with an email form; it contains
+                    no pantry list and no technique guide. The copy now states
+                    what the page actually delivers. */}
                 <p>
-                  Or get the free starter guide — five pantry ingredients and
-                  three techniques that unlock both cuisines.
+                  Or start with three free recipes — ramen alla carbonara, miso
+                  mushroom risotto, and sushi pizza — sent by email as a
+                  printable PDF.
                 </p>
               </div>
 
-              {/* Free guide link */}
+              {/* Free recipes link */}
               <div className="mt-10 pt-8 border-t border-hairline">
                 <p className="font-ui text-eyebrow uppercase text-ink/50 mb-4">
-                  Free starter guide
+                  Three free recipes
                 </p>
                 <a
                   href="https://free.borderlesskitchenseries.com"

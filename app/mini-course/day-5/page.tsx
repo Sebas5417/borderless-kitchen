@@ -219,8 +219,11 @@ export default function Day5Page() {
                     cta: "Start the challenge",
                   },
                   {
+                    // Corrected 2026-11-07. This said "19 free cross-cultural
+                    // recipes"; /free renders 85. Figure now matches the one the
+                    // site footer states.
                     title: "The Free Recipe Collection",
-                    desc: "19 free cross-cultural recipes plus the full Flavor Pairing Matrix. No account required — start cooking immediately.",
+                    desc: "85 free cross-cultural recipes plus the full Flavor Pairing Matrix. No account required — start cooking immediately.",
                     link: "/free",
                     cta: "Browse free recipes",
                   },

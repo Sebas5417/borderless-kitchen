@@ -1,5 +1,14 @@
 import Link from "next/link";
 
+/**
+ * A link banner, not a form. It renders no `<input>` and collects no address —
+ * despite the name. The default copy used to say "Enter your email", which
+ * nothing in this component can do; that line was removed 2026-11-07.
+ *
+ * Every use must state something its `href` actually contains. Six call sites
+ * on 2026-11-07 promised recipes, a starter guide, or a newsletter that the
+ * destination did not have; those were corrected in place.
+ */
 type Props = {
   heading?: string;
   body?: string;
@@ -9,7 +18,7 @@ type Props = {
 
 export function EmailCaptureCTA({
   heading = "Get the free Flavor Pairing Matrix.",
-  body = "The Italian × Japanese ingredient chart behind every recipe in the book. Enter your email — free PDF, one page.",
+  body = "The Italian × Japanese ingredient chart behind every recipe in the book. One printable page, free — no email needed.",
   cta = "Get it free →",
   // Defaults to the page that actually delivers the PDF. Pointing this at
   // "/free" sent readers who clicked "Get the Flavor Pairing Matrix free" to a

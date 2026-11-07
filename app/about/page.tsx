@@ -164,10 +164,15 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      {/* Re-pointed 2026-11-07. This banner is a link, not a form: it collects
+          no address. It promised "new volumes, stories from the counter…" and
+          labelled the button `free.borderlesskitchenseries.com`, but landed the
+          reader on /flavor-guide — the matrix page. Copy and destination now
+          both describe the matrix. */}
       <EmailCaptureCTA
-        heading="Stay close to the kitchen."
-        body="New volumes, stories from the counter, and the occasional thing that didn't make it into the book."
-        cta="free.borderlesskitchenseries.com →"
+        heading="Start with the free matrix."
+        body="The Flavor Pairing Matrix — sixteen Japanese–Italian substitutions across eight categories, each mapped by what the ingredient actually does. One printable page."
+        cta="Get the free matrix →"
       />
     </>
   );

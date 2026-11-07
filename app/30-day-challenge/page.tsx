@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
@@ -296,10 +295,16 @@ export default function ThirtyDayChallengePage() {
         </Container>
       </section>
 
+      {/* Fixed 2026-11-07. Two defects: `href` was never passed, so a button
+          labelled "Explore the journal" opened /flavor-guide; and "every
+          technique in the challenge is documented in full in our journal" is a
+          claim about 269 essays that is not supported. Now links to /journal
+          and describes it without overclaiming. */}
       <EmailCaptureCTA
-        heading="Already cooking? Start with 200+ free articles."
-        body="Every technique in the challenge is documented in full in our journal. Browse by cuisine, technique, or search for any ingredient."
+        heading="Already cooking? There are 200+ free essays."
+        body="Notes on technique, culture, and the stories behind the recipes — browse the whole journal."
         cta="Explore the journal →"
+        href="/journal"
       />
     </>
   );
