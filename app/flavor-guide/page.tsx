@@ -132,6 +132,19 @@ export default function FlavorGuidePage() {
                 No spam. Occasional notes on technique and flavor. Unsubscribe
                 anytime.
               </p>
+              {/* The PDF is free and needs no email. This link keeps that true
+                  even when the subscribe call fails — see the note above. */}
+              <p className="mt-3 font-ui text-xs text-paper/40">
+                Or{" "}
+                <a
+                  href={DOWNLOAD.href}
+                  download
+                  className="text-paper/70 border-b border-paper/30 hover:text-vermillion hover:border-vermillion transition-colors"
+                >
+                  download the PDF directly
+                </a>{" "}
+                — no email needed.
+              </p>
             </div>
           </FadeRise>
 
@@ -241,9 +254,9 @@ export default function FlavorGuidePage() {
                 </span>
               </h2>
               <p className="font-body text-lg text-ink/70 leading-relaxed mb-10">
-                Enter your email and the one-page PDF is right here to download.
-                The kind of thing you print out and tape to the inside of a
-                cabinet door.
+                Enter your email and the one-page PDF is right here to download —
+                or take the file directly, no email needed. The kind of thing you
+                print out and tape to the inside of a cabinet door.
               </p>
               <div className="flex justify-center">
                 <NewsletterForm
@@ -253,6 +266,15 @@ export default function FlavorGuidePage() {
                   successLink={DOWNLOAD}
                 />
               </div>
+              <p className="mt-6 font-ui text-eyebrow uppercase text-ink/40">
+                <a
+                  href={DOWNLOAD.href}
+                  download
+                  className="border-b border-ink/20 hover:text-vermillion hover:border-vermillion transition-colors"
+                >
+                  Download the matrix directly ↓
+                </a>
+              </p>
             </div>
           </FadeRise>
         </Container>

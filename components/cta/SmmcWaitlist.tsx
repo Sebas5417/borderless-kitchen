@@ -7,6 +7,25 @@ type Props = {
 };
 
 /**
+ * The free SMMC sampler, served as a plain static file. No email needed.
+ */
+const SAMPLER_PDF = "/smmc-sampler-v3.pdf";
+
+/**
+ * Email capture is OFF (2026-11-07).
+ *
+ * `POST /api/subscribe` drops the address and returns success when MailerLite
+ * is not configured for the list, and no SMMC welcome automation exists yet, so
+ * a form here would collect a promise it cannot keep — "free recipes are on the
+ * way" with nothing on the way. Same decision, same reason, as
+ * `SmmcSamplerOptIn.tsx`; the two components have to move together.
+ *
+ * Flip to `true` only when the SMMC list saves subscribers AND something
+ * actually delivers them something.
+ */
+const SUBSCRIBE_ENABLED = false;
+
+/**
  * Seoul Meets Mexico City is fully published — Kindle since 2026-07-31, paperback
  * since 2026-08-11. This block sells it. It is not a waitlist and has not been one
  * for a while; the name is kept because two pages import it.
@@ -48,13 +67,34 @@ export function SmmcWaitlist({ dark = true }: Props) {
           Get Seoul Meets Mexico City — {GUMROAD_SMMC_PRICE} →
         </a>
       </div>
-      <SubscribeForm
-        list="smmc"
-        placeholder="your@email.com"
-        buttonLabel="Send me recipes"
-        dark={dark}
-        successMessage="You're on the list. Free Korean-Mexican recipes are on the way."
-      />
+      {SUBSCRIBE_ENABLED ? (
+        <SubscribeForm
+          list="smmc"
+          placeholder="your@email.com"
+          buttonLabel="Send me recipes"
+          dark={dark}
+          successMessage="You're on the list. Free Korean-Mexican recipes are on the way."
+        />
+      ) : (
+        <div>
+          <a
+            href={SAMPLER_PDF}
+            download
+            className={`inline-block font-ui text-eyebrow uppercase border-b pb-1 transition-colors duration-300 ${
+              dark
+                ? "text-paper border-paper/40 hover:text-vermillion hover:border-vermillion"
+                : "text-ink border-ink/40 hover:text-vermillion hover:border-vermillion"
+            }`}
+          >
+            Read the free sampler — no email needed ↓
+          </a>
+          <p
+            className={`mt-3 font-body text-sm leading-relaxed max-w-prose ${dark ? "text-paper/40" : "text-ink/40"}`}
+          >
+            Twelve pages of the illustrated edition, printable PDF.
+          </p>
+        </div>
+      )}
     </div>
   );
 }

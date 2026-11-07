@@ -9,8 +9,10 @@ import {
 } from "@/lib/gumroad";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
-import { SubscribeForm } from "@/components/forms/SubscribeForm";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
+
+/** The accepted 12-page SMMC sampler. Static file, no email gate. */
+const SAMPLER_PDF = "/smmc-sampler-v3.pdf";
 
 /**
  * The landing page for @_borderlesskitchen traffic.
@@ -64,31 +66,39 @@ export default function InstagramPage() {
             <p className="font-body text-lg text-paper/75 mt-6 max-w-prose leading-relaxed">
               Three full recipes from the Borderless Kitchen series — ingredients,
               method, the ratios that actually matter. No paywall, no upsell page
-              in between. Drop your email and they land in your inbox.
+              in between, no email required. They are on the page below.
             </p>
           </FadeRise>
 
           <FadeRise>
-            <div className="mt-10">
-              <SubscribeForm
-                list="smmc"
-                dark
-                label="Send them to"
-                buttonLabel="Send the pack"
-                successMessage="Sent. Check your inbox — and your spam folder, once."
-                successLink={{ href: "/free", label: "Start reading now →" }}
-              />
-              <p className="font-ui text-xs text-paper/40 mt-4">
-                One email with the recipes. A short note most weeks. Unsubscribe
-                whenever.
-              </p>
+            {/*
+              Email capture removed 2026-11-07. There is no SMMC welcome
+              automation to send a pack, and `POST /api/subscribe` reports
+              success even when the address is dropped, so "they land in your
+              inbox" was untrue on both counts. The recipes were always linked
+              further down this page — the hero now points straight at them.
+            */}
+            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+              <a
+                href="#the-recipes"
+                className="inline-block font-ui text-eyebrow uppercase bg-paper text-ink px-8 py-4 hover:bg-vermillion hover:text-paper transition-colors duration-300"
+              >
+                Read the three recipes ↓
+              </a>
+              <a
+                href={SAMPLER_PDF}
+                download
+                className="inline-block font-ui text-eyebrow uppercase text-paper border-b border-paper/40 pb-1 hover:text-vermillion hover:border-vermillion transition-colors"
+              >
+                Seoul Meets Mexico City sampler — free PDF ↓
+              </a>
             </div>
           </FadeRise>
         </Container>
       </section>
 
       {/* ── What's in the pack ───────────────────────────────────────── */}
-      <section className="bg-paper py-16 md:py-20">
+      <section id="the-recipes" className="bg-paper py-16 md:py-20 scroll-mt-8">
         <Container>
           <FadeRise>
             <p className="font-ui text-eyebrow uppercase text-ink/50 mb-8">

@@ -30,9 +30,12 @@ const SAMPLER_PDF = "/smmc-sampler-v3.pdf";
 /**
  * Subscriber capture is switched OFF.
  *
- * The MailerLite group and API credentials are not configured, so the form
- * returns `503 not-configured` rather than saving anything. Showing a form that
- * cannot capture is worse than showing no form: the reader types an address,
+ * The SMMC MailerLite group is not configured, so the form cannot save anyone.
+ * Note that the deployed route does not say so: when the key or group is
+ * missing, `app/api/subscribe/route.ts` returns `200 {ok:true}` and drops the
+ * lead. A reader would be told "You're on the list" while nothing was stored.
+ * Showing a form that cannot capture is worse than showing no form: the reader
+ * types an address,
  * nothing is stored, and the site has implied a promise it cannot keep. The
  * sampler is delivered by the direct PDF link above, which needs no email.
  *
