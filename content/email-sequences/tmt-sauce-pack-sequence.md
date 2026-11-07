@@ -1,7 +1,7 @@
 # TMT Sauce Pack — MailerLite Email Sequence
 **Group:** TMT Subscribers (create this group in MailerLite dashboard)
 **Trigger:** Form submission on /tokyo-meets-tuscany
-**Goal:** Deliver sauce pack → warm up → soft Amazon CTA
+**Goal:** Deliver sauce pack → warm up → soft book CTA
 
 ---
 
@@ -37,7 +37,7 @@ That's the whole system.
 
 — Sebastian, Borderless Kitchen
 
-P.S. Each sauce is also in *Tokyo Meets Tuscany* in its full recipe context. The book is on Amazon if you want the whole thing: [Tokyo Meets Tuscany →](https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20)
+P.S. Each sauce is also in *Tokyo Meets Tuscany* in its full recipe context. The whole book is here: [Tokyo Meets Tuscany →](https://borderlesskitchenseries.com/tokyo-meets-tuscany)
 
 ---
 
@@ -89,13 +89,13 @@ It was better than most things I'd made on purpose.
 
 Over the next few weeks I kept applying the same logic: what does this Italian ingredient *do*, and what Japanese ingredient does the same thing? The carbonara-ramen came out of it. The soy-balsamic glaze. The chili oil lasagna.
 
-By the time I had 37 recipes, I had a book.
+By the time I had 30 recipes, I had a book.
 
-*Tokyo Meets Tuscany* is on Amazon now — paperback, hardcover, and Kindle. It's everything that came out of that logic applied consistently: 37 Japanese-Italian fusion recipes, all built on function, all tested in a home kitchen.
+*Tokyo Meets Tuscany* is out now in paperback and on Kindle. It's everything that came out of that logic applied consistently: 30 Japanese-Italian fusion recipes plus six master sauces, all built on function, all tested in a home kitchen.
 
-**[Get Tokyo Meets Tuscany on Amazon →](https://www.amazon.com/dp/B0GY8H2TCQ?tag=borderlesskitchen-20)**
+**[Tokyo Meets Tuscany →](https://borderlesskitchenseries.com/tokyo-meets-tuscany)**
 
-Paperback $24.99 · Hardcover $34.99 · Kindle $9.99
+Paperback $19.99 · Kindle $9.99
 
 The second book in the series — *Seoul Meets Mexico City* — applies the same logic to Korean and Mexican cuisine. Gochujang and adobo. Kimchi and tacos. Doenjang and mole. It's out now as an illustrated edition — $9.99, instant PDF download.
 
