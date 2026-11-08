@@ -73,9 +73,11 @@ export default function InstagramPage() {
           <FadeRise>
             {/*
               Email capture removed 2026-11-07. There is no SMMC welcome
-              automation to send a pack, and `POST /api/subscribe` reports
-              success even when the address is dropped, so "they land in your
-              inbox" was untrue on both counts. The recipes were always linked
+              automation to send a pack, and the route used to report success
+              even when the address was dropped, so "they land in your inbox"
+              was untrue on both counts. (The route now returns 503 instead of
+              a false success; the missing automation is still reason enough to
+              leave this off.) The recipes were always linked
               further down this page — the hero now points straight at them.
             */}
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">

@@ -27,12 +27,37 @@ export function SubscribeForm({
   const inputId = useId();
   const [pending, startTransition] = useTransition();
   const [state, setState] = useState<
-    { kind: "idle" } | { kind: "ok" } | { kind: "error"; message: string }
+    | { kind: "idle" }
+    | { kind: "ok" }
+    | { kind: "unavailable" }
+    | { kind: "error"; message: string }
   >({ kind: "idle" });
 
   const inkOrPaper = dark ? "text-paper" : "text-ink";
   const mutedBorder = dark ? "border-paper/30" : "border-ink/30";
   const focusBorder = dark ? "focus-within:border-paper" : "focus-within:border-ink";
+
+  // The list is not accepting signups. Say so — the old copy claimed success
+  // while the address was being discarded — but still hand over any direct
+  // download so the visitor leaves with the lead magnet they came for.
+  if (state.kind === "unavailable") {
+    return (
+      <div className="w-full max-w-md" role="status">
+        <p className={`font-body text-base ${inkOrPaper}`}>
+          Email signups aren't open right now, so your address wasn't saved.
+          Please try again later.
+        </p>
+        {successLink ? (
+          <a
+            href={successLink.href}
+            className="mt-3 inline-block font-ui text-eyebrow uppercase text-vermillion border-b border-vermillion pb-1 hover:opacity-80 transition-opacity duration-300"
+          >
+            {successLink.label}
+          </a>
+        ) : null}
+      </div>
+    );
+  }
 
   if (state.kind === "ok") {
     return (
@@ -65,10 +90,12 @@ export function SubscribeForm({
             });
             const data = (await res.json()) as {
               ok: boolean;
-              error?: "invalid-email" | "retry";
+              error?: "invalid-email" | "retry" | "not-configured";
             };
             if (data.ok) {
               setState({ kind: "ok" });
+            } else if (data.error === "not-configured") {
+              setState({ kind: "unavailable" });
             } else {
               setState({
                 kind: "error",

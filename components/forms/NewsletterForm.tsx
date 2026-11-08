@@ -20,7 +20,10 @@ export function NewsletterForm({
 }: Props) {
   const [pending, startTransition] = useTransition();
   const [state, setState] = useState<
-    { kind: "idle" } | { kind: "ok" } | { kind: "error"; message: string }
+    | { kind: "idle" }
+    | { kind: "ok" }
+    | { kind: "unavailable" }
+    | { kind: "error"; message: string }
   >({ kind: "idle" });
 
   return (
@@ -34,6 +37,10 @@ export function NewsletterForm({
           if (result.ok) {
             setState({ kind: "ok" });
             (e.target as HTMLFormElement).reset();
+          } else if (result.error === "not-configured") {
+            // Nothing was stored, so do not promise an email. The input keeps
+            // its value so a later retry does not mean retyping it.
+            setState({ kind: "unavailable" });
           } else {
             setState({
               kind: "error",
@@ -73,6 +80,21 @@ export function NewsletterForm({
       </div>
       {state.kind === "error" ? (
         <p className="mt-3 font-ui text-xs text-vermillion">{state.message}</p>
+      ) : state.kind === "unavailable" ? (
+        <div className="mt-3">
+          <p className="font-ui text-xs text-ink/70">
+            Email signups aren't open right now, so your address wasn't saved.
+            Please try again later.
+          </p>
+          {successLink ? (
+            <a
+              href={successLink.href}
+              className="mt-3 inline-block font-ui text-eyebrow uppercase text-vermillion border-b border-vermillion pb-1 hover:opacity-80 transition-opacity duration-300"
+            >
+              {successLink.label}
+            </a>
+          ) : null}
+        </div>
       ) : state.kind === "ok" ? (
         <div className="mt-3">
           <p className="font-ui text-xs text-ink/60">

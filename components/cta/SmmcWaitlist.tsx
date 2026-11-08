@@ -14,10 +14,11 @@ const SAMPLER_PDF = "/smmc-sampler-v3.pdf";
 /**
  * Email capture is OFF (2026-11-07).
  *
- * `POST /api/subscribe` drops the address and returns success when MailerLite
- * is not configured for the list, and no SMMC welcome automation exists yet, so
- * a form here would collect a promise it cannot keep — "free recipes are on the
- * way" with nothing on the way. Same decision, same reason, as
+ * `POST /api/subscribe` now reports `503 {ok:false, error:"not-configured"}`
+ * instead of pretending success, but nothing is stored and no SMMC welcome
+ * automation exists yet, so a form here would still collect promise with
+ * nothing behind it — "free recipes are on the way" and nothing on the way.
+ * Same decision, same reason, as
  * `SmmcSamplerOptIn.tsx`; the two components have to move together.
  *
  * Flip to `true` only when the SMMC list saves subscribers AND something

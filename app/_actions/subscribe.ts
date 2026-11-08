@@ -7,7 +7,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export type SubscribeResult =
   | { ok: true }
-  | { ok: false; error: "invalid-email" | "unknown" };
+  | { ok: false; error: "invalid-email" | "unknown" | "not-configured" };
 
 /**
  * "not-configured" (no API key) and "failed" (MailerLite rejected us) used to
@@ -75,13 +75,16 @@ export async function subscribe(formData: FormData): Promise<SubscribeResult> {
   try {
     const outcome = await addToMailerLite(email);
 
-    // Deliberate pass-through: with no API key there is nowhere to put the
-    // lead, so still show success and let the funnel deliver the lead magnet.
-    // Leads ARE lost here — set MAILERLITE_API_KEY (+ MAILERLITE_GROUP_ID) in
-    // the Vercel project to start capturing for real.
+    // Not configured: with no API key there is nowhere to put the lead, so
+    // "success" would be a lie — the visitor would wait for emails that can
+    // never arrive. Report it as unavailable; the form still shows any direct
+    // download the page offers. Set MAILERLITE_API_KEY (+ MAILERLITE_GROUP_ID)
+    // in the Vercel project to start capturing for real.
     if (outcome === "not-configured") {
-      console.error(`[subscribe] MailerLite not configured — lead dropped: ${email}`);
-      return { ok: true };
+      console.error(
+        `[subscribe] MailerLite not configured — signup refused, nothing saved: ${email}`,
+      );
+      return { ok: false, error: "not-configured" };
     }
 
     // A real failure. Previously this returned success and the lead was gone

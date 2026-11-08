@@ -39,13 +39,18 @@ export async function POST(req: Request) {
   const groupId = LIST_GROUP_ENV[list];
 
   if (!apiKey || !groupId) {
-    // Not configured yet: show success so the funnel still delivers the
-    // lead magnet link — same convention as app/_actions/subscribe.ts.
-    // Leads are DROPPED until MAILERLITE_API_KEY + group IDs are set.
+    // Not configured: nothing is stored, so success would be a lie. The old
+    // `{ ok: true }` here told the visitor to check their inbox while the
+    // lead was discarded — a customer-acquisition defect. Return a distinct
+    // code so the form can say so honestly and still hand over any direct
+    // download the page offers.
     console.error(
-      `[api/subscribe] MailerLite not configured for "${list}" — lead dropped`,
+      `[api/subscribe] MailerLite not configured for "${list}" — signup refused, nothing saved`,
     );
-    return NextResponse.json({ ok: true });
+    return NextResponse.json(
+      { ok: false, error: "not-configured" },
+      { status: 503 },
+    );
   }
 
   try {
