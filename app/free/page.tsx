@@ -213,13 +213,17 @@ export default function FreePage() {
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div>
                 <p className="font-ui text-eyebrow uppercase text-vermillion mb-2">
-                  Free 5-day email course
+                  Free 5-day mini-course
                 </p>
                 <p className="font-display text-display-3 text-ink leading-tight">
                   The Fusion Kitchen Mini-Course.
                 </p>
+                {/* Corrected 2026-11-08. Read "Delivered free by email" —
+                    email delivery is not verified, so that promise is gone.
+                    All five days are readable on the site right now, which is
+                    what the link actually opens. */}
                 <p className="font-body text-sm text-ink/60 mt-2 max-w-prose">
-                  Five techniques. Five recipes. The full system behind the free collection — dashi, miso, umami pairing, and how to build your own fusion dish from scratch. Delivered free by email.
+                  Five techniques. Five recipes. The full system behind the free collection — dashi, miso, umami pairing, and how to build your own fusion dish from scratch. All five days are readable on the site — no email needed.
                 </p>
               </div>
               <Link

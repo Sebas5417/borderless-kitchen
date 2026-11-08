@@ -102,18 +102,20 @@ export function MobileMenu() {
             }`}
             style={{ transitionDelay: open ? "360ms" : "0ms" }}
           >
-            {/* Corrected 2026-11-07. The destination is a three-recipe
-                Japanese–Italian lead page with an email form — there is no
-                "starter guide" on it. Label now matches what it delivers. */}
+            {/* Corrected 2026-11-08. Read "Get three free recipes by email"
+                and pointed off-site at free.borderlesskitchenseries.com, whose
+                email delivery we cannot verify. Nothing here should promise an
+                inbox. Points at the sampler we actually serve, which downloads
+                directly with no address required. */}
             <p className="font-ui text-eyebrow uppercase text-paper/40 mb-3">
-              Get three free recipes by email
+              Free sampler PDF — no email needed
             </p>
-            <a
-              href="https://free.borderlesskitchenseries.com"
+            <Link
+              href="/free/seoul-meets-mexico-city"
               className="font-display italic text-paper/80 hover:text-vermillion transition-colors duration-300"
             >
-              free.borderlesskitchenseries.com →
-            </a>
+              Seoul Meets Mexico City sampler →
+            </Link>
           </div>
         </div>
       </div>

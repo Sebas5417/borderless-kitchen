@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { allBooks, allRecipeTeasers } from "contentlayer/generated";
 import { Container } from "@/components/layout/Container";
@@ -221,12 +222,17 @@ export default async function BookPage({
               </div>
             ) : (
               <div className="mt-10">
-                <a
-                  href="https://free.borderlesskitchenseries.com"
+                {/* Corrected 2026-11-08. Pointed off-site at
+                    free.borderlesskitchenseries.com, whose email delivery we
+                    cannot verify — so it could promise a notification nobody
+                    would receive. /connect is ours and its form now says so
+                    honestly when signups are unavailable. */}
+                <Link
+                  href="/connect"
                   className="font-ui text-eyebrow uppercase text-ink border-b border-ink/40 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
                 >
-                  Get notified when it drops →
-                </a>
+                  Be first to hear when it drops →
+                </Link>
               </div>
             )}
           </div>

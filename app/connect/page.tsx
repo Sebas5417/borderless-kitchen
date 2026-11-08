@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
@@ -36,30 +37,29 @@ export default function ConnectPage() {
                   New volumes, essays from the counter, and the occasional recipe
                   note that didn't make the book. Infrequent. Worth it.
                 </p>
-                {/* Corrected 2026-11-07. This promised a "starter guide — five
-                    pantry ingredients and three techniques". The destination
-                    (free.borderlesskitchenseries.com) is a three-recipe
-                    Japanese–Italian lead page with an email form; it contains
-                    no pantry list and no technique guide. The copy now states
-                    what the page actually delivers. */}
+                {/* Corrected 2026-11-08. This promised three recipes "sent by
+                    email". The destination (free.borderlesskitchenseries.com)
+                    is a separate lead page whose email delivery we cannot
+                    verify, so the inbox promise is removed. Points at the
+                    sampler served from this site, which downloads directly. */}
                 <p>
-                  Or start with three free recipes — ramen alla carbonara, miso
-                  mushroom risotto, and sushi pizza — sent by email as a
-                  printable PDF.
+                  Or start with the free Seoul Meets Mexico City sampler — a
+                  printable PDF you can download right now, no email address
+                  needed.
                 </p>
               </div>
 
               {/* Free recipes link */}
               <div className="mt-10 pt-8 border-t border-hairline">
                 <p className="font-ui text-eyebrow uppercase text-ink/50 mb-4">
-                  Three free recipes
+                  Free sampler
                 </p>
-                <a
-                  href="https://free.borderlesskitchenseries.com"
+                <Link
+                  href="/free/seoul-meets-mexico-city"
                   className="font-display italic text-xl text-ink hover:text-vermillion transition-colors duration-300"
                 >
-                  free.borderlesskitchenseries.com →
-                </a>
+                  Read the Seoul Meets Mexico City sampler →
+                </Link>
               </div>
 
               {/* Book */}

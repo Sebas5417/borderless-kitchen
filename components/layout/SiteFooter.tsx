@@ -85,16 +85,17 @@ export function SiteFooter() {
           >
             85 free fusion recipes →
           </Link>
-          {/* Corrected 2026-11-07. This read "Email list + Flavor Pairing
-              Matrix", but the destination subdomain is a three-recipe lead
-              page and contains no matrix (checked: zero mentions). The matrix
-              is delivered at /flavor-guide; this link is the email list. */}
-          <a
-            href="https://free.borderlesskitchenseries.com"
+          {/* Corrected 2026-11-08. Read "Three free recipes by email →" and
+              pointed off-site at free.borderlesskitchenseries.com, a separate
+              lead page whose email delivery we cannot verify. Nothing here
+              should promise an inbox. Points at the sampler we actually serve,
+              which downloads directly with no address required. */}
+          <Link
+            href="/free/seoul-meets-mexico-city"
             className="font-body text-xs text-ink/50 hover:text-vermillion transition-colors duration-300"
           >
-            Three free recipes by email →
-          </a>
+            Free sampler PDF — no email needed →
+          </Link>
           <div className="mt-8 pt-6 border-t border-hairline">
             <p className="font-body text-xs text-ink/40">
               © {year} Sebastian Dri. All rights reserved.
