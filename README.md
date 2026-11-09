@@ -67,15 +67,17 @@ the code, so the site builds without them; the MailerLite ones are needed for si
 |---|---|
 | `NEXT_PUBLIC_SITE_URL` | Canonical origin for metadata |
 | `NEXT_PUBLIC_AMAZON_URL_TMT` | Buy link — Tokyo Meets Tuscany |
-| `NEXT_PUBLIC_AMAZON_URL_SMMC` | Buy link — Seoul Meets Mexico City |
+| `NEXT_PUBLIC_GUMROAD_SMMC_URL` | Buy link — Seoul Meets Mexico City (Gumroad; falls back to the live listing) |
 | `NEXT_PUBLIC_GUMROAD_MATRIX_URL` | Flavor Pairing Matrix lead magnet |
 | `MAILERLITE_API_KEY` | Email signup (server-side) |
 | `MAILERLITE_GROUP_ID` | Default list |
 | `MAILERLITE_TMT_GROUP_ID` | TMT-specific list |
 | `MAILERLITE_SMMC_GROUP_ID` | SMMC-specific list |
 
-Books reference their buy link indirectly, via `amazonUrlEnvKey` in front matter — resolved in
-[`lib/amazon.ts`](lib/amazon.ts).
+Each book's buy link has one source of truth in code, not in front matter. Tokyo Meets Tuscany
+resolves in [`lib/amazon.ts`](lib/amazon.ts) and always carries the Associates tag. Seoul Meets
+Mexico City is sold on Gumroad, not Amazon, and resolves in [`lib/gumroad.ts`](lib/gumroad.ts).
+The `amazonUrlEnvKey` field is still declared in `contentlayer.config.ts`, but no code reads it.
 
 ## Layout
 
