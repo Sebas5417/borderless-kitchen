@@ -18,20 +18,22 @@ Here are 12 of the 16 core pairs:
 | Italian | Japanese | What they share |
 |---------|----------|-----------------|
 | Parmigiano-Reggiano | White miso | Fermented glutamate, salt, fat-amplifying |
-| Prosciutto crudo | Katsuobushi | Dried, cured, inosinate-rich protein |
-| Anchovies | Nori / kombu | Sea umami, glutamate, mineral depth |
-| Tomato (concentrated) | Soy sauce | Glutamate + color + acidity |
-| Capers | Pickled ginger (gari) | Brine-sharp counterpoint |
-| Lemon zest | Yuzu zest | Aromatic citrus brightness |
-| Fresh basil | Shiso (perilla) | Anise-adjacent aromatic herb |
-| Olive oil (finishing) | Sesame oil (finishing) | Fat-carried aroma, added at the end |
-| Pecorino Romano | Bonito-aged soy | Sharper, saltier, more aggressive umami |
-| White wine | Sake | Fermented, dry, aromatic acidity |
-| Butter | Miso butter | Fat + fermented depth |
-| Soffritto (onion/celery/carrot) | Dashi | The invisible foundation, the base of all flavor |
+| Anchovy in oil | Katsuobushi flakes | Concentrated inosinate, dissolves into hot fat |
+| Guanciale | Pancetta + katsuobushi | Cured pork fat with an oceanic lift |
+| Pecorino Romano | Shiro dashi | Sharp fermented salt, stronger per gram |
+| Spaghetti | Ramen noodle | Structural starch, alkaline chew |
+| Toasted breadcrumbs | Panko | Crumb that stays crisp under sauce |
+| White wine | Dry sake | Fermented, dry, aromatic acidity |
+| Lemon zest + juice | Yuzu | Aromatic citrus brightness |
+| Fresh basil | Shiso (perilla) | Fresh anise-adjacent aromatic herb |
+| Black pepper | Sansho pepper | Aromatic, citrus-floral heat |
+| Chicken stock | Kombu dashi | The invisible base, mineral depth |
+| Ricotta | Silken tofu | Soft body that carries seasoning |
+
+The other four are on the printable one-page matrix: borderlesskitchenseries.com/flavor-guide
 
 **How to use the matrix:**
-- **Substitution:** Replace one column with the other (miso butter for regular butter in risotto)
+- **Substitution:** Replace one column with the other (silken tofu for ricotta in a lasagne filling)
 - **Amplification:** Use both in the same dish (Parmigiano + white miso = more umami than either alone)
 - **Layering:** Build a dish using Italian technique with Japanese flavor, or vice versa
 

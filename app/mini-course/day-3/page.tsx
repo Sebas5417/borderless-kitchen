@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 const PAIRINGS = [
   { italian: "Parmigiano Reggiano", japanese: "White Miso", function: "Fermented glutamate depth", note: "Miso is sweeter — reduce salt by 20%" },
-  { italian: "Guanciale / Pancetta", japanese: "Kakuni (braised pork belly)", function: "Fatty pork with cured character", note: "Kakuni adds soy and mirin sweetness" },
+  { italian: "Guanciale", japanese: "Pancetta + katsuobushi", function: "Fatty pork with cured, oceanic character", note: "Katsuobushi adds the smoke guanciale normally brings" },
   { italian: "Anchovy in oil", japanese: "Katsuobushi (bonito flakes)", function: "Concentrated inosinate — umami bomb", note: "Both dissolve invisibly into hot fat" },
   { italian: "Pecorino Romano", japanese: "Shiro dashi concentrate", function: "Sharp fermented salt", note: "Shiro dashi is liquid; reduce other liquid" },
   { italian: "White wine (dry)", japanese: "Dry sake (junmai)", function: "Alcohol + acid + aromatic depth", note: "Sake is lower acid and more floral" },
@@ -29,8 +29,8 @@ const PAIRINGS = [
   { italian: "Black pepper", japanese: "Sansho pepper", function: "Aromatic contrasting heat", note: "Sansho is citrus-floral, not spicy-hot" },
   { italian: "Lemon zest", japanese: "Yuzu zest", function: "Bright citrus aromatic", note: "Yuzu is more floral and intense" },
   { italian: "Basil", japanese: "Shiso (perilla leaf)", function: "Bright fresh herb, aromatic finish", note: "Shiso is more anise-forward" },
-  { italian: "Capers", japanese: "Umeboshi paste", function: "Fermented acid + salt punch", note: "Umeboshi is more intensely sour" },
-  { italian: "Butter emulsion", japanese: "Miso butter emulsion", function: "Rich fat carrier for umami", note: "Miso butter amplifies both functions" },
+  { italian: "Toasted breadcrumbs", japanese: "Panko", function: "Crumb that stays crisp in sauce", note: "Panko is lighter and holds crunch longer" },
+  { italian: "Ricotta", japanese: "Silken tofu", function: "Soft body that carries seasoning", note: "Drain it well; it wants more salt than you think" },
   { italian: "Spaghetti / Tagliolini", japanese: "Ramen noodle (chukamen)", function: "Structural starch noodle", note: "Alkaline chew; holds sauce differently" },
 ];
 
@@ -90,7 +90,7 @@ export default function Day3Page() {
                 The Flavor Pairing Matrix.
               </h2>
               <p className="font-body text-base text-ink/80 leading-relaxed mb-8">
-                12 functional pairs. For each Italian ingredient, here is the Japanese equivalent — what it does, and the key note when substituting.
+                Twelve of the sixteen pairs in the printable matrix — the ones this lesson cooks with. For each Italian ingredient, here is the Japanese equivalent, what it does, and the key note when substituting.
               </p>
 
               <div className="overflow-x-auto mb-12">
