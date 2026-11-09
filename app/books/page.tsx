@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { allBooks } from "contentlayer/generated";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { EditorialImage } from "@/components/media/EditorialImage";
@@ -12,8 +13,9 @@ import { PageHero } from "@/components/editorial/PageHero";
 export const metadata: Metadata = {
   alternates: { canonical: "/books" },
   title: "The Series",
-  description:
-    "Four cookbooks in the Borderless Kitchen series — each volume pairs two cuisines and looks for what they already share. Tokyo Meets Tuscany. Seoul Meets Mexico City. And two more to come.",
+  description: fitDescription(
+    "The Borderless Kitchen cookbook series — each volume pairs two cuisines and finds what they already share. Tokyo Meets Tuscany and Seoul Meets Mexico City.",
+  ),
 };
 
 import { TMT_AMAZON } from "@/lib/amazon";

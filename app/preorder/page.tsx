@@ -2,14 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { TMT_AMAZON } from "@/lib/amazon";
 import { GUMROAD_SMMC_URL, GUMROAD_SMMC_PRICE } from "@/lib/gumroad";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 
 export const metadata: Metadata = {
-  title: "Seoul Meets Mexico City — Vol. II, Out Now",
-  description:
-    "The second Borderless Kitchen book — 30 recipes and 6 master sauces at the intersection of Korean and Mexican cooking. Illustrated edition, out now. Preview recipes free.",
+  title: fitTitle("Seoul Meets Mexico City — Vol. II, Out Now"),
+  description: fitDescription(
+    "The second Borderless Kitchen book — 30 recipes and 6 master sauces where Korean and Mexican cooking meet. Illustrated edition, out now. Preview recipes free.",
+  ),
   alternates: { canonical: "/preorder" },
   openGraph: {
     title: "Seoul Meets Mexico City — Borderless Kitchen Vol. II",

@@ -2,15 +2,17 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { TMT_AMAZON } from "@/lib/amazon";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { SubscribeForm } from "@/components/forms/SubscribeForm";
 import { SmmcWaitlist } from "@/components/cta/SmmcWaitlist";
 import { FadeRise } from "@/components/motion/FadeRise";
 
 export const metadata: Metadata = {
-  title: "Tokyo Meets Tuscany — Japanese Precision. Italian Comfort.",
-  description:
-    "A modern Japanese–Italian fusion cookbook for weeknight dinners that feel restaurant-level without restaurant prices. Download the free 5-Sauce Pack and get the book on Amazon.",
+  title: fitTitle("Tokyo Meets Tuscany — Japanese Precision. Italian Comfort."),
+  description: fitDescription(
+    "A modern Japanese–Italian fusion cookbook for weeknight dinners that feel restaurant-level without restaurant prices. Free 5-Sauce Pack included.",
+  ),
   alternates: { canonical: "/tokyo-meets-tuscany" },
   openGraph: {
     title: "Tokyo Meets Tuscany | Borderless Kitchen",

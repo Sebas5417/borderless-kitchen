@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { SmmcSamplerOptIn } from "@/components/cta/SmmcSamplerOptIn";
 import {
@@ -40,9 +41,10 @@ const SAMPLER_RECIPES = [
 const SAMPLER_PDF = "/smmc-sampler-v3.pdf";
 
 export const metadata: Metadata = {
-  title: "Free Seoul Meets Mexico City Sampler — Three Recipes",
-  description:
+  title: fitTitle("Free Seoul Meets Mexico City Sampler — Three Recipes"),
+  description: fitDescription(
     "A free 12-page PDF from Seoul Meets Mexico City: kimchi elote bites, kimchi fried rice with chorizo, and sweet rice horchata pudding. Complete recipes, no email required.",
+  ),
   alternates: { canonical: "/free/seoul-meets-mexico-city" },
   openGraph: {
     title: "Free Seoul Meets Mexico City Sampler — Three Recipes",

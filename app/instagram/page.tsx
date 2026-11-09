@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TMT_AMAZON } from "@/lib/amazon";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import {
   GUMROAD_FUSION_PLAYBOOK_PRICE,
   GUMROAD_FUSION_PLAYBOOK_URL,
@@ -26,9 +27,10 @@ const SAMPLER_PDF = "/smmc-sampler-v3.pdf";
  * letting Google index it would just split the ranking signal.
  */
 export const metadata: Metadata = {
-  title: "Welcome from Instagram — Your Free Fusion Recipe Pack",
-  description:
+  title: fitTitle("Welcome from Instagram — Your Free Fusion Recipe Pack"),
+  description: fitDescription(
     "The three fusion recipes we promised, plus both Borderless Kitchen cookbooks — Tokyo Meets Tuscany and Seoul Meets Mexico City.",
+  ),
   robots: { index: false, follow: true },
 };
 

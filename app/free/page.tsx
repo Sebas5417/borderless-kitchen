@@ -3,6 +3,7 @@ import Link from "next/link";
 import { allFreeRecipes } from "contentlayer/generated";
 import { TMT_AMAZON } from "@/lib/amazon";
 import { GUMROAD_MATRIX_URL, GUMROAD_SMMC_PRICE, GUMROAD_SMMC_URL } from "@/lib/gumroad";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { FadeRise } from "@/components/motion/FadeRise";
@@ -10,8 +11,9 @@ import { FadeRise } from "@/components/motion/FadeRise";
 export const metadata: Metadata = {
   title: "Free Recipes + Flavor Pairing Chart",
   alternates: { canonical: "/free" },
-  description:
-    "Free fusion recipes and the Flavor Pairing Matrix — the Italian × Japanese ingredient chart that maps every component of Tokyo Meets Tuscany. No signup required for the recipes.",
+  description: fitDescription(
+    "Free fusion recipes and the Flavor Pairing Matrix — the Italian × Japanese chart that maps every component of Tokyo Meets Tuscany. No signup required.",
+  ),
   openGraph: {
     title: "Free Recipes + Flavor Pairing Chart",
     description:

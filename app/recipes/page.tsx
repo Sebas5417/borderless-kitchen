@@ -8,12 +8,14 @@ import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { RecipeListItem } from "@/components/cards/RecipeListItem";
 import { cuisineHubs } from "@/lib/cuisines";
 import { GUMROAD_SMMC_PRICE, GUMROAD_SMMC_URL } from "@/lib/gumroad";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/recipes" },
-  title: "Free Recipes | Borderless Kitchen",
-  description:
-    "Free Japanese-Italian fusion recipes from the Borderless Kitchen series — Ramen alla Carbonara, Udon Bolognese, Miso White Pizza, and more. Full instructions, no paywall.",
+  title: fitTitle("Free Recipes"),
+  description: fitDescription(
+    "Free Japanese-Italian fusion recipes — Ramen alla Carbonara, Udon Bolognese, Miso White Pizza and more. Full instructions, no paywall.",
+  ),
   openGraph: {
     title: "Free Recipes | Borderless Kitchen",
     description:

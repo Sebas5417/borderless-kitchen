@@ -3,12 +3,14 @@ import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { PRINTABLES, etsyUrl, ETSY_SHOP_URL } from "@/lib/etsy";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 
 export const metadata: Metadata = {
   title: "Kitchen Printables",
   alternates: { canonical: "/printables" },
-  description:
-    "Fillable planners for the parts of cooking that are logistics rather than recipes — the week, the batch, the dinner party, the holiday oven. Print at home or type into them on screen.",
+  description: fitDescription(
+    "Fillable planners for the parts of cooking that are logistics rather than recipes — the week, the batch, the dinner party, the holiday oven.",
+  ),
   openGraph: {
     title: "Borderless Kitchen Printables",
     description:

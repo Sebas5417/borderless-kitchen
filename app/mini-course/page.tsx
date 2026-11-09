@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 
 export const metadata: Metadata = {
-  title: "The Japanese-Italian Fusion Kitchen: A Free 5-Day Mini-Course",
+  title: fitTitle("Japanese-Italian Fusion Kitchen: A Free 5-Day Mini-Course"),
   alternates: { canonical: "/mini-course" },
-  description:
-    "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and five foundational fusion recipes. All five days are free to read on the site.",
+  description: fitDescription(
+    "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, and umami pairing.",
+  ),
   openGraph: {
     title: "Free: The Fusion Kitchen Mini-Course",
     description:

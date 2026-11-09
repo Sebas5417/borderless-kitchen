@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
@@ -6,9 +7,10 @@ import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/30-day-challenge" },
-  title: "30-Day Japanese Kitchen Challenge — Build a Japanese Pantry From Scratch",
-  description:
-    "A free 30-day challenge to build your Japanese pantry from scratch, cook one Japanese technique per day, and permanently change how you think about umami, dashi, and fermented flavor.",
+  title: fitTitle("30-Day Japanese Kitchen Challenge — Build a Japanese Pantry"),
+  description: fitDescription(
+    "Build a Japanese pantry from scratch in 30 days — one technique a day, and a permanent change in how you cook umami, dashi and fermented flavor.",
+  ),
   openGraph: {
     title: "30-Day Japanese Kitchen Challenge",
     description:

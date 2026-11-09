@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
@@ -9,8 +10,9 @@ import { FadeRise } from "@/components/motion/FadeRise";
 export const metadata: Metadata = {
   alternates: { canonical: "/about" },
   title: "About",
-  description:
-    "Sebastian Dri is the author of the Borderless Kitchen cookbook series. Cross-cultural cooking grounded in technique, restraint, and the conversation between cuisines.",
+  description: fitDescription(
+    "Sebastian Dri writes the Borderless Kitchen cookbook series. Cross-cultural cooking grounded in technique, restraint, and the conversation between cuisines.",
+  ),
 };
 
 import { TMT_AMAZON } from "@/lib/amazon";

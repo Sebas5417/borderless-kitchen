@@ -6,6 +6,7 @@ import { FadeRise } from "@/components/motion/FadeRise";
 import { GUMROAD_SMMC_PRICE, GUMROAD_SMMC_URL } from "@/lib/gumroad";
 import { TMT_AMAZON } from "@/lib/amazon";
 import { ETSY_SHOP_URL } from "@/lib/etsy";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 
 /**
  * Every claim on this page is constrained to what public/flavor-pairing-matrix.pdf
@@ -29,9 +30,10 @@ import { ETSY_SHOP_URL } from "@/lib/etsy";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/flavor-guide" },
-  title: "Free: The Japanese–Italian Flavor Pairing Matrix",
-  description:
-    "The free one-page Flavor Pairing Matrix — sixteen Japanese–Italian substitutions across eight categories, each mapped by function rather than by taste. What to use when you are out of Parmigiano, guanciale, yuzu, mirin or katsuobushi.",
+  title: fitTitle("Free: The Japanese–Italian Flavor Pairing Matrix"),
+  description: fitDescription(
+    "Sixteen Japanese–Italian substitutions across eight categories, mapped by function not taste — what to use when you are out of Parmigiano, guanciale, yuzu or mirin.",
+  ),
   openGraph: {
     title: "Free: The Japanese–Italian Flavor Pairing Matrix",
     description:
