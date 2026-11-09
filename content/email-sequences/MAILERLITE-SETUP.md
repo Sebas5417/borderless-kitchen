@@ -48,19 +48,25 @@ Each subscriber who signs up on /mini-course gets all 5 emails automatically.
 
 ### 4. Connect the Signup Form
 
-The mini-course page (/mini-course) uses the existing newsletter subscribe action.
-To route mini-course signups to the "Mini-Course Subscribers" group instead of
-(or in addition to) the main list, update `app/_actions/subscribe.ts` to add the
-group ID parameter to the MailerLite API call.
+The mini-course page (/mini-course) uses the `NewsletterForm`, which posts to the
+`subscribe` server action in `app/_actions/subscribe.ts`.
 
-**Current subscribe endpoint:**
+That action is already group-aware — it needs no code change:
+
 - `POST https://connect.mailerlite.com/api/subscribers`
-- Body: `{ email, groups: ["MAIN-GROUP-ID"] }`
+- Body: `{ email, groups: ["<MAILERLITE_GROUP_ID>"] }` — the group is read from the
+  `MAILERLITE_GROUP_ID` env var and added only when that var is set.
 
-**Update to:**
-- Body: `{ email, groups: ["MAIN-GROUP-ID", "MINI-COURSE-GROUP-ID"] }`
+So to route mini-course signups to the "Mini-Course Subscribers" group, set
+`MAILERLITE_GROUP_ID` in Vercel to that group's ID
+(MailerLite → Subscribers → Groups → Mini-Course Subscribers → copy ID from URL).
 
-Get the mini-course group ID from MailerLite → Subscribers → Groups → Mini-Course Subscribers → copy ID from URL.
+The action subscribes to a single group, so this var decides *which* group the
+mini-course form feeds. Do not edit `app/_actions/subscribe.ts` to hardcode a
+group ID — and note this variable does **not** reach the two book lists: the TMT
+sauce-pack form on /tokyo-meets-tuscany reads `MAILERLITE_TMT_GROUP_ID` and the
+SMMC sampler forms read `MAILERLITE_SMMC_GROUP_ID`, both served by
+`app/api/subscribe/route.ts`.
 
 ### 5. Test the Sequence
 - Sign up with a test email at /mini-course

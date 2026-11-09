@@ -112,7 +112,7 @@ The second book in the series — *Seoul Meets Mexico City* — applies the same
 3. Copy the Group ID (shown in the URL or group settings)
 4. Add to Vercel env vars:
    - `MAILERLITE_API_KEY` = your API key
-   - `MAILERLITE_GROUP_ID` = the group ID you just created
+   - `MAILERLITE_TMT_GROUP_ID` = the group ID you just created
 5. **Automation → Create new:**
    - Trigger: Subscriber joins group "TMT Subscribers"
    - Delay 0: Send Email 1
@@ -121,4 +121,8 @@ The second book in the series — *Seoul Meets Mexico City* — applies the same
 6. Set the Sauce Pack download link in Email 1 to: `https://borderlesskitchenseries.com/sauce-pack.pdf`
 7. Activate automation
 
-**Note:** The subscribe form on /tokyo-meets-tuscany uses the existing `subscribe` server action which already calls `https://connect.mailerlite.com/api/subscribers` with the configured group ID. No additional code changes needed once env vars are set.
+**Which env var the form actually reads.** The form on /tokyo-meets-tuscany is `<SubscribeForm list="tmt" />`. It posts `{ email, list: "tmt" }` to `POST /api/subscribe`, and `app/api/subscribe/route.ts` resolves that list to `MAILERLITE_TMT_GROUP_ID` server-side. The variable must be named exactly `MAILERLITE_TMT_GROUP_ID`.
+
+`MAILERLITE_GROUP_ID` is a different, older variable: it belongs to the `subscribe` server action in `app/_actions/subscribe.ts`, which takes no list argument and is still used by the `NewsletterForm` on /mini-course and the general newsletter pages. Setting only `MAILERLITE_GROUP_ID` will not address the TMT list — `/api/subscribe` responds `503 { ok: false, error: "not-configured" }` and the signup is refused, so nothing is captured.
+
+The SMMC list follows the same pattern with `MAILERLITE_SMMC_GROUP_ID` (see `smmc-sampler-sequence.md`). All three lists are configured by env vars alone — no code change is needed for any of them.

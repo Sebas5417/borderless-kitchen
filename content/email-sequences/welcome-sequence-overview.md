@@ -2,21 +2,24 @@
 
 ## Sequence Architecture
 
-### Welcome Series (Triggered by signup — Days 0-44)
+### Welcome Series (Triggered by signup — Day 1 through Day 44)
 
-| Email | Day | Subject | Goal |
-|-------|-----|---------|------|
-| Day 0 | Immediate | "Your Japanese pantry starts here" | Deliver first lesson + set expectations |
-| Day 1 | +1 day | "The miso trick that changes pasta" | Deliver Day 1 lesson, build trust |
-| Day 2 | +2 days | "Why sake is better than white wine for cooking" | Day 2 lesson |
-| Day 3 | +3 days | "The fermentation secret Japanese chefs know" | Day 3 lesson |
-| Day 4 | +4 days | "How to taste umami deliberately" | Day 4 lesson |
-| Day 5 | +5 days | "What you can cook now (and what's next)" | Final lesson + warm book/upsell mention |
-| Email 6 | Day 12 | "The one pan technique that changes everything" | Re-engage, warm value |
-| Email 7 | Day 16 | "I made this last week — here's what happened" | Story + technique |
-| Email 8 | Day 23 | "The pantry I'd build if I was starting over" | Pantry guide + Amazon links |
-| Email 9 | Day 30 | "A question for you" | Engagement + soft ask |
-| Email 10 | Day 44 | "The borderless kitchen manifesto" | Brand statement + book mention |
+There is no Day 0 email. The sequence begins with the Day 1 lesson, sent immediately on signup.
+
+| Email | Timing | Subject |
+|-------|--------|---------|
+| Day 1 | Immediate on signup | "Day 1: The ingredient that changed everything (and you've never heard of it)" |
+| Day 2 | +1 day | "Day 2: White miso and Parmigiano are the same ingredient (structurally)" |
+| Day 3 | +2 days | "Day 3: The 16 swaps (and the recipe that explains all of them)" |
+| Day 4 | +3 days | "Day 4: Why this sweetener makes food taste better than sugar ever could" |
+| Day 5 | +4 days | "Day 5: The framework is yours. Here's how to use it forever." |
+| Email 6 | Day 12 | "What happens next" |
+| Email 7 | Day 16 | "The recipe I make when I have nothing in the house" |
+| Email 8 | Day 23 | "The thing nobody tells you about learning to cook Japanese food" |
+| Email 9 | Day 30 | "One month in" |
+| Email 10 | Day 44 | "The fish that isn't fish" |
+
+Day 1-5 subjects are the `**Subject:**` lines in `mini-course-day1.md` through `mini-course-day5.md`; the one-day interval between them is the delay schedule in `MAILERLITE-SETUP.md`. Emails 6-10 are the headings and subjects in `post-course-sequence.md`, which also carries their day numbers. Copy subjects from those files when building the automation — this table is an index, not a source.
 
 ### After Day 44: Weekly Newsletter
 Send every Tuesday. One technique, one recipe application, one ingredient spotlight.
@@ -41,6 +44,10 @@ All emails are in: content/email-sequences/
 In Vercel project settings for borderless-kitchen-series:
 - MAILERLITE_API_KEY = [your API key from MailerLite → Integrations → API]
 - MAILERLITE_GROUP_ID = [ID of "Mini-Course Subscribers" group]
+
+`MAILERLITE_GROUP_ID` is the right variable here: /mini-course uses the `NewsletterForm`, which goes through the single-group `subscribe` server action, and that action reads `MAILERLITE_GROUP_ID`.
+
+The two book-specific lists are separate and must not reuse it: the TMT sauce-pack form on /tokyo-meets-tuscany reads `MAILERLITE_TMT_GROUP_ID` and the SMMC sampler forms read `MAILERLITE_SMMC_GROUP_ID`, both via `/api/subscribe`. See `tmt-sauce-pack-sequence.md` and `smmc-sampler-sequence.md`.
 
 ### Step 5: Test
 1. Submit the form on borderlesskitchenseries.com/mini-course with a test email
