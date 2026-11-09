@@ -197,18 +197,22 @@ export default function Day1Page() {
           <FadeRise>
             <div className="grid md:grid-cols-2 gap-10 items-start max-w-3xl mx-auto">
               <div>
-                <p className="font-ui text-eyebrow uppercase text-vermillion mb-3">Get all 5 days in your inbox</p>
+                {/* Corrected 2026-11-09. Said "Get all 5 days in your inbox" and
+                    "Daily, for free", but app/_actions/subscribe.ts only adds a
+                    MailerLite subscriber — nothing sends the course. All five day
+                    pages are live and each one links to the next. */}
+                <p className="font-ui text-eyebrow uppercase text-vermillion mb-3">Day 2 is already open</p>
                 <p className="font-display text-display-3 text-ink leading-tight mb-4">
-                  The complete course. Daily, for free.
+                  The complete course. Free, in full.
                 </p>
                 <p className="font-body text-sm text-ink/60 leading-relaxed">
-                  Sign up to receive each day as an email — with extra notes, shopping lists, and the printable reference cards. Or keep reading here. Either way, the content is free.
+                  All five day pages are live on this site — read them in order, at your own pace, no signup and no waiting. Want to hear when new recipes and kitchen notes go up? Subscribe below.
                 </p>
               </div>
               <NewsletterForm
                 label="Your email"
                 placeholder="you@somewhere.com"
-                buttonLabel="Send me the course"
+                buttonLabel="Subscribe"
               />
             </div>
           </FadeRise>

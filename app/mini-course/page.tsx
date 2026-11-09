@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "The Japanese-Italian Fusion Kitchen: A Free 5-Day Mini-Course",
   alternates: { canonical: "/mini-course" },
   description:
-    "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and five foundational fusion recipes. Delivered free to your inbox.",
+    "Five days. Five techniques. Everything you need to cook confidently at the intersection of Japanese and Italian cooking — dashi, miso, umami pairing, and five foundational fusion recipes. All five days are free to read on the site.",
   openGraph: {
     title: "Free: The Fusion Kitchen Mini-Course",
     description:
-      "5 days, 5 techniques, 5 recipes. The complete Japanese-Italian cooking foundation — delivered daily to your inbox, free.",
+      "5 days, 5 techniques, 5 recipes. The complete Japanese-Italian cooking foundation — all five days free to read on the site.",
     type: "website",
     url: "/mini-course",
     images: [
@@ -48,7 +48,7 @@ const DAYS = [
     day: "Day 3",
     title: "The Umami Pairing System",
     description:
-      "Work through the Flavor Pairing Matrix. Learn the 24 Italian-Japanese swaps and why the synergy pairs (glutamate + inosinate) multiply umami 6-8x. Cook Ramen alla Carbonara.",
+      "Work through the Flavor Pairing Matrix. Learn the 16 Italian-Japanese swaps and why the synergy pairs (glutamate + inosinate) multiply umami 6-8x. Cook Ramen alla Carbonara.",
     href: "/mini-course/day-3",
   },
   {
@@ -68,12 +68,10 @@ const DAYS = [
 ];
 
 const INCLUDES = [
-  "5 detailed technique guides — one per day, straight to your inbox",
+  "5 detailed technique guides — one per day, free to read on the site",
   "5 full recipes (including the Ramen alla Carbonara foundation recipe)",
-  "The Flavor Pairing Matrix — the full 24-pair chart",
-  "The Umami Cheat Sheet (one-page quick reference)",
-  "Shopping list: the 12 ingredients you need for all 5 days",
-  "Permanent access — every email is yours to keep",
+  "The Flavor Pairing Matrix — 16 pairings across 8 categories, one page, no email needed",
+  "All five day pages stay up — bookmark them and come back any time",
 ];
 
 const FAQS = [
@@ -87,7 +85,7 @@ const FAQS = [
   },
   {
     q: "How does it work?",
-    a: "Sign up and you'll receive Day 1 immediately. Days 2–5 arrive on consecutive days. Each email is a self-contained technique guide with a full recipe. Work at your own pace — they'll be in your inbox when you're ready.",
+    a: "All five days are readable on this site right now, in order — start with Day 1 and every page links to the next. No signup, no waiting, and nothing arrives by email. If you'd like new recipes and kitchen notes as they are published, the newsletter form on this page is the way in.",
   },
   {
     q: "I've already bought the book — is this different?",
@@ -112,16 +110,23 @@ export default function MiniCoursePage() {
               <p className="font-body text-xl text-paper/70 leading-relaxed mb-10 max-w-2xl">
                 Five days. Five techniques. Everything you need to cook confidently at
                 the intersection of Japanese and Italian cooking — dashi, miso, the umami
-                pairing system, and five foundational fusion recipes. Delivered free to your inbox.
+                pairing system, and five foundational fusion recipes. All five days are free to read on the site.
               </p>
               <div className="max-w-md">
-                <NewsletterForm
-                  label="Start Day 1 now — enter your email"
-                  placeholder="you@somewhere.com"
-                  buttonLabel="Send me the course"
-                />
+                {/* Corrected 2026-11-09. This form promised "Send me the course" and
+                    "Start Day 1 now", but app/_actions/subscribe.ts only adds a
+                    MailerLite subscriber — no automation ever sends Day 1 or Days
+                    2–5. All five day pages are live, so the button now opens Day 1
+                    directly. The same class of inbox promise was already removed
+                    from /connect and /free in commit 6a9f0cc. */}
+                <Link
+                  href="/mini-course/day-1"
+                  className="inline-block font-ui text-eyebrow uppercase text-paper border border-paper/40 px-8 py-4 hover:bg-vermillion hover:border-vermillion transition-colors duration-300"
+                >
+                  Start Day 1 — free, no email →
+                </Link>
                 <p className="mt-4 font-ui text-xs text-paper/40">
-                  Free. No credit card. Unsubscribe any time.
+                  Free. No account. No email required.
                 </p>
               </div>
             </div>
@@ -194,12 +199,14 @@ export default function MiniCoursePage() {
                 </p>
                 <p className="font-display text-display-1 text-ink mb-1">Free.</p>
                 <p className="font-body text-sm text-ink/50 mb-8">
-                  Five emails. Five techniques. Zero cost.
+                  Five guides. Five techniques. Zero cost.
                 </p>
+                {/* Corrected 2026-11-09. "Start the course" promised an emailed
+                    course; this form is a plain newsletter signup. */}
                 <NewsletterForm
-                  label="Your email"
+                  label="Kitchen notes by email"
                   placeholder="you@somewhere.com"
-                  buttonLabel="Start the course"
+                  buttonLabel="Subscribe"
                 />
                 <div className="mt-8 pt-6 border-t border-hairline">
                   <p className="font-body text-sm text-ink/50 leading-relaxed">
@@ -255,11 +262,14 @@ export default function MiniCoursePage() {
                   Everything you need to cook confidently at the intersection. Free.
                 </p>
               </div>
-              <NewsletterForm
-                label="Start now"
-                placeholder="you@somewhere.com"
-                buttonLabel="Send me Day 1"
-              />
+              {/* Corrected 2026-11-09. "Send me Day 1" promised an email that no
+                  automation sends. Day 1 is a live page. */}
+              <Link
+                href="/mini-course/day-1"
+                className="inline-block font-ui text-eyebrow uppercase text-paper bg-ink px-8 py-4 hover:bg-vermillion transition-colors duration-300"
+              >
+                Start Day 1 — free, no email →
+              </Link>
             </div>
           </FadeRise>
         </Container>

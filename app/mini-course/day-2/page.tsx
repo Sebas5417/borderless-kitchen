@@ -198,7 +198,7 @@ export default function Day2Page() {
                 Tomorrow: the system.
               </h2>
               <p className="font-body text-base text-ink/80 leading-relaxed mb-12">
-                On Day 3, you'll work through the full Umami Pairing System — the 24 functional ingredient swaps that make this entire cuisine possible. You'll also cook Ramen alla Carbonara, the dish that shows exactly why Japanese and Italian cooking belong together.
+                On Day 3, you'll work through the full Umami Pairing System — the 16 functional ingredient swaps that make this entire cuisine possible. You'll also cook Ramen alla Carbonara, the dish that shows exactly why Japanese and Italian cooking belong together.
               </p>
 
               <div className="border-t border-hairline pt-10 flex flex-col md:flex-row gap-6 md:justify-between md:items-center">
@@ -226,18 +226,21 @@ export default function Day2Page() {
           <FadeRise>
             <div className="grid md:grid-cols-2 gap-10 items-start max-w-3xl mx-auto">
               <div>
-                <p className="font-ui text-eyebrow uppercase text-vermillion mb-3">Get all 5 days by email</p>
+                {/* Corrected 2026-11-09. Said "Get all 5 days by email"; no
+                    automation sends the course — subscribe.ts only stores a
+                    MailerLite subscriber. Every lesson page is live and linked. */}
+                <p className="font-ui text-eyebrow uppercase text-vermillion mb-3">Day 3 is open now</p>
                 <p className="font-display text-display-3 text-ink leading-tight mb-4">
-                  Daily lessons. Free, forever.
+                  Every lesson. Free, in full.
                 </p>
                 <p className="font-body text-sm text-ink/60 leading-relaxed">
-                  Sign up to receive each lesson with extra notes, shopping lists, and printable reference cards — or keep reading here at your own pace.
+                  All five day pages are live on this site — keep reading at your own pace, no signup required. Subscribe below if you would like new recipes and kitchen notes by email.
                 </p>
               </div>
               <NewsletterForm
                 label="Your email"
                 placeholder="you@somewhere.com"
-                buttonLabel="Send me the course"
+                buttonLabel="Subscribe"
               />
             </div>
           </FadeRise>

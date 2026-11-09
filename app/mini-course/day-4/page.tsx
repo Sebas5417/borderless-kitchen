@@ -246,18 +246,20 @@ export default function Day4Page() {
           <FadeRise>
             <div className="grid md:grid-cols-2 gap-10 items-start max-w-3xl mx-auto">
               <div>
+                {/* Corrected 2026-11-09. Said "Get Day 5 ... by email" — no automation sends
+                    it, and Day 5 is already a live page. */}
                 <p className="font-ui text-eyebrow uppercase text-vermillion mb-3">One more day left</p>
                 <p className="font-display text-display-3 text-ink leading-tight mb-4">
-                  Tomorrow: build your own fusion dish.
+                  Day 5 is already open.
                 </p>
                 <p className="font-body text-sm text-ink/60 leading-relaxed">
-                  Get Day 5 — and the full reference pack — by email. Or come back here tomorrow.
+                  Day 5 is a live page right now — no need to wait for an email. Subscribe below if you would like new recipes and kitchen notes as they go up.
                 </p>
               </div>
               <NewsletterForm
                 label="Your email"
                 placeholder="you@somewhere.com"
-                buttonLabel="Send me Day 5"
+                buttonLabel="Subscribe"
               />
             </div>
           </FadeRise>
