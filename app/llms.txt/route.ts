@@ -11,6 +11,20 @@ import { GUMROAD_SMMC_URL } from "@/lib/gumroad";
 const siteUrl = "https://borderlesskitchenseries.com";
 
 /**
+ * Volumes with a dedicated sales page. Mirrors `CANONICAL_OVERRIDES` in
+ * app/books/[slug]/page.tsx (audit F4): `/books/<slug>` declares a canonical of
+ * the sales page, so citing `/books/<slug>` here would teach an assistant to
+ * quote a page that disowns itself.
+ */
+const BOOK_SALES_PAGES: Record<string, string> = {
+  "tokyo-meets-tuscany": "/tokyo-meets-tuscany",
+  "seoul-meets-mexico-city": "/seoul-meets-mexico-city",
+};
+
+/** Slugs already listed, with their own description, in the curated block below. */
+const CURATED_BOOK_SLUGS = ["tokyo-meets-tuscany", "seoul-meets-mexico-city"];
+
+/**
  * llms.txt, generated from content rather than hand-written.
  *
  * It used to be a static file in public/. That file listed 11 pages while the site had 380,
@@ -60,9 +74,14 @@ export function GET() {
     line(h.label, `${siteUrl}/recipes/cuisine/${h.slug}`, `${h.recipes.length} recipes`),
   );
 
+  // Curated volumes are already listed above with a description of their own;
+  // emitting them again here produced two links per book, the second pointing at
+  // /books/<slug> - which canonicalizes to the sales page listed first. Anything
+  // not curated still gets a line, via its canonical URL.
   const books = allBooks
     .filter((b) => b.status === "available")
-    .map((b) => line(b.title, `${siteUrl}/books/${b.slug}`));
+    .filter((b) => !CURATED_BOOK_SLUGS.includes(b.slug))
+    .map((b) => line(b.title, `${siteUrl}${BOOK_SALES_PAGES[b.slug] ?? `/books/${b.slug}`}`));
 
   const body = `# Borderless Kitchen — Cookbook Series by Sebastian Dri
 
