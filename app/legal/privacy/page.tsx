@@ -17,7 +17,7 @@ export default function PrivacyPage() {
           </h1>
           <div className="space-y-6 font-body text-base text-ink/80 leading-relaxed">
             <p>
-              <strong>Last updated:</strong> January 2026
+              <strong>Last updated:</strong> November 2026
             </p>
             <p>
               Borderless Kitchen (<em>borderlesskitchenseries.com</em>) collects
@@ -27,8 +27,12 @@ export default function PrivacyPage() {
               third party.
             </p>
             <p>
-              We do not use tracking cookies, behavioral analytics, or ad
-              networks on this site. No analytics are active at launch.
+              We use two analytics tools on this site. Google Analytics 4 sets
+              first-party cookies and records page views and how pages are used.
+              Vercel Analytics reports aggregate traffic figures and does not use
+              cookies. Neither is used for advertising. We do not run ad
+              networks, and we do not sell, share, or rent your data to any third
+              party.
             </p>
             <p>
               If you submitted your email and want it removed, email{" "}

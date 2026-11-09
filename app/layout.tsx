@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import { Playfair_Display, Montserrat, Lato } from "next/font/google";
+import { fitDescription } from "@/lib/seoMeta";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import "./globals.css";
@@ -37,8 +38,9 @@ export const metadata: Metadata = {
     default: "Borderless Kitchen",
     template: "%s — Borderless Kitchen",
   },
-  description:
-    "A cookbook series by Sebastian Dri on cross-cultural cooking. Vol. I: Tokyo Meets Tuscany — Italian soul, Japanese precision. Thirty fusion recipes where both traditions belong on the same plate.",
+  description: fitDescription(
+    "Cross-cultural cookbooks by Sebastian Dri. Vol. I: Tokyo Meets Tuscany — Italian soul, Japanese precision. Thirty fusion recipes where both traditions belong.",
+  ),
   openGraph: {
     title: "Borderless Kitchen — Italian soul. Japanese precision.",
     description:
