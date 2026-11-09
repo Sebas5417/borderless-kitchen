@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { allBooks, allStories, allFieldNotes } from "contentlayer/generated";
+import { allBooks, allStories, allFieldNotes, allFreeRecipes } from "contentlayer/generated";
 import { Container } from "@/components/layout/Container";
 import { HeroCarousel } from "@/components/editorial/HeroCarousel";
 import { PhilosophyStrip } from "@/components/editorial/PhilosophyStrip";
@@ -158,7 +158,7 @@ export default function HomePage() {
                 Free — no account needed
               </p>
               <p className="font-display text-display-3 text-ink leading-tight">
-                19 cross-cultural recipes + the Flavor Pairing Matrix.
+                {allFreeRecipes.length} cross-cultural recipes + the Flavor Pairing Matrix.
               </p>
               <p className="font-body text-base text-ink/60 mt-2">
                 The full logic behind every Japanese-Italian swap, condensed.
