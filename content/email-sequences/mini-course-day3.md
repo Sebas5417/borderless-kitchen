@@ -1,5 +1,5 @@
 # Day 3 — The Umami Pairing System
-**Subject:** Day 3: The 24 swaps (and the recipe that explains all of them)
+**Subject:** Day 3: The 16 swaps (and the recipe that explains all of them)
 
 ---
 
@@ -13,7 +13,7 @@ At the core of Japanese-Italian fusion cooking is a simple idea: **every major f
 
 This isn't about "adding soy sauce to pasta" (please don't). It's about understanding which ingredients share the same flavor mechanism — so you can use them together, substitute one for another, or combine both to amplify the effect.
 
-Here are the 12 core pairs:
+Here are 12 of the 16 core pairs:
 
 | Italian | Japanese | What they share |
 |---------|----------|-----------------|

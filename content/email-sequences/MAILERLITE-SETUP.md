@@ -31,7 +31,7 @@ Each subscriber who signs up on /mini-course gets all 5 emails automatically.
 **Wait: 1 day**
 
 **Email 3**
-- Subject: `Day 3: The 24 swaps (and the recipe that explains all of them)`
+- Subject: `Day 3: The 16 swaps (and the recipe that explains all of them)`
 - Content: See `mini-course-day3.md`
 
 **Wait: 1 day**
