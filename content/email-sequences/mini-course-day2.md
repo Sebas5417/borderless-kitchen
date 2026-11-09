@@ -89,7 +89,7 @@ This is the same as tempering eggs for a custard. Gradual integration prevents t
 
 ---
 
-**Tomorrow:** The full Umami Pairing System — and the dish where we use both dashi and soffritto in the same recipe.
+**Tomorrow:** The full Umami Pairing System — and the dish where the dashi from Day 1 meets the miso you used today, in the same recipe.
 
 Sebastian
 

@@ -15,7 +15,7 @@ It's called dashi.
 
 Dashi (*DAH-shee*) is a Japanese stock. But not stock in the Western sense — not the long-simmered, roasted-bone broth that French kitchens depend on. Dashi is the opposite: fast, light, and almost impossibly clear.
 
-Classic ichiban dashi takes 15 minutes and uses two ingredients:
+Classic ichiban dashi takes about 30 minutes — most of it a hands-off cold steep — and uses two ingredients:
 
 - **Kombu** — dried kelp, harvested from cold northern waters, packed with glutamate (the same compound that makes Parmigiano taste like itself)
 - **Katsuobushi** — dried, smoked, fermented bonito tuna, shaved into paper-thin flakes, packed with inosinate
@@ -57,9 +57,9 @@ This is where it gets interesting.
 
 Dashi is to Japanese cooking what **soffritto** is to Italian cooking — the invisible foundation. Every Italian grandmother has soffritto; every Japanese cook has dashi. You don't taste them directly. You taste everything they make possible.
 
-The difference: soffritto takes 45 minutes and caramelizes aromatics into fat. Dashi takes 15 minutes and extracts amino acids into water. One is oil-soluble. One is water-soluble. Together, they cover the full flavor spectrum.
+The difference: soffritto takes 45 minutes and caramelizes aromatics into fat. Dashi takes about 30 minutes and extracts amino acids into water. One is oil-soluble. One is water-soluble. Together, they cover the full flavor spectrum.
 
-In Day 3, we'll use both in the same dish.
+In Day 3, we'll use both dashi and miso in the same dish.
 
 ---
 

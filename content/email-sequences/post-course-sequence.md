@@ -48,7 +48,7 @@ Try it this week and tell me what you think.
 
 — Sebastian
 
-[More weeknight recipes like this](https://borderlesskitchenseries.com/journal)
+[More weeknight recipes like this](https://borderlesskitchenseries.com/recipes)
 
 ---
 
@@ -73,7 +73,7 @@ Here's how I built the pantry incrementally:
 
 You don't need everything at once. Each ingredient is useful standalone. Build gradually.
 
-If you want a shortcut: the [Borderless Kitchen pantry guide](https://borderlesskitchenseries.com/journal) has Amazon links to exactly what I use.
+If you want a shortcut: the [Borderless Kitchen pantry guide](https://borderlesskitchenseries.com/culture) covers all of these ingredients and links to each one on Amazon.
 
 — Sebastian
 
@@ -92,7 +92,7 @@ I'm asking because I'm putting together a new piece of content and I want to kno
 
 Your reply helps me make the next thing better.
 
-Also: if you haven't tried anything yet and the course is sitting in your inbox unopened — no pressure, but Day 1 (dashi) takes 20 minutes and I promise it'll change how you think about cooking flavor. Start there.
+Also: if you haven't tried anything yet and the course is sitting in your inbox unopened — no pressure, but Day 1 (dashi) takes half an hour and I promise it'll change how you think about cooking flavor. Start there.
 
 ---
 
@@ -119,9 +119,9 @@ The reason katsuobushi matters is not the smoke or the ocean. It's inosinate —
 
 This is the same reason Parmigiano + prosciutto in the same dish tastes disproportionately deep. Parmigiano = glutamate. Prosciutto (cured meat) = inosinate. Two traditions, same chemistry.
 
-One thing to try this week: make a quick ichiban dashi and use it as the base for a cacio e pepe. Instead of pasta water, use dashi. Watch what happens.
+One thing to try this week: make a quick ichiban dashi and swap some of the pasta water for it in a cacio e pepe. Watch what happens.
 
-Full recipe here: [Dashi Cacio e Pepe](https://borderlesskitchenseries.com/journal)
+Full recipe here: [Miso Cacio e Pepe](https://borderlesskitchenseries.com/recipes/miso-cacio-e-pepe)
 
 — Sebastian
 
