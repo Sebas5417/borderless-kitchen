@@ -100,11 +100,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/connect`, changeFrequency: "monthly", priority: 0.5 },
     { url: `${siteUrl}/notes`, lastModified: newestNote, changeFrequency: "weekly", priority: 0.5 },
     { url: `${siteUrl}/recipes`, lastModified: newestRecipe, changeFrequency: "weekly", priority: 0.9 },
+    // Pillar reference page, self-canonical and not noindex (checked in the
+    // WU34 audit) but absent from this list until now — the only linked-in
+    // entry point to it was the navigation.
+    { url: `${siteUrl}/flavor-guide`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/shop`, changeFrequency: "monthly", priority: 0.7 },
+    // Utility index for the free planning tools. Self-canonical, indexable,
+    // and the affiliate links all leave the site, so this page is the only
+    // thing here for search to rank.
+    { url: `${siteUrl}/tools`, changeFrequency: "monthly", priority: 0.6 },
     // No lastModified: the page is a hand-written list of products, so nothing in the
     // content implies a date and stamping today's would be the fake-lastmod problem again.
     { url: `${siteUrl}/printables`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteUrl}/free`, lastModified: newestRecipe, changeFrequency: "monthly", priority: 0.9 },
+    // Free challenge sign-up page: self-canonical and indexable, previously
+    // reachable only by following a link from /free.
+    { url: `${siteUrl}/30-day-challenge`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/preorder`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/mini-course`, changeFrequency: "monthly", priority: 0.8 },
     ...books,
