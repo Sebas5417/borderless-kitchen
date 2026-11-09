@@ -1,13 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
+const DESCRIPTION =
+  "Cook teriyaki from scratch. Understand why mirin is not the same as sugar and what fermented sweetness adds to a dish that refined sugar doesn't.";
+
 export const metadata: Metadata = {
-  title: "Day 4: Mirin, Sake & Fermented Sweetness | Fusion Kitchen Mini-Course",
-  description:
-    "Cook teriyaki from scratch. Understand why mirin is not the same as sugar and what fermented sweetness adds to a dish that refined sugar doesn't.",
+  title: fitTitle("Day 4: Mirin, Sake & Fermented Sweetness"),
+  description: fitDescription(DESCRIPTION),
+  alternates: { canonical: "/mini-course/day-4" },
+  openGraph: {
+    title: "Day 4: Mirin, Sake & Fermented Sweetness",
+    description: fitDescription(DESCRIPTION),
+    type: "article",
+    url: "/mini-course/day-4",
+  },
 };
 
 export default function Day4Page() {

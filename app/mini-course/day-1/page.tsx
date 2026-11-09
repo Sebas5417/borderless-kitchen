@@ -1,13 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
+const DESCRIPTION =
+  "Make ichiban dashi from scratch. Understand why kombu and katsuobushi together produce more umami than any other combination. The foundation of everything in this course.";
+
 export const metadata: Metadata = {
-  title: "Day 1: Dashi — The Invisible Foundation | Fusion Kitchen Mini-Course",
-  description:
-    "Make ichiban dashi from scratch. Understand why kombu and katsuobushi together produce more umami than any other combination. The foundation of everything in this course.",
+  title: fitTitle("Day 1: Dashi — The Invisible Foundation"),
+  description: fitDescription(DESCRIPTION),
+  alternates: { canonical: "/mini-course/day-1" },
+  openGraph: {
+    title: "Day 1: Dashi — The Invisible Foundation",
+    description: fitDescription(DESCRIPTION),
+    type: "article",
+    url: "/mini-course/day-1",
+  },
 };
 
 export default function Day1Page() {

@@ -1,13 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
+const DESCRIPTION =
+  "Dissolve miso into pasta water. Make miso butter. Understand why white miso and Parmigiano are structurally equivalent — and when to use each.";
+
 export const metadata: Metadata = {
-  title: "Day 2: Miso — Where Fermented Depth Meets Italian Technique | Fusion Kitchen Mini-Course",
-  description:
-    "Dissolve miso into pasta water. Make miso butter. Understand why white miso and Parmigiano are structurally equivalent — and when to use each.",
+  title: fitTitle("Day 2: Miso — Fermented Depth, Italian Technique"),
+  description: fitDescription(DESCRIPTION),
+  alternates: { canonical: "/mini-course/day-2" },
+  openGraph: {
+    title: "Day 2: Miso — Fermented Depth, Italian Technique",
+    description: fitDescription(DESCRIPTION),
+    type: "article",
+    url: "/mini-course/day-2",
+  },
 };
 
 export default function Day2Page() {

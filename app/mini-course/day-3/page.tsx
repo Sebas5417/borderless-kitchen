@@ -1,12 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 
+const DESCRIPTION =
+  "Work through the Flavor Pairing Matrix. Learn the 16 Italian-Japanese swaps and why the synergy pairs multiply umami 6-8x. Cook Ramen alla Carbonara.";
+
 export const metadata: Metadata = {
-  title: "Day 3: The Umami Pairing System | Fusion Kitchen Mini-Course",
-  description:
-    "Work through the Flavor Pairing Matrix. Learn the 16 Italian-Japanese swaps and why the synergy pairs multiply umami 6-8x. Cook Ramen alla Carbonara.",
+  title: fitTitle("Day 3: The Umami Pairing System"),
+  description: fitDescription(DESCRIPTION),
+  alternates: { canonical: "/mini-course/day-3" },
+  openGraph: {
+    title: "Day 3: The Umami Pairing System",
+    description: fitDescription(DESCRIPTION),
+    type: "article",
+    url: "/mini-course/day-3",
+  },
 };
 
 const PAIRINGS = [

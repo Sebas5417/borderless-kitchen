@@ -1,13 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TMT_AMAZON } from "@/lib/amazon";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 
+const DESCRIPTION =
+  "The five-day course culminates in a dish you invented. Using the framework: identify structure, find the equivalent components, build something original.";
+
 export const metadata: Metadata = {
-  title: "Day 5: Build Your Own Fusion Dish | Fusion Kitchen Mini-Course",
-  description:
-    "The five-day course culminates in a dish you invented. Using the framework: identify structure, find the equivalent components, build something original.",
+  title: fitTitle("Day 5: Build Your Own Fusion Dish"),
+  description: fitDescription(DESCRIPTION),
+  alternates: { canonical: "/mini-course/day-5" },
+  openGraph: {
+    title: "Day 5: Build Your Own Fusion Dish",
+    description: fitDescription(DESCRIPTION),
+    type: "article",
+    url: "/mini-course/day-5",
+  },
 };
 
 const FRAMEWORK = [

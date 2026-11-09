@@ -118,6 +118,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/30-day-challenge`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/preorder`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/mini-course`, changeFrequency: "monthly", priority: 0.8 },
+    // The five lesson pages are public, self-canonical and linked twice from the
+    // course landing page, but were absent from this list. No lastModified: the
+    // lessons are fixed copy with no content-derived date.
+    { url: `${siteUrl}/mini-course/day-1`, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${siteUrl}/mini-course/day-2`, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${siteUrl}/mini-course/day-3`, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${siteUrl}/mini-course/day-4`, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${siteUrl}/mini-course/day-5`, changeFrequency: "monthly", priority: 0.5 },
     ...books,
     ...stories,
     ...pantry,

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { allFieldNotes } from "contentlayer/generated";
+import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { ProseLayout } from "@/components/editorial/ProseLayout";
 import { MDXContent } from "@/components/MDXContent";
@@ -18,11 +19,20 @@ export async function generateMetadata({
   const { slug } = await params;
   const note = allFieldNotes.find((n) => n.slug === slug);
   if (!note) return {};
+  const description = note.place
+    ? `Field note from ${note.place} — Borderless Kitchen.`
+    : "A field note from the Borderless Kitchen series.";
   return {
-    title: note.title,
-    description: note.place
-      ? `Field note from ${note.place} — Borderless Kitchen.`
-      : "A field note from the Borderless Kitchen series.",
+    title: fitTitle(note.title),
+    description: fitDescription(description),
+    alternates: { canonical: `/notes/${note.slug}` },
+    openGraph: {
+      title: note.title,
+      description: fitDescription(description),
+      type: "article",
+      publishedTime: note.date,
+      url: `/notes/${note.slug}`,
+    },
   };
 }
 
