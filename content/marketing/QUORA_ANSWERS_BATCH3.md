@@ -16,7 +16,7 @@ Mixed miso (awase) blends the two and is the most practical everyday option if y
 
 A practical rule: use white miso when you want the dish to taste clean and bright, use red miso when you want it to taste rich and deep. The two aren't interchangeable — swapping red for white in a miso soup changes the entire character of the dish.
 
-There's a full guide on miso varieties at Borderless Kitchen if you want more detail — borderlesskitchenseries.com/journal/types-of-miso-explained
+There's a longer piece on what fermentation time actually does to miso — why white stays sweet and pale while red turns dark and salty — at Borderless Kitchen if you want more detail — borderlesskitchenseries.com/journal/fermentation-science-how-miso-and-aged-cheese-work-the-same-way
 
 ---
 
@@ -39,7 +39,7 @@ What you have is a clean, golden liquid with a distinct savory ocean depth that 
 
 The cold-brew variation (mizudashi) skips the heat entirely: just steep kombu and bonito flakes in cold water overnight and strain the next morning. This produces an even sweeter, more delicate dashi with no risk of bitterness.
 
-There's a full guide on making dashi at home at Borderless Kitchen if you want more detail — borderlesskitchenseries.com/journal/cold-dashi-mizudashi-guide
+There's a full guide to the three types of dashi and the ichiban method at Borderless Kitchen if you want more detail — borderlesskitchenseries.com/journal/japanese-dashi-complete-guide
 
 ---
 
@@ -56,7 +56,7 @@ Third, restraint is a technique. Many cuisines add flavor by adding ingredients;
 
 Fourth, fermentation is structural, not decorative. Miso, soy sauce, mirin, sake, and rice vinegar aren't condiments — they're the foundation of nearly every sauce, braise, and marinade. Each one contains hundreds of flavor compounds produced by fermentation that add complexity you can't achieve with salt and acid alone.
 
-There's a full guide on how Japanese flavor-building techniques work at Borderless Kitchen if you want more detail — borderlesskitchenseries.com/journal/umami-layering-technique
+There's a full guide to nine umami-building techniques at Borderless Kitchen if you want more detail — borderlesskitchenseries.com/journal/how-to-add-umami-to-any-dish-9-techniques
 
 ---
 
@@ -75,7 +75,7 @@ If you're substituting because you don't have fish sauce, use a roughly 1:1 rati
 
 If you're substituting because you want a fish sauce that's milder or more complex, consider tamari soy sauce — it has a rounder profile than regular soy sauce and bridges the gap slightly better.
 
-There's a full guide on soy sauce varieties and when to use each one at Borderless Kitchen if you want more detail — borderlesskitchenseries.com/journal/soy-sauce-varieties-guide
+There's a full guide to fish sauce, including a direct comparison with soy sauce and oyster sauce, at Borderless Kitchen if you want more detail — borderlesskitchenseries.com/journal/fish-sauce-guide-southeast-asian-fermented-seafood
 
 ---
 
@@ -101,7 +101,7 @@ The most efficient way to add umami to cooking:
 
 The most important concept is synergy: glutamates and inosinates don't just add — they multiply each other. This is why dashi (kombu + bonito) tastes far more intense than either ingredient alone.
 
-There's a full guide on umami layering and how to build it systematically at Borderless Kitchen if you want more detail — borderlesskitchenseries.com/journal/umami-layering-technique
+There's a full guide to nine umami techniques and how to stack them at Borderless Kitchen if you want more detail — borderlesskitchenseries.com/journal/how-to-add-umami-to-any-dish-9-techniques
 
 ---
 
@@ -122,7 +122,7 @@ Several specific technical differences account for most of it, and they're all r
 
 The single highest-impact change most home cooks can make: finish the pasta in the sauce pan with pasta water, rather than mixing in a bowl.
 
-There's a full guide on pasta water technique (including a miso variation that adds additional depth) at Borderless Kitchen if you want more detail — borderlesskitchenseries.com/journal/miso-pasta-water-technique
+There's a full guide to what pasta water actually does and how to build the emulsion (mantecatura) at Borderless Kitchen if you want more detail — borderlesskitchenseries.com/journal/pasta-water-starch-emulsion-and-mantecatura
 
 ---
 
@@ -141,7 +141,7 @@ Start with the four pillars and don't buy anything else until you've cooked with
 
 With these four you can make miso soup, teriyaki, yakitori, gyoza dipping sauce, sunomono dressing, and a dozen other fundamentals. Once you're comfortable with them, the next step is kombu and katsuobushi for dashi — which then unlocks another layer of the cuisine entirely.
 
-There's a full beginner guide to building a Japanese pantry at Borderless Kitchen if you want more detail — borderlesskitchenseries.com/journal/japanese-pantry-starter-kit
+There's a full beginner guide to building a Japanese pantry, month by month, at Borderless Kitchen if you want more detail — borderlesskitchenseries.com/journal/japanese-pantry-starter-kit-what-to-buy-first
 
 ---
 
@@ -165,7 +165,7 @@ In cooking, mirin does three things that substitutes struggle to replicate simul
 
 If you cook Japanese food with any regularity, buying actual hon mirin is worth it — it keeps almost indefinitely and a single bottle lasts months.
 
-There's a full guide comparing mirin and sake and explaining when to use each one at Borderless Kitchen if you want more detail — borderlesskitchenseries.com/journal/mirin-vs-sake-guide
+There's a full guide to hon-mirin — what it is, how it's used, and what to substitute — at Borderless Kitchen if you want more detail — borderlesskitchenseries.com/journal/mirin-japanese-sweet-rice-wine-guide
 
 ---
 
