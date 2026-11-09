@@ -38,7 +38,7 @@ The flavor may be unfamiliar. The structure will hold. Good cooking is architect
 
 ---
 
-**Example: Cacio e Pepe → Dashi Cacio e Pepe**
+**Example: Cacio e Pepe → Miso Cacio e Pepe**
 
 *Original components and their functions:*
 - Pecorino Romano → fermented protein umami + fat + salt
