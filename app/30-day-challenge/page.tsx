@@ -74,13 +74,20 @@ const WEEKS = [
   },
 ];
 
+// Corrected 2026-11-09. The first four entries sold deliverables that exist
+// nowhere in this repository: there is no 30-day PDF, no Week 1 shopping
+// list, no "Japanese Pantry Cheat Sheet" and no "Umami Flavor Matrix"
+// (public/ contains only flavor-pairing-matrix.pdf, sauce-pack.pdf and
+// smmc-sampler-v3.pdf). The "daily email prompts" had no sequence behind
+// them either — content/email-sequences/ holds only the five mini-course
+// drafts, and MAILERLITE-SETUP.md records that the group wiring was never
+// done. What does exist is the plan printed further down the page, so this
+// list now describes that.
 const WHAT_YOU_GET = [
-  "The 30-Day Challenge guide (PDF) — all 30 days with technique notes, recipes, and shopping lists",
-  "Week 1 shopping list — the 12 ingredients that unlock the entire challenge",
-  "The Japanese Pantry Cheat Sheet — what to buy, why, and what it does",
-  "The Umami Flavor Matrix — how Japanese ingredients pair with Italian and Western cooking",
-  "Daily email prompts — one technique per day, delivered to your inbox",
-  "Access to the full Borderless Kitchen recipe archive — 200+ articles",
+  "The full 30-day plan — all thirty days on this page, each one a single concrete task",
+  "A week-by-week build: pantry first, then fermented depth, then core techniques, then fusion",
+  "The Flavor Pairing Matrix — 16 Italian-Japanese pairings across 8 categories, one printable page",
+  "Access to the whole free archive — every recipe and journal essay on the site, no account needed",
 ];
 
 const FAQS = [
@@ -90,11 +97,11 @@ const FAQS = [
   },
   {
     q: "Where do I get the ingredients?",
-    a: "Most ingredients for Week 1 can be found at any well-stocked grocery store. For fermented items (miso, mirin, sake, soy sauce varieties) and specialty items (dashi components, natto, furikake), you'll need an Asian grocery store or Amazon. The Week 1 shopping list keeps the initial investment under $50.",
+    a: "Most ingredients for Week 1 can be found at any well-stocked grocery store. For fermented items (miso, mirin, sake, soy sauce varieties) and specialty items (dashi components, natto, furikake), you'll need an Asian grocery store or Amazon. Week 1 is mostly pantry staples — kombu, katsuobushi, miso, soy sauce and short-grain rice — so it is the cheapest of the four weeks.",
   },
   {
     q: "Is this free?",
-    a: "Yes, completely free. You get the PDF challenge guide, the cheat sheets, and the daily emails at no cost. We also offer a free 5-Day Mini-Course for cooks who want to go deeper into Japanese-Italian fusion specifically — but the 30-Day Challenge is a standalone, complete resource.",
+    a: "Yes, completely free. All thirty days are published on this page — no PDF, no signup and no email required. We also publish a free 5-Day Mini-Course for cooks who want to go deeper into Japanese-Italian fusion specifically — but the 30-Day Challenge is a standalone, complete resource.",
   },
   {
     q: "What level of cooking experience do I need?",
@@ -126,14 +133,19 @@ export default function ThirtyDayChallengePage() {
                 of how umami, fermentation, and dashi actually work.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-start">
+                {/* Corrected 2026-11-09. "Get the free challenge" pointed at
+                    #signup, an email form, as though the challenge were
+                    delivered. All thirty days are published further down this
+                    same page and no signup gates them, so the button now goes
+                    to the plan. */}
                 <a
-                  href="#signup"
+                  href="#the-30-days"
                   className="inline-block font-ui text-eyebrow uppercase text-ink bg-paper px-8 py-4 hover:bg-vermillion hover:text-paper transition-colors duration-300"
                 >
-                  Get the free challenge →
+                  Read the 30 days →
                 </a>
                 <p className="font-ui text-eyebrow uppercase text-paper/40 self-center">
-                  No credit card. No catch.
+                  Free. No signup. No email.
                 </p>
               </div>
             </div>
@@ -163,7 +175,7 @@ export default function ThirtyDayChallengePage() {
               </div>
               <div className="space-y-6">
                 {[
-                  ["A stocked pantry", "Kombu, katsuobushi, miso, mirin, sake, soy sauce, sesame — the 12 essential items and exactly what to do with each."],
+                  ["A stocked pantry", "Kombu, katsuobushi, miso, mirin, sake, soy sauce, rice, sesame — what each one does and when to reach for it."],
                   ["Core techniques", "Dashi, miso soup, karaage, tempura, yakitori, tonkatsu, onigiri — the fundamentals that unlock everything else."],
                   ["Fermentation literacy", "Understand what miso, sake, mirin, and soy sauce are doing at a molecular level, not just what they taste like."],
                   ["Fusion capability", "The skill to apply Japanese technique to non-Japanese ingredients — the crossover that makes the cooking original."],
@@ -183,7 +195,7 @@ export default function ThirtyDayChallengePage() {
       </section>
 
       {/* The 30 days */}
-      <section className="py-16 md:py-24 border-b border-hairline bg-paper">
+      <section id="the-30-days" className="py-16 md:py-24 border-b border-hairline bg-paper">
         <Container>
           <FadeRise>
             <h2 className="font-display text-display-2 text-ink mb-12">
@@ -234,19 +246,25 @@ export default function ThirtyDayChallengePage() {
                   ))}
                 </ul>
               </div>
-              <div id="signup" className="border border-hairline p-10">
-                <p className="font-ui text-eyebrow uppercase text-ink/40 mb-2">Get started</p>
+              {/* Corrected 2026-11-09. This panel said "Enter your email to
+                  start Day 1" and "We email once per day during the challenge".
+                  No 30-day sequence exists, so the form no longer pretends to
+                  start anything. The signup itself is a real MailerLite list
+                  and is kept, described as what it is. */}
+              <div className="border border-hairline p-10">
+                <p className="font-ui text-eyebrow uppercase text-ink/40 mb-2">Stay in touch</p>
                 <p className="font-display text-display-2 text-ink mb-1">Free</p>
                 <p className="font-body text-sm text-ink/50 mb-8">
-                  No credit card. No catch. Just the challenge.
+                  The challenge is on this page and needs no signup. Leave an email
+                  if you want new recipes and kitchen notes as they are published.
                 </p>
                 <NewsletterForm
-                  label="Enter your email to start Day 1"
+                  label="Kitchen notes by email"
                   placeholder="you@somewhere.com"
-                  buttonLabel="Start the challenge →"
+                  buttonLabel="Subscribe"
                 />
                 <p className="font-ui text-eyebrow uppercase text-ink/30 text-center mt-4 text-xs">
-                  Unsubscribe anytime. We email once per day during the challenge.
+                  Unsubscribe anytime.
                 </p>
               </div>
             </div>
@@ -285,10 +303,10 @@ export default function ThirtyDayChallengePage() {
                 </p>
               </div>
               <a
-                href="#signup"
+                href="#the-30-days"
                 className="inline-block font-ui text-eyebrow uppercase text-ink bg-paper px-8 py-4 hover:bg-vermillion hover:text-paper transition-colors duration-300 shrink-0"
               >
-                Get the free challenge →
+                Read the 30 days →
               </a>
             </div>
           </FadeRise>
