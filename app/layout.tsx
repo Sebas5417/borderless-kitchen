@@ -83,14 +83,10 @@ const websiteSchema = {
   url: siteUrl,
   description:
     "A cookbook series exploring cross-cultural cuisine. Each volume pairs two culinary traditions and finds what they share.",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${siteUrl}/recipes?q={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
-  },
+  // No potentialAction/SearchAction: it declared a search endpoint at
+  // /recipes?q={search_term_string}, but /recipes takes no searchParams and has
+  // no search UI, so any query lands on the unfiltered list. Advertising a search
+  // box that returns everything is worse than advertising none.
 };
 
 const organizationSchema = {
