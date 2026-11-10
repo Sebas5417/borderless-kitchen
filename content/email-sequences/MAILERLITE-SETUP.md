@@ -76,7 +76,7 @@ SMMC sampler forms read `MAILERLITE_SMMC_GROUP_ID`, both served by
 ---
 
 ## Notes
-- All emails reference the book: borderlesskitchenseries.com/tokyo-meets-tuscany
+- Only Day 5 and the post-course sequence (Email 6 P.S., Email 9) reference the book: borderlesskitchenseries.com/tokyo-meets-tuscany
 - Day 5 is the primary book conversion email — reply CTA + link to the /tokyo-meets-tuscany page (no Amazon links in emails)
 - Each email ends with unsubscribe link (MailerLite handles this automatically)
 - Suggest adding a tag "mini-course-completed" after Day 5 for future segmentation

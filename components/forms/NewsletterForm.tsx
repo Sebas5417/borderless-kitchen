@@ -98,7 +98,7 @@ export function NewsletterForm({
       ) : state.kind === "ok" ? (
         <div className="mt-3">
           <p className="font-ui text-xs text-ink/60">
-            You'll hear from the kitchen soon.
+            You're on the list.
           </p>
           {successLink ? (
             <a

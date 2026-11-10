@@ -81,4 +81,4 @@ Sebastian
 
 *Borderless Kitchen Series — borderlesskitchenseries.com*
 *You're receiving this because you signed up for the free 5-day mini-course.*
-*[Unsubscribe] | [View the full course online]*
+*[Unsubscribe]({$unsubscribe}) | [View the full course online](https://borderlesskitchenseries.com/mini-course)*

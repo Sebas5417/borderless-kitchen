@@ -116,7 +116,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Free challenge sign-up page: self-canonical and indexable, previously
     // reachable only by following a link from /free.
     { url: `${siteUrl}/30-day-challenge`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${siteUrl}/preorder`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/mini-course`, changeFrequency: "monthly", priority: 0.8 },
     // The five lesson pages are public, self-canonical and linked twice from the
     // course landing page, but were absent from this list. No lastModified: the

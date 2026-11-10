@@ -97,4 +97,4 @@ Sebastian
 
 *Borderless Kitchen Series — borderlesskitchenseries.com*
 *To get the book: https://borderlesskitchenseries.com/tokyo-meets-tuscany*
-*[Unsubscribe]*
+*[Unsubscribe]({$unsubscribe})*

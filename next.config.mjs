@@ -147,6 +147,20 @@ const nextConfig = {
         destination: "/journal/best-korean-bbq-grill-pan-for-home",
         permanent: true,
       },
+      /**
+       * /preorder -> /seoul-meets-mexico-city, consolidated 2026-11-10. The two
+       * routes rendered the same book: both indexable, both self-canonical, both
+       * in sitemap.ts, and the nav sent readers to /preorder while the book pages,
+       * Vol. I's cross-sell, llms.txt and the Book JSON-LD all pointed here. This
+       * page is the canonical destination; the duplicate route file was removed
+       * and its unique copy (the pairing rationale and the six preview cards)
+       * moved over. The redirect keeps old campaign links and bookmarks working.
+       */
+      {
+        source: "/preorder",
+        destination: "/seoul-meets-mexico-city",
+        permanent: true,
+      },
     ];
   },
 };

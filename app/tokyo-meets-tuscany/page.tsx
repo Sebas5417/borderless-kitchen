@@ -197,14 +197,14 @@ export default function TokyoMeetsTuscanyPage() {
                   placeholder="your@email.com"
                   buttonLabel="Send me the free Sauce Pack"
                   dark
-                  successMessage="Check your email — and grab it now:"
+                  successMessage="You're on the list. Grab the Sauce Pack now:"
                   successLink={{
                     href: "/sauce-pack.pdf",
                     label: "Download the Sauce Pack (PDF) →",
                   }}
                 />
                 <p className="font-ui text-xs text-paper/30 mt-4">
-                  You'll receive the PDF instantly. No spam.
+                  The Sauce Pack downloads right here. No spam.
                 </p>
               </div>
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">

@@ -72,9 +72,9 @@ export function SmmcWaitlist({ dark = true }: Props) {
         <SubscribeForm
           list="smmc"
           placeholder="your@email.com"
-          buttonLabel="Send me recipes"
+          buttonLabel="Add me to the list"
           dark={dark}
-          successMessage="You're on the list. Free Korean-Mexican recipes are on the way."
+          successMessage="You're on the list."
         />
       ) : (
         <div>

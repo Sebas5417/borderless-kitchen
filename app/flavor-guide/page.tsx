@@ -125,7 +125,7 @@ export default function FlavorGuidePage() {
             {/* Primary email capture — delivers the PDF on submit */}
             <div className="bg-paper/5 border border-paper/10 rounded-sm p-8 max-w-lg">
               <NewsletterForm
-                label="Send it to my inbox — free"
+                label="Get the cheat sheet — free"
                 placeholder="your@email.com"
                 buttonLabel="Get the Matrix →"
                 successLink={DOWNLOAD}
@@ -264,7 +264,7 @@ export default function FlavorGuidePage() {
                 <NewsletterForm
                   label="Free — no catch"
                   placeholder="your@email.com"
-                  buttonLabel="Send it →"
+                  buttonLabel="Join the list →"
                   successLink={DOWNLOAD}
                 />
               </div>

@@ -124,15 +124,15 @@ export function SmmcSamplerOptIn({ dark = true, showRecipeLink = false }: Props)
           <p
             className={`font-body text-base leading-relaxed mb-5 max-w-prose ${dark ? "text-paper/60" : "text-ink/60"}`}
           >
-            Optional: leave your email and you'll also get the PDF in your inbox,
-            plus three short emails on how the Korean–Mexican pairings work.
+            Optional: leave your email and we'll add you to the list. The download
+            above works either way, with or without an address.
           </p>
           <SubscribeForm
             list="smmc"
             placeholder="your@email.com"
             buttonLabel="Also email it to me"
             dark={dark}
-            successMessage="You're on the list. Here's the download again, and a copy is on its way:"
+            successMessage="You're on the list. Download the sampler here:"
             successLink={{
               href: SAMPLER_PDF,
               label: "Download the sampler (PDF) →",

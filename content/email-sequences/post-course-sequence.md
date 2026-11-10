@@ -4,7 +4,7 @@
 
 ---
 
-## Email 6 — Day 12 (2 days after Day 5)
+## Email 6 — Day 12 (7 days after Day 5)
 **Subject:** What happens next
 
 ---
@@ -131,7 +131,7 @@ Full recipe here: [Miso Cacio e Pepe](https://borderlesskitchenseries.com/recipe
 
 **Automation chain:**
 1. Mini-course Automation (Days 1-5) — already written
-2. Wait 2 days after Day 5 sends
+2. Wait 7 days after Day 5 sends
 3. New Automation "Post-Course Sequence" begins:
    - Email 6: Day 0 of new automation
    - Email 7: Day 4
