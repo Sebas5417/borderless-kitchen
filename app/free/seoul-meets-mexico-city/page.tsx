@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
 import { SmmcSamplerOptIn } from "@/components/cta/SmmcSamplerOptIn";
@@ -61,38 +62,53 @@ export default function SmmcSamplerPage() {
       {/* Hero */}
       <section className="bg-ink text-paper py-24 md:py-32">
         <Container>
-          <p className="font-ui text-eyebrow uppercase text-vermillion mb-6">
-            Free sampler · Seoul Meets Mexico City
-          </p>
-          <h1 className="font-display text-display-1 leading-tight max-w-4xl mb-8 text-paper">
-            Three recipes from the Korean–Mexican cookbook.
-          </h1>
-          <p className="font-body text-xl text-paper/70 leading-relaxed max-w-prose">
-            Gochujang against chile. Kimchi against lime. Two fermented,
-            chili-driven pantries that have more in common than either has with
-            the cooking usually filed next to it. These three recipes are the
-            shortest route into what the book does.
-          </p>
-          <div className="mt-12 flex flex-wrap items-center gap-6">
-            <a
-              href={SAMPLER_PDF}
-              download
-              className="font-ui text-eyebrow uppercase text-paper border border-paper/40 px-6 py-3 hover:border-vermillion hover:text-vermillion transition-colors duration-300"
-            >
-              Download the PDF — free ↓
-            </a>
-            <a
-              href={GUMROAD_SMMC_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-ui text-eyebrow uppercase text-paper/60 px-0 py-3 border-b border-transparent hover:text-paper hover:border-paper transition-colors duration-300"
-            >
-              The full book — {GUMROAD_SMMC_PRICE} →
-            </a>
+          <div className="grid gap-14 md:grid-cols-[1.15fr_0.85fr] md:items-center md:gap-16 lg:gap-20">
+            <div>
+              <p className="font-ui text-eyebrow uppercase text-vermillion mb-6">
+                Free sampler · Seoul Meets Mexico City
+              </p>
+              <h1 className="font-display text-display-1 leading-tight max-w-4xl mb-8 text-paper">
+                Three recipes from the Korean–Mexican cookbook.
+              </h1>
+              <p className="font-body text-xl text-paper/70 leading-relaxed max-w-prose">
+                Gochujang against chile. Kimchi against lime. Two fermented,
+                chili-driven pantries that have more in common than either has
+                with the cooking usually filed next to it. These three recipes
+                are the shortest route into what the book does.
+              </p>
+              <div className="mt-12 flex flex-wrap items-center gap-6">
+                <a
+                  href={SAMPLER_PDF}
+                  download
+                  className="font-ui text-eyebrow uppercase text-paper border border-paper/40 px-6 py-3 hover:border-vermillion hover:text-vermillion transition-colors duration-300"
+                >
+                  Download the PDF — free ↓
+                </a>
+                <a
+                  href={GUMROAD_SMMC_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-ui text-eyebrow uppercase text-paper/60 px-0 py-3 border-b border-transparent hover:text-paper hover:border-paper transition-colors duration-300"
+                >
+                  The full book — {GUMROAD_SMMC_PRICE} →
+                </a>
+              </div>
+              <p className="font-ui text-xs text-paper/40 mt-5">
+                No email required. 12 pages, printable, 6 × 9 in.
+              </p>
+            </div>
+            <div className="mx-auto w-full max-w-[300px] md:max-w-[420px] md:justify-self-end">
+              <Image
+                src="/images/smmc-cover.png"
+                alt="Cover of Seoul Meets Mexico City, the second Borderless Kitchen volume: the title in gold and cream above a split Seoul and Mexico City skyline, over a stone bowl of bibimbap with banchan and a plate of tacos."
+                width={1024}
+                height={1536}
+                sizes="(min-width: 768px) 38vw, 300px"
+                priority
+                className="h-auto w-full ring-1 ring-paper/10"
+              />
+            </div>
           </div>
-          <p className="font-ui text-xs text-paper/40 mt-5">
-            No email required. 12 pages, printable, 6 × 9 in.
-          </p>
         </Container>
       </section>
 
