@@ -64,7 +64,7 @@ export default function SmmcSamplerPage() {
           <p className="font-ui text-eyebrow uppercase text-vermillion mb-6">
             Free sampler · Seoul Meets Mexico City
           </p>
-          <h1 className="font-display text-display-1 leading-tight max-w-4xl mb-8">
+          <h1 className="font-display text-display-1 leading-tight max-w-4xl mb-8 text-paper">
             Three recipes from the Korean–Mexican cookbook.
           </h1>
           <p className="font-body text-xl text-paper/70 leading-relaxed max-w-prose">
