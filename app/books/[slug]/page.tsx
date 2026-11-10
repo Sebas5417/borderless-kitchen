@@ -192,7 +192,29 @@ export default async function BookPage({
       {/* Hero image */}
       <section className="relative bg-charcoal-deep overflow-hidden" style={{ minHeight: "55vh" }}>
         <div className="absolute inset-0">
-          {book.heroImageSrc ? (
+          {book.heroImageSrc && book.heroImageSrc === book.coverImageSrc ? (
+            /* When the hero art is the retail cover, show it whole. Cropping a
+               portrait cover into a wide band cuts the title typography, so a
+               softened copy fills the band and the cover sits contained. */
+            <>
+              <Image
+                src={book.heroImageSrc}
+                alt=""
+                aria-hidden
+                fill
+                sizes="100vw"
+                className="object-cover object-center scale-110 blur-2xl opacity-30"
+              />
+              <Image
+                src={book.heroImageSrc}
+                alt={book.heroImageAlt}
+                fill
+                priority
+                sizes="(min-width: 768px) 45vw, 100vw"
+                className="object-contain object-center md:object-right opacity-80"
+              />
+            </>
+          ) : book.heroImageSrc ? (
             <Image
               src={book.heroImageSrc}
               alt={book.heroImageAlt}
