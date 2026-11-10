@@ -223,10 +223,16 @@ export default async function RecipePage({
                   rel="noopener noreferrer"
                   className="inline-flex items-center font-ui text-eyebrow uppercase text-ink border-b border-ink pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
                 >
-                  Get Seoul Meets Mexico City — {GUMROAD_SMMC_PRICE}
+                  Get the illustrated PDF — {GUMROAD_SMMC_PRICE}
                 </a>
                 <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
-                  Illustrated PDF · Instant download
+                  Illustrated PDF · Instant download ·{" "}
+                  <Link
+                    href="/seoul-meets-mexico-city"
+                    className="underline hover:text-vermillion transition-colors"
+                  >
+                    paperback and Kindle on Amazon
+                  </Link>
                 </p>
                 <p className="font-body text-base text-ink/60 mt-6">
                   Not ready to buy?{" "}

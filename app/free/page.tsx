@@ -294,10 +294,21 @@ export default function FreePage() {
                   rel="noopener noreferrer"
                   className="inline-block font-ui text-eyebrow uppercase text-paper bg-vermillion px-10 py-5 hover:bg-ink transition-colors duration-300"
                 >
-                  Get Seoul Meets Mexico City — {GUMROAD_SMMC_PRICE} →
+                  Get the illustrated PDF — {GUMROAD_SMMC_PRICE} →
                 </a>
                 <p className="font-ui text-eyebrow uppercase text-ink/30 mt-3 text-xs">
                   Illustrated PDF · Instant download
+                </p>
+                {/* Added 2026-11-10. The $9.99 Gumroad PDF is one of three
+                    editions, not the whole book; a reader who wanted print or
+                    Kindle had no route from here to either. */}
+                <p className="font-ui text-eyebrow uppercase text-ink/40 mt-3 text-xs">
+                  <Link
+                    href="/seoul-meets-mexico-city"
+                    className="underline decoration-ink/20 hover:text-vermillion transition-colors"
+                  >
+                    Paperback and Kindle on Amazon — all three editions →
+                  </Link>
                 </p>
                 <p className="font-ui text-eyebrow uppercase text-ink/40 mt-4 text-xs">
                   <Link

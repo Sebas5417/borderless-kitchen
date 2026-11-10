@@ -70,13 +70,14 @@ export default async function JournalEntryPage({
   const relatedStories = relatedStoriesFor(story, allStories, 3);
 
   const isKoreanThemed = story.themes?.includes("korean-cooking") ?? false;
-  // SMMC sells through Gumroad, not Amazon — it therefore renders a plain anchor
-  // rather than AmazonCTA, whose Associates disclosure must never sit over a link
-  // that is not part of the Amazon programme.
+  // SMMC's PDF sells through Gumroad — it therefore renders a plain anchor
+  // rather than AmazonCTA, whose Associates disclosure must never sit over a
+  // link that is not part of the Amazon programme. (The paperback and Kindle
+  // editions are on Amazon; they are linked from the book page, not here.)
   const bookCta = isKoreanThemed
     ? {
         href: GUMROAD_SMMC_URL,
-        label: `Get Seoul Meets Mexico City — ${GUMROAD_SMMC_PRICE}`,
+        label: `Get the illustrated PDF — ${GUMROAD_SMMC_PRICE}`,
         isSmmc: true,
       }
     : { href: TMT_AMAZON, label: "Get Tokyo Meets Tuscany on Amazon", isSmmc: false };

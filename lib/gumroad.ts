@@ -17,8 +17,12 @@ export const GUMROAD_MATRIX_URL: string | null =
  * falls back to it rather than to null: the SMMC funnel must have a working
  * purchase link with no env configuration. Same "#" guard as lib/amazon.ts.
  *
- * This is the KDP-independent sales path. Do not swap it for an Amazon link
- * while the KDP account is suspended.
+ * This is one of three sales paths, not the only one. The paperback
+ * (B0HDRBMLPT) and Kindle (B0H6VD21M2) editions were re-verified live on
+ * 2026-11-10 and are sold on Amazon — see lib/amazon.ts. The old instruction
+ * here ("do not swap it for an Amazon link while the KDP account is suspended")
+ * is superseded: the site now links all three formats, and this constant
+ * remains the illustrated-PDF destination only.
  */
 const SMMC_FALLBACK = "https://facelesschannel.gumroad.com/l/dqnqe";
 const smmcFromEnv = process.env.NEXT_PUBLIC_GUMROAD_SMMC_URL;

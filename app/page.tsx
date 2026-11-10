@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 import { TMT_AMAZON } from "@/lib/amazon";
-import { GUMROAD_SMMC_URL, GUMROAD_SMMC_PRICE } from "@/lib/gumroad";
+import { SmmcPurchaseOptions } from "@/components/cta/SmmcPurchaseOptions";
 
 export default function HomePage() {
   const tmt = allBooks.find((b) => b.slug === "tokyo-meets-tuscany");
@@ -47,8 +47,8 @@ export default function HomePage() {
         eyebrow="Vol. II — Seoul Meets Mexico City — Out now"
         headline="The borders are optional."
         link={{
-          label: `Get it — ${GUMROAD_SMMC_PRICE} →`,
-          href: GUMROAD_SMMC_URL,
+          label: "Get Vol. II — three editions →",
+          href: "/seoul-meets-mexico-city",
         }}
         images={[
           { src: "/images/banner-carousel-1.png", alt: "Golden sunset over Mexico City with food — Borderless Kitchen." },
@@ -127,7 +127,7 @@ export default function HomePage() {
       {/* 3b. Vol II tease — Seoul Meets Mexico City */}
       <section className="py-16 md:py-20 border-t border-hairline bg-charcoal-deep text-paper">
         <Container>
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 md:gap-12">
             <div>
               <p className="font-ui text-eyebrow uppercase text-vermillion mb-2">
                 Vol. II — Out now
@@ -135,16 +135,17 @@ export default function HomePage() {
               <p className="font-display text-display-3 text-paper leading-tight">
                 Seoul Meets Mexico City
               </p>
-              <p className="font-body text-base text-paper/60 mt-2">
-                Fermented depth meets layered heat. Illustrated edition, instant PDF download.
+              <p className="font-body text-base text-paper/60 mt-2 max-w-prose">
+                Fermented depth meets layered heat. Paperback and Kindle on
+                Amazon, or the illustrated edition as an instant PDF.
               </p>
             </div>
-            <a
-              href={GUMROAD_SMMC_URL}
-              className="font-ui text-eyebrow uppercase text-paper/80 border-b border-paper/30 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300 shrink-0"
-            >
-              Get Seoul Meets Mexico City — {GUMROAD_SMMC_PRICE} →
-            </a>
+            {/* Gumroad-only until 2026-11-10, which read as though the PDF were
+                the book. All three formats are listed now; see
+                components/cta/SmmcPurchaseOptions.tsx. */}
+            <div className="w-full shrink-0 md:w-[360px]">
+              <SmmcPurchaseOptions onDark showHeading={false} />
+            </div>
           </div>
         </Container>
       </section>

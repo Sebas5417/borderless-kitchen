@@ -85,10 +85,20 @@ export default function ConnectPage() {
                   href={GUMROAD_SMMC_URL}
                   className="mt-3 inline-block font-ui text-eyebrow uppercase text-ink border border-ink/40 px-5 py-3 hover:bg-ink hover:text-paper transition-colors duration-300"
                 >
-                  Get Seoul Meets Mexico City — {GUMROAD_SMMC_PRICE} →
+                  Get the illustrated PDF — {GUMROAD_SMMC_PRICE} →
                 </a>
                 <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
                   Illustrated edition · instant PDF download
+                </p>
+                {/* Added 2026-11-10: the PDF is one of three editions. Link
+                    out to the book page rather than duplicating the Amazon CTAs. */}
+                <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
+                  <Link
+                    href="/seoul-meets-mexico-city"
+                    className="underline hover:text-vermillion transition-colors"
+                  >
+                    Paperback and Kindle on Amazon — all three editions →
+                  </Link>
                 </p>
               </div>
             </div>

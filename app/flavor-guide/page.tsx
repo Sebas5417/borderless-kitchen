@@ -314,7 +314,7 @@ export default function FlavorGuidePage() {
                 <p className="font-body text-sm text-paper/60 leading-relaxed mb-5">
                   The same logic across Korean and Mexican cooking — gochujang
                   against chile, doenjang against masa. Illustrated PDF,{" "}
-                  {GUMROAD_SMMC_PRICE}.
+                  {GUMROAD_SMMC_PRICE}; paperback and Kindle on Amazon.
                 </p>
                 <a
                   href={GUMROAD_SMMC_URL}
@@ -322,8 +322,15 @@ export default function FlavorGuidePage() {
                   rel="noopener noreferrer"
                   className="font-ui text-eyebrow uppercase text-vermillion text-xs hover:text-paper transition-colors"
                 >
-                  Vol. II on Gumroad →
+                  Vol. II illustrated PDF on Gumroad →
                 </a>
+                <br />
+                <Link
+                  href="/seoul-meets-mexico-city"
+                  className="mt-2 inline-block font-ui text-eyebrow uppercase text-vermillion text-xs hover:text-paper transition-colors"
+                >
+                  All three editions →
+                </Link>
               </div>
               <div className="border border-paper/10 p-8">
                 <p className="font-display text-xl text-paper mb-3 leading-tight">

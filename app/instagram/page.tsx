@@ -5,12 +5,11 @@ import { fitTitle, fitDescription } from "@/lib/seoMeta";
 import {
   GUMROAD_FUSION_PLAYBOOK_PRICE,
   GUMROAD_FUSION_PLAYBOOK_URL,
-  GUMROAD_SMMC_PRICE,
-  GUMROAD_SMMC_URL,
 } from "@/lib/gumroad";
 import { Container } from "@/components/layout/Container";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
+import { SmmcPurchaseOptions } from "@/components/cta/SmmcPurchaseOptions";
 
 /** The accepted 12-page SMMC sampler. Static file, no email gate. */
 const SAMPLER_PDF = "/smmc-sampler-v3.pdf";
@@ -174,11 +173,10 @@ export default function InstagramPage() {
                   series.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
-                  <AmazonCTA
-                    href={TMT_AMAZON}
-                    label="Buy the paperback"
-                    className="!text-paper !border-paper hover:!text-vermillion hover:!border-vermillion"
-                  />
+                  {/* `onDark` replaces the `!text-paper !border-paper` class
+                      overrides this CTA used to carry — same look, without
+                      fighting the component with !important. */}
+                  <AmazonCTA href={TMT_AMAZON} label="Buy the paperback" onDark />
                   <Link
                     href="/tokyo-meets-tuscany"
                     className="inline-flex items-center font-ui text-eyebrow uppercase text-paper/60 border-b border-paper/30 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
@@ -202,17 +200,14 @@ export default function InstagramPage() {
                   meets Mexican fire — birria ramyeon, elote bibimbap, gochugaru
                   albóndigas.
                 </p>
-                <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
-                  {/* SMMC is a Gumroad listing, so a plain anchor — AmazonCTA would
-                      print an Amazon Associates disclosure over it. */}
-                  <a
-                    href={GUMROAD_SMMC_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center font-ui text-eyebrow uppercase text-paper border-b border-paper pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
-                  >
-                    Get the book — {GUMROAD_SMMC_PRICE}
-                  </a>
+                {/* Corrected 2026-11-10. This used to be one Gumroad link
+                    labelled "Get the book", which told every Instagram visitor
+                    that the PDF was the book. The paperback and Kindle
+                    editions are live, so all three formats are listed. The
+                    Amazon links carry the Associates disclosure; the Gumroad
+                    link does not carry an affiliate tag. */}
+                <div className="mt-6">
+                  <SmmcPurchaseOptions onDark showHeading={false} />
                 </div>
               </article>
             </FadeRise>

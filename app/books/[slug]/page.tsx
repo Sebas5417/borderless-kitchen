@@ -12,8 +12,9 @@ import { EditorialImage } from "@/components/media/EditorialImage";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 
-import { TMT_AMAZON } from "@/lib/amazon";
+import { TMT_AMAZON, SMMC_AMAZON_KINDLE, SMMC_AMAZON_KINDLE_PRICE, SMMC_AMAZON_PAPERBACK, SMMC_AMAZON_PAPERBACK_PRICE } from "@/lib/amazon";
 import { GUMROAD_SMMC_URL, GUMROAD_SMMC_PRICE } from "@/lib/gumroad";
+import { SmmcPurchaseOptions } from "@/components/cta/SmmcPurchaseOptions";
 import { breadcrumbJson } from "@/lib/breadcrumbSchema";
 
 export async function generateStaticParams() {
@@ -69,18 +70,29 @@ export default async function BookPage({
   const isTmt = book.slug === "tokyo-meets-tuscany";
   const isSmmc = book.slug === "seoul-meets-mexico-city";
 
-  // SMMC is sold through Gumroad, not Amazon. The paperback listing was
-  // retired with the KDP suspension, so the Amazon URL is obsolete and must
-  // not be rendered — and an AmazonCTA would print an Amazon Associates
-  // disclosure over a Gumroad link, which is a compliance problem, not just a
-  // copy problem. SMMC therefore renders a plain anchor below; only TMT keeps
-  // the AmazonCTA path.
-  const purchaseUrl =
-    book.status === "available" ? (isSmmc ? GUMROAD_SMMC_URL : TMT_AMAZON) : null;
+  // Superseded 2026-11-10. This file used to say SMMC was sold through
+  // Gumroad only, because "the paperback listing was retired with the KDP
+  // suspension". That was no longer true: both editions were re-verified live
+  // that day (see lib/amazon.ts) — paperback B0HDRBMLPT In Stock at $19.99,
+  // Kindle B0H6VD21M2 at $9.99 — so hiding them made the site harder to buy
+  // from than the retailer itself. SMMC now renders all three formats through
+  // SmmcPurchaseOptions; TMT keeps its single AmazonCTA.
+  //
+  // The disclosure concern that motivated the old rule still holds, and is
+  // why the Amazon links go through AmazonCTA (which carries the Associates
+  // disclosure) and the Gumroad link does not carry an affiliate tag.
+  const isPurchasable = book.status === "available";
+  const purchaseUrl = isPurchasable
+    ? isSmmc
+      ? SMMC_AMAZON_PAPERBACK
+      : TMT_AMAZON
+    : null;
   const priceLine = isSmmc
-    ? `Illustrated edition ${GUMROAD_SMMC_PRICE} · instant PDF download`
+    ? `Paperback ${SMMC_AMAZON_PAPERBACK_PRICE} · Kindle ${SMMC_AMAZON_KINDLE_PRICE} · Illustrated PDF ${GUMROAD_SMMC_PRICE}`
     : "Paperback $19.99 · Kindle $9.99";
-  const schemaPrice = isSmmc ? GUMROAD_SMMC_PRICE.replace("$", "") : "19.99";
+  const schemaPrice = isSmmc
+    ? SMMC_AMAZON_PAPERBACK_PRICE.replace("$", "")
+    : "19.99";
 
   const allTeasers = allRecipeTeasers.filter((r) => r.bookSlug === book.slug);
   const bookSchema = {
@@ -111,20 +123,50 @@ export default async function BookPage({
         }
       : {}),
     ...(book.year && !isTmt ? { datePublished: String(book.year) } : {}),
+    // SMMC is sold in three places, so the schema says three places. Offering
+    // only the Gumroad PDF while the page links to three checkouts is the kind
+    // of mismatch that makes a search result misleading.
+    ...(isSmmc
+      ? { sameAs: [SMMC_AMAZON_PAPERBACK, SMMC_AMAZON_KINDLE] }
+      : {}),
     ...(purchaseUrl
       ? {
           url: `https://borderlesskitchenseries.com${CANONICAL_OVERRIDES[book.slug] ?? `/books/${book.slug}`}`,
-          offers: {
-            "@type": "Offer",
-            url: purchaseUrl,
-            priceCurrency: "USD",
-            price: schemaPrice,
-            availability: "https://schema.org/InStock",
-            seller: {
-              "@type": "Organization",
-              name: isSmmc ? "Borderless Kitchen" : "Amazon",
-            },
-          },
+          offers: isSmmc
+            ? [
+                {
+                  "@type": "Offer",
+                  url: SMMC_AMAZON_PAPERBACK,
+                  priceCurrency: "USD",
+                  price: SMMC_AMAZON_PAPERBACK_PRICE.replace("$", ""),
+                  availability: "https://schema.org/InStock",
+                  seller: { "@type": "Organization", name: "Amazon" },
+                },
+                {
+                  "@type": "Offer",
+                  url: SMMC_AMAZON_KINDLE,
+                  priceCurrency: "USD",
+                  price: SMMC_AMAZON_KINDLE_PRICE.replace("$", ""),
+                  availability: "https://schema.org/InStock",
+                  seller: { "@type": "Organization", name: "Amazon" },
+                },
+                {
+                  "@type": "Offer",
+                  url: GUMROAD_SMMC_URL,
+                  priceCurrency: "USD",
+                  price: GUMROAD_SMMC_PRICE.replace("$", ""),
+                  availability: "https://schema.org/InStock",
+                  seller: { "@type": "Organization", name: "Borderless Kitchen" },
+                },
+              ]
+            : {
+                "@type": "Offer",
+                url: purchaseUrl,
+                priceCurrency: "USD",
+                price: schemaPrice,
+                availability: "https://schema.org/InStock",
+                seller: { "@type": "Organization", name: "Amazon" },
+              },
         }
       : {}),
     ...(book.coverImageSrc
@@ -207,18 +249,18 @@ export default async function BookPage({
             {purchaseUrl ? (
               <div className="mt-10">
                 {isSmmc ? (
-                  <a
-                    href={purchaseUrl}
-                    className="inline-block font-ui text-eyebrow uppercase text-ink border border-ink px-6 py-3 hover:bg-ink hover:text-paper transition-colors duration-300"
-                  >
-                    Get {book.title} — {GUMROAD_SMMC_PRICE} →
-                  </a>
+                  <SmmcPurchaseOptions />
                 ) : (
-                  <AmazonCTA href={purchaseUrl} label={`Buy ${book.title} on Amazon`} />
+                  <>
+                    <AmazonCTA
+                      href={purchaseUrl}
+                      label={`Buy ${book.title} on Amazon`}
+                    />
+                    <p className="font-ui text-eyebrow uppercase text-ink/40 mt-3">
+                      {priceLine}
+                    </p>
+                  </>
                 )}
-                <p className="font-ui text-eyebrow uppercase text-ink/40 mt-3">
-                  {priceLine}
-                </p>
               </div>
             ) : (
               <div className="mt-10">
@@ -302,18 +344,20 @@ export default async function BookPage({
                 The full recipes live inside the book.
               </p>
               {isSmmc ? (
-                <a
-                  href={purchaseUrl}
-                  className="inline-block font-ui text-eyebrow uppercase text-ink border border-ink px-6 py-3 hover:bg-ink hover:text-paper transition-colors duration-300"
-                >
-                  Get {book.title} — {GUMROAD_SMMC_PRICE} →
-                </a>
+                <div className="text-left inline-block">
+                  <SmmcPurchaseOptions showHeading={false} />
+                </div>
               ) : (
-                <AmazonCTA href={purchaseUrl} label={`Buy ${book.title} on Amazon`} />
+                <>
+                  <AmazonCTA
+                    href={purchaseUrl}
+                    label={`Buy ${book.title} on Amazon`}
+                  />
+                  <p className="font-ui text-eyebrow uppercase text-ink/40 mt-4">
+                    {priceLine}
+                  </p>
+                </>
               )}
-              <p className="font-ui text-eyebrow uppercase text-ink/40 mt-4">
-                {priceLine}
-              </p>
             </div>
           ) : null}
         </Container>

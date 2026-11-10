@@ -7,6 +7,13 @@ type Props = {
    * their own disclosure copy (e.g. /shop) — never to tidy up a layout.
    */
   hideDisclosure?: boolean;
+  /**
+   * Paper-on-ink styling, for CTAs that sit inside a `bg-ink` section.
+   * Without it the link AND the disclosure render ink-on-ink and the
+   * disclosure is effectively invisible — which is worse than no disclosure
+   * at all, because the page still claims to comply.
+   */
+  onDark?: boolean;
 };
 
 /**
@@ -25,19 +32,25 @@ export function AmazonCTA({
   label = "Buy on Amazon",
   className,
   hideDisclosure = false,
+  onDark = false,
 }: Props) {
+  const linkTone = onDark
+    ? "text-paper border-paper"
+    : "text-ink border-ink";
+  const disclosureTone = onDark ? "text-paper/45" : "text-ink/45";
+
   return (
     <>
       <a
         href={href}
         target="_blank"
         rel="noopener noreferrer sponsored"
-        className={`inline-flex items-center font-ui text-eyebrow uppercase text-ink border-b border-ink pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300 ${className ?? ""}`}
+        className={`inline-flex items-center font-ui text-eyebrow uppercase ${linkTone} border-b pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300 ${className ?? ""}`}
       >
         {label}
       </a>
       {hideDisclosure ? null : (
-        <p className="font-ui text-xs leading-relaxed text-ink/45 mt-4 max-w-prose">
+        <p className={`font-ui text-xs leading-relaxed ${disclosureTone} mt-4 max-w-prose`}>
           As an Amazon Associate we earn from qualifying purchases. This is an
           affiliate link &mdash; it costs you nothing extra.
         </p>

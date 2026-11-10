@@ -1,5 +1,5 @@
 import { SubscribeForm } from "@/components/forms/SubscribeForm";
-import { GUMROAD_SMMC_URL, GUMROAD_SMMC_PRICE } from "@/lib/gumroad";
+import { SmmcPurchaseOptions } from "@/components/cta/SmmcPurchaseOptions";
 
 type Props = {
   /** Paper-on-ink styling for dark sections. Defaults to dark. */
@@ -54,19 +54,12 @@ export function SmmcWaitlist({ dark = true }: Props) {
         Gochujang and adobo. Kimchi and tacos. Doenjang and mole. Thirty recipes
         and six master sauces, in the illustrated edition.
       </p>
-      <div className="mb-8">
-        {/* Plain anchor, not AmazonCTA: the Gumroad listing is not an Amazon
-            product and the Associates disclosure would print over it. */}
-        <a
-          href={GUMROAD_SMMC_URL}
-          className={`inline-block font-ui text-eyebrow uppercase border px-5 py-3 transition-colors duration-300 ${
-            dark
-              ? "text-paper border-paper/40 hover:bg-paper hover:text-ink"
-              : "text-ink border-ink/40 hover:bg-ink hover:text-paper"
-          }`}
-        >
-          Get Seoul Meets Mexico City — {GUMROAD_SMMC_PRICE} →
-        </a>
+      <div className="mb-10">
+        {/* All three editions, labelled. The retail cookbook is on Amazon in
+            print and on Kindle; the illustrated PDF is ours on Gumroad. This
+            block used to offer the Gumroad PDF alone, which read as though the
+            book existed nowhere else. */}
+        <SmmcPurchaseOptions onDark={dark} showHeading={false} />
       </div>
       {SUBSCRIBE_ENABLED ? (
         <SubscribeForm

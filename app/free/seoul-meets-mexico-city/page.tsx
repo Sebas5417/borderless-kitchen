@@ -6,11 +6,20 @@ import { SmmcSamplerOptIn } from "@/components/cta/SmmcSamplerOptIn";
 import {
   GUMROAD_FUSION_PLAYBOOK_PRICE,
   GUMROAD_FUSION_PLAYBOOK_URL,
-  GUMROAD_SMMC_PRICE,
-  GUMROAD_SMMC_URL,
   GUMROAD_UMAMI_PRICE,
   GUMROAD_UMAMI_URL,
 } from "@/lib/gumroad";
+import { SmmcPurchaseOptions } from "@/components/cta/SmmcPurchaseOptions";
+
+/**
+ * The retail cover, taken from the Amazon paperback listing (B0HDRBMLPT) and
+ * rendered at its own 1000×1293 proportions. This page used to show
+ * /images/smmc-cover.png — different artwork from the listing — which made the
+ * book here look like a different book from the one being sold.
+ */
+const SMMC_COVER = "/images/smmc-cover-amazon.jpg";
+const SMMC_COVER_ALT =
+  "Cover of Seoul Meets Mexico City, the second Borderless Kitchen volume: gold filigree on black framing the title in gold, above a split skyline of Seoul's N Seoul Tower and a hanok on the left and Mexico City's cathedral on the right, with a plate of charred tacos, lime and radish below.";
 
 /**
  * The free three-recipe sampler for Seoul Meets Mexico City.
@@ -76,33 +85,33 @@ export default function SmmcSamplerPage() {
                 with the cooking usually filed next to it. These three recipes
                 are the shortest route into what the book does.
               </p>
-              <div className="mt-12 flex flex-wrap items-center gap-6">
+              <div className="mt-12">
                 <a
                   href={SAMPLER_PDF}
                   download
-                  className="font-ui text-eyebrow uppercase text-paper border border-paper/40 px-6 py-3 hover:border-vermillion hover:text-vermillion transition-colors duration-300"
+                  className="inline-block font-ui text-eyebrow uppercase text-paper border border-paper/40 px-6 py-3 hover:border-vermillion hover:text-vermillion transition-colors duration-300"
                 >
                   Download the PDF — free ↓
                 </a>
-                <a
-                  href={GUMROAD_SMMC_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-ui text-eyebrow uppercase text-paper/60 px-0 py-3 border-b border-transparent hover:text-paper hover:border-paper transition-colors duration-300"
-                >
-                  The full book — {GUMROAD_SMMC_PRICE} →
-                </a>
+                <p className="font-ui text-xs text-paper/40 mt-5">
+                  No email required. 12 pages, printable, 6 × 9 in.
+                </p>
               </div>
-              <p className="font-ui text-xs text-paper/40 mt-5">
-                No email required. 12 pages, printable, 6 × 9 in.
-              </p>
+              <div className="mt-12 max-w-md">
+                {/* Corrected 2026-11-10. This block used to carry one link —
+                    "The full book — $9.99" — pointing at Gumroad, which read as
+                    though the PDF were the only way to buy the cookbook. The
+                    paperback and Kindle editions are live on Amazon, so all
+                    three are listed here, each labelled by format. */}
+                <SmmcPurchaseOptions onDark />
+              </div>
             </div>
             <div className="mx-auto w-full max-w-[300px] md:max-w-[420px] md:justify-self-end">
               <Image
-                src="/images/smmc-cover.png"
-                alt="Cover of Seoul Meets Mexico City, the second Borderless Kitchen volume: the title in gold and cream above a split Seoul and Mexico City skyline, over a stone bowl of bibimbap with banchan and a plate of tacos."
-                width={1024}
-                height={1536}
+                src={SMMC_COVER}
+                alt={SMMC_COVER_ALT}
+                width={1000}
+                height={1293}
                 sizes="(min-width: 768px) 38vw, 300px"
                 priority
                 className="h-auto w-full ring-1 ring-paper/10"
@@ -160,7 +169,7 @@ export default function SmmcSamplerPage() {
                 About the book
               </p>
               <h2 className="font-display text-display-2 leading-tight">
-                The full illustrated edition.
+                The full cookbook, three ways.
               </h2>
             </div>
             <div>
@@ -172,17 +181,11 @@ export default function SmmcSamplerPage() {
                 what to do.
               </p>
               <p className="font-body text-lg text-ink/70 leading-relaxed mb-8">
-                The illustrated edition is an instant PDF download — no shipping,
-                no account required.
+                The paperback and Kindle editions are sold on Amazon; the
+                illustrated edition is an instant PDF download from our own
+                shop — no shipping, no account required.
               </p>
-              <a
-                href={GUMROAD_SMMC_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center font-ui text-eyebrow uppercase text-ink border-b border-ink pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
-              >
-                Get the illustrated edition — {GUMROAD_SMMC_PRICE}
-              </a>
+              <SmmcPurchaseOptions showHeading={false} />
             </div>
           </div>
         </Container>

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 import { TMT_AMAZON } from "@/lib/amazon";
-import { GUMROAD_SMMC_URL, GUMROAD_SMMC_PRICE } from "@/lib/gumroad";
+import { SmmcPurchaseOptions } from "@/components/cta/SmmcPurchaseOptions";
 
 export default function BooksPage() {
   const tmt = allBooks.find((b) => b.slug === "tokyo-meets-tuscany")!;
@@ -138,16 +138,12 @@ export default function BooksPage() {
                         arriving at the same truth from opposite directions.
                       </p>
                     </div>
-                    <div className="mt-10 flex flex-col gap-4 items-start">
-                      <a
-                        href={GUMROAD_SMMC_URL}
-                        className="font-ui text-eyebrow uppercase text-ink border-b border-ink/40 pb-1 hover:text-vermillion hover:border-vermillion transition-colors duration-300"
-                      >
-                        Get Seoul Meets Mexico City — {GUMROAD_SMMC_PRICE} →
-                      </a>
-                      <p className="font-ui text-eyebrow uppercase text-ink/40">
-                        Illustrated edition · instant PDF download
-                      </p>
+                    <div className="mt-10 flex flex-col gap-8 items-start">
+                      {/* Paperback, Kindle, PDF — each labelled, so a buyer who
+                          wants the physical book or the ebook can find it. This
+                          used to be a single Gumroad link, which read as though
+                          the illustrated PDF were the only edition in print. */}
+                      <SmmcPurchaseOptions />
                       <Link
                         href="/books/seoul-meets-mexico-city"
                         className="link-quiet text-ink text-base"
@@ -158,17 +154,22 @@ export default function BooksPage() {
                   </div>
                 </div>
                 <div className="lg:col-span-5 lg:col-start-8 order-1 lg:order-2">
+                  {/* The 1000×1293 frame plus object-contain shows the whole
+                      retail cover exactly as Amazon lists it. The old 3/4 frame
+                      with object-cover cropped the artwork — the gold border and
+                      the bottom of the plate were cut off, which is what made the
+                      site's cover look like a different book from the listing's. */}
                   {smmc.coverImageSrc ? (
                     <div
                       className="relative overflow-hidden"
-                      style={{ aspectRatio: "3 / 4" }}
+                      style={{ aspectRatio: "1000 / 1293" }}
                     >
                       <Image
                         src={smmc.coverImageSrc}
                         alt={smmc.coverImageAlt}
                         fill
                         sizes="(min-width: 1024px) 40vw, 90vw"
-                        className="object-cover"
+                        className="object-contain"
                       />
                     </div>
                   ) : (

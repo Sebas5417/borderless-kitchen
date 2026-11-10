@@ -5,32 +5,51 @@ import { SmmcWaitlist } from "@/components/cta/SmmcWaitlist";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { FadeRise } from "@/components/motion/FadeRise";
 import { GUMROAD_SMMC_URL, GUMROAD_SMMC_PRICE } from "@/lib/gumroad";
+import {
+  SMMC_AMAZON_KINDLE,
+  SMMC_AMAZON_KINDLE_PRICE,
+  SMMC_AMAZON_PAPERBACK,
+  SMMC_AMAZON_PAPERBACK_PRICE,
+} from "@/lib/amazon";
+
+/**
+ * The retail cover, pulled from the Amazon paperback listing (B0HDRBMLPT).
+ * Every surface that shows the book as sold renders this one file so the
+ * picture here and the picture on the listing cannot drift apart.
+ */
+const SMMC_COVER = "/images/smmc-cover-amazon.jpg";
+const SMMC_COVER_W = 1000;
+const SMMC_COVER_H = 1293;
+const SMMC_COVER_ALT =
+  "Cover of Seoul Meets Mexico City, the second Borderless Kitchen volume: gold filigree on black framing the title in gold, above a split skyline of Seoul and Mexico City, with a plate of charred tacos below.";
 
 export const metadata: Metadata = {
   title: "Seoul Meets Mexico City — Out Now",
   alternates: { canonical: "/seoul-meets-mexico-city" },
   description:
-    "Seoul Meets Mexico City — the Korean–Mexican collision. Volume II of the Borderless Kitchen series. Illustrated edition, out now.",
+    "Seoul Meets Mexico City — the Korean–Mexican collision. Volume II of the Borderless Kitchen series. Paperback and Kindle on Amazon, illustrated PDF on Gumroad.",
   openGraph: {
     title: "Seoul Meets Mexico City | Borderless Kitchen — Vol. II",
     description:
-      "The Korean–Mexican collision. Illustrated edition — available now.",
+      "The Korean–Mexican collision. Paperback and Kindle on Amazon, illustrated PDF on Gumroad.",
     type: "website",
     url: "/seoul-meets-mexico-city",
     images: [
       {
-        url: "/images/smmc-cover.png",
-        width: 1200,
-        height: 630,
-        alt: "Seoul Meets Mexico City — Borderless Kitchen Vol. II cover",
+        url: SMMC_COVER,
+        width: SMMC_COVER_W,
+        height: SMMC_COVER_H,
+        alt: SMMC_COVER_ALT,
       },
     ],
   },
-  twitter: { card: "summary_large_image", images: ["/images/smmc-cover.png"] },
+  twitter: { card: "summary_large_image", images: [SMMC_COVER] },
 };
 
-// SMMC is sold through Gumroad ($9.99 illustrated edition) — the Amazon
-// listings this schema used to point at are no longer the purchase path.
+// Superseded 2026-11-10. This schema used to say the Amazon listings "are no
+// longer the purchase path" and offered Gumroad alone. Both editions were
+// re-verified live that day (see lib/amazon.ts), so the schema now lists all
+// three formats and points sameAs at the real listings.
 const smmcBookSchema = {
   "@context": "https://schema.org",
   "@type": "Book",
@@ -45,22 +64,40 @@ const smmcBookSchema = {
   genre: ["Cookbook", "Fusion Cuisine", "Cross-cultural cooking"],
   description:
     "The second Borderless Kitchen volume — 30 recipes and 6 master sauces where Korean and Mexican cooking traditions meet.",
-  image: "https://borderlesskitchenseries.com/images/smmc-cover.png",
+  image: `https://borderlesskitchenseries.com${SMMC_COVER}`,
   url: "https://borderlesskitchenseries.com/seoul-meets-mexico-city",
-  sameAs: GUMROAD_SMMC_URL,
+  sameAs: [SMMC_AMAZON_PAPERBACK, SMMC_AMAZON_KINDLE, GUMROAD_SMMC_URL],
   isPartOf: {
     "@type": "BookSeries",
     name: "Borderless Kitchen",
     url: "https://borderlesskitchenseries.com/books",
   },
-  offers: {
-    "@type": "Offer",
-    url: GUMROAD_SMMC_URL,
-    priceCurrency: "USD",
-    price: GUMROAD_SMMC_PRICE.replace("$", ""),
-    availability: "https://schema.org/InStock",
-    seller: { "@type": "Organization", name: "Borderless Kitchen" },
-  },
+  offers: [
+    {
+      "@type": "Offer",
+      url: SMMC_AMAZON_PAPERBACK,
+      priceCurrency: "USD",
+      price: SMMC_AMAZON_PAPERBACK_PRICE.replace("$", ""),
+      availability: "https://schema.org/InStock",
+      seller: { "@type": "Organization", name: "Amazon" },
+    },
+    {
+      "@type": "Offer",
+      url: SMMC_AMAZON_KINDLE,
+      priceCurrency: "USD",
+      price: SMMC_AMAZON_KINDLE_PRICE.replace("$", ""),
+      availability: "https://schema.org/InStock",
+      seller: { "@type": "Organization", name: "Amazon" },
+    },
+    {
+      "@type": "Offer",
+      url: GUMROAD_SMMC_URL,
+      priceCurrency: "USD",
+      price: GUMROAD_SMMC_PRICE.replace("$", ""),
+      availability: "https://schema.org/InStock",
+      seller: { "@type": "Organization", name: "Borderless Kitchen" },
+    },
+  ],
 };
 
 const PREVIEW_RECIPES = [
@@ -224,7 +261,7 @@ export default function SeoulMeetsMexicoCityPage() {
           sampler page, which delivers without an email. Corrected 2026-11-07. */}
       <EmailCaptureCTA
         heading="Start with three Korean–Mexican recipes, free."
-        body="Seoul Meets Mexico City is out now as an illustrated edition. Read three complete recipes here, or take the 12-page sampler — no email needed."
+        body="Seoul Meets Mexico City is out now in paperback and on Kindle, with an illustrated PDF from our own shop. Read three complete recipes here, or take the 12-page sampler — no email needed."
         cta="Read the free recipes →"
         href="/free/seoul-meets-mexico-city"
       />

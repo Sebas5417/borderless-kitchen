@@ -150,8 +150,8 @@ export function SmmcSamplerOptIn({ dark = true, showRecipeLink = false }: Props)
         <p
           className={`font-body text-base leading-relaxed mb-5 max-w-prose ${dark ? "text-paper/60" : "text-ink/60"}`}
         >
-          Want the whole thing? The illustrated cookbook is an instant PDF
-          download — {GUMROAD_SMMC_PRICE}, no shipping, no account required.
+          Want the illustrated edition? It's an instant PDF download —
+          {GUMROAD_SMMC_PRICE}, no shipping, no account required.
         </p>
         <Link
           href={GUMROAD_SMMC_URL}
@@ -163,7 +163,7 @@ export function SmmcSamplerOptIn({ dark = true, showRecipeLink = false }: Props)
               : "text-ink border-ink hover:text-vermillion hover:border-vermillion"
           }`}
         >
-          Get Seoul Meets Mexico City — {GUMROAD_SMMC_PRICE}
+          Get the illustrated PDF — {GUMROAD_SMMC_PRICE}
         </Link>
       </div>
 

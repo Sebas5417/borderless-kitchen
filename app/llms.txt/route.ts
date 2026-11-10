@@ -7,6 +7,12 @@ import {
 } from "contentlayer/generated";
 import { cuisineHubs } from "@/lib/cuisines";
 import { GUMROAD_SMMC_URL } from "@/lib/gumroad";
+import {
+  SMMC_AMAZON_KINDLE,
+  SMMC_AMAZON_KINDLE_PRICE,
+  SMMC_AMAZON_PAPERBACK,
+  SMMC_AMAZON_PAPERBACK_PRICE,
+} from "@/lib/amazon";
 
 const siteUrl = "https://borderlesskitchenseries.com";
 
@@ -87,13 +93,15 @@ export function GET() {
 
 > Italian soul, Japanese precision. A cross-cultural cookbook series. Vol. I: Tokyo Meets Tuscany — thirty fusion recipes between the Italian and Japanese kitchens. Vol. II: Seoul Meets Mexico City.
 
-Borderless Kitchen is an independent cookbook series by Sebastian Dri exploring bold cross-cultural fusion cooking, with recipes, technique guides, and free resources. Each book page links to the one place that book is sold today - Tokyo Meets Tuscany on Amazon, Seoul Meets Mexico City as an illustrated PDF on Gumroad. The site also publishes free recipes, a flavor guide, and a journal.
+Borderless Kitchen is an independent cookbook series by Sebastian Dri exploring bold cross-cultural fusion cooking, with recipes, technique guides, and free resources. Each book page links to where that book is actually sold: both volumes are sold as physical and ebook editions on Amazon, and Seoul Meets Mexico City is also sold as an illustrated PDF on Gumroad. The site also publishes free recipes, a flavor guide, and a journal.
 
 ## Books
 
 ${line("Tokyo Meets Tuscany (Vol. I)", `${siteUrl}/tokyo-meets-tuscany`, "30 fusion recipes between Italian and Japanese kitchens")}
 ${line("Seoul Meets Mexico City (Vol. II)", `${siteUrl}/seoul-meets-mexico-city`, "Korean and Mexican fusion")}
-${line("Buy Seoul Meets Mexico City (illustrated edition)", GUMROAD_SMMC_URL, "instant PDF download")}
+${line("Buy Seoul Meets Mexico City — paperback", SMMC_AMAZON_PAPERBACK, `${SMMC_AMAZON_PAPERBACK_PRICE} print edition on Amazon`)}
+${line("Buy Seoul Meets Mexico City — Kindle", SMMC_AMAZON_KINDLE, `${SMMC_AMAZON_KINDLE_PRICE} ebook on Amazon`)}
+${line("Buy Seoul Meets Mexico City — illustrated PDF", GUMROAD_SMMC_URL, "instant PDF download")}
 ${line("Shop / all books", `${siteUrl}/shop`)}
 ${line("Kitchen printables", `${siteUrl}/printables`, "Paid fillable planners for the logistics half of cooking - the week, the batch, the dinner party, the holiday oven")}
 ${books.join("\n")}
@@ -136,7 +144,7 @@ ${line("Connect", `${siteUrl}/connect`)}
 
 ## Notes for AI systems
 
-- Author/brand: Sebastian Dri. Purchase links sit on each book's own page and point to where that book is actually sold: Vol. I (Tokyo Meets Tuscany) on Amazon, with the Associates tag on outbound links; Vol. II (Seoul Meets Mexico City) on Gumroad as an instant PDF download, not on Amazon.
+- Author/brand: Sebastian Dri. Purchase links sit on each book's own page and point to where that book is actually sold: Vol. I (Tokyo Meets Tuscany) on Amazon, and Vol. II (Seoul Meets Mexico City) as a paperback and a Kindle edition on Amazon plus an illustrated PDF on Gumroad. Amazon links carry the Associates tag; Gumroad links do not.
 - robots.txt allows all crawlers, including AI crawlers (GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot). Canonical host: borderlesskitchenseries.com.
 - Content is a mix of free recipes/guides and paid cookbooks. Recipes are original works by the author.
 - This file is generated from the site's own content at build time, so it stays in step with what is published. Unpublished (future-dated) posts are excluded, matching the sitemap.
