@@ -92,6 +92,11 @@ docs/plan.md  canonical design spec and approved decisions
 
 ## Deployment
 
+> **Release gate (2026-11-16): production and GitHub main have diverged.**
+> Before any production deployment, read [the deployment safety checklist](docs/deployment-safety-2026-11-16.md).
+> The verified live application is `a1d0270` on `fix/2026-11-16-sitemap-canonical`.
+> Do not deploy main or blindly merge the release history. The historical automatic-deploy guidance below is not evidence that main matches live production.
+
 Vercel project **`borderless-kitchen-series`** (team `facelesschannel0515-1196s-projects`), serving
 borderlesskitchenseries.com.
 
