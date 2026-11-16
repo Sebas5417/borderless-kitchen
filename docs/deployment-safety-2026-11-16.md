@@ -47,3 +47,8 @@ Domain property: 8 reported 404s and 19 redirects. HTTPS property: 8 reported 40
 Two historical journal 404 examples now correctly redirect, including `/journal/no-cream-carbonara-why-italians-are-right` to `/journal/pasta-water-starch-emulsion-and-mantecatura`. Six culture URLs (`fruit-puree`, `sugar`, `agar-agar`, `gelatin-powder`, `buttermilk`, `yogurt`) remain genuine 404s; no current source links/content were found. Do not invent irrelevant redirects just to clear the report.
 
 No Search Console permissions/settings were changed and no validation or sitemap resubmission was performed for this repair.
+
+## Unrelated funnel preview guard (2026-11-16)
+
+Vercel project tmt-funnel uses free-site from main. This release history lacks that application, so a configuration-only free-site/vercel.json disables its automatic Git deployments here. The main application and funnel production settings are unchanged. During history reconciliation, retain main's real free-site application and remove the placeholder disable flag before legitimate funnel builds. Never deploy the placeholder directory manually.
+
