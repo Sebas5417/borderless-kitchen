@@ -36,7 +36,7 @@ The three canonical destinations must appear once. On Nov 16 the sitemap returne
 5. Run the locked-dependency production build and type/lint checks. Inspect warnings. Compare route and sitemap inventories with production and test canonical metadata, redirects, important purchase links and signup paths without sending real test subscriptions.
 6. Deploy a preview and check the candidate before changing production. Verify the production target/project and current environment configuration. Do not copy secrets into source control.
 7. Deploy only the tested candidate when authorized. Verify Vercel READY status and domain alias, then recheck public HTTP responses, canonical/noindex metadata and sitemap exclusions. Check important existing routes and assets for regressions.
-8. Push the exact application source and record its commit and deployment URL. Update this note when histories are reconciled and make the release guidance discoverable in the authoritative branch's README. Until then, keep the deployment issue open.
+8. Push the exact application source and record its commit and deployment URL. Update this note when histories are reconciled and make the release guidance discoverable in the authoritative branch's README. Until then, retain this release gate in the release README.
 
 ## Search Console interpretation
 
