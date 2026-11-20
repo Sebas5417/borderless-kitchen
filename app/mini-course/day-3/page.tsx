@@ -6,11 +6,13 @@ import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/mini-course/day-3" },
-  title: "Mini-Course Day 3: The Umami Pairing System",
+  title: { absolute: "Day 3: Umami Pairings | Free Fusion Cooking Course" },
   description:
     "Work through the Flavor Pairing Matrix. Learn the Italian-Japanese swaps and why the synergy pairs multiply umami. Cook Ramen alla Carbonara.",
-  openGraph: { title: "Mini-Course Day 3: The Umami Pairing System", description: "Work through the Flavor Pairing Matrix. Learn the Italian-Japanese swaps and why the synergy pairs multiply umami. Cook Ramen alla Carbonara." },
-  twitter: { title: "Mini-Course Day 3: The Umami Pairing System", description: "Work through the Flavor Pairing Matrix. Learn the Italian-Japanese swaps and why the synergy pairs multiply umami. Cook Ramen alla Carbonara." },
+
+  twitter: { ...({}), title: "Day 3: Umami Pairings | Free Fusion Cooking Course", description: "Work through the Flavor Pairing Matrix. Learn the Italian-Japanese swaps and why the synergy pairs multiply umami. Cook Ramen alla Carbonara.", card: "summary_large_image" },
+
+  openGraph: { ...({}), title: "Day 3: Umami Pairings | Free Fusion Cooking Course", description: "Work through the Flavor Pairing Matrix. Learn the Italian-Japanese swaps and why the synergy pairs multiply umami. Cook Ramen alla Carbonara.", url: "/mini-course/day-3" },
 };
 
 const PAIRINGS = [

@@ -1,3 +1,5 @@
+import { BookBuyingPanel } from "@/components/cta/BookBuyingPanel";
+import { cookbookForCuisine, FEATURED_RECIPE_OFFERS } from "@/lib/cookbookOffers";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -65,7 +67,6 @@ export async function generateMetadata({
   };
 }
 
-import { bookFor } from "@/lib/amazon";
 
 export default async function RecipePage({
   params,
@@ -75,7 +76,6 @@ export default async function RecipePage({
   const { slug } = await params;
   const recipe = allFreeRecipes.find((r) => r.slug === slug);
   if (!recipe) notFound();
-  const book = bookFor(recipe.cuisine, recipe.tags, recipe.slug, recipe.title);
   // Ingredients this recipe cooks with, unless it already links products inline.
   const shopIngredients = recipe.body.raw.includes("tag=borderlesskitchen-20")
     ? []
@@ -86,6 +86,7 @@ export default async function RecipePage({
     .map((g) => allStories.find((st) => st.slug === g && new Date(st.date) <= now))
     .filter((g): g is (typeof allStories)[number] => Boolean(g))
     .map((g) => ({ slug: g.slug, title: g.title }));
+  const matchedBook = cookbookForCuisine(recipe.cuisine);
 
   const recipeSchema = {
     "@context": "https://schema.org",
@@ -221,18 +222,16 @@ export default async function RecipePage({
 
           <GuideCallout guides={guideLinks} />
 
-          {/* Book CTA */}
-          <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">
-            <p className="font-display italic text-display-3 text-ink/60 mb-6 leading-tight">
-              {book.title === "Tokyo Meets Tuscany"
-                ? "30 recipes and 6 master sauces in the book."
-                : "30 recipes in the book."}
-            </p>
-            <AmazonCTA href={book.href} label={`Get ${book.title} on Amazon`} />
-            <p className="font-ui text-eyebrow uppercase text-ink/40 mt-2">
-              Paperback · Kindle
-            </p>
-          </div>
+                    {/* A complete offer on ten selected recipes; a cuisine-matched link elsewhere. */}
+          {FEATURED_RECIPE_OFFERS.has(recipe.slug) ? <div className="mt-12"><BookBuyingPanel bookId={matchedBook.id} recipeContext /></div> : (
+            <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">
+              <p className="font-display italic text-display-3 text-ink/70 mb-6 leading-tight">Explore {matchedBook.cuisine} cooking in {matchedBook.title}.</p>
+              <AmazonCTA href={matchedBook.amazon} label={`View ${matchedBook.title} on Amazon`} placement="recipe-footer" />
+              <p className="font-body text-sm text-ink/65 mt-3">Thirty recipes and six master sauces. Paperback and Kindle editions.</p>
+            </div>
+          )}
+
+          <p className="max-w-prose mx-auto mt-8 font-body text-base text-ink/70">Looking for a cookbook? <Link className="underline underline-offset-4 hover:text-vermillion" href="/books/compare">Compare the cuisines, formats and free previews.</Link></p>
 
           {/* Related recipes */}
           {recipe.relatedSlugs && recipe.relatedSlugs.length > 0 && (
@@ -261,21 +260,11 @@ export default async function RecipePage({
         </Container>
       </article>
 
-      {book.title === "Seoul Meets Mexico City" ? (
-        <EmailCaptureCTA
-          eyebrow="Free recipes"
-          heading="Get free Korean and Korean-Mexican recipes."
-          body="Gochujang, doenjang, guajillo and mole, cooked side by side. Recipes from Seoul Meets Mexico City, sent free by email."
-          cta="Send me the recipes →"
-          href="/seoul-meets-mexico-city"
-        />
-      ) : (
-        <EmailCaptureCTA
-          heading="Get the Flavor Pairing Matrix free."
-          body="The Italian × Japanese ingredient chart behind every recipe in the book. Printable, one page."
-          cta="Get the free chart →"
-        />
-      )}
+      <EmailCaptureCTA
+        heading="Get the Flavor Pairing Matrix free."
+        body="The Italian × Japanese ingredient chart behind every recipe in the book. Printable, one page."
+        cta="Get the free chart →"
+      />
     </>
   );
 }

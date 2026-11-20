@@ -6,6 +6,7 @@ type Props = {
   className?: string;
   /** Suppress the affiliate disclosure only where nearby copy already provides it. */
   hideDisclosure?: boolean;
+  placement?: string;
 };
 
 type WindowWithGtag = Window & {
@@ -25,12 +26,14 @@ export function AmazonCTA({
   label = "Buy on Amazon",
   className,
   hideDisclosure = false,
+  placement = "book-link",
 }: Props) {
   function trackBookClick() {
     const bookId = href.match(/\/dp\/([A-Z0-9]+)/i)?.[1];
     (window as WindowWithGtag).gtag?.("event", "amazon_book_click", {
       ...(bookId ? { book_id: bookId } : {}),
       page_path: window.location.pathname,
+      source_placement: placement,
       link_url: href,
     });
   }

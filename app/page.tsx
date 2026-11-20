@@ -1,3 +1,4 @@
+import { PdfCookbooks } from "@/components/cta/PdfCookbooks";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -124,6 +125,7 @@ export default function HomePage() {
         </Container>
       </section>
       <AvailableBooks />
+      <PdfCookbooks placement="home" />
 
       {/* 2b. Seasonal: holiday gift guides */}
       {giftSeason && giftGuides.length > 0 ? (

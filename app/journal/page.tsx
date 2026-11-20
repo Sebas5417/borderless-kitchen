@@ -1,3 +1,4 @@
+import { CookbookGuideLinks } from "@/components/editorial/CookbookGuideLinks";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { allStories } from "contentlayer/generated";
@@ -9,13 +10,13 @@ import { PageHero } from "@/components/editorial/PageHero";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/journal" },
-  title: "Journal",
+  title: { absolute: "Cooking Guides: Japanese, Italian, Korean & Mexican" },
   description:
-    "Notes on food, culture, memory, and movement — essays from the Borderless Kitchen series on cross-cultural cooking and the conversations between cuisines.",
+    "Explore Japanese, Italian, Korean and Mexican cooking guides, ingredient explainers, techniques and cookbook comparisons from Borderless Kitchen.",
 
-  twitter: { ...({}), title: "Journal", description: "Notes on food, culture, memory, and movement — essays from the Borderless Kitchen series on cross-cultural cooking and the conversations between cuisines.", card: "summary_large_image" },
+  twitter: { ...({}), title: "Cooking Guides: Japanese, Italian, Korean & Mexican", description: "Explore Japanese, Italian, Korean and Mexican cooking guides, ingredient explainers, techniques and cookbook comparisons from Borderless Kitchen.", card: "summary_large_image" },
 
-  openGraph: { ...({}), title: "Journal", description: "Notes on food, culture, memory, and movement — essays from the Borderless Kitchen series on cross-cultural cooking and the conversations between cuisines.", url: "/journal" },
+  openGraph: { ...({}), title: "Cooking Guides: Japanese, Italian, Korean & Mexican", description: "Explore Japanese, Italian, Korean and Mexican cooking guides, ingredient explainers, techniques and cookbook comparisons from Borderless Kitchen.", url: "/journal" },
 };
 
 export default function JournalPage() {
@@ -29,8 +30,8 @@ export default function JournalPage() {
     <>
       <PageHero
         eyebrow="Journal"
-        headline="Notes on food, culture, memory, and movement."
-        dek="Not recipes. The stories behind them — why certain flavors exist, where they came from, and what they mean when they meet on the same plate."
+        headline="Cooking guides, ingredients and the stories behind them."
+        dek="Explore Japanese, Italian, Korean and Mexican cuisine, practical cooking techniques, ingredient guides and cookbook comparisons."
         src="/images/banner-journal.png"
         alt="Editorial banner — the Borderless Kitchen Journal."
       />
@@ -92,6 +93,8 @@ export default function JournalPage() {
           </div>
         </Container>
       </section>
+
+      <CookbookGuideLinks />
 
       <EmailCaptureCTA
         heading="Notes from the kitchen."

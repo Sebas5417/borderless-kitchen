@@ -1,3 +1,5 @@
+import { storyModifiedAt } from "@/lib/contentDates";
+import { PdfCookbooks } from "@/components/cta/PdfCookbooks";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -33,7 +35,7 @@ export async function generateMetadata({
   if (!story) return {};
   return {
     title: fitTitle(snippetTitle(story.title, story.metaTitle)),
-    description: fitDescription(story.metaDescription || story.dek),
+    description: fitDescription(story.metaDescription ?? story.dek),
     alternates: { canonical: `/journal/${story.slug}` },
     twitter: { card: "summary_large_image", title: story.title, description: fitDescription(story.metaDescription ?? story.dek), images: story.heroImageSrc ? [story.heroImageSrc] : [] },
     openGraph: {
@@ -42,6 +44,7 @@ export async function generateMetadata({
       type: "article",
       url: `/journal/${story.slug}`,
       publishedTime: story.date,
+      modifiedTime: storyModifiedAt(story),
       images: story.heroImageSrc ? [{ url: story.heroImageSrc }] : [],
     },
   };
@@ -109,10 +112,10 @@ export default async function JournalEntryPage({
       url: "https://borderlesskitchenseries.com",
     },
     datePublished: story.date,
-    dateModified: story.date,
+    dateModified: storyModifiedAt(story),
     mainEntityOfPage: `https://borderlesskitchenseries.com/journal/${story.slug}`,
     ...(story.heroImageSrc
-      ? { image: `https://borderlesskitchenseries.com${story.heroImageSrc}` }
+      ? { image: new URL(story.heroImageSrc, "https://borderlesskitchenseries.com").href }
       : {}),
   };
 
@@ -207,6 +210,7 @@ export default async function JournalEntryPage({
           <ShopPantry ingredients={shopIngredients} />
 
           <GuideCallout guides={guideLinks} />
+          <PdfCookbooks placement={`journal-${story.slug}`} topic={story.slug} />
 
           {/* Pantry cross-links */}
           {pantryRefs.length > 0 ? (
@@ -300,15 +304,12 @@ export default async function JournalEntryPage({
         </Container>
       </article>
 
-      {book.title === "Seoul Meets Mexico City" ? (
-        // Korean and Mexican readers get the Vol. II funnel (book + free
-        // Korean-Mexican recipes by email), not the Italian x Japanese matrix.
+      {story.themes?.includes("korean-mexican-fusion") ? (
         <EmailCaptureCTA
           eyebrow="Free recipes"
-          heading="Get free Korean and Korean-Mexican recipes."
-          body="Gochujang, doenjang, guajillo and mole, cooked side by side. Recipes from Seoul Meets Mexico City, sent free by email."
-          cta="Send me the recipes →"
-          href="/seoul-meets-mexico-city"
+          heading="Keep cooking across Korean and Mexican flavors."
+          body="Explore free Korean and Korean-Mexican recipes from the collection — no email or account needed."
+          cta="Browse free recipes →"
         />
       ) : (
         <EmailCaptureCTA />

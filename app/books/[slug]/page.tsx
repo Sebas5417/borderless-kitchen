@@ -1,3 +1,5 @@
+import PdfBookPage, { pdfBookMetadata } from "@/components/editorial/PdfBookPage";
+import { PDF_COOKBOOKS } from "@/lib/pdfCookbooks";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -16,7 +18,7 @@ import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
 import { breadcrumbJson } from "@/lib/breadcrumbSchema";
 
 export async function generateStaticParams() {
-  return allBooks.map((book) => ({ slug: book.slug }));
+  return [...allBooks.map((book) => ({ slug: book.slug })), ...PDF_COOKBOOKS.map(book => ({ slug: book.id }))];
 }
 
 /**
@@ -34,6 +36,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  if (PDF_COOKBOOKS.some(book => book.id === slug)) return pdfBookMetadata({ params });
   const book = allBooks.find((b) => b.slug === slug);
   if (!book) return {};
   const canonical = CANONICAL_OVERRIDES[book.slug] ?? `/books/${book.slug}`;
@@ -60,6 +63,7 @@ export default async function BookPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  if (PDF_COOKBOOKS.some(book => book.id === slug)) return PdfBookPage({ params });
   const book = allBooks.find((b) => b.slug === slug);
   if (!book) notFound();
 

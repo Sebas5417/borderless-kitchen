@@ -1,3 +1,4 @@
+import { CookbookGuideLinks } from "@/components/editorial/CookbookGuideLinks";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { allFreeRecipes } from "contentlayer/generated";
@@ -10,17 +11,17 @@ import { cuisineHubs } from "@/lib/cuisines";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/recipes" },
-  title: "Free Recipes",
+  title: { absolute: "Free Japanese, Korean & Fusion Recipes" },
   description:
-    "Free Japanese-Italian fusion recipes from the Borderless Kitchen series — Ramen alla Carbonara, Udon Bolognese, Miso White Pizza, and more. Full instructions, no paywall.",
+    "Cook Japanese, Korean, Japanese-Italian and Korean-Mexican recipes with full ingredients and instructions. Browse by cuisine and find your next dish.",
   openGraph: { ...({
     title: "Free Recipes | Borderless Kitchen",
     description:
       "Japanese-Italian fusion recipes you can cook tonight. Full instructions, no paywall.",
     type: "website",
-  }), title: "Free Recipes", description: "Free Japanese-Italian fusion recipes from the Borderless Kitchen series — Ramen alla Carbonara, Udon Bolognese, Miso White Pizza, and more. Full instructions, no paywall.", url: "/recipes" },
+  }), title: "Free Japanese, Korean & Fusion Recipes", description: "Cook Japanese, Korean, Japanese-Italian and Korean-Mexican recipes with full ingredients and instructions. Browse by cuisine and find your next dish.", url: "/recipes" },
 
-  twitter: { ...({}), title: "Free Recipes", description: "Free Japanese-Italian fusion recipes from the Borderless Kitchen series — Ramen alla Carbonara, Udon Bolognese, Miso White Pizza, and more. Full instructions, no paywall.", card: "summary_large_image" },
+  twitter: { ...({}), title: "Free Japanese, Korean & Fusion Recipes", description: "Cook Japanese, Korean, Japanese-Italian and Korean-Mexican recipes with full ingredients and instructions. Browse by cuisine and find your next dish.", card: "summary_large_image" },
 };
 
 export default function RecipesPage() {
@@ -35,8 +36,8 @@ export default function RecipesPage() {
       }) }} />
       <PageHero
         eyebrow="Free Recipes"
-        headline="Cook the fusion. Free."
-        dek="Full recipes — ingredients, method, the science behind why each pairing works. No paywall. More depth is in the book."
+        headline="Free recipes, from Japanese classics to fusion."
+        dek="Full ingredients and methods for Japanese, Korean and fusion cooking. Browse by cuisine, choose a dish and start cooking."
         src="/images/banner-culture.png"
         alt="Editorial banner — free recipes from the Borderless Kitchen series."
       />
@@ -96,6 +97,8 @@ export default function RecipesPage() {
           </div>
         </Container>
       </section>
+
+      <CookbookGuideLinks />
 
       <EmailCaptureCTA
         heading="Get the Flavor Pairing Matrix free."

@@ -1,3 +1,4 @@
+import { CookbookGuideLinks } from "@/components/editorial/CookbookGuideLinks";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -135,6 +136,8 @@ export default async function CuisineHubPage({
           </div>
         </Container>
       </section>
+
+      <CookbookGuideLinks cuisines={hub.slug.split("-")} />
 
       <EmailCaptureCTA
         heading={hub.slug === "korean-italian" ? "Explore another Korean fusion kitchen." : "Get the Flavor Pairing Matrix free."}

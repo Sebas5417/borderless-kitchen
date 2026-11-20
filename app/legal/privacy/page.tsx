@@ -17,7 +17,7 @@ export default function PrivacyPage() {
           </h1>
           <div className="space-y-6 font-body text-base text-ink/80 leading-relaxed">
             <p>
-              <strong>Last updated:</strong> October 2026
+              <strong>Last updated:</strong> November 2026
             </p>
             <p>
               Borderless Kitchen (<em>borderlesskitchenseries.com</em>) collects
@@ -29,7 +29,7 @@ export default function PrivacyPage() {
               This site uses Google Analytics 4 to understand visits and site
               activity. Analytics may include pages viewed, referral source,
               browser and device details, and interactions such as Amazon book
-              link clicks and successful newsletter signups. We do not send the
+              link clicks, PDF product links and preview downloads, and successful newsletter signups. We do not send the
               email address entered in a form to Google Analytics. Google may use
               cookies or similar identifiers for analytics, depending on the
               measurement settings and your browser. For details, see{" "}
