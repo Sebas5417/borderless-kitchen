@@ -1,5 +1,5 @@
 # Day 3 — The Umami Pairing System
-**Subject:** Day 3: The 24 swaps (and the recipe that explains all of them)
+**Subject:** Day 3: The 12 pairs (and the recipe that explains all of them)
 
 ---
 
@@ -18,14 +18,14 @@ Here are the 12 core pairs:
 | Italian | Japanese | What they share |
 |---------|----------|-----------------|
 | Parmigiano-Reggiano | White miso | Fermented glutamate, salt, fat-amplifying |
-| Prosciutto crudo | Katsuobushi | Dried, cured, inosinate-rich protein |
+| Prosciutto crudo | Katsuobushi | Dried, cured, umami-dense protein |
 | Anchovies | Nori / kombu | Sea umami, glutamate, mineral depth |
 | Tomato (concentrated) | Soy sauce | Glutamate + color + acidity |
 | Capers | Pickled ginger (gari) | Brine-sharp counterpoint |
 | Lemon zest | Yuzu zest | Aromatic citrus brightness |
 | Fresh basil | Shiso (perilla) | Anise-adjacent aromatic herb |
 | Olive oil (finishing) | Sesame oil (finishing) | Fat-carried aroma, added at the end |
-| Pecorino Romano | Bonito-aged soy | Sharper, saltier, more aggressive umami |
+| Pecorino Romano | Aka (red) miso | Sharper, saltier, more aggressive umami |
 | White wine | Sake | Fermented, dry, aromatic acidity |
 | Butter | Miso butter | Fat + fermented depth |
 | Soffritto (onion/celery/carrot) | Dashi | The invisible foundation, the base of all flavor |
@@ -41,15 +41,15 @@ Here are the 12 core pairs:
 
 The most powerful swaps are the ones where the two ingredients contain *different types* of umami compounds that multiply each other:
 
-- **Glutamate** (found in: Parmigiano, kombu, tomatoes, miso)
-- **Inosinate** (found in: katsuobushi, anchovies, prosciutto, chicken)
+- **Glutamate** (found in: Parmigiano, kombu, tomatoes, miso, prosciutto, anchovies)
+- **Inosinate** (found in: katsuobushi, chicken, fresh meat and fish; anchovies have some)
 - **Guanylate** (found in: dried mushrooms — shiitake, porcini)
 
-When glutamate meets inosinate, umami perception multiplies 6-8x. This is why:
+When glutamate meets inosinate, umami can taste many times stronger — up to around 8x in lab tests. This is why:
 
-- Parmigiano + anchovies = punch far beyond either ingredient
+- Parmigiano + chicken stock = a risotto deeper than either alone
 - Dashi (kombu + katsuobushi) = greater than the sum of its parts
-- Miso + prosciutto = the umami intensity of a 12-hour braise achieved in 20 minutes
+- Miso + dashi = the reason miso soup tastes so complete
 
 ---
 
@@ -60,7 +60,7 @@ When glutamate meets inosinate, umami perception multiplies 6-8x. This is why:
 This is the course's flagship recipe. It's not a fusion gimmick — it's a genuinely better version of both dishes, using the synergy system deliberately.
 
 **For the dashi:**
-- 3 cups ichiban dashi (Day 1)
+- 1 cup ichiban dashi (Day 1), about ½ cup per bowl
 - 1 tbsp soy sauce
 - 1 tsp mirin
 
@@ -84,11 +84,11 @@ This is the course's flagship recipe. It's not a fusion gimmick — it's a genui
 
 5. In the guanciale pan (off heat), combine hot noodles + 2 tbsp guanciale fat + 2 tbsp noodle water. Toss.
 
-6. Add the egg-Parmigiano-miso mixture. Toss rapidly — the residual heat cooks the eggs without scrambling them.
+6. Add the egg-Parmigiano-miso mixture. Toss rapidly — residual heat thickens the eggs into a sauce without scrambling them. Note: the eggs are only lightly cooked. If you're serving anyone pregnant, elderly, very young or immunocompromised, use pasteurized eggs.
 
 7. Serve immediately in warmed bowls. Ladle 1/2 cup warm dashi broth around (not over) the noodles. Top with crispy guanciale and more Parmigiano.
 
-**Why it works:** The carbonara sauce clings to the noodles (glutamate from Parmigiano + miso = double umami). The dashi broth adds inosinate from katsuobushi, multiplying the umami already in the sauce by 6-8x. The guanciale adds inosinate from pork. Every element is paired with its structural equivalent.
+**Why it works:** The carbonara sauce clings to the noodles (glutamate from Parmigiano + miso = double umami). The dashi broth adds inosinate from katsuobushi, which amplifies the glutamate in the sauce. The guanciale adds savory cured-pork depth. Every element is paired with its structural equivalent.
 
 ---
 

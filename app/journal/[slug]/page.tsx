@@ -7,6 +7,10 @@ import { notFound } from "next/navigation";
 import { allStories, allPantryEntries, allFreeRecipes } from "contentlayer/generated";
 import { relatedRecipesFor } from "@/lib/relatedRecipes";
 import { relatedStoriesFor } from "@/lib/relatedStories";
+import { shoppableIngredientsFor } from "@/lib/storyPantry";
+import { ShopPantry } from "@/components/cta/ShopPantry";
+import { GuideCallout } from "@/components/cta/GuideCallout";
+import { guidesFor } from "@/lib/storyGuides";
 import { breadcrumbJson } from "@/lib/breadcrumbSchema";
 import { snippetTitle, fitTitle, fitDescription } from "@/lib/seoMeta";
 import { Container } from "@/components/layout/Container";
@@ -46,7 +50,7 @@ export async function generateMetadata({
   };
 }
 
-import { TMT_AMAZON, SMMC_AMAZON } from "@/lib/amazon";
+import { bookFor } from "@/lib/amazon";
 
 export default async function JournalEntryPage({
   params,
@@ -72,11 +76,23 @@ export default async function JournalEntryPage({
   // Three related journal entries (2026-09-06): stories linked recipes and
   // pantry terms but never each other; 7 of 8 buying guides had no inbound links.
   const relatedStories = relatedStoriesFor(story, allStories, 3);
+  // Stories that already link products inline (buying guides) keep their own
+  // links; everything else gets the ingredients it cooks with (2026-10-09).
+  const hasInlineProductLinks = story.body.raw.includes("tag=borderlesskitchen-20");
+  const shopIngredients = hasInlineProductLinks
+    ? []
+    : shoppableIngredientsFor(story.body.raw, allPantryEntries);
+  // Buying guides this story's own text points at (2026-10-14).
+  const publishedBySlug = new Map(
+    sorted.filter((s) => new Date(s.date) <= new Date()).map((s) => [s.slug, s]),
+  );
+  const guideLinks = guidesFor(story.body.raw, story.slug)
+    .map((g) => publishedBySlug.get(g))
+    .filter((g): g is (typeof sorted)[number] => Boolean(g))
+    .map((g) => ({ slug: g.slug, title: g.title }));
 
-  const isKoreanThemed = story.themes?.includes("korean-cooking") ?? false;
-  const bookCta = isKoreanThemed
-    ? { href: SMMC_AMAZON, label: "Get Seoul Meets Mexico City on Amazon" }
-    : { href: TMT_AMAZON, label: "Get Tokyo Meets Tuscany on Amazon" };
+  const book = bookFor(story.themes, story.slug, story.title);
+  const bookCta = { href: book.href, label: `Get ${book.title} on Amazon` };
 
   const formattedDate = new Date(story.date).toLocaleDateString("en-US", {
     month: "long",
@@ -190,6 +206,10 @@ export default async function JournalEntryPage({
             </div>
           ) : null}
 
+          {/* Shop the pantry (2026-10-09) */}
+          <ShopPantry ingredients={shopIngredients} />
+
+          <GuideCallout guides={guideLinks} />
           <PdfCookbooks placement={`journal-${story.slug}`} topic={story.slug} />
 
           {/* Pantry cross-links */}

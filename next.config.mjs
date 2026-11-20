@@ -147,6 +147,38 @@ const nextConfig = {
         destination: "/journal/best-korean-bbq-grill-pan-for-home",
         permanent: true,
       },
+      {
+        // Duplicate soy sauce guide merged 2026-10-09: the two pages contradicted
+        // each other on what jin ganjang is. The more accurate one is kept.
+        source: "/journal/korean-ganjang-soy-sauce-types",
+        destination: "/journal/korean-soy-sauce-types-guide",
+        permanent: true,
+      },
+      {
+        // Duplicate merged 2026-10-09. Same keyword ("how to make kimchi"); the beginner's guide is longer and linked.
+        source: "/journal/korean-kimchi-making-at-home",
+        destination: "/journal/how-to-make-kimchi-complete-beginners-guide",
+        permanent: true,
+      },
+      {
+        // Duplicate merged 2026-10-09. Two Japanese pantry starter kits; the kept one is on the homepage.
+        source: "/journal/japanese-pantry-starter-kit-what-to-buy-first",
+        destination: "/journal/best-japanese-pantry-starter-kit-ingredients",
+        permanent: true,
+      },
+      {
+        // Duplicate merged 2026-10-09. Two miyeok guk pages; the longer one is kept.
+        source: "/journal/korean-seaweed-miyeok-guk",
+        destination: "/journal/miyeok-guk-korean-birthday-seaweed-soup",
+        permanent: true,
+      },
+      {
+        // Was a page-level redirect() stub that rendered a thin 200 page with no
+        // canonical (2026-10-16 audit). A real 301 passes the link equity.
+        source: "/journal/umami-science-italian-japanese",
+        destination: "/journal/the-science-of-umami-italian-japanese-fusion",
+        permanent: true,
+      },
     ];
   },
 };

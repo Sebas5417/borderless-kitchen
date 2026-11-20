@@ -4,11 +4,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { allFreeRecipes } from "contentlayer/generated";
+import { allFreeRecipes, allPantryEntries, allStories } from "contentlayer/generated";
 import { Container } from "@/components/layout/Container";
 import { ProseLayout } from "@/components/editorial/ProseLayout";
 import { MDXContent } from "@/components/MDXContent";
 import { AmazonCTA } from "@/components/cta/AmazonCTA";
+import { ShopPantry } from "@/components/cta/ShopPantry";
+import { shoppableIngredientsFor } from "@/lib/storyPantry";
+import { GuideCallout } from "@/components/cta/GuideCallout";
+import { guidesFor } from "@/lib/storyGuides";
 import { EmailCaptureCTA } from "@/components/cta/EmailCaptureCTA";
 import { EditorialImage } from "@/components/media/EditorialImage";
 import { parseRecipeIngredients, parseRecipeInstructions, parseRecipeVariants } from "@/lib/recipeSchema";
@@ -72,6 +76,16 @@ export default async function RecipePage({
   const { slug } = await params;
   const recipe = allFreeRecipes.find((r) => r.slug === slug);
   if (!recipe) notFound();
+  // Ingredients this recipe cooks with, unless it already links products inline.
+  const shopIngredients = recipe.body.raw.includes("tag=borderlesskitchen-20")
+    ? []
+    : shoppableIngredientsFor(recipe.body.raw, allPantryEntries);
+  // Buying guides this recipe's own text points at (2026-10-14).
+  const now = new Date();
+  const guideLinks = guidesFor(recipe.body.raw, "")
+    .map((g) => allStories.find((st) => st.slug === g && new Date(st.date) <= now))
+    .filter((g): g is (typeof allStories)[number] => Boolean(g))
+    .map((g) => ({ slug: g.slug, title: g.title }));
   const matchedBook = cookbookForCuisine(recipe.cuisine);
 
   const recipeSchema = {
@@ -204,7 +218,11 @@ export default async function RecipePage({
             <MDXContent code={recipe.body.code} />
           </ProseLayout>
 
-          {/* A complete offer on ten selected recipes; a cuisine-matched link elsewhere. */}
+          <ShopPantry ingredients={shopIngredients} />
+
+          <GuideCallout guides={guideLinks} />
+
+                    {/* A complete offer on ten selected recipes; a cuisine-matched link elsewhere. */}
           {FEATURED_RECIPE_OFFERS.has(recipe.slug) ? <div className="mt-12"><BookBuyingPanel bookId={matchedBook.id} recipeContext /></div> : (
             <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">
               <p className="font-display italic text-display-3 text-ink/70 mb-6 leading-tight">Explore {matchedBook.cuisine} cooking in {matchedBook.title}.</p>

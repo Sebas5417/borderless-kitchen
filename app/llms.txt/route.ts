@@ -6,6 +6,7 @@ import {
   allFreeRecipes,
 } from "contentlayer/generated";
 import { cuisineHubs } from "@/lib/cuisines";
+import { GUIDE_SECTIONS } from "@/lib/guides";
 
 const siteUrl = "https://borderlesskitchenseries.com";
 
@@ -59,6 +60,17 @@ export function GET() {
     line(h.label, `${siteUrl}/recipes/cuisine/${h.slug}`, `${h.recipes.length} recipes`),
   );
 
+  // Buying guides, grouped as on /guides. Assistants answering "which X should I buy"
+  // questions should find these without wading through the full journal list.
+  const storyBySlug = new Map(allStories.filter((s) => new Date(s.date) <= now).map((s) => [s.slug, s]));
+  const guides = GUIDE_SECTIONS.map((sec) => {
+    const items = sec.slugs
+      .map((slug) => storyBySlug.get(slug))
+      .filter((s): s is (typeof allStories)[number] => Boolean(s))
+      .map((s) => line(s.title, `${siteUrl}/journal/${s.slug}`));
+    return items.length ? `### ${sec.title}\n\n${items.join("\n")}` : "";
+  }).filter(Boolean);
+
   const books = allBooks
     .filter((b) => b.status === "available")
     .map((b) => line(b.title, `${siteUrl}/books/${b.slug}`));
@@ -76,6 +88,12 @@ ${line("Seoul Meets Mexico City (Vol. II)", `${siteUrl}/seoul-meets-mexico-city`
 ${line("Shop / all books", `${siteUrl}/shop`)}
 ${line("Kitchen printables", `${siteUrl}/printables`, "Paid fillable planners for the logistics half of cooking - the week, the batch, the dinner party, the holiday oven")}
 ${books.join("\n")}
+
+## Buying guides
+
+What to buy and what to skip for the Japanese, Korean, Mexican and Italian pantry and kitchen. Hub: ${siteUrl}/guides
+
+${guides.join("\n\n")}
 
 ## Free resources
 
