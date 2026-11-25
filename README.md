@@ -1,15 +1,34 @@
 # Borderless Kitchen
 
-The editorial site for the **Borderless Kitchen** cookbook series — one volume per pair of culinary
-traditions. Live at **[borderlesskitchenseries.com](https://borderlesskitchenseries.com)**.
+<p>
+  <a href="https://borderlesskitchenseries.com"><b>Live site</b></a> ·
+  <a href="https://www.amazon.com/dp/B0GY8H2TCQ">Volume I on Amazon</a> ·
+  <a href="https://sebastian-dri-portfolio.vercel.app">Author portfolio</a>
+</p>
 
-This repo is the single source of truth for the site. See [Deployment](#deployment) — and read
-[Gotchas](#gotchas) before you go looking for the code anywhere else on disk.
+<img src="public/images/tmt-cover.jpg" alt="Tokyo Meets Tuscany cover" width="180" align="right">
+
+The editorial site and sales funnel for the **Borderless Kitchen** cookbook series, with one volume for each pair of culinary
+traditions. Volume I, *Tokyo Meets Tuscany*, is published on Amazon.
+
+I built and run the whole project myself: the brand, the books, this codebase, the content pipeline, email capture and the buy paths.
+The site exists to turn a reader into an email subscriber and then into a buyer.
+
+### At a glance
+
+- **About 300 MDX documents**, all type-checked at build time: 155 journal stories, 100 free recipes, 38 pantry and culture
+  entries, plus book pages.
+- **Funnel:** free recipes and a lead magnet, then MailerLite signup into per-book lists, then Amazon, Gumroad and PDF bundles.
+- **900+ commits and 44 merged pull requests.** Every branch gets a Vercel preview, and `main` deploys to production in about
+  60 seconds.
+- **Data integrity:** testimonials must be marked as verified or the build fails. Recipe teasers can't carry the full recipe, so
+  paid content stays paid.
+- **SEO:** each recipe has its own metadata, a canonical origin, a sitemap and Vercel Analytics.
 
 ## Stack
 
 Next.js 15 (App Router) · React 19 · TypeScript · Tailwind 3.4 · [Contentlayer2](https://github.com/timlrx/contentlayer2)
-for MDX · Framer Motion · Vercel Analytics.
+for MDX · Framer Motion · Vercel Analytics · MailerLite API.
 
 ## Quick start
 
@@ -26,13 +45,13 @@ npm run dev          # http://localhost:3000
 | `npm run lint` | ESLint |
 | `npm run typecheck` | `tsc --noEmit` |
 
-Contentlayer generates types from `content/` at build time. If an import from `contentlayer/generated`
-looks broken, run a build once to regenerate.
+Contentlayer generates types from `content/` at build time. If an import from `contentlayer/generated` looks broken, run a
+build once to regenerate it.
 
 ## Content model
 
-All content is MDX under `content/`, typed in [`contentlayer.config.ts`](contentlayer.config.ts).
-Front matter is validated at build time — a missing required field fails the build.
+All content is MDX under `content/` and is typed in [`contentlayer.config.ts`](contentlayer.config.ts). Front matter is
+validated at build time, so a missing required field fails the build.
 
 | Type | Directory | Route | Count |
 |---|---|---|---|
@@ -44,73 +63,63 @@ Front matter is validated at build time — a missing required field fails the b
 | `RecipeTeaser` | `content/recipes/` | (embedded in book pages) | 3 |
 | `Testimonial` | `content/testimonials/` | (embedded) | 0 |
 
-Note the naming mismatch: **`/journal` is powered by `Story`**, and **`/culture` by `PantryEntry`**.
-The directory names don't match the URLs.
+The directory names don't match the URLs: `/journal` is powered by `Story`, and `/culture` by `PantryEntry`.
 
-### Invariants — these are enforced, not conventions
+### Invariants
 
-- **`RecipeTeaser` carries no ingredients and no method.** Teasers point at the book; the full recipe
-  is what people are paying for. Don't add those fields.
-- **`Testimonial.verified` must be literally `true`.** The computed `slug` throws at build time
-  otherwise. No aspirational or placeholder testimonials — remove the file or supply real attribution.
-- **`FreeRecipe` SEO fields are deliberately optional** (`targetKeyword`, `metaTitle`,
-  `metaDescription`, `cookTime`, `prepTime`). They were required once, which silently excluded 83 of
-  100 recipes from the build — Contentlayer drops documents that fail validation rather than erroring
-  loudly. Pages fall back to `title`/`dek`. Think hard before making a content field required.
+These rules are enforced by the build:
+
+- **`RecipeTeaser` carries no ingredients and no method.** Teasers point to the book, because the full recipe is what buyers pay
+  for.
+- **`Testimonial.verified` must be literally `true`.** Otherwise the computed `slug` throws at build time. That rules out
+  placeholder testimonials.
+- **`FreeRecipe` SEO fields are deliberately optional.** When they were required, Contentlayer silently dropped 83 of 100
+  recipes that failed validation instead of reporting an error. Pages now fall back to `title` and `dek`.
 
 ## Environment variables
 
-Set in the Vercel project (Settings → Environment Variables). Amazon URLs have hard-coded fallbacks in
-the code, so the site builds without them; the MailerLite ones are needed for signup to work.
+Set these in the Vercel project. The Amazon URLs have hard-coded fallbacks, so the site builds without them. Signup needs the
+MailerLite variables.
 
 | Variable | Purpose |
 |---|---|
 | `NEXT_PUBLIC_SITE_URL` | Canonical origin for metadata |
-| `NEXT_PUBLIC_AMAZON_URL_TMT` | Buy link — Tokyo Meets Tuscany |
-| `NEXT_PUBLIC_AMAZON_URL_SMMC` | Buy link — Seoul Meets Mexico City |
+| `NEXT_PUBLIC_AMAZON_URL_TMT` | Buy link for Tokyo Meets Tuscany |
+| `NEXT_PUBLIC_AMAZON_URL_SMMC` | Buy link for Seoul Meets Mexico City |
 | `NEXT_PUBLIC_GUMROAD_MATRIX_URL` | Flavor Pairing Matrix lead magnet |
 | `MAILERLITE_API_KEY` | Email signup (server-side) |
 | `MAILERLITE_GROUP_ID` | Default list |
-| `MAILERLITE_TMT_GROUP_ID` | TMT-specific list |
-| `MAILERLITE_SMMC_GROUP_ID` | SMMC-specific list |
+| `MAILERLITE_TMT_GROUP_ID` | List for Tokyo Meets Tuscany |
+| `MAILERLITE_SMMC_GROUP_ID` | List for Seoul Meets Mexico City |
 
-Books reference their buy link indirectly, via `amazonUrlEnvKey` in front matter — resolved in
-[`lib/amazon.ts`](lib/amazon.ts).
+A book's front matter names its buy link through `amazonUrlEnvKey`, which [`lib/amazon.ts`](lib/amazon.ts) resolves.
 
 ## Layout
 
 ```
 app/          routes (App Router)
-components/   UI — cards/, layout/, etc.
+components/   UI: cards/, layout/, etc.
 content/      MDX, typed by contentlayer.config.ts
 lib/          amazon.ts, gumroad.ts, tokens.ts, aspect.ts
-public/       static assets — images/ holds book covers
-docs/plan.md  canonical design spec and approved decisions
+public/       static assets; images/ holds the book covers
+docs/plan.md  design spec and approved decisions
 ```
 
 ## Deployment
 
-Vercel project **`borderless-kitchen-series`** (team `facelesschannel0515-1196s-projects`), serving
-borderlesskitchenseries.com.
+The site is deployed on Vercel and served at borderlesskitchenseries.com.
 
-- Push to **`main`** → production deploy, ~60s.
-- Push any other branch → preview URL. Worth using for anything visual.
+- Pushing to **`main`** deploys to production in about 60 seconds.
+- Pushing any other branch creates a preview URL. Use one for any visual change.
 
-## Gotchas
+## Notes
 
-**There are two stale copies of this project on Google Drive. Neither is wired to anything.**
+**Cover assets:** `public/images/` holds two Tokyo Meets Tuscany covers. `tmt-cover.jpg` (torii gate, "30 Bold Recipes") is the
+cover Amazon sells, and it's the one the book page uses. `tmt-cover-new.png` is a different design that isn't on Amazon. Check
+the Amazon listing before you swap them.
 
-- `G:\My Drive\SEBASTIAN_DRI_MASTER\02_WEBSITES\BORDERLESSKITCHENSERIES\SOURCE_CODE_LIVE` — despite the
-  name, a frozen 2026-06-03 snapshot with 34 MDX files against this repo's 304. Editing it changes
-  nothing. It has its own README saying so.
-- `...\BORDERLESSKITCHENSERIES\SOURCE_CODE` — an older abandoned scaffold (`src/` layout, no content).
+## Author
 
-This has cost real time at least once: a book-cover fix was applied to the Drive copy, appeared to be
-done, and had no effect on the live site until it was committed here. **If a change needs to reach
-visitors, it happens in this repo.**
-
-**Cover assets are easy to get wrong.** `public/images/` holds two Tokyo Meets Tuscany covers.
-`tmt-cover.jpg` (torii gate, "30 Bold Recipes") is the design Amazon actually sells and the one the
-book page uses. `tmt-cover-new.png` (tuna tataki, Tuscan villa) is a different design that is *not* on
-Amazon — it was live on the site until 2026-08-11, showing buyers one cover and sending them to
-another. Don't reinstate it without checking the Amazon listing first.
+**Sebastian Dri**: B2B sales and AI automation builder.
+[Portfolio](https://sebastian-dri-portfolio.vercel.app) ·
+[LinkedIn](https://www.linkedin.com/in/sebastian-dri-170810125)
