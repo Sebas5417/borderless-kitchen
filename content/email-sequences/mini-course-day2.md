@@ -1,11 +1,11 @@
 # Day 2 — Miso: Where Fermented Depth Meets Italian Technique
-**Subject:** Day 2: White miso and Parmigiano are the same ingredient (structurally)
+**Subject:** Day 2: White miso and Parmigiano do the same job
 
 ---
 
 You made dashi yesterday. Today we use it.
 
-But first, a structural claim that might seem strange: **white miso and Parmigiano-Reggiano are the same type of ingredient.** Not the same flavor. The same *function*.
+But first, a structural claim that might seem strange: **white miso and Parmigiano-Reggiano do the same job in a dish.** Not the same flavor. The same *function*.
 
 Here's what I mean.
 
@@ -16,14 +16,14 @@ Here's what I mean.
 Both white miso and Parmigiano are:
 
 1. **Fermented** — aged with specific organisms (mold for miso, bacteria for Parmigiano), developing flavor over months
-2. **Umami-concentrated** — among the highest natural sources of glutamate on the planet
+2. **Umami-rich** — Parmigiano is one of the highest natural glutamate sources; miso is a strong one too
 3. **Salt-forward** — providing seasoning and depth simultaneously
 4. **Fat-amplifying** — both dissolve beautifully into fat and emulsify sauces
 5. **Background flavors** — neither is "the star"; both make everything else taste more like itself
 
 When an Italian cook finishes a risotto with Parmigiano, they're doing exactly what a Japanese cook does when they dissolve miso into dashi: adding fermented, concentrated umami to round out and deepen the dish.
 
-The flavors are different. The mechanism is identical.
+The flavors are different. The role in the dish is the same.
 
 ---
 
@@ -77,15 +77,15 @@ This is the simplest fusion dish possible. One classic Roman pasta. One Japanese
 
 **The technique: dissolving miso**
 
-Miso never goes directly into a hot liquid — it seizes and creates lumps. Always:
+Miso is a thick paste that clumps if dropped in whole. Always:
 
-1. Combine miso with a small amount of room-temperature liquid first
+1. Loosen the miso in a little of the liquid first (a ladle of the warm broth is the classic Japanese way)
 2. Whisk until completely smooth
 3. Then add to the dish off direct heat
 
-This is the same as tempering eggs for a custard. Gradual integration prevents textural problems.
+Loosening it first is what keeps the sauce smooth.
 
-**Also:** miso should never boil. Boiling destroys the probiotic organisms and flattens the flavor into salt. Dissolve off-heat or into liquids below 70°C.
+**Also:** don't let miso boil — it drives off the aroma. Add it at the end, off the boil. (If you want live cultures, buy unpasteurized miso and add it to warm, not hot, food.)
 
 ---
 

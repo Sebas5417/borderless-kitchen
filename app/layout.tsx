@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import { AffiliateClickTracker } from "@/components/analytics/AffiliateClickTracker";
 import Script from "next/script";
 import { Playfair_Display, Montserrat, Lato } from "next/font/google";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -140,6 +141,7 @@ gtag('config', 'G-0CL174TRRL');`}
         <main id="main-content" tabIndex={-1} className="flex-1">{children}</main>
         <SiteFooter />
         <Analytics />
+        <AffiliateClickTracker />
       </body>
     </html>
   );
