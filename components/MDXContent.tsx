@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useMemo } from "react";
 import { useMDXComponent } from "next-contentlayer2/hooks";
 import { AffiliateLink } from "@/components/cta/AffiliateLink";
+import { PdfOfferLink } from "@/components/cta/PdfOfferLink";
 
 type Props = {
   code: string;
@@ -69,7 +70,7 @@ export function MDXContent({ code, storySlugs, pantrySlugs }: Props) {
       );
     }
 
-    return { a: SafeLink };
+    return { a: SafeLink, PdfOfferLink };
   }, [storySlugs, pantrySlugs]);
 
   return <MDX components={components} />;
