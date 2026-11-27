@@ -18,6 +18,12 @@ const tools = [
   { title: "Plan a useful cooking gift", detail: "Check what they own, the space they have and what they want to learn. Print a free gift brief.", path: "/home-cook-gift-checklist", action: "Make my cooking-gift brief", id: "cook-gift" },
 ];
 
+const guides = [
+  { href: "/journal/chef-knife-board-fit-checklist", title: "Find a chef’s knife that fits your board", detail: "Compare blade lengths using the board and prep space you already have." },
+  { href: "/journal/gochujang-shopping-list-for-two-dinners", title: "Shop for two gochujang dinners", detail: "Use the same paste for kimchi quesadillas and short-rib tacos." },
+  { href: "/journal/cooking-thermometer-for-frying-and-roasting", title: "Choose a thermometer for how you cook", detail: "Compare instant-read, frying and leave-in thermometers by task." },
+];
+
 export default function ToolsPage() {
   return (
     <section className="py-16 md:py-24">
@@ -34,6 +40,21 @@ export default function ToolsPage() {
             </article>
           ))}
         </div>
+        <section aria-labelledby="kitchen-guides" className="mt-10 border-t border-hairline pt-8">
+          <h2 id="kitchen-guides" className="font-display text-2xl text-ink mb-5">
+            Kitchen buying guides
+          </h2>
+          <ul className="grid gap-5 md:grid-cols-3">
+            {guides.map((guide) => (
+              <li key={guide.href} className="border border-hairline p-5">
+                <Link href={guide.href} className="font-display text-lg text-ink underline underline-offset-4 hover:text-vermillion">
+                  {guide.title}
+                </Link>
+                <p className="font-body text-base text-ink/70 mt-3">{guide.detail}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
         <div className="mt-10 border-t border-hairline pt-8">
           <p className="font-body text-base text-ink/70 max-w-prose mb-5">Want to plan the whole kit? Compare scales, containers and bottles by your cleaning and storage needs, then print a free shopping checklist.</p>
           <a href={`${origin}/kitchen-kit-builder?utm_source=borderlesskitchen&utm_medium=referral&utm_campaign=kitchen_tools_oct2026&utm_content=complete-kit`} target="_blank" rel="noopener noreferrer" className="inline-block font-ui text-eyebrow uppercase text-ink border border-ink/30 px-6 py-3 hover:border-vermillion hover:text-vermillion transition-colors">Build my kitchen kit ↗</a>
