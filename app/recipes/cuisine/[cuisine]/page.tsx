@@ -106,6 +106,18 @@ export default async function CuisineHubPage({
               ← All recipes
             </Link>
           </nav>
+          {hub.slug === "korean-italian" && (
+            <p className="mb-8 max-w-prose font-body text-base text-ink/70">
+              Choosing a Korean paste or pickle for pasta?{" "}
+              <Link
+                href="/journal/korean-pasta-recipes-gochujang-kimchi-and-doenjang"
+                className="underline underline-offset-4 hover:text-vermillion"
+              >
+                Compare gochujang, doenjang and kimchi
+              </Link>{" "}
+              and see which recipes they suit.
+            </p>
+          )}
           <FadeRise>
             <ul className="divide-y divide-hairline">
               {recipes.map((recipe) => (

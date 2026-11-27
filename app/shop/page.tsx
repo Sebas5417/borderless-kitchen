@@ -1,4 +1,5 @@
 import { PdfCookbooks } from "@/components/cta/PdfCookbooks";
+import { AffiliateLink } from "@/components/cta/AffiliateLink";
 import type { Metadata } from "next";
 import { directProductUrl } from "@/lib/affiliateProducts";
 import Link from "next/link";
@@ -213,14 +214,16 @@ function PantryCard({ item }: { item: PantryItem }) {
           </p>
         </div>
         <div className="shrink-0">
-          {productUrl ? <a
+          {productUrl ? <AffiliateLink
             href={productUrl}
+            merchant="amazon"
+            placement="pantry-card"
             target="_blank"
             rel="noopener noreferrer sponsored"
             className="inline-block font-ui text-eyebrow uppercase text-ink border border-ink/30 px-5 py-2.5 hover:border-vermillion hover:text-vermillion transition-colors duration-300"
           >
             View product on Amazon →
-          </a> : null}
+          </AffiliateLink> : null}
         </div>
       </div>
     </div>
@@ -270,7 +273,7 @@ export default function ShopPage() {
             </div>
 
             {/* Korean pantry */}
-            <div className="mb-16">
+            <div id="korean-pantry" className="mb-16 scroll-mt-24">
               <h2 className="font-display text-display-2 text-ink mb-2">
                 Korean Pantry
               </h2>

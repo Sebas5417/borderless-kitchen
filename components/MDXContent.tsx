@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo } from "react";
 import { useMDXComponent } from "next-contentlayer2/hooks";
+import { AffiliateLink } from "@/components/cta/AffiliateLink";
 
 type Props = {
   code: string;
@@ -31,8 +32,11 @@ export function MDXContent({ code, storySlugs, pantrySlugs }: Props) {
 
     function SafeLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
       const { href, children, rel, ...rest } = props;
-      const affiliate = typeof href === "string" && /^https:\/\/(?:www\.)?(?:amazon\.com\/.*[?&]tag=|bokksu\.com\/.*[?&]refer=)/.test(href);
-      const linkRel = affiliate
+      const affiliateMatch = typeof href === "string"
+        ? href.match(/^https:\/\/(?:www\.)?(?:(amazon)\.com\/.*[?&]tag=|(bokksu)\.com\/.*[?&]refer=)/)
+        : null;
+      const merchant = affiliateMatch?.[1] ? "amazon" : affiliateMatch?.[2] ? "bokksu" : null;
+      const linkRel = merchant
         ? Array.from(new Set([...(rel ?? "").split(/\s+/).filter(Boolean), "sponsored", "noopener", "noreferrer"])).join(" ")
         : rel;
       if (typeof href === "string") {
@@ -50,6 +54,13 @@ export function MDXContent({ code, storySlugs, pantrySlugs }: Props) {
         if (c && pantrySlugs && !pantry.has(c[1])) {
           return <span {...rest}>{children}</span>;
         }
+      }
+      if (merchant) {
+        return (
+          <AffiliateLink href={href} {...rest} rel={linkRel} merchant={merchant} placement="article-body">
+            {children}
+          </AffiliateLink>
+        );
       }
       return (
         <a href={href} {...rest} rel={linkRel}>
