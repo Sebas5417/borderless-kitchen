@@ -24,11 +24,17 @@ export function AffiliateLink({
 }: Props) {
   function recordClick(event: MouseEvent<HTMLAnchorElement>) {
     if (event.defaultPrevented) return;
-    (window as WindowWithGtag).gtag?.("event", "affiliate_click", {
+    const parameters: Record<string, string> = {
       affiliate_network: merchant,
       page_path: window.location.pathname,
       source_placement: placement,
-    });
+    };
+    const { hostname, pathname } = event.currentTarget;
+    if (merchant === "amazon" && /^(?:www\.)?amazon\.com$/i.test(hostname)) {
+      const asin = pathname.match(/\/(?:dp|gp\/product)\/([a-z0-9]{10})(?:\/|$)/i)?.[1];
+      if (asin) parameters.affiliate_product_asin = asin.toUpperCase();
+    }
+    (window as WindowWithGtag).gtag?.("event", "affiliate_click", parameters);
   }
 
   return (
