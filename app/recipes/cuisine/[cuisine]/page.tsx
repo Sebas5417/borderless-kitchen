@@ -118,6 +118,18 @@ export default async function CuisineHubPage({
               and see which recipes they suit.
             </p>
           )}
+          {hub.slug === "japanese-italian" && (
+            <p className="mb-8 max-w-prose font-body text-base text-ink/70">
+              Shopping for miso or dashi ingredients?{" "}
+              <Link
+                href="/journal/japanese-pantry-essentials-for-italian-home-cooks"
+                className="underline underline-offset-4 hover:text-vermillion"
+              >
+                See the Japanese pantry guide for Italian home cooks
+              </Link>
+              . The guide includes affiliate links.
+            </p>
+          )}
           <FadeRise>
             <ul className="divide-y divide-hairline">
               {recipes.map((recipe) => (
