@@ -63,7 +63,22 @@ export function parseRecipeIngredients(bodyRaw: string): string[] {
 
 /** One chunk of method text -> steps. Numbered/bulleted lines are one step
  *  each; otherwise every paragraph is a step. */
-function stepsFrom(chunk: string): HowToStep[] {
+function stepsFrom(markdown: string): HowToStep[] {
+  // A thematic break separates sections on the page and has no spoken instruction.
+  const chunk = markdown.replace(/^[ \t]*(?:-{3,}|\*{3,}|_{3,})[ \t]*\r?$/gm, "");
+  const firstNumbered = chunk.search(/^\*\*\d+[.)][ \t]+/m);
+  if (firstNumbered >= 0) {
+    const preamble = stepsFrom(chunk.slice(0, firstNumbered));
+    const numbered = chunk.slice(firstNumbered).split(/(?=^\*\*\d+[.)][ \t]+)/m);
+    return [
+      ...preamble,
+      ...numbered.map((step) => ({
+        "@type": "HowToStep" as const,
+        text: plain(step).replace(/^\d+[.)]\s+/, ""),
+      })),
+    ];
+  }
+
   const lines = chunk.split(/\r?\n/);
   const listLines = lines.filter((l) => /^\s*(?:\d+\.|[-*])\s+/.test(l));
   let texts: string[];
