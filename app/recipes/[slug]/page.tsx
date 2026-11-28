@@ -1,5 +1,6 @@
 import { BookBuyingPanel } from "@/components/cta/BookBuyingPanel";
 import { cookbookForCuisine, FEATURED_RECIPE_OFFERS } from "@/lib/cookbookOffers";
+import { PDF_COOKBOOKS } from "@/lib/pdfCookbooks";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -73,6 +74,7 @@ export default async function RecipePage({
   const recipe = allFreeRecipes.find((r) => r.slug === slug);
   if (!recipe) notFound();
   const matchedBook = cookbookForCuisine(recipe.cuisine);
+  const pdfCookbook = PDF_COOKBOOKS.find((book) => book.id === recipe.bookSlug);
 
   const recipeSchema = {
     "@context": "https://schema.org",
@@ -204,8 +206,17 @@ export default async function RecipePage({
             <MDXContent code={recipe.body.code} />
           </ProseLayout>
 
-          {/* A complete offer on ten selected recipes; a cuisine-matched link elsewhere. */}
-          {FEATURED_RECIPE_OFFERS.has(recipe.slug) ? <div className="mt-12"><BookBuyingPanel bookId={matchedBook.id} recipeContext /></div> : (
+          {pdfCookbook ? (
+            <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">
+              <p className="font-display italic text-display-3 text-ink/70 mb-6 leading-tight">{pdfCookbook.title}</p>
+              <Link
+                href={`/books/${pdfCookbook.id}`}
+                className="font-body text-base text-ink underline underline-offset-4 hover:text-vermillion"
+              >
+                View the PDF cookbook and free preview
+              </Link>
+            </div>
+          ) : FEATURED_RECIPE_OFFERS.has(recipe.slug) ? <div className="mt-12"><BookBuyingPanel bookId={matchedBook.id} recipeContext /></div> : (
             <div className="max-w-prose mx-auto mt-16 pt-10 border-t border-hairline">
               <p className="font-display italic text-display-3 text-ink/70 mb-6 leading-tight">Explore {matchedBook.cuisine} cooking in {matchedBook.title}.</p>
               <AmazonCTA href={matchedBook.amazon} label={`View ${matchedBook.title} on Amazon`} placement="recipe-footer" />
